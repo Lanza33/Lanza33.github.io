@@ -210,6 +210,11 @@
         #product-comparison { max-width:100%; }
         #product-comparison div[style*="grid-column:2/4"] { display:none; }
         #product-comparison > div > div[style="padding:0;"] { display:none; }
+        /* Desktop: Combine label row with value row */
+        @media(min-width:901px) {
+            #product-comparison > div:nth-child(4n+1) { grid-column:1/4 !important; display:grid; grid-template-columns:subgrid; }
+            #product-comparison > div:nth-child(4n+3) { display:contents; }
+        }
         @media(max-width:600px) {
             .uc-grid { grid-template-columns:1fr; }
             .feat-grid { grid-template-columns:repeat(2,1fr) !important; }
