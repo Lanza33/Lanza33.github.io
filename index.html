@@ -155,7 +155,7 @@
         @media(max-width:600px) {
             .footer-inner { flex-direction:column; text-align:center; justify-content:center; }
             .footer-inner > div:nth-child(2) { order:3; margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); width:100%; }
-            .footer-inner > img { order:1; }
+            .footer-inner > img { order:1; display:block; margin:0 auto; }
             .footer-inner > div:nth-child(3) { order:2; flex-direction:row; flex-wrap:wrap; justify-content:center; gap:1rem; }
         }
 
@@ -186,9 +186,9 @@
 
         /* RESPONSIVE */
         @media(max-width:900px) {
-            nav { justify-content:center; }
+            nav { justify-content:center; padding:0.5rem 1.5rem; }
             nav ul { display:none; }
-            nav > div:first-child { flex:1; text-align:center; }
+            nav > div:first-child { flex:1; text-align:center; display:flex; justify-content:center; align-items:center; }
             #missione > .container { grid-template-columns:1fr !important; gap:3rem !important; text-align:center !important; max-width:900px; margin:0 auto; }
             #missione .sec-title { text-align:center; }
             #missione > .container > div:first-child > div { align-items:center; }
