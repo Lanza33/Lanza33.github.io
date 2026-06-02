@@ -212,13 +212,13 @@
             .feat-grid-desktop { display:none !important; }
             .feat-slider-wrap { display:flex; flex-direction:column; gap:1rem; margin-top:3rem; }
             .feat-slider-inner { overflow:hidden; }
-            .feat-slider-track { display:flex; gap:1rem; transition:transform 0.35s ease; }
-            .feat-slider-track .feat-card { flex:0 0 calc(50% - 0.5rem); min-width:0; }
+            .feat-slider-track { display:flex; transition:transform 0.35s ease; }
+            .feat-page { display:flex; gap:1rem; flex:0 0 100%; min-width:0; }
+            .feat-page .feat-card { flex:1; min-width:0; }
             .feat-slider-nav { display:flex; align-items:center; justify-content:center; gap:1rem; }
             .feat-slider-dots { display:flex; gap:0.4rem; }
             .feat-slider-dot { width:6px; height:6px; border-radius:50%; background:var(--border); transition:background 0.2s; }
             .feat-slider-dot.active { background:var(--cyan); }
-            .feat-grid-desktop { display:none !important; }
         }
         @media(max-width:900px) {
             [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns:1fr 1fr !important; }
@@ -598,18 +598,26 @@
             <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title">GPS individuale via satellite</div><div class="feat-desc">Collegabile a un GPS individuale dedicato: la posizione del Dolphin è visibile in tempo reale via satellite — anche a grande distanza o fuori dalla portata visiva.</div></div>
         </div>
 
-        <!-- Mobile slider -->
+        <!-- Mobile slider: each page = exactly 2 cards -->
         <div class="feat-slider-wrap fade-up">
-            <div class="feat-slider-inner">
+            <div class="feat-slider-inner" id="featInner">
                 <div class="feat-slider-track" id="featTrack">
-                    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title">Telecamera integrata</div><div class="feat-desc">Individua persone in acqua automaticamente — anche con onde, di notte e con nebbia. Visione in tempo reale per l'operatore.</div></div>
-                    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title">Avvio immediato</div><div class="feat-desc">Dall'allarme all'ingresso in acqua in pochi secondi. Sistema completamente operativo senza necessità di intervento manuale.</div></div>
-                    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="feat-title">Dotazione di salvataggio</div><div class="feat-desc">Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso senza che nessun soccorritore entri in acqua.</div></div>
-                    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title">Telecomando a lungo raggio</div><div class="feat-desc">Portata fino a 1.600 m. Navigazione precisa in tempo reale con correzione automatica per correnti e vento.</div></div>
-                    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title">Display in tempo reale</div><div class="feat-desc">Video HD e dati del sensore trasmessi in diretta al posto di comando. Controllo completo dalla riva.</div></div>
-                    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="feat-title">Alta capacità di carico</div><div class="feat-desc">Trasporta fino a 1.000 kg in acqua — ideale per supportare più persone contemporaneamente in situazioni di emergenza.</div></div>
-                    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title">Auto-raddrizzamento</div><div class="feat-desc">Se il robot si capovolge durante il trasporto o in acque agitate, si raddrizza automaticamente in pochi secondi — senza intervento dell'operatore.</div></div>
-                    <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title">GPS individuale via satellite</div><div class="feat-desc">Collegabile a un GPS individuale dedicato: la posizione del Dolphin è visibile in tempo reale via satellite — anche a grande distanza o fuori dalla portata visiva.</div></div>
+                    <div class="feat-page">
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title">Telecamera integrata</div><div class="feat-desc">Individua persone in acqua automaticamente — anche con onde, di notte e con nebbia.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title">Avvio immediato</div><div class="feat-desc">Dall'allarme all'ingresso in acqua in pochi secondi. Sistema completamente operativo senza intervento manuale.</div></div>
+                    </div>
+                    <div class="feat-page">
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="feat-title">Dotazione di salvataggio</div><div class="feat-desc">Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title">Telecomando a lungo raggio</div><div class="feat-desc">Portata fino a 1.600 m. Navigazione precisa in tempo reale con correzione automatica.</div></div>
+                    </div>
+                    <div class="feat-page">
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title">Display in tempo reale</div><div class="feat-desc">Video HD e dati del sensore trasmessi in diretta al posto di comando.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="feat-title">Alta capacità di carico</div><div class="feat-desc">Trasporta fino a 1.000 kg in acqua — ideale per più persone contemporaneamente.</div></div>
+                    </div>
+                    <div class="feat-page">
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title">Auto-raddrizzamento</div><div class="feat-desc">Si raddrizza automaticamente in pochi secondi se si capovolge in acque agitate.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title">GPS via satellite</div><div class="feat-desc">Posizione visibile in tempo reale via satellite — anche a grande distanza.</div></div>
+                    </div>
                 </div>
             </div>
             <div class="feat-slider-nav">
@@ -972,27 +980,24 @@
     let featIndex = 0;
     const featTrack = document.getElementById('featTrack');
     const featDotsEl = document.getElementById('featDots');
-    const featCards = featTrack ? featTrack.children.length : 0;
-    const featVisible = 2;
-    const featSteps = Math.ceil(featCards / featVisible);
+    const featPages = featTrack ? featTrack.querySelectorAll('.feat-page').length : 0;
 
-    if (featTrack) {
-        for (let i = 0; i < featSteps; i++) {
+    if (featTrack && featPages > 0) {
+        for (let i = 0; i < featPages; i++) {
             const d = document.createElement('div');
             d.className = 'feat-slider-dot' + (i === 0 ? ' active' : '');
             featDotsEl.appendChild(d);
         }
+        featSlide(0);
     }
 
     function featSlide(dir) {
-        featIndex = Math.max(0, Math.min(featSteps - 1, featIndex + dir));
-        const cardW = featTrack.parentElement.offsetWidth;
-        featTrack.style.transform = `translateX(-${featIndex * cardW}px)`;
+        featIndex = Math.max(0, Math.min(featPages - 1, featIndex + dir));
+        featTrack.style.transform = `translateX(-${featIndex * 100}%)`;
         document.querySelectorAll('.feat-slider-dot').forEach((d, i) => d.classList.toggle('active', i === featIndex));
         document.getElementById('featPrev').disabled = featIndex === 0;
-        document.getElementById('featNext').disabled = featIndex === featSteps - 1;
+        document.getElementById('featNext').disabled = featIndex === featPages - 1;
     }
-    if (featTrack) featSlide(0);
 
     const obs = new IntersectionObserver(entries => {
         entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
