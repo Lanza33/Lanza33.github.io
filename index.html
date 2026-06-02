@@ -180,7 +180,9 @@
 
         /* RESPONSIVE */
         @media(max-width:900px) {
+            nav { justify-content:center; }
             nav ul { display:none; }
+            nav > div:first-child { flex:1; text-align:center; }
             .sonar-wrap { display:none; }
             .steps { grid-template-columns:1fr; }
             .step { border-right:none; border-bottom:1px solid var(--border); }
