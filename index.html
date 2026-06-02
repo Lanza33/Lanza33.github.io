@@ -192,8 +192,14 @@
             .dolphin-grid { grid-template-columns:1fr !important; }
             .feat-grid { grid-template-columns:1fr; }
         }
+        @media(max-width:900px) {
+            [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns:1fr 1fr !important; }
+        }
         @media(max-width:600px) {
             .uc-grid { grid-template-columns:1fr; }
+            [style*="grid-template-columns:1fr 1fr 1fr"] { font-size:0.65rem !important; }
+            [style*="padding:0.85rem 1.5rem"] { padding:0.6rem 0.9rem !important; }
+            [style*="padding:1rem 1.5rem"] { padding:0.8rem 0.9rem !important; }
         }
     </style>
 </head>
@@ -257,8 +263,8 @@
 
 <!-- VIDEO HERO -->
 <section style="background:var(--bg-deep);width:100%;aspect-ratio:21/9;overflow:hidden;">
-    <video autoplay muted loop style="width:100%;height:100%;object-fit:cover;">
-        <source src="hero-video.MP4" type="video/mp4">
+    <video autoplay muted loop style="width:100%;height:100%;object-fit:cover;" playsinline>
+        <source src="hero-video-mobile.MP4" type="video/mp4">
     </video>
 </section>
 
@@ -394,7 +400,7 @@
         </div>
 
         <!-- Comparison table -->
-        <div class="fade-up d1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;overflow:hidden;max-width:860px;margin:0 auto;">
+        <div class="fade-up d1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;overflow:hidden;max-width:860px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch;">
             <!-- Header -->
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:rgba(0,0,0,0.25);border-bottom:1px solid var(--border);">
                 <div style="padding:1rem 1.5rem;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);">Caratteristica</div>
