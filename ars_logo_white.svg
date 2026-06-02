@@ -1,0 +1,31 @@
+<svg width="100%" viewBox="0 0 680 234.2" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>ARS – Aqua Rescue Systems (White)</title>
+
+<defs>
+  <clipPath id="topHalfW">
+    <rect x="0" y="0" width="680" height="120"/>
+  </clipPath>
+  <clipPath id="bottomHalfW">
+    <rect x="0" y="120" width="680" height="80"/>
+  </clipPath>
+  <mask id="text-gaps-white" maskUnits="userSpaceOnUse">
+    <rect x="0" y="0" width="680" height="234.2" fill="white"/>
+    <rect x="150.66" y="-15" width="378.68" height="241" fill="black" rx="2"/>
+    <rect x="189.69" y="190" width="300.61" height="19" fill="black" rx="2"/>
+  </mask>
+</defs>
+
+<!-- ARS all white -->
+<text x="340" y="172" text-anchor="middle" font-family="'Arial Black', Impact, sans-serif" font-size="168" font-weight="900" fill="white" letter-spacing="-4">ARS</text>
+
+<!-- Split line white -->
+<line x1="160" y1="120" x2="520" y2="120" stroke="rgba(255,255,255,0.5)" stroke-width="2" mask="url(#text-gaps-white)"/>
+
+<!-- Full name white -->
+<text x="340" y="204" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="white" letter-spacing="7">AQUA RESCUE SYSTEMS</text>
+
+<!-- Flanking lines white -->
+<line x1="90" y1="199" x2="195" y2="199" stroke="rgba(255,255,255,0.4)" stroke-width="1" mask="url(#text-gaps-white)"/>
+<line x1="485" y1="199" x2="590" y2="199" stroke="rgba(255,255,255,0.4)" stroke-width="1" mask="url(#text-gaps-white)"/>
+
+</svg>

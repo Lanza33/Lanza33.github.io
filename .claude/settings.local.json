@@ -1,0 +1,48 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/lanza/Desktop -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.webp\" -o -name \"*.svg\" 2>/dev/null | head -20)",
+      "Read(//Users/lanza/Desktop/**)",
+      "Bash(cp /Users/lanza/Desktop/AquaRescueSystems/Logo.png /Users/lanza/Desktop/Webseite/logo.png && echo \"Kopiert\")",
+      "Bash(file /Users/lanza/Desktop/AquaRescueSystems/*.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/lanza/Desktop/AquaRescueSystems/*.png)",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(sips --help)",
+      "Read(//usr/local/bin/**)",
+      "Bash(brew list *)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3)",
+      "WebFetch(domain:wrgb.eu)",
+      "Bash(python3 -c \"from PIL import Image; img=Image.open\\('/Users/lanza/Desktop/Webseite/dolphin3.png'\\); print\\(img.size, img.mode\\)\")",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/lanza/Desktop/Webseite/dolphin3.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha /Users/lanza/Desktop/Webseite/fireconqueror.png)",
+      "WebFetch(domain:www.oceanalpha.com)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g hasAlpha /Users/lanza/Desktop/Webseite/dolphin3_front.png)",
+      "WebFetch(domain:unsplash.com)",
+      "WebFetch(domain:www.sportforyou.net)",
+      "WebFetch(domain:www.zdfheute.de)",
+      "WebFetch(domain:www.swr.de)",
+      "WebFetch(domain:www.suedkurier.de)",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,duration -of default=noprint_wrappers=1:nokey=1:noinvalidchars=1 /Users/lanza/Desktop/Webseite/hero-video.MP4)",
+      "Bash(ffmpeg -version)",
+      "Bash(brew install *)",
+      "Bash(yt-dlp -f \"best[ext=mp4]\" \"https://www.youtube.com/watch?v=3EF7GP7LBE8\" -o \"hero-video-raw.mp4\")",
+      "Bash(ffmpeg -i hero-video-raw.mp4 -c:v copy -c:a copy -sn hero-video.MP4 -y)",
+      "Bash(ffprobe -v error -select_streams s -show_entries stream=codec_type,codec_name,language -of csv=p=0 /Users/lanza/Desktop/Webseite/hero-video.MP4)",
+      "Bash(ffprobe -v error -show_streams /Users/lanza/Desktop/Webseite/hero-video.MP4)",
+      "Bash(yt-dlp --no-warnings -f \"bestvideo[ext=mp4]/best[ext=mp4]\" \"https://www.youtube.com/watch?v=3EF7GP7LBE8\" -o \"hero-video.MP4\")",
+      "Bash(yt-dlp -F \"https://www.youtube.com/watch?v=3EF7GP7LBE8\")",
+      "Bash(yt-dlp --write-subs --sub-langs en \"https://www.youtube.com/watch?v=o-xDoycfNEc\" -o \"temp-video\")",
+      "Bash(ffmpeg -i temp-video.webm -c:v libx264 -crf 23 -c:a aac -b:a 128k /Users/lanza/Desktop/Webseite/hero-video.MP4 -y)",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 /Users/lanza/Desktop/Webseite/hero-video.MP4)",
+      "Bash(ffmpeg -i /Users/lanza/Desktop/Webseite/hero-video.MP4 -t 45 -c:v libx264 -crf 23 -c:a aac -b:a 128k /Users/lanza/Desktop/Webseite/hero-video-45sec.MP4 -y)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Initial commit: Aqua Rescue Systems website *)"
+    ],
+    "additionalDirectories": [
+      "/Users/lanza/Desktop/AquaRescueSystems"
+    ]
+  }
+}
