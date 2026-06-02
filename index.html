@@ -707,6 +707,8 @@
             <h2 class="sec-title" style="font-size:clamp(2.8rem,5vw,5rem);margin-bottom:1.5rem;">Proteggi<br><span style="color:var(--cyan);">Vite Umane.</span></h2>
             <p class="sec-desc" style="margin-bottom:3rem;max-width:420px;line-height:1.8;">Prenota una demo personalizzata e scopri come Aqua Rescue Systems può rivoluzionare la tua infrastruttura di sicurezza.</p>
 
+            <button onclick="alert('TEST: Button funktioniert!')" style="background:red;color:white;padding:10px 20px;margin-bottom:20px;cursor:pointer;">🧪 TEST Button</button>
+
             <div style="display:flex;flex-direction:column;gap:1.75rem;">
                 <div style="display:flex;align-items:center;gap:1.1rem;">
                     <div style="width:44px;height:44px;border-radius:0.5rem;background:rgba(0,212,255,0.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -742,24 +744,24 @@
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;padding:2.5rem;position:relative;overflow:hidden;">
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--cyan),transparent);"></div>
 
-            <form style="display:flex;flex-direction:column;gap:1.5rem;" onsubmit="return false;">
+            <form style="display:flex;flex-direction:column;gap:1.5rem;" action="https://formspree.io/f/mzdwnnbd" method="POST">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                     <div>
                         <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Nome e Cognome</label>
-                        <input type="text" placeholder="Mario Rossi"/>
+                        <input type="text" name="name" placeholder="Mario Rossi" required/>
                     </div>
                     <div>
                         <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">E-Mail</label>
-                        <input type="email" placeholder="mario@esempio.it"/>
+                        <input type="email" name="email" placeholder="mario@esempio.it" required/>
                     </div>
                 </div>
                 <div>
                     <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Telefono <span style="opacity:0.5;">(opzionale)</span></label>
-                    <input type="tel" placeholder="+39 000 000 0000"/>
+                    <input type="tel" name="phone" placeholder="+39 000 000 0000"/>
                 </div>
                 <div>
                     <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Organizzazione</label>
-                    <select>
+                    <select name="organization" required>
                         <option value="" disabled selected>Seleziona ambito di utilizzo...</option>
                         <option>Guardia costiera / Soccorso in mare</option>
                         <option>Vigili del fuoco / Squadre di soccorso</option>
@@ -771,9 +773,9 @@
                 </div>
                 <div>
                     <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Messaggio <span style="opacity:0.5;">(opzionale)</span></label>
-                    <textarea placeholder="Come possiamo aiutarti?" style="min-height:120px;"></textarea>
+                    <textarea name="message" placeholder="Come possiamo aiutarti?" style="min-height:120px;"></textarea>
                 </div>
-                <button type="submit" class="btn-p" style="width:100%;padding:1.1rem;font-size:0.9rem;">Prenota una demo gratuita</button>
+                <button type="submit" class="btn-p" style="width:100%;padding:1.1rem;font-size:0.9rem;" onclick="alert('Form wird abgesendet zu Formspree...')">Prenota una demo gratuita</button>
                 <p style="font-size:0.73rem;color:var(--text-muted);text-align:center;margin-top:-0.5rem;">Nessun impegno · Risposta entro 24 ore</p>
             </form>
         </div>
