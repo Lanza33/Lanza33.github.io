@@ -206,9 +206,11 @@
         }
         #product-comparison { max-width:100%; }
         #product-comparison div[style*="grid-column:2/4"] { display:none; }
+        #product-comparison > div > div[style="padding:0;"] { display:none; }
         @media(max-width:600px) {
             .uc-grid { grid-template-columns:1fr; }
             .feat-grid { grid-template-columns:repeat(2,1fr) !important; }
+            #product-comparison > div > div[style="padding:0;"] { display:grid !important; }
             #product-comparison div[style*="grid-column:2/4"] { display:grid !important; }
             #product-comparison > div { grid-template-columns:1fr 1fr !important; }
             #product-comparison > div > div:first-child { display:none !important; }
