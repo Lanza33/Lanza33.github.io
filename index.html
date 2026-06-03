@@ -44,6 +44,12 @@
         nav a:hover { color:var(--cyan); }
         .nav-cta { background:var(--cyan) !important; color:var(--bg-deep) !important; padding:0.45rem 1.1rem; border-radius:0.35rem; font-weight:600 !important; }
         .nav-cta:hover { background:#fff !important; }
+        .lang-switcher { display:flex; gap:0.25rem; align-items:center; }
+        .lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.15); border-radius:0.25rem; color:var(--text-muted); font-size:0.7rem; font-weight:600; letter-spacing:0.08em; padding:0.25rem 0.5rem; transition:all 0.2s; }
+        .lang-btn.active { background:var(--cyan); border-color:var(--cyan); color:var(--bg-deep); }
+        .lang-btn:hover { border-color:var(--cyan); color:var(--cyan); }
+        .lang-btn.active:hover { background:var(--cyan); color:var(--bg-deep); }
+        @media(max-width:900px) { .lang-switcher { position:absolute; top:1.2rem; right:1.2rem; } }
 
         /* HERO */
         .hero { min-height:100svh; display:flex; align-items:center; position:relative; overflow:hidden; padding:12rem 2rem 4rem; }
@@ -259,12 +265,17 @@
         <img src="ars_logo_transparent.svg" alt="AquaRescueSystems" style="height:108px;width:auto;object-fit:contain;"/>
     </div>
     <ul>
-        <li><a href="#missione">Missione</a></li>
-        <li><a href="#prodotto">Prodotto</a></li>
-        <li><a href="#tecnologia">Tecnologia</a></li>
-        <li><a href="#come-funziona">Come funziona</a></li>
-        <li><a href="#contatto" class="nav-cta">Richiedi demo</a></li>
+        <li><a href="#missione" data-i18n="nav_mission">Missione</a></li>
+        <li><a href="#prodotto" data-i18n="nav_product">Prodotto</a></li>
+        <li><a href="#tecnologia" data-i18n="nav_technology">Tecnologia</a></li>
+        <li><a href="#come-funziona" data-i18n="nav_how">Come funziona</a></li>
+        <li><a href="#contatto" class="nav-cta" data-i18n="nav_cta">Richiedi demo</a></li>
     </ul>
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
 </nav>
 
 <!-- HERO -->
@@ -286,17 +297,17 @@
     <div class="water"></div>
 
     <div class="hero-content">
-        <div class="hero-badge">Robot di soccorso acquatico</div>
+        <div class="hero-badge" data-i18n="hero_badge">Robot di soccorso acquatico</div>
         <div class="hero-badge" style="background:rgba(255,107,53,0.15);border-color:rgba(255,107,53,0.4);color:var(--orange);margin-top:0.5rem;">Made in Germany</div>
-        <h1>
+        <h1 data-i18n-html="hero_h1">
             Salvare<br>
             <span class="cyan">Vite.</span><br>
             Senza Rischi.
         </h1>
-        <p class="hero-sub">Aqua Rescue Systems sviluppa robot autonomi per il soccorso in acqua che raggiungono il luogo dell'incidente in pochi secondi, salvando vite senza mettere in pericolo i soccorritori.</p>
+        <p class="hero-sub" data-i18n="hero_sub">Aqua Rescue Systems sviluppa robot autonomi per il soccorso in acqua che raggiungono il luogo dell'incidente in pochi secondi, salvando vite senza mettere in pericolo i soccorritori.</p>
         <div class="hero-btns">
-            <a href="#contatto" class="btn-p">Richiedi una demo</a>
-            <a href="#prodotto" class="btn-s">Scopri il prodotto</a>
+            <a href="#contatto" class="btn-p" data-i18n="hero_btn1">Richiedi una demo</a>
+            <a href="#prodotto" class="btn-s" data-i18n="hero_btn2">Scopri il prodotto</a>
         </div>
     </div>
 </section>
@@ -312,53 +323,53 @@
 <section class="section" id="missione" style="padding-bottom:2rem;">
     <div class="container fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
         <div>
-            <p class="sec-label">La nostra missione</p>
-            <h2 class="sec-title">Ogni secondo<br>conta.</h2>
-            <p class="sec-desc">Gli incidenti per annegamento accadono in pochi istanti. Troppo in fretta per i soccorritori tradizionali. Aqua Rescue Systems colma questa lacuna critica con robot autonomi per il soccorso in acqua: pronti all'intervento immediato, senza rischi per il personale.</p>
+            <p class="sec-label" data-i18n="mission_label">La nostra missione</p>
+            <h2 class="sec-title" data-i18n-html="mission_title">Ogni secondo<br>conta.</h2>
+            <p class="sec-desc" data-i18n="mission_desc">Gli incidenti per annegamento accadono in pochi istanti. Troppo in fretta per i soccorritori tradizionali. Aqua Rescue Systems colma questa lacuna critica con robot autonomi per il soccorso in acqua: pronti all'intervento immediato, senza rischi per il personale.</p>
             <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.9rem;">
                 <div class="check">
                     <div class="check-dot"><svg viewBox="0 0 10 10" fill="none" stroke="#00D4FF" stroke-width="1.5" width="10" height="10"><polyline points="2,5 4,7 8,3"/></svg></div>
-                    <span style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;font-weight:300;">Anello di salvataggio e assistenza al galleggiamento entro 90 secondi sul luogo dell'incidente</span>
+                    <span style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;font-weight:300;" data-i18n="check1">Anello di salvataggio e assistenza al galleggiamento entro 90 secondi sul luogo dell'incidente</span>
                 </div>
                 <div class="check">
                     <div class="check-dot"><svg viewBox="0 0 10 10" fill="none" stroke="#00D4FF" stroke-width="1.5" width="10" height="10"><polyline points="2,5 4,7 8,3"/></svg></div>
-                    <span style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;font-weight:300;">Riconoscimento della persona con telecamera integrata anche di notte e con scarsa visibilità</span>
+                    <span style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;font-weight:300;" data-i18n="check2">Riconoscimento della persona con telecamera integrata anche di notte e con scarsa visibilità</span>
                 </div>
                 <div class="check">
                     <div class="check-dot"><svg viewBox="0 0 10 10" fill="none" stroke="#00D4FF" stroke-width="1.5" width="10" height="10"><polyline points="2,5 4,7 8,3"/></svg></div>
-                    <span style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;font-weight:300;">Completamente telecomandata: nessun soccorritore entra in acqua</span>
+                    <span style="color:var(--text-muted);font-size:0.9rem;line-height:1.6;font-weight:300;" data-i18n="check3">Completamente telecomandata: nessun soccorritore entra in acqua</span>
                 </div>
             </div>
         </div>
 
         <div class="fade-up d1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:0.75rem;padding:2rem;position:relative;overflow:hidden;">
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--cyan),transparent);"></div>
-            <div style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;">Parametri di sistema live</div>
+            <div style="font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;" data-i18n="sys_label">Parametri di sistema live</div>
             <div style="display:flex;flex-direction:column;gap:1.5rem;">
                 <div>
                     <div style="display:flex;justify-content:center;flex-direction:column;gap:0.35rem;align-items:center;">
-                        <span style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.07em;text-align:center;">Velocità vs. soccorritore umano</span>
-                        <span style="font-size:0.78rem;color:var(--cyan);font-weight:600;">5x più veloce</span>
+                        <span style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.07em;text-align:center;" data-i18n="sys_speed">Velocità vs. soccorritore umano</span>
+                        <span style="font-size:0.78rem;color:var(--cyan);font-weight:600;" data-i18n="sys_speed_val">5x più veloce</span>
                     </div>
                     <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;margin-top:0.75rem;"><div style="height:100%;width:83%;background:var(--cyan);border-radius:2px;"></div></div>
                 </div>
                 <div>
                     <div style="display:flex;justify-content:center;flex-direction:column;gap:0.35rem;align-items:center;">
-                        <span style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.07em;text-align:center;">Sicurezza operatori</span>
+                        <span style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.07em;text-align:center;" data-i18n="sys_safety">Sicurezza operatori</span>
                         <span style="font-size:0.78rem;color:var(--cyan);font-weight:600;">100%</span>
                     </div>
                     <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;margin-top:0.75rem;"><div style="height:100%;width:100%;background:var(--cyan);border-radius:2px;"></div></div>
                 </div>
                 <div>
                     <div style="display:flex;justify-content:center;flex-direction:column;gap:0.35rem;align-items:center;">
-                        <span style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.07em;text-align:center;">Probabilità di sopravvivenza</span>
+                        <span style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.07em;text-align:center;" data-i18n="sys_survival">Probabilità di sopravvivenza</span>
                         <span style="font-size:0.78rem;color:var(--orange);font-weight:600;">+340%</span>
                     </div>
                     <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;margin-top:0.75rem;"><div style="height:100%;width:91%;background:var(--orange);border-radius:2px;"></div></div>
                 </div>
                 <div>
                     <div style="display:flex;justify-content:center;flex-direction:column;gap:0.35rem;align-items:center;">
-                        <span style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.07em;text-align:center;">Autonomia batteria</span>
+                        <span style="font-size:0.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.07em;text-align:center;" data-i18n="sys_battery">Autonomia batteria</span>
                         <span style="font-size:0.78rem;color:var(--cyan);font-weight:600;">70 min</span>
                     </div>
                     <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;margin-top:0.75rem;"><div style="height:100%;width:73%;background:var(--cyan);border-radius:2px;"></div></div>
@@ -366,7 +377,7 @@
             </div>
             <div style="margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:0.7rem;">
                 <div style="width:7px;height:7px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px #4ade80;animation:blink 2s ease-in-out infinite;"></div>
-                <span style="font-size:0.72rem;color:var(--text-muted);letter-spacing:0.08em;">Sistema nominale · Pronto all'intervento</span>
+                <span style="font-size:0.72rem;color:var(--text-muted);letter-spacing:0.08em;" data-i18n="sys_status">Sistema nominale · Pronto all'intervento</span>
             </div>
         </div>
     </div>
@@ -374,61 +385,61 @@
 
 <!-- STATS -->
 <div class="stats-bar">
-    <div><div class="stat-num">&lt; 90s</div><div class="stat-lbl">Tempo di risposta</div></div>
-    <div><div class="stat-num">7 m/s</div><div class="stat-lbl">Velocità massima</div></div>
-    <div><div class="stat-num">1.000 kg</div><div class="stat-lbl">Capacità di traino</div></div>
-    <div><div class="stat-num">1.800 m</div><div class="stat-lbl">Portata telecomando</div></div>
-    <div><div class="stat-num">24/7</div><div class="stat-lbl">Operativo</div></div>
+    <div><div class="stat-num">&lt; 90s</div><div class="stat-lbl" data-i18n="stat_response">Tempo di risposta</div></div>
+    <div><div class="stat-num">7 m/s</div><div class="stat-lbl" data-i18n="stat_speed">Velocità massima</div></div>
+    <div><div class="stat-num">1.000 kg</div><div class="stat-lbl" data-i18n="stat_tow">Capacità di traino</div></div>
+    <div><div class="stat-num">1.800 m</div><div class="stat-lbl" data-i18n="stat_range">Portata telecomando</div></div>
+    <div><div class="stat-num">24/7</div><div class="stat-lbl" data-i18n="stat_operational">Operativo</div></div>
 </div>
 
 <!-- AMBITI DI UTILIZZO -->
 <section class="section" style="background:var(--bg-deep);padding-top:2rem;">
     <div class="container">
         <div class="fade-up" style="margin-bottom:3rem;text-align:center;">
-            <p class="sec-label">Ambiti di utilizzo</p>
-            <h2 class="sec-title">Ovunque l'acqua<br>minacci le vite.</h2>
+            <p class="sec-label" data-i18n="ambiti_label">Ambiti di utilizzo</p>
+            <h2 class="sec-title" data-i18n-html="ambiti_title">Ovunque l'acqua<br>minacci le vite.</h2>
         </div>
         <div class="uc-grid fade-up">
             <div class="uc-card" style="background-image:url('https://images.unsplash.com/photo-1635150632618-b09762cf0690?w=600&q=80');background-size:cover;background-position:center;">
                 <div class="uc-inner" style="background:linear-gradient(to top,rgba(2,12,24,0.88) 0%,rgba(6,22,40,0.3) 100%);">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#00D4FF" stroke-width="1.3" style="margin-bottom:auto;opacity:0.85;"><path d="M18 4L32 10V20C32 28 26 33 18 36C10 33 4 28 4 20V10L18 4Z"/><polyline points="12,18 16,22 24,14"/></svg>
-                    <div class="uc-tag">Autorità e sicurezza</div>
-                    <div class="uc-title">Guardia costiera &<br>soccorso in mare</div>
+                    <div class="uc-tag" data-i18n="uc1_tag">Autorità e sicurezza</div>
+                    <div class="uc-title" data-i18n-html="uc1_title">Guardia costiera &<br>soccorso in mare</div>
                 </div>
             </div>
             <div class="uc-card" style="background-image:url('https://images.unsplash.com/photo-1558617320-e695f0d420de?w=600&q=80');background-size:cover;background-position:center;">
                 <div class="uc-inner" style="background:linear-gradient(to top,rgba(2,12,24,0.88) 0%,rgba(5,18,32,0.3) 100%);">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#00D4FF" stroke-width="1.3" style="margin-bottom:auto;opacity:0.85;"><rect x="4" y="8" width="28" height="20" rx="3"/><line x1="4" y1="20" x2="32" y2="20"/><line x1="12" y1="20" x2="12" y2="28"/><line x1="24" y1="20" x2="24" y2="28"/></svg>
-                    <div class="uc-tag">Sport e tempo libero</div>
-                    <div class="uc-title">Piscine &<br>stabilimenti balneari</div>
+                    <div class="uc-tag" data-i18n="uc2_tag">Sport e tempo libero</div>
+                    <div class="uc-title" data-i18n-html="uc2_title">Piscine &<br>stabilimenti balneari</div>
                 </div>
             </div>
             <div class="uc-card" style="background-image:url('https://images.unsplash.com/photo-1657069345471-c54f2432b79c?w=600&q=80');background-size:cover;background-position:center;">
                 <div class="uc-inner" style="background:linear-gradient(to top,rgba(2,12,24,0.88) 0%,rgba(26,10,0,0.3) 100%);">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#FF6B35" stroke-width="1.3" style="margin-bottom:auto;opacity:0.85;"><path d="M18 4l2.5 8H29l-7 5.5 2.5 8L18 20l-6.5 5.5 2.5-8L7 12h8.5z" stroke-linejoin="round"/></svg>
-                    <div class="uc-tag" style="color:var(--orange);">Protezione civile</div>
-                    <div class="uc-title">Alluvioni &<br>catastrofi naturali</div>
+                    <div class="uc-tag" style="color:var(--orange);" data-i18n="uc3_tag">Protezione civile</div>
+                    <div class="uc-title" data-i18n-html="uc3_title">Alluvioni &<br>catastrofi naturali</div>
                 </div>
             </div>
             <div class="uc-card" style="background-image:url('https://images.unsplash.com/photo-1576707995936-a6cffe26ef7b?w=600&q=80');background-size:cover;background-position:center;">
                 <div class="uc-inner" style="background:linear-gradient(to top,rgba(2,12,24,0.88) 0%,rgba(10,22,40,0.3) 100%);">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#00D4FF" stroke-width="1.3" style="margin-bottom:auto;opacity:0.85;"><path d="M18 32c-7 0-13-5-13-12 0-8 7-16 13-20 6 4 13 12 13 20 0 7-6 12-13 12z"/><path d="M18 25c-2.8 0-5-2.2-5-5 0-3.5 3.5-7 5-9 1.5 2 5 5.5 5 9 0 2.8-2.2 5-5 5z"/></svg>
-                    <div class="uc-tag">Primo soccorso</div>
-                    <div class="uc-title">Vigili del fuoco &<br>squadre di soccorso</div>
+                    <div class="uc-tag" data-i18n="uc4_tag">Primo soccorso</div>
+                    <div class="uc-title" data-i18n-html="uc4_title">Vigili del fuoco &<br>squadre di soccorso</div>
                 </div>
             </div>
             <div class="uc-card" style="background-image:url('https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4?w=600&q=80');background-size:cover;background-position:center;">
                 <div class="uc-inner" style="background:linear-gradient(to top,rgba(2,12,24,0.88) 0%,rgba(4,16,22,0.3) 100%);">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#00D4FF" stroke-width="1.3" style="margin-bottom:auto;opacity:0.85;"><path d="M9 26l9-18 9 18H9z" stroke-linejoin="round"/><path d="M4 32c3-4 5-4 7-4s4 4 7 4 4-4 7-4 4 0 7 4" stroke-linecap="round"/></svg>
-                    <div class="uc-tag">Industria & marino</div>
-                    <div class="uc-title">Porti &<br>infrastrutture marittime</div>
+                    <div class="uc-tag" data-i18n="uc5_tag">Industria & marino</div>
+                    <div class="uc-title" data-i18n-html="uc5_title">Porti &<br>infrastrutture marittime</div>
                 </div>
             </div>
             <div class="uc-card" style="background-image:url('https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?w=600&q=80');background-size:cover;background-position:center;">
                 <div class="uc-inner" style="background:linear-gradient(to top,rgba(2,12,24,0.88) 0%,rgba(10,16,32,0.3) 100%);">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#00D4FF" stroke-width="1.3" style="margin-bottom:auto;opacity:0.85;"><circle cx="18" cy="18" r="14"/><path d="M18 10v8l5 5" stroke-linecap="round"/></svg>
-                    <div class="uc-tag">Eventi & sport</div>
-                    <div class="uc-title">Triathlon &<br>eventi all'aperto</div>
+                    <div class="uc-tag" data-i18n="uc6_tag">Eventi & sport</div>
+                    <div class="uc-title" data-i18n-html="uc6_title">Triathlon &<br>eventi all'aperto</div>
                 </div>
             </div>
         </div>
@@ -439,8 +450,8 @@
 <section class="section" id="prodotto" style="background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container">
         <div class="fade-up" style="margin-bottom:2.5rem;text-align:center;">
-            <h2 class="sec-title">La gamma DOLPHIN</h2>
-            <p class="sec-desc" style="max-width:580px;margin:0 auto;">Due versioni dello stesso robot: scegli il modello adatto alle tue esigenze.</p>
+            <h2 class="sec-title" data-i18n="product_title">La gamma DOLPHIN</h2>
+            <p class="sec-desc" style="max-width:580px;margin:0 auto;" data-i18n="product_desc">Due versioni dello stesso robot: scegli il modello adatto alle tue esigenze.</p>
         </div>
 
         <!-- Central image -->
@@ -452,131 +463,131 @@
         <div id="product-comparison" class="fade-up d1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;overflow:hidden;max-width:860px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch;">
             <!-- Header -->
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:rgba(0,0,0,0.25);border-bottom:1px solid var(--border);">
-                <div style="padding:1rem 1.5rem;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);">Caratteristica</div>
+                <div style="padding:1rem 1.5rem;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);" data-i18n="col_feature">Caratteristica</div>
                 <div style="padding:1rem 1.5rem;text-align:center;border-left:1px solid var(--border);">
                     <div style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);">DOLPHIN 3</div>
-                    <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Modello base</div>
+                    <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;" data-i18n="col_base">Modello base</div>
                 </div>
                 <div style="padding:1rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.05);">
                     <div style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);">DOLPHIN 3 PLUS</div>
-                    <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;">Versione avanzata</div>
+                    <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;" data-i18n="col_advanced">Versione avanzata</div>
                 </div>
             </div>
             <!-- Spec rows -->
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Dimensioni</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_dim">Dimensioni</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;">100 × 70 × 25 cm</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;background:rgba(255,107,53,0.03);">100 × 70 × 25 cm</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Lunghezza × Larghezza × Altezza</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_dim_note">Lunghezza × Larghezza × Altezza</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Peso</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_weight">Peso</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;">16,75 kg</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;background:rgba(255,107,53,0.03);">16,75 kg</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Peso totale del robot</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_weight_note">Peso totale del robot</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Velocità massima</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_vmax">Velocità massima</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;">7 m/s</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;background:rgba(255,107,53,0.03);">7 m/s</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Velocità massima di spostamento in acqua</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_vmax_note">Velocità massima di spostamento in acqua</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Autonomia</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_battery_life">Autonomia</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;">70 min @3 m/s</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;background:rgba(255,107,53,0.03);">70 min @3 m/s</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Durata della batteria in operazioni a velocità moderata</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_battery_note">Durata della batteria in operazioni a velocità moderata</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Portata telecomando</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_range">Portata telecomando</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;">1.800 m</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;background:rgba(255,107,53,0.03);">1.800 m</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Distanza massima da cui controllare il robot</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_range_note">Distanza massima da cui controllare il robot</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Capacità di traino</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_tow_cap">Capacità di traino</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;">1.000 kg</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;background:rgba(255,107,53,0.03);">1.000 kg</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Peso massimo che il robot può trainare in acqua</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_tow_note">Peso massimo che il robot può trainare in acqua</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Impermeabilità</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_waterproof">Impermeabilità</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;">IP67</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;background:rgba(255,107,53,0.03);">IP67</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Standard di protezione contro polvere e acqua</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_waterproof_note">Standard di protezione contro polvere e acqua</div>
             </div>
             <!-- Feature rows with ✓/✗ -->
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Autoraddrizzante</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_autoright">Autoraddrizzante</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Si raddrizza automaticamente se capovolto</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_autoright_note">Si raddrizza automaticamente se capovolto</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Display OLED</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_oled">Display OLED</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Display avanzato nel telecomando per live view</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_oled_note">Display avanzato nel telecomando per live view</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Dual GNSS</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_gnss">Dual GNSS</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#374151;font-size:1.1rem;">✗</span></div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Localizzazione GPS doppia per maggiore precisione</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_gnss_note">Localizzazione GPS doppia per maggiore precisione</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Auto Return</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_autoreturn">Auto Return</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#374151;font-size:1.1rem;">✗</span></div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Ritorna automaticamente al punto di partenza</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_autoreturn_note">Ritorna automaticamente al punto di partenza</div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;">Telecamera &amp; Monitor remoto</div>
+                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_camera">Telecamera &amp; Monitor remoto</div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#374151;font-size:1.1rem;">✗</span></div>
                 <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
                 <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;">Videocamera integrata e schermo nel telecomando</div>
+                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_camera_note">Videocamera integrata e schermo nel telecomando</div>
             </div>
             <!-- CTA row -->
             <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:1.5rem;gap:1rem;background:rgba(0,0,0,0.15);align-items:center;justify-items:center;">
                 <div></div>
                 <div style="grid-column:2/4;width:100%;">
-                    <a href="#contatto" class="btn-p" style="display:block;padding:0.8rem 1.8rem;font-size:0.85rem;text-align:center;">Richiedi contatto</a>
+                    <a href="#contatto" class="btn-p" style="display:block;padding:0.8rem 1.8rem;font-size:0.85rem;text-align:center;" data-i18n="product_cta">Richiedi contatto</a>
                 </div>
             </div>
         </div>
@@ -587,20 +598,20 @@
 <section class="section" id="tecnologia" style="background:var(--bg-deep);border-top:1px solid var(--border);">
     <div class="container">
         <div style="text-align:center;max-width:600px;margin:0 auto 3rem;" class="fade-up">
-            <p class="sec-label">Tecnologia</p>
-            <h2 class="sec-title">Progettato per<br>l'impensabile.</h2>
-            <p class="sec-desc" style="margin:0 auto;">Ogni sistema è stato concepito per le condizioni più difficili: maltempo, zone di panico, oscurità. Tecnologia affidabile quando conta davvero.</p>
+            <p class="sec-label" data-i18n="tech_label">Tecnologia</p>
+            <h2 class="sec-title" data-i18n-html="tech_title">Progettato per<br>l'impensabile.</h2>
+            <p class="sec-desc" style="margin:0 auto;" data-i18n="tech_desc">Ogni sistema è stato concepito per le condizioni più difficili: maltempo, zone di panico, oscurità. Tecnologia affidabile quando conta davvero.</p>
         </div>
         <!-- Desktop grid -->
         <div class="feat-grid fade-up feat-grid-desktop">
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title">Telecamera integrata</div><div class="feat-desc">Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia. Visione in tempo reale per l'operatore.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title">Avvio immediato</div><div class="feat-desc">Dall'allarme all'ingresso in acqua in pochi secondi. Sistema completamente operativo senza necessità di intervento manuale.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="feat-title">Dotazione di salvataggio</div><div class="feat-desc">Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso senza che nessun soccorritore entri in acqua.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title">Telecomando a lungo raggio</div><div class="feat-desc">Portata fino a 1.800 m. Navigazione precisa in tempo reale con correzione automatica per correnti e vento.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title">Display in tempo reale</div><div class="feat-desc">Video HD e dati del sensore trasmessi in diretta al posto di comando. Controllo completo dalla riva.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="feat-title">Alta capacità di traino</div><div class="feat-desc">Traina fino a 1.000 kg in acqua, ideale per supportare più persone contemporaneamente in situazioni di emergenza.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title">Auto-raddrizzamento</div><div class="feat-desc">Se il robot si capovolge durante il trasporto o in acque agitate, si raddrizza automaticamente in pochi secondi, senza intervento dell'operatore.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title">GPS individuale via satellite</div><div class="feat-desc">Collegabile a un GPS individuale dedicato: la posizione del Dolphin è visibile in tempo reale via satellite, anche a grande distanza o fuori dalla portata visiva.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title" data-i18n="feat1_title">Telecamera integrata</div><div class="feat-desc" data-i18n="feat1_desc">Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia. Visione in tempo reale per l'operatore.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title" data-i18n="feat2_title">Avvio immediato</div><div class="feat-desc" data-i18n="feat2_desc">Dall'allarme all'ingresso in acqua in pochi secondi. Sistema completamente operativo senza necessità di intervento manuale.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="feat-title" data-i18n="feat3_title">Dotazione di salvataggio</div><div class="feat-desc" data-i18n="feat3_desc">Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso senza che nessun soccorritore entri in acqua.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title" data-i18n="feat4_title">Telecomando a lungo raggio</div><div class="feat-desc" data-i18n="feat4_desc">Portata fino a 1.800 m. Navigazione precisa in tempo reale con correzione automatica per correnti e vento.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title" data-i18n="feat5_title">Display in tempo reale</div><div class="feat-desc" data-i18n="feat5_desc">Video HD e dati del sensore trasmessi in diretta al posto di comando. Controllo completo dalla riva.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="feat-title" data-i18n="feat6_title">Alta capacità di traino</div><div class="feat-desc" data-i18n="feat6_desc">Traina fino a 1.000 kg in acqua, ideale per supportare più persone contemporaneamente in situazioni di emergenza.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title" data-i18n="feat7_title">Auto-raddrizzamento</div><div class="feat-desc" data-i18n="feat7_desc">Se il robot si capovolge durante il trasporto o in acque agitate, si raddrizza automaticamente in pochi secondi, senza intervento dell'operatore.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title" data-i18n="feat8_title">GPS individuale via satellite</div><div class="feat-desc" data-i18n="feat8_desc">Collegabile a un GPS individuale dedicato: la posizione del Dolphin è visibile in tempo reale via satellite, anche a grande distanza o fuori dalla portata visiva.</div></div>
         </div>
 
         <!-- Mobile slider: each page = exactly 2 cards -->
@@ -608,20 +619,20 @@
             <div class="feat-slider-inner" id="featInner">
                 <div class="feat-slider-track" id="featTrack">
                     <div class="feat-page">
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title">Telecamera integrata</div><div class="feat-desc">Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia.</div></div>
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title">Avvio immediato</div><div class="feat-desc">Dall'allarme all'ingresso in acqua in pochi secondi. Sistema completamente operativo senza intervento manuale.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title" data-i18n="feat1_title">Telecamera integrata</div><div class="feat-desc" data-i18n="feat1_desc_s">Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title" data-i18n="feat2_title">Avvio immediato</div><div class="feat-desc" data-i18n="feat2_desc_s">Dall'allarme all'ingresso in acqua in pochi secondi. Sistema completamente operativo senza intervento manuale.</div></div>
                     </div>
                     <div class="feat-page">
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="feat-title">Dotazione di salvataggio</div><div class="feat-desc">Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso.</div></div>
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title">Telecomando a lungo raggio</div><div class="feat-desc">Portata fino a 1.800 m. Navigazione precisa in tempo reale con correzione automatica.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="feat-title" data-i18n="feat3_title">Dotazione di salvataggio</div><div class="feat-desc" data-i18n="feat3_desc_s">Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title" data-i18n="feat4_title">Telecomando a lungo raggio</div><div class="feat-desc" data-i18n="feat4_desc_s">Portata fino a 1.800 m. Navigazione precisa in tempo reale con correzione automatica.</div></div>
                     </div>
                     <div class="feat-page">
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title">Display in tempo reale</div><div class="feat-desc">Video HD e dati del sensore trasmessi in diretta al posto di comando.</div></div>
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="feat-title">Alta capacità di traino</div><div class="feat-desc">Traina fino a 1.000 kg in acqua, ideale per più persone contemporaneamente.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title" data-i18n="feat5_title">Display in tempo reale</div><div class="feat-desc" data-i18n="feat5_desc_s">Video HD e dati del sensore trasmessi in diretta al posto di comando.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="feat-title" data-i18n="feat6_title">Alta capacità di traino</div><div class="feat-desc" data-i18n="feat6_desc_s">Traina fino a 1.000 kg in acqua, ideale per più persone contemporaneamente.</div></div>
                     </div>
                     <div class="feat-page">
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title">Auto-raddrizzamento</div><div class="feat-desc">Si raddrizza automaticamente in pochi secondi se si capovolge in acque agitate.</div></div>
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title">GPS via satellite</div><div class="feat-desc">Posizione visibile in tempo reale via satellite, anche a grande distanza.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title" data-i18n="feat7_title">Auto-raddrizzamento</div><div class="feat-desc" data-i18n="feat7_desc_s">Si raddrizza automaticamente in pochi secondi se si capovolge in acque agitate.</div></div>
+                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title" data-i18n="feat8_title">GPS via satellite</div><div class="feat-desc" data-i18n="feat8_desc_s">Posizione visibile in tempo reale via satellite, anche a grande distanza.</div></div>
                     </div>
                 </div>
             </div>
@@ -638,9 +649,9 @@
 <section id="come-funziona" style="background:var(--bg-deep);padding:6rem 2rem;border-top:1px solid var(--border);">
     <div class="container">
         <div class="fade-up" style="text-align:center;margin-bottom:4rem;">
-            <p class="sec-label">Come funziona</p>
-            <h2 class="sec-title">Dall'allarme<br>al salvataggio.</h2>
-            <p class="sec-desc" style="max-width:520px;margin:1rem auto 0;">Tre fasi. Novanta secondi. Una vita salvata.</p>
+            <p class="sec-label" data-i18n="how_label">Come funziona</p>
+            <h2 class="sec-title" data-i18n-html="how_title">Dall'allarme<br>al salvataggio.</h2>
+            <p class="sec-desc" style="max-width:520px;margin:1rem auto 0;" data-i18n="how_sub">Tre fasi. Novanta secondi. Una vita salvata.</p>
         </div>
 
         <!-- Step cards -->
@@ -663,11 +674,11 @@
                         <div style="width:6px;height:6px;border-radius:50%;background:var(--cyan);"></div>
                         <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);font-weight:600;">Step 01</span>
                     </div>
-                    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;">Allarme</h3>
-                    <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;">Chiamata di emergenza, sensore o attivazione manuale. Il sistema si mette in moto in pochi secondi.</p>
+                    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;" data-i18n="step1_title">Allarme</h3>
+                    <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;" data-i18n="step1_desc">Chiamata di emergenza, sensore o attivazione manuale. Il sistema si mette in moto in pochi secondi.</p>
                     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:0.5rem;">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        <span style="font-size:0.75rem;color:var(--cyan);font-weight:600;">&lt; 10 secondi</span>
+                        <span style="font-size:0.75rem;color:var(--cyan);font-weight:600;" data-i18n="step1_time">&lt; 10 secondi</span>
                     </div>
                 </div>
             </div>
@@ -686,11 +697,11 @@
                         <div style="width:6px;height:6px;border-radius:50%;background:var(--cyan);"></div>
                         <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);font-weight:600;">Step 02</span>
                     </div>
-                    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;">Avvicinamento</h3>
-                    <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;">L'operatore guida il robot via telecomando fino alla persona, anche contro corrente e vento. Portata fino a 1.800 m.</p>
+                    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;" data-i18n="step2_title">Avvicinamento</h3>
+                    <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;" data-i18n="step2_desc">L'operatore guida il robot via telecomando fino alla persona, anche contro corrente e vento. Portata fino a 1.800 m.</p>
                     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:0.5rem;">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        <span style="font-size:0.75rem;color:var(--cyan);font-weight:600;">7 m/s velocità massima</span>
+                        <span style="font-size:0.75rem;color:var(--cyan);font-weight:600;" data-i18n="step2_time">7 m/s velocità massima</span>
                     </div>
                 </div>
             </div>
@@ -709,11 +720,11 @@
                         <div style="width:6px;height:6px;border-radius:50%;background:var(--orange);"></div>
                         <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);font-weight:600;">Step 03</span>
                     </div>
-                    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;">Salvataggio</h3>
-                    <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;">La persona si aggrappa al robot e viene trasportata in sicurezza. I soccorritori restano sulla riva: zero rischi.</p>
+                    <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;" data-i18n="step3_title">Salvataggio</h3>
+                    <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;" data-i18n="step3_desc">La persona si aggrappa al robot e viene trasportata in sicurezza. I soccorritori restano sulla riva: zero rischi.</p>
                     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,107,53,0.15);display:flex;align-items:center;gap:0.5rem;">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        <span style="font-size:0.75rem;color:var(--orange);font-weight:600;">Zero soccorritori in acqua</span>
+                        <span style="font-size:0.75rem;color:var(--orange);font-weight:600;" data-i18n="step3_badge">Zero soccorritori in acqua</span>
                     </div>
                 </div>
             </div>
@@ -732,9 +743,9 @@
     <div class="container">
         <!-- Header -->
         <div class="fade-up" style="margin-bottom:4rem;text-align:center;">
-            <p class="sec-label">Stampa & Media</p>
-            <h2 class="sec-title">Conosciuto da<br>Stampa & Media</h2>
-            <p class="sec-desc" style="max-width:600px;margin:0 auto;">Il Dolphin 3 attrae l'attenzione dei media in tutta la Germania.</p>
+            <p class="sec-label" data-i18n="media_label">Stampa & Media</p>
+            <h2 class="sec-title" data-i18n-html="media_title">Conosciuto da<br>Stampa & Media</h2>
+            <p class="sec-desc" style="max-width:600px;margin:0 auto;" data-i18n="media_desc">Il Dolphin 3 attrae l'attenzione dei media in tutta la Germania.</p>
         </div>
 
         <!-- Logo Grid -->
@@ -766,9 +777,9 @@
 
         <!-- Left: headline + info -->
         <div>
-            <p class="sec-label">Pronto per il prossimo passo?</p>
-            <h2 class="sec-title" style="font-size:clamp(2.8rem,5vw,5rem);margin-bottom:1.5rem;">Proteggi<br><span style="color:var(--cyan);">Vite Umane.</span></h2>
-            <p class="sec-desc" style="margin-bottom:3rem;max-width:420px;line-height:1.8;">Prenota una demo personalizzata e scopri come Aqua Rescue Systems può rivoluzionare la tua infrastruttura di sicurezza.</p>
+            <p class="sec-label" data-i18n="contact_label">Pronto per il prossimo passo?</p>
+            <h2 class="sec-title" style="font-size:clamp(2.8rem,5vw,5rem);margin-bottom:1.5rem;" data-i18n-html="contact_title">Proteggi<br><span style="color:var(--cyan);">Vite Umane.</span></h2>
+            <p class="sec-desc" style="margin-bottom:3rem;max-width:420px;line-height:1.8;" data-i18n="contact_desc">Prenota una demo personalizzata e scopri come Aqua Rescue Systems può rivoluzionare la tua infrastruttura di sicurezza.</p>
 
             <div style="display:flex;flex-direction:column;gap:1.75rem;">
                 <div style="display:flex;align-items:center;gap:1.1rem;">
@@ -776,7 +787,7 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 2.18 2 2 0 012.22 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.35 6.35l1.27-1.56a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                     </div>
                     <div>
-                        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.2rem;">Telefono</div>
+                        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.2rem;" data-i18n="contact_phone_lbl">Telefono</div>
                         <div style="font-size:0.95rem;color:var(--text);font-weight:500;">+39 335 285676</div>
                     </div>
                 </div>
@@ -794,8 +805,8 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
                     <div>
-                        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.2rem;">Risposta</div>
-                        <div style="font-size:0.95rem;color:var(--text);font-weight:500;">Entro 24 ore · Gratuito</div>
+                        <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.2rem;" data-i18n="contact_resp_lbl">Risposta</div>
+                        <div style="font-size:0.95rem;color:var(--text);font-weight:500;" data-i18n="contact_resp_val">Entro 24 ore · Gratuito</div>
                     </div>
                 </div>
             </div>
@@ -808,36 +819,36 @@
             <form style="display:flex;flex-direction:column;gap:1.5rem;" action="https://formspree.io/f/mzdwnnbd" method="POST">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                     <div>
-                        <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Nome e Cognome</label>
-                        <input type="text" name="name" placeholder="Mario Rossi" required/>
+                        <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;" data-i18n="form_name">Nome e Cognome</label>
+                        <input type="text" name="name" placeholder="Mario Rossi" required data-i18n-placeholder="form_name_ph"/>
                     </div>
                     <div>
                         <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">E-Mail</label>
-                        <input type="email" name="email" placeholder="mario@esempio.it" required/>
+                        <input type="email" name="email" placeholder="mario@esempio.it" required data-i18n-placeholder="form_email_ph"/>
                     </div>
                 </div>
                 <div>
-                    <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Telefono <span style="opacity:0.5;">(opzionale)</span></label>
-                    <input type="tel" name="phone" placeholder="+39 000 000 0000"/>
+                    <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;" data-i18n="form_phone_lbl">Telefono (opzionale)</label>
+                    <input type="tel" name="phone" placeholder="+39 000 000 0000" data-i18n-placeholder="form_phone_ph"/>
                 </div>
                 <div>
-                    <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Organizzazione</label>
+                    <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;" data-i18n="form_org_lbl">Organizzazione</label>
                     <select name="organization" required>
-                        <option value="" disabled selected>Seleziona ambito di utilizzo...</option>
-                        <option>Guardia costiera / Soccorso in mare</option>
-                        <option>Vigili del fuoco / Squadre di soccorso</option>
-                        <option>Piscina / Stabilimento balneare</option>
-                        <option>Protezione civile</option>
-                        <option>Porti / Industria marittima</option>
-                        <option>Altro</option>
+                        <option value="" disabled selected data-i18n="form_org_ph">Seleziona ambito di utilizzo...</option>
+                        <option data-i18n="form_opt1">Guardia costiera / Soccorso in mare</option>
+                        <option data-i18n="form_opt2">Vigili del fuoco / Squadre di soccorso</option>
+                        <option data-i18n="form_opt3">Piscina / Stabilimento balneare</option>
+                        <option data-i18n="form_opt4">Protezione civile</option>
+                        <option data-i18n="form_opt5">Porti / Industria marittima</option>
+                        <option data-i18n="form_opt6">Altro</option>
                     </select>
                 </div>
                 <div>
-                    <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;">Messaggio <span style="opacity:0.5;">(opzionale)</span></label>
-                    <textarea name="message" placeholder="Come possiamo aiutarti?" style="min-height:120px;"></textarea>
+                    <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;" data-i18n="form_msg_lbl">Messaggio (opzionale)</label>
+                    <textarea name="message" placeholder="Come possiamo aiutarti?" style="min-height:120px;" data-i18n-placeholder="form_msg_ph"></textarea>
                 </div>
-                <button type="submit" class="btn-p" style="width:100%;padding:1.1rem;font-size:0.9rem;">Prenota una demo gratuita</button>
-                <p style="font-size:0.73rem;color:var(--text-muted);text-align:center;margin-top:-0.5rem;">Nessun impegno · Risposta entro 24 ore</p>
+                <button type="submit" class="btn-p" style="width:100%;padding:1.1rem;font-size:0.9rem;" data-i18n="form_submit">Prenota una demo gratuita</button>
+                <p style="font-size:0.73rem;color:var(--text-muted);text-align:center;margin-top:-0.5rem;" data-i18n="form_note">Nessun impegno · Risposta entro 24 ore</p>
             </form>
         </div>
 
@@ -854,8 +865,8 @@
 <section style="background:var(--bg-surface);border-top:1px solid var(--border);padding:2rem 2rem;">
     <div class="container">
         <div class="fade-up" style="text-align:center;margin-bottom:1.5rem;">
-            <p class="sec-label">Partner</p>
-            <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--text);">Con chi lavoriamo</h2>
+            <p class="sec-label" data-i18n="partner_label">Partner</p>
+            <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--text);" data-i18n="partner_title">Con chi lavoriamo</h2>
         </div>
         <!-- Desktop -->
         <div class="partner-desktop fade-up" style="display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;">
@@ -902,12 +913,12 @@
 <footer>
     <div class="footer-inner">
         <img src="ars_logo_transparent.svg" alt="AquaRescueSystems" style="height:72px;width:auto;object-fit:contain;"/>
-        <div style="color:var(--text-muted);font-size:0.82rem;">© 2026 AquaRescueSystems · Tutti i diritti riservati</div>
+        <div style="color:var(--text-muted);font-size:0.82rem;" data-i18n="copyright">© 2026 AquaRescueSystems · Tutti i diritti riservati</div>
         <div style="display:flex;gap:1.5rem;">
-            <a href="#" onclick="document.getElementById('modal-note').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Note legali</a>
+            <a href="#" onclick="document.getElementById('modal-note').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_legal">Note legali</a>
             <a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Privacy</a>
             <a href="#" onclick="document.getElementById('modal-cookie').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Cookie Policy</a>
-            <a href="#" onclick="document.getElementById('modal-contatti').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Contatti</a>
+            <a href="#" onclick="document.getElementById('modal-contatti').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_contact">Contatti</a>
         </div>
     </div>
 </footer>
@@ -1126,6 +1137,234 @@
         document.getElementById('nav').style.background =
             window.scrollY > 60 ? 'rgba(2,12,24,0.97)' : 'rgba(2,12,24,0.85)';
     });
+
+    const translations = {
+        it: {
+            nav_mission:'Missione', nav_product:'Prodotto', nav_technology:'Tecnologia', nav_how:'Come funziona', nav_cta:'Richiedi demo',
+            hero_badge:'Robot di soccorso acquatico',
+            hero_h1:'Salvare<br><span class="cyan">Vite.</span><br>Senza Rischi.',
+            hero_sub:'Aqua Rescue Systems sviluppa robot autonomi per il soccorso in acqua che raggiungono il luogo dell\'incidente in pochi secondi, salvando vite senza mettere in pericolo i soccorritori.',
+            hero_btn1:'Richiedi una demo', hero_btn2:'Scopri il prodotto',
+            mission_label:'La nostra missione', mission_title:'Ogni secondo<br>conta.',
+            mission_desc:'Gli incidenti per annegamento accadono in pochi istanti. Troppo in fretta per i soccorritori tradizionali. Aqua Rescue Systems colma questa lacuna critica con robot autonomi per il soccorso in acqua: pronti all\'intervento immediato, senza rischi per il personale.',
+            check1:'Anello di salvataggio e assistenza al galleggiamento entro 90 secondi sul luogo dell\'incidente',
+            check2:'Riconoscimento della persona con telecamera integrata anche di notte e con scarsa visibilità',
+            check3:'Completamente telecomandata: nessun soccorritore entra in acqua',
+            sys_label:'Parametri di sistema live', sys_speed:'Velocità vs. soccorritore umano', sys_speed_val:'5x più veloce',
+            sys_safety:'Sicurezza operatori', sys_survival:'Probabilità di sopravvivenza', sys_battery:'Autonomia batteria',
+            sys_status:'Sistema nominale · Pronto all\'intervento',
+            stat_response:'Tempo di risposta', stat_speed:'Velocità massima', stat_tow:'Capacità di traino', stat_range:'Portata telecomando', stat_operational:'Operativo',
+            ambiti_label:'Ambiti di utilizzo', ambiti_title:'Ovunque l\'acqua<br>minacci le vite.',
+            uc1_tag:'Autorità e sicurezza', uc1_title:'Guardia costiera &<br>soccorso in mare',
+            uc2_tag:'Sport e tempo libero', uc2_title:'Piscine &<br>stabilimenti balneari',
+            uc3_tag:'Protezione civile', uc3_title:'Alluvioni &<br>catastrofi naturali',
+            uc4_tag:'Primo soccorso', uc4_title:'Vigili del fuoco &<br>squadre di soccorso',
+            uc5_tag:'Industria & marino', uc5_title:'Porti &<br>infrastrutture marittime',
+            uc6_tag:'Eventi & sport', uc6_title:'Triathlon &<br>eventi all\'aperto',
+            product_title:'La gamma DOLPHIN', product_desc:'Due versioni dello stesso robot: scegli il modello adatto alle tue esigenze.',
+            col_feature:'Caratteristica', col_base:'Modello base', col_advanced:'Versione avanzata',
+            spec_dim:'Dimensioni', spec_dim_note:'Lunghezza × Larghezza × Altezza',
+            spec_weight:'Peso', spec_weight_note:'Peso totale del robot',
+            spec_vmax:'Velocità massima', spec_vmax_note:'Velocità massima di spostamento in acqua',
+            spec_battery_life:'Autonomia', spec_battery_note:'Durata della batteria in operazioni a velocità moderata',
+            spec_range:'Portata telecomando', spec_range_note:'Distanza massima da cui controllare il robot',
+            spec_tow_cap:'Capacità di traino', spec_tow_note:'Peso massimo che il robot può trainare in acqua',
+            spec_waterproof:'Impermeabilità', spec_waterproof_note:'Standard di protezione contro polvere e acqua',
+            spec_autoright:'Autoraddrizzante', spec_autoright_note:'Si raddrizza automaticamente se capovolto',
+            spec_oled:'Display OLED', spec_oled_note:'Display avanzato nel telecomando per live view',
+            spec_gnss:'Dual GNSS', spec_gnss_note:'Localizzazione GPS doppia per maggiore precisione',
+            spec_autoreturn:'Auto Return', spec_autoreturn_note:'Ritorna automaticamente al punto di partenza',
+            spec_camera:'Telecamera & Monitor remoto', spec_camera_note:'Videocamera integrata e schermo nel telecomando',
+            product_cta:'Richiedi contatto',
+            tech_label:'Tecnologia', tech_title:'Progettato per<br>l\'impensabile.',
+            tech_desc:'Ogni sistema è stato concepito per le condizioni più difficili: maltempo, zone di panico, oscurità. Tecnologia affidabile quando conta davvero.',
+            feat1_title:'Telecamera integrata', feat1_desc:'Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia. Visione in tempo reale per l\'operatore.', feat1_desc_s:'Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia.',
+            feat2_title:'Avvio immediato', feat2_desc:'Dall\'allarme all\'ingresso in acqua in pochi secondi. Sistema completamente operativo senza necessità di intervento manuale.', feat2_desc_s:'Dall\'allarme all\'ingresso in acqua in pochi secondi. Sistema completamente operativo senza intervento manuale.',
+            feat3_title:'Dotazione di salvataggio', feat3_desc:'Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso senza che nessun soccorritore entri in acqua.', feat3_desc_s:'Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso.',
+            feat4_title:'Telecomando a lungo raggio', feat4_desc:'Portata fino a 1.800 m. Navigazione precisa in tempo reale con correzione automatica per correnti e vento.', feat4_desc_s:'Portata fino a 1.800 m. Navigazione precisa in tempo reale con correzione automatica.',
+            feat5_title:'Display in tempo reale', feat5_desc:'Video HD e dati del sensore trasmessi in diretta al posto di comando. Controllo completo dalla riva.', feat5_desc_s:'Video HD e dati del sensore trasmessi in diretta al posto di comando.',
+            feat6_title:'Alta capacità di traino', feat6_desc:'Traina fino a 1.000 kg in acqua, ideale per supportare più persone contemporaneamente in situazioni di emergenza.', feat6_desc_s:'Traina fino a 1.000 kg in acqua, ideale per più persone contemporaneamente.',
+            feat7_title:'Auto-raddrizzamento', feat7_desc:'Se il robot si capovolge durante il trasporto o in acque agitate, si raddrizza automaticamente in pochi secondi, senza intervento dell\'operatore.', feat7_desc_s:'Si raddrizza automaticamente in pochi secondi se si capovolge in acque agitate.',
+            feat8_title:'GPS individuale via satellite', feat8_desc:'Collegabile a un GPS individuale dedicato: la posizione del Dolphin è visibile in tempo reale via satellite, anche a grande distanza o fuori dalla portata visiva.', feat8_desc_s:'Posizione visibile in tempo reale via satellite, anche a grande distanza.',
+            how_label:'Come funziona', how_title:'Dall\'allarme<br>al salvataggio.', how_sub:'Tre fasi. Novanta secondi. Una vita salvata.',
+            step1_title:'Allarme', step1_desc:'Chiamata di emergenza, sensore o attivazione manuale. Il sistema si mette in moto in pochi secondi.', step1_time:'< 10 secondi',
+            step2_title:'Avvicinamento', step2_desc:'L\'operatore guida il robot via telecomando fino alla persona, anche contro corrente e vento. Portata fino a 1.800 m.', step2_time:'7 m/s velocità massima',
+            step3_title:'Salvataggio', step3_desc:'La persona si aggrappa al robot e viene trasportata in sicurezza. I soccorritori restano sulla riva: zero rischi.', step3_badge:'Zero soccorritori in acqua',
+            media_label:'Stampa & Media', media_title:'Conosciuto da<br>Stampa & Media', media_desc:'Il Dolphin 3 attrae l\'attenzione dei media in tutta la Germania.',
+            contact_label:'Pronto per il prossimo passo?', contact_title:'Proteggi<br><span style="color:var(--cyan);">Vite Umane.</span>', contact_desc:'Prenota una demo personalizzata e scopri come Aqua Rescue Systems può rivoluzionare la tua infrastruttura di sicurezza.',
+            contact_phone_lbl:'Telefono', contact_resp_lbl:'Risposta', contact_resp_val:'Entro 24 ore · Gratuito',
+            form_name:'Nome e Cognome', form_name_ph:'Mario Rossi', form_email_ph:'mario@esempio.it',
+            form_phone_lbl:'Telefono (opzionale)', form_org_lbl:'Organizzazione', form_org_ph:'Seleziona ambito di utilizzo...',
+            form_opt1:'Guardia costiera / Soccorso in mare', form_opt2:'Vigili del fuoco / Squadre di soccorso',
+            form_opt3:'Piscina / Stabilimento balneare', form_opt4:'Protezione civile',
+            form_opt5:'Porti / Industria marittima', form_opt6:'Altro',
+            form_msg_lbl:'Messaggio (opzionale)', form_msg_ph:'Come possiamo aiutarti?',
+            form_submit:'Prenota una demo gratuita', form_note:'Nessun impegno · Risposta entro 24 ore',
+            form_phone_ph:'+39 000 000 0000',
+            partner_label:'Partner', partner_title:'Con chi lavoriamo',
+            footer_legal:'Note legali', footer_contact:'Contatti',
+            copyright:'© 2026 AquaRescueSystems · Tutti i diritti riservati'
+        },
+        de: {
+            nav_mission:'Mission', nav_product:'Produkt', nav_technology:'Technologie', nav_how:'Funktionsweise', nav_cta:'Demo anfragen',
+            hero_badge:'Wasserrettungsroboter',
+            hero_h1:'Leben<br><span class="cyan">Retten.</span><br>Ohne Risiken.',
+            hero_sub:'Aqua Rescue Systems entwickelt autonome Wasserrettungsroboter, die den Unfallort in wenigen Sekunden erreichen und Leben retten, ohne Retter zu gefährden.',
+            hero_btn1:'Demo anfragen', hero_btn2:'Produkt entdecken',
+            mission_label:'Unsere Mission', mission_title:'Jede Sekunde<br>zählt.',
+            mission_desc:'Ertrinkungsunfälle geschehen in Sekundenschnelle – zu schnell für traditionelle Rettungskräfte. Aqua Rescue Systems schließt diese kritische Lücke mit autonomen Wasserrettungsrobotern: sofort einsatzbereit, ohne Risiko für das Personal.',
+            check1:'Rettungsring und Auftriebshilfe innerhalb von 90 Sekunden am Unfallort',
+            check2:'Personenerkennung mit integrierter Kamera, auch nachts und bei schlechter Sicht',
+            check3:'Vollständig ferngesteuert: kein Retter geht ins Wasser',
+            sys_label:'Live-Systemparameter', sys_speed:'Geschwindigkeit vs. menschlicher Retter', sys_speed_val:'5x schneller',
+            sys_safety:'Sicherheit der Einsatzkräfte', sys_survival:'Überlebenswahrscheinlichkeit', sys_battery:'Akkukapazität',
+            sys_status:'System nominal · Einsatzbereit',
+            stat_response:'Reaktionszeit', stat_speed:'Höchstgeschwindigkeit', stat_tow:'Zugkapazität', stat_range:'Fernsteuerung Reichweite', stat_operational:'Betrieb',
+            ambiti_label:'Einsatzbereiche', ambiti_title:'Überall wo Wasser<br>Leben bedroht.',
+            uc1_tag:'Behörden & Sicherheit', uc1_title:'Küstenwache &<br>Seenotrettung',
+            uc2_tag:'Sport & Freizeit', uc2_title:'Schwimmbäder &<br>Badeanlagen',
+            uc3_tag:'Katastrophenschutz', uc3_title:'Überschwemmungen &<br>Naturkatastrophen',
+            uc4_tag:'Erster Einsatz', uc4_title:'Feuerwehr &<br>Rettungsteams',
+            uc5_tag:'Industrie & Marine', uc5_title:'Häfen &<br>maritime Infrastruktur',
+            uc6_tag:'Events & Sport', uc6_title:'Triathlon &<br>Outdoor-Events',
+            product_title:'Die DOLPHIN-Reihe', product_desc:'Zwei Versionen des gleichen Roboters: Wählen Sie das passende Modell für Ihre Anforderungen.',
+            col_feature:'Merkmal', col_base:'Basismodell', col_advanced:'Erweiterte Version',
+            spec_dim:'Abmessungen', spec_dim_note:'Länge × Breite × Höhe',
+            spec_weight:'Gewicht', spec_weight_note:'Gesamtgewicht des Roboters',
+            spec_vmax:'Höchstgeschwindigkeit', spec_vmax_note:'Maximale Fortbewegungsgeschwindigkeit im Wasser',
+            spec_battery_life:'Akkulaufzeit', spec_battery_note:'Betriebsdauer bei moderater Geschwindigkeit',
+            spec_range:'Fernsteuerung Reichweite', spec_range_note:'Maximale Fernsteuerungsdistanz',
+            spec_tow_cap:'Zugkapazität', spec_tow_note:'Maximales Gewicht das der Roboter ziehen kann',
+            spec_waterproof:'Wasserdichtigkeit', spec_waterproof_note:'Schutzstandard gegen Staub und Wasser',
+            spec_autoright:'Selbstaufrichtend', spec_autoright_note:'Richtet sich automatisch auf wenn gekentert',
+            spec_oled:'OLED-Display', spec_oled_note:'Erweitertes Display in der Fernbedienung für Live-Ansicht',
+            spec_gnss:'Dual GNSS', spec_gnss_note:'Doppelte GPS-Ortung für höhere Präzision',
+            spec_autoreturn:'Auto Return', spec_autoreturn_note:'Kehrt automatisch zum Ausgangspunkt zurück',
+            spec_camera:'Kamera & Fernmonitor', spec_camera_note:'Integrierte Videokamera und Bildschirm in der Fernbedienung',
+            product_cta:'Kontakt anfragen',
+            tech_label:'Technologie', tech_title:'Entwickelt für<br>das Undenkbare.',
+            tech_desc:'Jedes System wurde für schwerste Bedingungen konzipiert: Unwetter, Paniksituationen, Dunkelheit. Zuverlässige Technologie wenn es wirklich darauf ankommt.',
+            feat1_title:'Integrierte Kamera', feat1_desc:'Erkennt Personen im Wasser automatisch, auch bei Wellen, nachts und bei Nebel. Echtzeit-Sicht für den Operator.', feat1_desc_s:'Erkennt Personen im Wasser automatisch, auch bei Wellen, nachts und bei Nebel.',
+            feat2_title:'Sofortstart', feat2_desc:'Vom Alarm bis zum Eintauchen ins Wasser in wenigen Sekunden. Vollständig betriebsbereit ohne manuellen Eingriff.', feat2_desc_s:'Vom Alarm bis zum Eintauchen ins Wasser in wenigen Sekunden. Vollständig betriebsbereit.',
+            feat3_title:'Rettungsausrüstung', feat3_desc:'Integrierter Rettungsring und Auftriebssystem für präzisen Einsatz, ohne dass ein Retter ins Wasser muss.', feat3_desc_s:'Integrierter Rettungsring und Auftriebssystem für präzisen Einsatz.',
+            feat4_title:'Langstrecken-Fernbedienung', feat4_desc:'Reichweite bis zu 1.800 m. Präzise Navigation in Echtzeit mit automatischer Korrektur für Strömungen und Wind.', feat4_desc_s:'Reichweite bis zu 1.800 m. Präzise Navigation in Echtzeit.',
+            feat5_title:'Echtzeit-Display', feat5_desc:'HD-Video und Sensordaten direkt an den Kommandoposten übertragen. Vollständige Kontrolle vom Ufer.', feat5_desc_s:'HD-Video und Sensordaten direkt an den Kommandoposten übertragen.',
+            feat6_title:'Hohe Zugkapazität', feat6_desc:'Zieht bis zu 1.000 kg im Wasser, ideal für mehrere Personen gleichzeitig in Notfallsituationen.', feat6_desc_s:'Zieht bis zu 1.000 kg im Wasser, ideal für mehrere Personen gleichzeitig.',
+            feat7_title:'Selbstaufrichtung', feat7_desc:'Wenn der Roboter kentert, richtet er sich automatisch in Sekunden auf, ohne Eingriff des Operators.', feat7_desc_s:'Richtet sich automatisch in Sekunden auf, wenn er in aufgewühltem Wasser kentert.',
+            feat8_title:'Satelliten-GPS', feat8_desc:'Anschließbar an ein dediziertes GPS: Die Position des Dolphin ist in Echtzeit per Satellit sichtbar, auch auf große Distanz.', feat8_desc_s:'Position in Echtzeit per Satellit sichtbar, auch auf große Distanz.',
+            how_label:'Funktionsweise', how_title:'Vom Alarm<br>zur Rettung.', how_sub:'Drei Phasen. Neunzig Sekunden. Ein gerettetes Leben.',
+            step1_title:'Alarm', step1_desc:'Notruf, Sensor oder manuelle Aktivierung. Das System ist innerhalb von Sekunden in Betrieb.', step1_time:'< 10 Sekunden',
+            step2_title:'Annäherung', step2_desc:'Der Operator steuert den Roboter per Fernbedienung zur Person, auch gegen Strömung und Wind. Reichweite bis zu 1.800 m.', step2_time:'7 m/s Höchstgeschwindigkeit',
+            step3_title:'Rettung', step3_desc:'Die Person hält sich am Roboter fest und wird sicher transportiert. Die Retter bleiben am Ufer: null Risiken.', step3_badge:'Null Retter im Wasser',
+            media_label:'Presse & Medien', media_title:'Bekannt aus<br>Presse & Medien', media_desc:'Der Dolphin 3 zieht die Aufmerksamkeit der Medien in ganz Deutschland auf sich.',
+            contact_label:'Bereit für den nächsten Schritt?', contact_title:'Schütze<br><span style="color:var(--cyan);">Menschenleben.</span>', contact_desc:'Buche eine persönliche Demo und entdecke, wie Aqua Rescue Systems deine Sicherheitsinfrastruktur revolutionieren kann.',
+            contact_phone_lbl:'Telefon', contact_resp_lbl:'Antwortzeit', contact_resp_val:'Innerhalb 24 Stunden · Kostenlos',
+            form_name:'Vor- und Nachname', form_name_ph:'Max Mustermann', form_email_ph:'max@beispiel.de',
+            form_phone_lbl:'Telefon (optional)', form_phone_ph:'+49 000 000 0000',
+            form_org_lbl:'Organisation', form_org_ph:'Einsatzbereich wählen...',
+            form_opt1:'Küstenwache / Seenotrettung', form_opt2:'Feuerwehr / Rettungsteams',
+            form_opt3:'Schwimmbad / Badeanlage', form_opt4:'Katastrophenschutz',
+            form_opt5:'Häfen / Maritime Industrie', form_opt6:'Sonstiges',
+            form_msg_lbl:'Nachricht (optional)', form_msg_ph:'Wie können wir Ihnen helfen?',
+            form_submit:'Kostenlose Demo buchen', form_note:'Unverbindlich · Antwort innerhalb 24 Stunden',
+            partner_label:'Partner', partner_title:'Mit wem wir arbeiten',
+            footer_legal:'Impressum', footer_contact:'Kontakt',
+            copyright:'© 2026 AquaRescueSystems · Alle Rechte vorbehalten'
+        },
+        en: {
+            nav_mission:'Mission', nav_product:'Product', nav_technology:'Technology', nav_how:'How it works', nav_cta:'Request demo',
+            hero_badge:'Water Rescue Robot',
+            hero_h1:'Saving<br><span class="cyan">Lives.</span><br>Without Risk.',
+            hero_sub:'Aqua Rescue Systems develops autonomous water rescue robots that reach the incident site in seconds, saving lives without putting rescuers at risk.',
+            hero_btn1:'Request a demo', hero_btn2:'Discover the product',
+            mission_label:'Our Mission', mission_title:'Every second<br>counts.',
+            mission_desc:'Drowning accidents happen in an instant – too fast for traditional rescuers. Aqua Rescue Systems fills this critical gap with autonomous water rescue robots: ready for immediate response, with no risk to personnel.',
+            check1:'Life ring and buoyancy assistance at the incident site within 90 seconds',
+            check2:'Person recognition with integrated camera, even at night and in low visibility',
+            check3:'Fully remote-controlled: no rescuer enters the water',
+            sys_label:'Live system parameters', sys_speed:'Speed vs. human rescuer', sys_speed_val:'5x faster',
+            sys_safety:'Operator safety', sys_survival:'Survival probability', sys_battery:'Battery capacity',
+            sys_status:'System nominal · Ready for deployment',
+            stat_response:'Response time', stat_speed:'Top speed', stat_tow:'Tow capacity', stat_range:'Remote range', stat_operational:'Operational',
+            ambiti_label:'Areas of use', ambiti_title:'Wherever water<br>threatens lives.',
+            uc1_tag:'Authorities & safety', uc1_title:'Coast guard &<br>sea rescue',
+            uc2_tag:'Sports & leisure', uc2_title:'Swimming pools &<br>beach facilities',
+            uc3_tag:'Civil protection', uc3_title:'Floods &<br>natural disasters',
+            uc4_tag:'First response', uc4_title:'Fire brigades &<br>rescue teams',
+            uc5_tag:'Industry & marine', uc5_title:'Ports &<br>maritime infrastructure',
+            uc6_tag:'Events & sports', uc6_title:'Triathlon &<br>outdoor events',
+            product_title:'The DOLPHIN Range', product_desc:'Two versions of the same robot: choose the model that suits your needs.',
+            col_feature:'Feature', col_base:'Base model', col_advanced:'Advanced version',
+            spec_dim:'Dimensions', spec_dim_note:'Length × Width × Height',
+            spec_weight:'Weight', spec_weight_note:'Total weight of the robot',
+            spec_vmax:'Top speed', spec_vmax_note:'Maximum movement speed in water',
+            spec_battery_life:'Battery life', spec_battery_note:'Battery duration at moderate speed',
+            spec_range:'Remote range', spec_range_note:'Maximum remote control distance',
+            spec_tow_cap:'Tow capacity', spec_tow_note:'Maximum weight the robot can tow in water',
+            spec_waterproof:'Waterproofing', spec_waterproof_note:'Protection standard against dust and water',
+            spec_autoright:'Self-righting', spec_autoright_note:'Automatically rights itself if overturned',
+            spec_oled:'OLED Display', spec_oled_note:'Advanced display in remote control for live view',
+            spec_gnss:'Dual GNSS', spec_gnss_note:'Dual GPS location for higher precision',
+            spec_autoreturn:'Auto Return', spec_autoreturn_note:'Automatically returns to starting point',
+            spec_camera:'Camera & Remote Monitor', spec_camera_note:'Integrated video camera and screen in remote control',
+            product_cta:'Request contact',
+            tech_label:'Technology', tech_title:'Designed for<br>the unthinkable.',
+            tech_desc:'Every system was engineered for the most demanding conditions: bad weather, panic zones, darkness. Reliable technology when it truly matters.',
+            feat1_title:'Integrated camera', feat1_desc:'Automatically identifies people in water, even with waves, at night and in fog. Real-time vision for the operator.', feat1_desc_s:'Automatically identifies people in water, even with waves, at night and in fog.',
+            feat2_title:'Instant launch', feat2_desc:'From alert to water entry in seconds. Fully operational without the need for manual intervention.', feat2_desc_s:'From alert to water entry in seconds. Fully operational without manual intervention.',
+            feat3_title:'Rescue equipment', feat3_desc:'Integrated life ring and buoyancy system for precise intervention without any rescuer entering the water.', feat3_desc_s:'Integrated life ring and buoyancy system for precise intervention.',
+            feat4_title:'Long-range remote', feat4_desc:'Range up to 1,800 m. Precise real-time navigation with automatic correction for currents and wind.', feat4_desc_s:'Range up to 1,800 m. Precise real-time navigation with automatic correction.',
+            feat5_title:'Real-time display', feat5_desc:'HD video and sensor data transmitted live to the command post. Full control from the shore.', feat5_desc_s:'HD video and sensor data transmitted live to the command post.',
+            feat6_title:'High tow capacity', feat6_desc:'Tows up to 1,000 kg in water, ideal for supporting multiple people simultaneously in emergency situations.', feat6_desc_s:'Tows up to 1,000 kg in water, ideal for multiple people simultaneously.',
+            feat7_title:'Self-righting', feat7_desc:'If the robot overturns during transport or in rough waters, it automatically rights itself in seconds, without operator intervention.', feat7_desc_s:'Automatically rights itself in seconds if overturned in rough waters.',
+            feat8_title:'Satellite GPS', feat8_desc:'Connectable to a dedicated GPS: the Dolphin\'s position is visible in real time via satellite, even at great distances.', feat8_desc_s:'Position visible in real time via satellite, even at great distances.',
+            how_label:'How it works', how_title:'From alarm<br>to rescue.', how_sub:'Three phases. Ninety seconds. One life saved.',
+            step1_title:'Alert', step1_desc:'Emergency call, sensor, or manual activation. The system is up and running within seconds.', step1_time:'< 10 seconds',
+            step2_title:'Approach', step2_desc:'The operator guides the robot via remote control to the person, even against currents and wind. Range up to 1,800 m.', step2_time:'7 m/s top speed',
+            step3_title:'Rescue', step3_desc:'The person grabs onto the robot and is transported to safety. Rescuers stay on shore: zero risks.', step3_badge:'Zero rescuers in water',
+            media_label:'Press & Media', media_title:'Featured in<br>Press & Media', media_desc:'The Dolphin 3 is attracting media attention across Germany.',
+            contact_label:'Ready for the next step?', contact_title:'Protect<br><span style="color:var(--cyan);">Human Lives.</span>', contact_desc:'Book a personalized demo and discover how Aqua Rescue Systems can revolutionize your safety infrastructure.',
+            contact_phone_lbl:'Phone', contact_resp_lbl:'Response', contact_resp_val:'Within 24 hours · Free',
+            form_name:'Full name', form_name_ph:'John Smith', form_email_ph:'john@example.com',
+            form_phone_lbl:'Phone (optional)', form_phone_ph:'+1 000 000 0000',
+            form_org_lbl:'Organization', form_org_ph:'Select area of use...',
+            form_opt1:'Coast guard / Sea rescue', form_opt2:'Fire brigade / Rescue teams',
+            form_opt3:'Swimming pool / Beach facility', form_opt4:'Civil protection',
+            form_opt5:'Ports / Maritime industry', form_opt6:'Other',
+            form_msg_lbl:'Message (optional)', form_msg_ph:'How can we help you?',
+            form_submit:'Book a free demo', form_note:'No commitment · Reply within 24 hours',
+            partner_label:'Partners', partner_title:'Who we work with',
+            footer_legal:'Legal notice', footer_contact:'Contact',
+            copyright:'© 2026 AquaRescueSystems · All rights reserved'
+        }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'it';
+
+    function setLang(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key] !== undefined) el.textContent = t[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (t[key] !== undefined) el.placeholder = t[key];
+        });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 </script>
 </body>
 </html>
