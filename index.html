@@ -334,13 +334,25 @@
     </div>
 </section>
 
-<!-- MOBILE DOLPHIN IMAGE -->
-<div class="mobile-dolphin-hero">
-    <img src="dolphin3_front.png" alt="Dolphin 3" style="width:85%;max-width:340px;filter:drop-shadow(0 0 40px rgba(255,107,53,0.45));display:block;margin:0 auto;"/>
+<!-- MOBILE SONAR ANIMATION -->
+<div class="mobile-sonar-hero">
+    <div style="position:relative;width:320px;height:320px;margin:0 auto;">
+        <div class="sonar-ring" style="width:60px;height:60px;animation-delay:0s"></div>
+        <div class="sonar-ring" style="width:120px;height:120px;animation-delay:0.6s"></div>
+        <div class="sonar-ring" style="width:200px;height:200px;animation-delay:1.2s"></div>
+        <div class="sonar-ring" style="width:270px;height:270px;animation-delay:1.8s"></div>
+        <div class="sonar-ring" style="width:320px;height:320px;animation-delay:2.4s"></div>
+        <div class="sonar-sweep" style="width:200px;height:200px;margin:-100px;"></div>
+        <div class="drone-wrap">
+            <img src="dolphin3_front.png" alt="Dolphin 3" style="width:200px;height:auto;filter:drop-shadow(0 0 30px rgba(255,107,53,0.45));display:block;"/>
+        </div>
+        <div class="blip" style="top:28%;left:67%;"></div>
+        <div class="blip" style="top:62%;left:22%;animation-delay:0.9s;"></div>
+    </div>
 </div>
 <style>
-    .mobile-dolphin-hero { display:none; background:var(--bg-deep); padding:2rem 1rem; text-align:center; }
-    @media(max-width:900px) { .mobile-dolphin-hero { display:block; } }
+    .mobile-sonar-hero { display:none; background:var(--bg-deep); padding:1.5rem 1rem; text-align:center; }
+    @media(max-width:900px) { .mobile-sonar-hero { display:block; } }
 </style>
 
 <!-- VIDEO HERO -->
