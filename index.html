@@ -3,7 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqua Rescue Systems – Robot acquatici che salvano vite</title>
+
+    <!-- SEO: Primary -->
+    <title>Aqua Rescue Systems – Dolphin 3 | Robot di Soccorso Acquatico | Made in Germany</title>
+    <meta name="description" content="Il Dolphin 3 è il robot autonomo per il soccorso acquatico che raggiunge le vittime in meno di 90 secondi. Velocità 7 m/s, portata 1.800 m, traino 1.000 kg. Prenota una demo gratuita.">
+    <meta name="keywords" content="robot soccorso acquatico, soccorso in mare, robot salvataggio, Dolphin 3, Aqua Rescue Systems, guardia costiera, vigili del fuoco, protezione civile, annegamento, made in germany">
+    <meta name="author" content="Aqua Rescue Systems – SportForYou Srls">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aquarescuesystems.com">
+
+    <!-- SEO: hreflang multilingual -->
+    <link rel="alternate" hreflang="it" href="https://aquarescuesystems.com">
+    <link rel="alternate" hreflang="de" href="https://aquarescuesystems.com">
+    <link rel="alternate" hreflang="en" href="https://aquarescuesystems.com">
+    <link rel="alternate" hreflang="x-default" href="https://aquarescuesystems.com">
+
+    <!-- SEO: Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquarescuesystems.com">
+    <meta property="og:title" content="Aqua Rescue Systems – Dolphin 3 | Robot di Soccorso Acquatico">
+    <meta property="og:description" content="Il Dolphin 3 raggiunge le vittime in meno di 90 secondi. Velocità 7 m/s, portata 1.800 m. Zero rischi per i soccorritori. Made in Germany.">
+    <meta property="og:image" content="https://aquarescuesystems.com/dolphin3_front.png">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="800">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:locale:alternate" content="de_DE">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta property="og:site_name" content="Aqua Rescue Systems">
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aqua Rescue Systems – Dolphin 3 | Robot di Soccorso Acquatico">
+    <meta name="twitter:description" content="Robot autonomo per il soccorso in acqua. Raggiunge le vittime in meno di 90 secondi. Made in Germany.">
+    <meta name="twitter:image" content="https://aquarescuesystems.com/dolphin3_front.png">
+
+    <!-- SEO: JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://aquarescuesystems.com/#organization",
+          "name": "Aqua Rescue Systems",
+          "url": "https://aquarescuesystems.com",
+          "logo": "https://aquarescuesystems.com/ars_logo_transparent.svg",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+39-335-284676",
+            "contactType": "sales",
+            "email": "info@aquarescuesystems.com",
+            "availableLanguage": ["Italian", "German", "English"]
+          },
+          "sameAs": [
+            "https://www.instagram.com/aquarescuesystems"
+          ]
+        },
+        {
+          "@type": "Product",
+          "@id": "https://aquarescuesystems.com/#dolphin3",
+          "name": "Dolphin 3",
+          "brand": {
+            "@type": "Brand",
+            "name": "Aqua Rescue Systems"
+          },
+          "description": "Robot autonomo per il soccorso acquatico. Raggiunge le vittime in meno di 90 secondi con velocità di 7 m/s e portata del telecomando fino a 1.800 m.",
+          "image": "https://aquarescuesystems.com/dolphin3_front.png",
+          "url": "https://aquarescuesystems.com",
+          "manufacturer": {
+            "@type": "Organization",
+            "name": "Aqua Rescue Systems",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Enrico Fermi 5",
+              "addressLocality": "Bolzano",
+              "postalCode": "39100",
+              "addressCountry": "IT"
+            }
+          },
+          "additionalProperty": [
+            {"@type": "PropertyValue", "name": "Velocità massima", "value": "7 m/s"},
+            {"@type": "PropertyValue", "name": "Tempo di risposta", "value": "< 90 secondi"},
+            {"@type": "PropertyValue", "name": "Portata telecomando", "value": "1.800 m"},
+            {"@type": "PropertyValue", "name": "Capacità di traino", "value": "1.000 kg"},
+            {"@type": "PropertyValue", "name": "Autonomia", "value": "70 min"},
+            {"@type": "PropertyValue", "name": "Impermeabilità", "value": "IP67"}
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://aquarescuesystems.com/#website",
+          "url": "https://aquarescuesystems.com",
+          "name": "Aqua Rescue Systems",
+          "description": "Robot autonomi per il soccorso in acqua – Dolphin 3",
+          "inLanguage": ["it", "de", "en"]
+        }
+      ]
+    }
+    </script>
+
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -1380,9 +1478,37 @@
 
     let currentLang = localStorage.getItem('lang') || 'it';
 
+    const seoMeta = {
+        it: {
+            title: 'Aqua Rescue Systems – Dolphin 3 | Robot di Soccorso Acquatico | Made in Germany',
+            description: 'Il Dolphin 3 è il robot autonomo per il soccorso acquatico che raggiunge le vittime in meno di 90 secondi. Velocità 7 m/s, portata 1.800 m, traino 1.000 kg. Prenota una demo gratuita.',
+            ogTitle: 'Aqua Rescue Systems – Dolphin 3 | Robot di Soccorso Acquatico',
+            ogDescription: 'Il Dolphin 3 raggiunge le vittime in meno di 90 secondi. Velocità 7 m/s, portata 1.800 m. Zero rischi per i soccorritori. Made in Germany.'
+        },
+        de: {
+            title: 'Aqua Rescue Systems – Dolphin 3 | Wasserrettungsroboter | Made in Germany',
+            description: 'Der Dolphin 3 ist der autonome Wasserrettungsroboter, der Ertrinkende in weniger als 90 Sekunden erreicht. 7 m/s Geschwindigkeit, 1.800 m Reichweite, 1.000 kg Zugkraft. Demo anfragen.',
+            ogTitle: 'Aqua Rescue Systems – Dolphin 3 | Wasserrettungsroboter',
+            ogDescription: 'Autonomer Wasserrettungsroboter. Erreicht Opfer in weniger als 90 Sekunden. 7 m/s, 1.800 m Reichweite. Null Risiko für Einsatzkräfte. Made in Germany.'
+        },
+        en: {
+            title: 'Aqua Rescue Systems – Dolphin 3 | Water Rescue Robot | Made in Germany',
+            description: 'The Dolphin 3 is the autonomous water rescue robot that reaches victims in under 90 seconds. 7 m/s speed, 1,800 m range, 1,000 kg tow capacity. Book a free demo.',
+            ogTitle: 'Aqua Rescue Systems – Dolphin 3 | Water Rescue Robot',
+            ogDescription: 'Autonomous water rescue robot reaching victims in under 90 seconds. 7 m/s speed, 1,800 m range. Zero risk for rescuers. Made in Germany.'
+        }
+    };
+
     function setLang(lang) {
         currentLang = lang;
         const t = translations[lang];
+        const s = seoMeta[lang];
+        document.title = s.title;
+        document.querySelector('meta[name="description"]').setAttribute('content', s.description);
+        document.querySelector('meta[property="og:title"]').setAttribute('content', s.ogTitle);
+        document.querySelector('meta[property="og:description"]').setAttribute('content', s.ogDescription);
+        document.querySelector('meta[name="twitter:title"]').setAttribute('content', s.ogTitle);
+        document.querySelector('meta[name="twitter:description"]').setAttribute('content', s.ogDescription);
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (t[key] !== undefined) el.textContent = t[key];
