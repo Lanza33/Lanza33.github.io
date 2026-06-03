@@ -49,8 +49,18 @@
         .lang-btn.active { background:var(--cyan); border-color:var(--cyan); color:var(--bg-deep); }
         .lang-btn:hover { border-color:var(--cyan); color:var(--cyan); }
         .lang-btn.active:hover { background:var(--cyan); color:var(--bg-deep); }
-        @media(max-width:900px) { .lang-switcher { position:absolute; top:1.2rem; right:1.2rem; } }
         nav ul { flex-shrink:1; }
+        @media(max-width:900px) {
+            .lang-switcher { display:none; }
+            .lang-dropdown-wrap { position:fixed; top:1rem; right:1rem; z-index:200; }
+            .lang-dropdown-btn { background:rgba(2,12,24,0.9); border:1px solid var(--border); border-radius:0.35rem; color:var(--cyan); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; padding:0.35rem 0.6rem; backdrop-filter:blur(10px); }
+            .lang-dropdown-menu { display:none; position:absolute; top:calc(100% + 0.35rem); right:0; background:rgba(6,22,40,0.97); border:1px solid var(--border); border-radius:0.35rem; overflow:hidden; min-width:60px; backdrop-filter:blur(10px); }
+            .lang-dropdown-menu.open { display:block; }
+            .lang-dropdown-item { display:block; width:100%; padding:0.4rem 0.75rem; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; color:var(--text-muted); text-align:center; border:none; background:transparent; transition:background 0.15s; }
+            .lang-dropdown-item:hover { background:rgba(0,212,255,0.1); color:var(--cyan); }
+            .lang-dropdown-item.active { color:var(--cyan); }
+        }
+        @media(min-width:901px) { .lang-dropdown-wrap { display:none; } }
 
         /* HERO */
         .hero { min-height:100svh; display:flex; align-items:center; position:relative; overflow:hidden; padding:12rem 2rem 4rem; }
@@ -279,6 +289,16 @@
     </div>
 </nav>
 
+<!-- MOBILE LANG DROPDOWN -->
+<div class="lang-dropdown-wrap">
+    <button class="lang-dropdown-btn" id="langDropBtn" onclick="toggleLangDropdown()">IT ▾</button>
+    <div class="lang-dropdown-menu" id="langDropMenu">
+        <button class="lang-dropdown-item active" data-lang="it" onclick="setLangMobile('it')">IT</button>
+        <button class="lang-dropdown-item" data-lang="de" onclick="setLangMobile('de')">DE</button>
+        <button class="lang-dropdown-item" data-lang="en" onclick="setLangMobile('en')">EN</button>
+    </div>
+</div>
+
 <!-- HERO -->
 <section class="hero grid-bg">
     <div class="sonar-wrap" aria-hidden="true">
@@ -299,7 +319,7 @@
 
     <div class="hero-content">
         <div class="hero-badge" data-i18n="hero_badge">Robot di soccorso acquatico</div>
-        <div class="hero-badge" style="background:rgba(255,107,53,0.15);border-color:rgba(255,107,53,0.4);color:var(--orange);margin-top:0.5rem;">Made in Germany</div>
+        <div class="hero-badge" style="background:rgba(255,107,53,0.15);border-color:rgba(255,107,53,0.4);color:var(--orange);margin-top:0.25rem;">Made in Germany</div>
         <h1 data-i18n-html="hero_h1">
             Salvare<br>
             <span class="cyan">Vite.</span><br>
@@ -1361,8 +1381,28 @@
         localStorage.setItem('lang', lang);
     }
 
+    function toggleLangDropdown() {
+        document.getElementById('langDropMenu').classList.toggle('open');
+    }
+    document.addEventListener('click', e => {
+        if (!e.target.closest('.lang-dropdown-wrap')) {
+            document.getElementById('langDropMenu')?.classList.remove('open');
+        }
+    });
+    function setLangMobile(lang) {
+        setLang(lang);
+        document.getElementById('langDropBtn').textContent = lang.toUpperCase() + ' ▾';
+        document.querySelectorAll('.lang-dropdown-item').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
+        document.getElementById('langDropMenu').classList.remove('open');
+    }
+
     // Initialize on load
-    document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+    document.addEventListener('DOMContentLoaded', () => {
+        setLang(currentLang);
+        const btn = document.getElementById('langDropBtn');
+        if (btn) btn.textContent = currentLang.toUpperCase() + ' ▾';
+        document.querySelectorAll('.lang-dropdown-item').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === currentLang));
+    });
 </script>
 </body>
 </html>
