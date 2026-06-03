@@ -44,12 +44,13 @@
         nav a:hover { color:var(--cyan); }
         .nav-cta { background:var(--cyan) !important; color:var(--bg-deep) !important; padding:0.45rem 1.1rem; border-radius:0.35rem; font-weight:600 !important; }
         .nav-cta:hover { background:#fff !important; }
-        .lang-switcher { display:flex; gap:0.25rem; align-items:center; }
+        .lang-switcher { display:flex; gap:0.25rem; align-items:center; flex-shrink:0; }
         .lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.15); border-radius:0.25rem; color:var(--text-muted); font-size:0.7rem; font-weight:600; letter-spacing:0.08em; padding:0.25rem 0.5rem; transition:all 0.2s; }
         .lang-btn.active { background:var(--cyan); border-color:var(--cyan); color:var(--bg-deep); }
         .lang-btn:hover { border-color:var(--cyan); color:var(--cyan); }
         .lang-btn.active:hover { background:var(--cyan); color:var(--bg-deep); }
         @media(max-width:900px) { .lang-switcher { position:absolute; top:1.2rem; right:1.2rem; } }
+        nav ul { flex-shrink:1; }
 
         /* HERO */
         .hero { min-height:100svh; display:flex; align-items:center; position:relative; overflow:hidden; padding:12rem 2rem 4rem; }
