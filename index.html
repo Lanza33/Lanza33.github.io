@@ -133,7 +133,7 @@
         nav {
             position:fixed; top:1rem; left:50%; transform:translateX(-50%);
             width:calc(100% - 3rem); max-width:1200px; z-index:100;
-            background:rgba(2,12,24,0.85); backdrop-filter:blur(20px);
+            background:rgba(2,12,24,0.88); backdrop-filter:blur(24px);
             border:1px solid var(--border); border-radius:0.75rem;
             padding:0.5rem 2rem; display:flex; justify-content:space-between; align-items:center;
             transition:background 0.3s;
@@ -141,10 +141,10 @@
         .logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.1em; }
         .logo span { color:var(--cyan); }
         .nav-logo { height:38px; width:auto; object-fit:contain; }
-        nav ul { display:flex; gap:2rem; list-style:none; }
-        nav a { color:var(--text-muted); text-decoration:none; font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; font-weight:500; transition:color 0.2s; }
+        nav ul { display:flex; gap:2.25rem; list-style:none; }
+        nav a { color:var(--text-muted); text-decoration:none; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; transition:color 0.2s; }
         nav a:hover { color:var(--cyan); }
-        .nav-cta { background:var(--cyan) !important; color:var(--bg-deep) !important; padding:0.45rem 1.1rem; border-radius:0.35rem; font-weight:600 !important; }
+        .nav-cta { background:var(--cyan) !important; color:var(--bg-deep) !important; padding:0.45rem 1.2rem; border-radius:0.35rem; font-weight:700 !important; }
         .nav-cta:hover { background:#fff !important; }
         .lang-switcher { display:flex; gap:0.25rem; align-items:center; flex-shrink:0; }
         .lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.15); border-radius:0.25rem; color:var(--text-muted); font-size:0.7rem; font-weight:600; letter-spacing:0.08em; padding:0.25rem 0.5rem; transition:all 0.2s; }
@@ -165,7 +165,7 @@
         @media(min-width:901px) { .lang-dropdown-wrap { display:none; } }
 
         /* HERO */
-        .hero { min-height:100svh; display:flex; align-items:center; position:relative; overflow:hidden; padding:12rem 2rem 4rem; }
+        .hero { min-height:100svh; display:flex; align-items:center; position:relative; overflow:hidden; padding:13rem 2rem 4rem calc(max(2rem, calc((100% - 1160px) / 2)) + 4rem); }
         .grid-bg {
             background-image: linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);
             background-size:60px 60px;
@@ -210,11 +210,11 @@
         .stat-lbl { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:0.2rem; }
 
         /* LAYOUT */
-        .section { padding:6rem 2rem; }
-        .container { max-width:1200px; margin:0 auto; }
-        .sec-label { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:0.9rem; font-weight:600; }
-        .sec-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); line-height:1; letter-spacing:0.02em; margin-bottom:1.25rem; }
-        .sec-desc { color:var(--text-muted); font-size:0.97rem; line-height:1.7; font-weight:300; }
+        .section { padding:7rem 2rem; }
+        .container { max-width:1160px; margin:0 auto; }
+        .sec-label { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:1rem; font-weight:600; }
+        .sec-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); line-height:1; letter-spacing:0.02em; margin-bottom:1.5rem; }
+        .sec-desc { color:var(--text-muted); font-size:0.97rem; line-height:1.8; font-weight:300; }
 
         /* PRODUCT SECTION */
         .product-card {
@@ -288,7 +288,7 @@
         }
 
         /* ANCHOR OFFSET for fixed nav */
-        section[id] { scroll-margin-top: 140px; }
+        section[id] { scroll-margin-top: 160px; }
 
         /* SCROLL ANIM */
         .fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease,transform 0.65s ease; }
@@ -314,9 +314,10 @@
 
         /* RESPONSIVE */
         @media(max-width:900px) {
-            nav { justify-content:center; padding:0.5rem 1.5rem; }
-            nav ul { display:none; }
-            nav > div:first-child { flex:1; text-align:center; display:flex; justify-content:center; align-items:center; }
+            nav { justify-content:space-between; padding:0.5rem 1.5rem; }
+            nav > div:nth-child(2) { display:none; }
+            nav > div:first-child { flex:1; display:flex; justify-content:flex-start; align-items:center; }
+            nav > div:first-child img { height:90px; }
             #missione > .container { grid-template-columns:1fr !important; gap:3rem !important; text-align:center !important; max-width:900px; margin:0 auto; }
             #missione .sec-title { text-align:center; }
             #missione > .container > div:first-child > div { align-items:center; }
@@ -382,22 +383,26 @@
 
 <!-- NAV -->
 <nav id="nav">
-    <div style="text-align:center;">
-        <img src="ars_logo_transparent.svg" alt="AquaRescueSystems" style="height:108px;width:auto;object-fit:contain;"/>
+    <!-- Logo: left -->
+    <div style="display:flex;align-items:center;flex-shrink:0;">
+        <img src="ars_logo_transparent.svg" alt="AquaRescueSystems" style="height:130px;width:auto;object-fit:contain;"/>
     </div>
-    <ul>
-        <li><a href="#missione" data-i18n="nav_mission">Missione</a></li>
-        <li><a href="#prodotto" data-i18n="nav_product">Prodotto</a></li>
-        <li><a href="#tecnologia" data-i18n="nav_technology">Tecnologia</a></li>
-        <li><a href="#come-funziona" data-i18n="nav_how">Come funziona</a></li>
-        <li><a href="#contatto" class="nav-cta" data-i18n="nav_cta">Richiedi demo</a></li>
-    </ul>
-    <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
-        <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
-        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <!-- Links + lang: right -->
+    <div style="display:flex;align-items:center;gap:2.5rem;">
+        <ul>
+            <li><a href="#missione" data-i18n="nav_mission">Missione</a></li>
+            <li><a href="#prodotto" data-i18n="nav_product">Prodotto</a></li>
+            <li><a href="#tecnologia" data-i18n="nav_technology">Tecnologia</a></li>
+            <li><a href="#come-funziona" data-i18n="nav_how">Come funziona</a></li>
+            <li><a href="#contatto" class="nav-cta" data-i18n="nav_cta">Richiedi demo</a></li>
+        </ul>
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+            <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
     </div>
-    <!-- Mobile dropdown (inside nav for corner positioning) -->
+    <!-- Mobile dropdown -->
     <div class="lang-dropdown-wrap">
         <button class="lang-dropdown-btn" id="langDropBtn" onclick="toggleLangDropdown()">IT ▾</button>
         <div class="lang-dropdown-menu" id="langDropMenu">
@@ -427,7 +432,7 @@
     <div class="water"></div>
 
     <div class="hero-content">
-        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.15rem;margin-bottom:1.5rem;">
+        <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.75rem;">
             <div class="hero-badge" style="margin-bottom:0;" data-i18n="hero_badge">Robot di soccorso acquatico</div>
             <div class="hero-badge" style="background:rgba(255,107,53,0.15);border-color:rgba(255,107,53,0.4);color:var(--orange);margin-bottom:0;">Made in Germany</div>
         </div>
