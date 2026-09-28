@@ -14,18 +14,24 @@ if (featTrack && featPages > 0) {
     }
     featSlide(0);
 
+    let featAutoTimer = setInterval(() => featGoTo((featIndex + 1) % featPages), 3500);
+    function featResetAuto() {
+        clearInterval(featAutoTimer);
+        featAutoTimer = setInterval(() => featGoTo((featIndex + 1) % featPages), 3500);
+    }
+
     let featTouchStartX = null;
     featTrack.addEventListener('touchstart', e => { featTouchStartX = e.touches[0].clientX; }, {passive:true});
     featTrack.addEventListener('touchend', e => {
         if (featTouchStartX === null) return;
         const dx = e.changedTouches[0].clientX - featTouchStartX;
         featTouchStartX = null;
-        if (Math.abs(dx) > 0) featSlide(dx > 0 ? -1 : 1);
+        if (Math.abs(dx) > 0) { featSlide(dx > 0 ? -1 : 1); featResetAuto(); }
     }, {passive:true});
 }
 
-function featSlide(dir) {
-    featIndex = Math.max(0, Math.min(featPages - 1, featIndex + dir));
+function featGoTo(index) {
+    featIndex = index;
     featTrack.style.transform = `translateX(-${featIndex * 100}%)`;
     document.querySelectorAll('.feat-slider-dot').forEach((d, i) => d.classList.toggle('active', i === featIndex));
     const featPrevEl = document.getElementById('featPrev');
@@ -33,6 +39,10 @@ function featSlide(dir) {
     if (featPrevEl) featPrevEl.disabled = featIndex === 0;
     if (featNextEl) featNextEl.disabled = featIndex === featPages - 1;
     document.querySelectorAll('.feat-swipe-hint').forEach(h => h.classList.toggle('hidden', featIndex > 0));
+}
+
+function featSlide(dir) {
+    featGoTo(Math.max(0, Math.min(featPages - 1, featIndex + dir)));
 }
 
 const obs = new IntersectionObserver(entries => {
