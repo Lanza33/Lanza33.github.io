@@ -224,6 +224,7 @@ footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:
 .footer-badge { height:92px; width:auto; display:block; border-radius:0.25rem; }
 .footer-partner-logo { height:56px; width:auto; display:block; }
 .footer-bottom-logo { display:none; }
+.footer-topline-madeby { display:none; }
 @media(max-width:900px) {
     .footer-grid {
         grid-template-columns:1fr 1fr;
@@ -243,9 +244,10 @@ footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:
 }
 @media(max-width:600px) {
     .footer-bottom { flex-direction:column; align-items:center; text-align:center; }
-    .footer-bottom > div { justify-content:center; width:100%; min-width:0; }
-    .footer-legal-links { justify-content:center; }
-    .footer-bottom-logo { display:block; height:44px; width:auto; margin-bottom:0.5rem; }
+    .footer-bottom > div { justify-content:center; width:100%; min-width:0; order:3; }
+    .footer-legal-links { justify-content:center; order:4; }
+    .footer-topline-madeby { display:block; color:var(--text-muted); font-size:0.82rem; order:1; margin-bottom:0.4rem; }
+    .footer-bottom-logo { display:block; height:44px; width:auto; margin-bottom:0.75rem; order:2; }
     .footer-madeby { display:none !important; }
 }
 
