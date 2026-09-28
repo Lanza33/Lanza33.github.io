@@ -247,7 +247,7 @@ footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:
     .footer-bottom > div { justify-content:center; width:100%; min-width:0; order:3; }
     .footer-legal-links { justify-content:center; order:4; }
     .footer-topline-madeby { display:block; color:var(--text-muted); font-size:0.82rem; order:1; margin-bottom:0.4rem; }
-    .footer-bottom-logo { display:block; height:28px; width:auto; margin-bottom:0.75rem; order:2; }
+    .footer-bottom-logo { display:block; height:16px; width:auto; margin-bottom:0.75rem; order:2; }
     .footer-madeby { display:none !important; }
 }
 
