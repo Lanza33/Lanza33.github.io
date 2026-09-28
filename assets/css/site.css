@@ -299,6 +299,7 @@ section[id] { scroll-margin-top: 160px; }
     #missione .sec-title { text-align:center; }
     .media-desc { color:#fff !important; }
     .media-header { margin-bottom:2rem !important; }
+    .media-card { border-radius:2rem !important; }
     #missione > .container > div:first-child > div { align-items:center; }
     [style*="grid-template-columns:1fr 1fr;gap:5rem"] { grid-template-columns:1fr !important; gap:3rem !important; }
     .hero { padding-top:7rem; }
