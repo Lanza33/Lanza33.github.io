@@ -1,24 +1,3 @@
-// Partner slider (mobile)
-let partnerIndex = 0;
-const partnerTrack = document.getElementById('partnerTrack');
-const partnerDotsEl = document.getElementById('partnerDots');
-const partnerTotal = 2;
-if (partnerTrack) {
-    for (let i = 0; i < partnerTotal; i++) {
-        const d = document.createElement('div');
-        d.className = 'feat-slider-dot' + (i === 0 ? ' active' : '');
-        partnerDotsEl.appendChild(d);
-    }
-    partnerSlide(0);
-}
-function partnerSlide(dir) {
-    partnerIndex = Math.max(0, Math.min(partnerTotal - 1, partnerIndex + dir));
-    partnerTrack.style.transform = `translateX(-${partnerIndex * 100}%)`;
-    document.querySelectorAll('#partnerDots .feat-slider-dot').forEach((d, i) => d.classList.toggle('active', i === partnerIndex));
-    document.getElementById('partnerPrev').disabled = partnerIndex === 0;
-    document.getElementById('partnerNext').disabled = partnerIndex === partnerTotal - 1;
-}
-
 // Feature cards slider (mobile)
 let featIndex = 0;
 const featTrack = document.getElementById('featTrack');
@@ -112,7 +91,7 @@ const translations = {
         form_submit:'Prenota una demo gratuita', form_note:'Nessun impegno · Risposta entro 24 ore',
         form_phone_ph:'+39 000 000 0000',
         partner_label:'Partner', partner_title:'Con chi lavoriamo',
-        footer_legal:'Note legali', footer_contact:'Contatti',
+        footer_legal:'Note legali', footer_contact:'Contatto',
         footer_tagline:'Robot autonomi per il soccorso in acqua, sviluppati per salvare vite senza mettere in pericolo i soccorritori.', footer_quicklinks:'Link rapidi', footer_madeby:'· made by',
         copyright:'© 2026 AquaRescueSystems · Tutti i diritti riservati',
 

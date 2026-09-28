@@ -198,10 +198,10 @@ textarea { resize:none; min-height:100px; }
 footer { background:var(--bg-surface); border-top:1px solid var(--border); padding:4.5rem 2rem 2rem; }
 .footer-grid {
     max-width:1200px; margin:0 auto; display:grid;
-    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        "brand quicklinks kontakt badges"
-        "social quicklinks kontakt badges";
+        "brand quicklinks kontakt partner badges"
+        "social quicklinks kontakt partner badges";
     gap:1rem 3rem;
     padding-bottom:2.75rem; border-bottom:1px solid var(--border);
 }
@@ -209,6 +209,7 @@ footer { background:var(--bg-surface); border-top:1px solid var(--border); paddi
 .footer-social { grid-area:social; display:flex; gap:0.75rem; align-items:center; align-self:start; }
 .footer-quicklinks { grid-area:quicklinks; }
 .footer-kontakt { grid-area:kontakt; }
+.footer-partner { grid-area:partner; display:flex; flex-direction:column; gap:1.1rem; align-items:flex-start; }
 .footer-badges { grid-area:badges; display:flex; flex-direction:column; gap:1rem; align-items:flex-start; }
 .footer-heading { font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); font-weight:600; margin-bottom:1.25rem; }
 .footer-links { display:flex; flex-direction:column; gap:0.85rem; list-style:none; }
@@ -220,13 +221,14 @@ footer { background:var(--bg-surface); border-top:1px solid var(--border); paddi
 .footer-bottom { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; padding-top:1.75rem; }
 .footer-legal-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
 .footer-badge { height:52px; width:auto; display:block; border-radius:0.25rem; }
+.footer-partner-logo { height:40px; width:auto; display:block; }
 @media(max-width:900px) {
     .footer-grid {
         grid-template-columns:1fr 1fr;
         grid-template-areas:
             "brand brand"
             "kontakt quicklinks"
-            "badges ."
+            "partner badges"
             "social social";
         gap:2.25rem 1.5rem;
         text-align:left;
@@ -354,12 +356,6 @@ section[id] { scroll-margin-top: 160px; }
 /* CONTACT grid (from index.html inline block) */
 @media(max-width:900px){
     #contatto .container { grid-template-columns:1fr !important; gap:3rem !important; }
-}
-
-/* PARTNER slider (from index.html inline block) */
-@media(max-width:900px) {
-    .partner-desktop { display:none !important; }
-    .partner-mobile { display:block !important; }
 }
 
 /* PAGE HEADER responsive */

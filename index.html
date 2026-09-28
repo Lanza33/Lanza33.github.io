@@ -549,48 +549,6 @@
     </div>
 </section>
 
-<!-- PARTNER -->
-<section style="background:var(--bg-surface);border-top:1px solid var(--border);padding:2rem 2rem;">
-    <div class="container">
-        <div class="fade-up" style="text-align:center;margin-bottom:1.5rem;">
-            <p class="sec-label" data-i18n="partner_label">Partner</p>
-            <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--text);" data-i18n="partner_title">Con chi lavoriamo</h2>
-        </div>
-        <!-- Desktop -->
-        <div class="partner-desktop fade-up" style="display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;">
-            <div style="background:#ffffff;border-radius:1rem;padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:center;height:120px;min-width:220px;border:1px solid rgba(0,0,0,0.08);transition:all 0.3s;" onmouseover="this.style.boxShadow='0 12px 32px rgba(0,212,255,0.15)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
-                <img src="assets/images/wrgb.jpeg" alt="WRGB" style="max-height:80px;max-width:180px;width:auto;height:auto;object-fit:contain;">
-            </div>
-            <div style="background:#ffffff;border-radius:1rem;padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:center;height:120px;min-width:220px;border:1px solid rgba(0,0,0,0.08);transition:all 0.3s;" onmouseover="this.style.boxShadow='0 12px 32px rgba(0,212,255,0.15)';this.style.transform='translateY(-3px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
-                <img src="assets/images/hlschiffstechnik.png" alt="HL Schiffstechnik" style="max-height:80px;max-width:180px;width:auto;height:auto;object-fit:contain;">
-            </div>
-        </div>
-
-        <!-- Mobile slider -->
-        <div class="partner-mobile fade-up" style="display:none;">
-            <div style="overflow:hidden;" id="partnerInner">
-                <div style="display:flex;transition:transform 0.35s ease;" id="partnerTrack">
-                    <div style="flex:0 0 100%;display:flex;justify-content:center;padding:0 0.5rem;">
-                        <div style="background:#ffffff;border-radius:1rem;padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:center;height:120px;width:100%;max-width:320px;border:1px solid rgba(0,0,0,0.08);">
-                            <img src="assets/images/wrgb.jpeg" alt="WRGB" style="max-height:80px;max-width:180px;width:auto;height:auto;object-fit:contain;">
-                        </div>
-                    </div>
-                    <div style="flex:0 0 100%;display:flex;justify-content:center;padding:0 0.5rem;">
-                        <div style="background:#ffffff;border-radius:1rem;padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:center;height:120px;width:100%;max-width:320px;border:1px solid rgba(0,0,0,0.08);">
-                            <img src="assets/images/hlschiffstechnik.png" alt="HL Schiffstechnik" style="max-height:80px;max-width:180px;width:auto;height:auto;object-fit:contain;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.25rem;">
-                <button class="feat-slider-btn" id="partnerPrev" onclick="partnerSlide(-1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-                <div style="display:flex;gap:0.4rem;" id="partnerDots"></div>
-                <button class="feat-slider-btn" id="partnerNext" onclick="partnerSlide(1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
     <div class="footer-grid">
@@ -638,6 +596,13 @@
                     <a href="tel:+393352856767">+39 335 285676</a>
                 </div>
             </div>
+        </div>
+
+        <!-- Partner -->
+        <div class="footer-partner">
+            <div class="footer-heading" data-i18n="partner_label">Partner</div>
+            <img src="assets/logos/wrgb_transparent.png" alt="WRGB" class="footer-partner-logo">
+            <img src="assets/images/hlschiffstechnik.png" alt="HL Schiffstechnik" class="footer-partner-logo">
         </div>
 
         <!-- Südtirol badges -->
