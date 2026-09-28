@@ -5,20 +5,34 @@ const featDotsEl = document.getElementById('featDots');
 const featPages = featTrack ? featTrack.querySelectorAll('.feat-page').length : 0;
 
 if (featTrack && featPages > 0) {
-    for (let i = 0; i < featPages; i++) {
-        const d = document.createElement('div');
-        d.className = 'feat-slider-dot' + (i === 0 ? ' active' : '');
-        featDotsEl.appendChild(d);
+    if (featDotsEl) {
+        for (let i = 0; i < featPages; i++) {
+            const d = document.createElement('div');
+            d.className = 'feat-slider-dot' + (i === 0 ? ' active' : '');
+            featDotsEl.appendChild(d);
+        }
     }
     featSlide(0);
+
+    let featTouchStartX = null;
+    featTrack.addEventListener('touchstart', e => { featTouchStartX = e.touches[0].clientX; }, {passive:true});
+    featTrack.addEventListener('touchend', e => {
+        if (featTouchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - featTouchStartX;
+        featTouchStartX = null;
+        if (Math.abs(dx) > 40) featSlide(dx > 0 ? 1 : -1);
+    }, {passive:true});
 }
 
 function featSlide(dir) {
     featIndex = Math.max(0, Math.min(featPages - 1, featIndex + dir));
     featTrack.style.transform = `translateX(-${featIndex * 100}%)`;
     document.querySelectorAll('.feat-slider-dot').forEach((d, i) => d.classList.toggle('active', i === featIndex));
-    document.getElementById('featPrev').disabled = featIndex === 0;
-    document.getElementById('featNext').disabled = featIndex === featPages - 1;
+    const featPrevEl = document.getElementById('featPrev');
+    const featNextEl = document.getElementById('featNext');
+    if (featPrevEl) featPrevEl.disabled = featIndex === 0;
+    if (featNextEl) featNextEl.disabled = featIndex === featPages - 1;
+    document.querySelectorAll('.feat-swipe-hint').forEach(h => h.classList.toggle('hidden', featIndex > 0));
 }
 
 const obs = new IntersectionObserver(entries => {
@@ -94,7 +108,7 @@ const translations = {
         form_phone_ph:'+39 000 000 0000',
         partner_label:'Partner', partner_title:'Con chi lavoriamo',
         footer_legal:'Note legali', footer_contact:'Contatto',
-        footer_tagline:'Robot autonomi per il soccorso in acqua, sviluppati per salvare vite senza mettere in pericolo i soccorritori.', footer_quicklinks:'Link rapidi', footer_madeby:'· made by', footer_madeby_top:'made by',
+        footer_tagline:'Robot autonomi per il soccorso in acqua, sviluppati per salvare vite senza mettere in pericolo i soccorritori.', footer_quicklinks:'Link rapidi', footer_madeby:'· made by', footer_madeby_top:'made by', swipe_hint:'Scorri per vedere gli altri step',
         copyright:'© 2026 AquaRescueSystems · Tutti i diritti riservati',
 
         crumb_home:'Home', learnmore:'Scopri di più',
@@ -205,7 +219,7 @@ const translations = {
         form_submit:'Kostenlose Demo buchen', form_note:'Unverbindlich · Antwort innerhalb 24 Stunden',
         partner_label:'Partner', partner_title:'Mit wem wir arbeiten',
         footer_legal:'Impressum', footer_contact:'Kontakt',
-        footer_tagline:'Autonome Wasserrettungsroboter, entwickelt um Leben zu retten, ohne Retter zu gefährden.', footer_quicklinks:'Quick Links', footer_madeby:'· made by', footer_madeby_top:'made by',
+        footer_tagline:'Autonome Wasserrettungsroboter, entwickelt um Leben zu retten, ohne Retter zu gefährden.', footer_quicklinks:'Quick Links', footer_madeby:'· made by', footer_madeby_top:'made by', swipe_hint:'Wische für die weiteren Schritte',
         copyright:'© 2026 AquaRescueSystems · Alle Rechte vorbehalten',
 
         crumb_home:'Home', learnmore:'Mehr erfahren',
@@ -316,7 +330,7 @@ const translations = {
         form_submit:'Book a free demo', form_note:'No commitment · Reply within 24 hours',
         partner_label:'Partners', partner_title:'Who we work with',
         footer_legal:'Legal notice', footer_contact:'Contact',
-        footer_tagline:'Autonomous water rescue robots, built to save lives without putting rescuers at risk.', footer_quicklinks:'Quick Links', footer_madeby:'· made by', footer_madeby_top:'made by',
+        footer_tagline:'Autonomous water rescue robots, built to save lives without putting rescuers at risk.', footer_quicklinks:'Quick Links', footer_madeby:'· made by', footer_madeby_top:'made by', swipe_hint:'Swipe to see the other steps',
         copyright:'© 2026 AquaRescueSystems · All rights reserved',
 
         crumb_home:'Home', learnmore:'Learn more',

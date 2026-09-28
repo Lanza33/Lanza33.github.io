@@ -337,6 +337,10 @@ section[id] { scroll-margin-top: 160px; }
     .feat-slider-dots { display:flex; gap:0.4rem; }
     .feat-slider-dot { width:6px; height:6px; border-radius:50%; background:var(--border); transition:background 0.2s; }
     .feat-slider-dot.active { background:var(--cyan); }
+    .feat-swipe-hint { display:flex; align-items:center; justify-content:center; gap:0.5rem; color:var(--text-muted); font-size:0.8rem; transition:opacity 0.3s ease; }
+    .feat-swipe-hint.hidden { opacity:0; }
+    .feat-swipe-hint svg { color:var(--cyan); animation:swipeNudge 1.4s ease-in-out infinite; }
+    @keyframes swipeNudge { 0%,100% { transform:translateX(0); } 50% { transform:translateX(6px); } }
 }
 @media(max-width:900px) {
     [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns:1fr 1fr !important; }
