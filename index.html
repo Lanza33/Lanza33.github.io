@@ -132,7 +132,7 @@
             position:fixed; top:0; left:0;
             width:100%; z-index:100;
             background:var(--bg-deep);
-            padding:0.75rem 2rem; display:flex; justify-content:space-between; align-items:center;
+            padding:0.75rem max(1.5rem, calc((100% - 1200px) / 2)); display:flex; justify-content:space-between; align-items:center;
             transition:background 0.3s;
         }
         .logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.1em; }
@@ -1103,7 +1103,13 @@
     </div>
 
     <div class="footer-bottom">
-        <div style="color:var(--text-muted);font-size:0.82rem;" data-i18n="copyright">© 2026 AquaRescueSystems · Tutti i diritti riservati</div>
+        <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+            <div style="color:var(--text-muted);font-size:0.82rem;" data-i18n="copyright">© 2026 AquaRescueSystems · Tutti i diritti riservati</div>
+            <a href="https://weeeb.ai" target="_blank" style="display:flex;align-items:center;gap:0.4rem;color:var(--text-muted);font-size:0.82rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">
+                <span data-i18n="footer_madeby">· made by</span>
+                <img src="weeeb_logo_white.svg" alt="Weeeb.ai" style="height:14px;width:auto;object-fit:contain;opacity:0.85;"/>
+            </a>
+        </div>
         <div class="footer-legal-links">
             <a href="#" onclick="document.getElementById('modal-note').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_legal">Note legali</a>
             <a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Privacy</a>
@@ -1389,7 +1395,7 @@
             form_phone_ph:'+39 000 000 0000',
             partner_label:'Partner', partner_title:'Con chi lavoriamo',
             footer_legal:'Note legali', footer_contact:'Contatti',
-            footer_tagline:'Robot autonomi per il soccorso in acqua, sviluppati per salvare vite senza mettere in pericolo i soccorritori.', footer_quicklinks:'Link rapidi',
+            footer_tagline:'Robot autonomi per il soccorso in acqua, sviluppati per salvare vite senza mettere in pericolo i soccorritori.', footer_quicklinks:'Link rapidi', footer_madeby:'· realizzato da',
             copyright:'© 2026 AquaRescueSystems · Tutti i diritti riservati'
         },
         de: {
@@ -1456,7 +1462,7 @@
             form_submit:'Kostenlose Demo buchen', form_note:'Unverbindlich · Antwort innerhalb 24 Stunden',
             partner_label:'Partner', partner_title:'Mit wem wir arbeiten',
             footer_legal:'Impressum', footer_contact:'Kontakt',
-            footer_tagline:'Autonome Wasserrettungsroboter, entwickelt um Leben zu retten, ohne Retter zu gefährden.', footer_quicklinks:'Quick Links',
+            footer_tagline:'Autonome Wasserrettungsroboter, entwickelt um Leben zu retten, ohne Retter zu gefährden.', footer_quicklinks:'Quick Links', footer_madeby:'· made by',
             copyright:'© 2026 AquaRescueSystems · Alle Rechte vorbehalten'
         },
         en: {
@@ -1523,7 +1529,7 @@
             form_submit:'Book a free demo', form_note:'No commitment · Reply within 24 hours',
             partner_label:'Partners', partner_title:'Who we work with',
             footer_legal:'Legal notice', footer_contact:'Contact',
-            footer_tagline:'Autonomous water rescue robots, built to save lives without putting rescuers at risk.', footer_quicklinks:'Quick Links',
+            footer_tagline:'Autonomous water rescue robots, built to save lives without putting rescuers at risk.', footer_quicklinks:'Quick Links', footer_madeby:'· made by',
             copyright:'© 2026 AquaRescueSystems · All rights reserved'
         }
     };
