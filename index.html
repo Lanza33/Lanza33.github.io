@@ -133,7 +133,13 @@
             width:100%; z-index:100;
             background:transparent;
             padding:0.75rem max(1.5rem, calc((100% - 1200px) / 2)); display:flex; justify-content:space-between; align-items:center;
-            transition:background 0.3s;
+            transition:background 0.3s, backdrop-filter 0.3s;
+        }
+        nav.scrolled {
+            background:rgba(2,12,24,0.55);
+            backdrop-filter:blur(14px) saturate(140%);
+            -webkit-backdrop-filter:blur(14px) saturate(140%);
+            border-bottom:1px solid rgba(255,255,255,0.06);
         }
         .logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.1em; }
         .logo span { color:var(--cyan); }
@@ -1594,6 +1600,16 @@
         if (btn) btn.textContent = currentLang.toUpperCase() + ' ▾';
         document.querySelectorAll('.lang-dropdown-item').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === currentLang));
     });
+
+    // Frost the nav bar once scrolled past the top
+    (function () {
+        const navEl = document.getElementById('nav');
+        function updateNav() {
+            navEl.classList.toggle('scrolled', window.scrollY > 40);
+        }
+        window.addEventListener('scroll', updateNav, { passive: true });
+        updateNav();
+    })();
 </script>
 </body>
 </html>
