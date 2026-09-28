@@ -20,7 +20,7 @@ if (featTrack && featPages > 0) {
         if (featTouchStartX === null) return;
         const dx = e.changedTouches[0].clientX - featTouchStartX;
         featTouchStartX = null;
-        if (Math.abs(dx) > 12) featSlide(dx > 0 ? -1 : 1);
+        if (Math.abs(dx) > 5) featSlide(dx > 0 ? -1 : 1);
     }, {passive:true});
 }
 
