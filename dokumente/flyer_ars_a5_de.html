@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>ARS – Flyer A5 DE</title>
+
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+        background:#333;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        min-height:100vh;
+        font-family:Helvetica, sans-serif;
+        padding:2rem;
+        gap:3rem;
+    }
+
+    .flyer {
+        width:148mm;
+        height:210mm;
+        background:#020C18;
+        position:relative;
+        overflow:visible;
+        display:flex;
+        flex-direction:column;
+        box-shadow:0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    /* Grid background */
+    .flyer::before {
+        content:'';
+        position:absolute;
+        inset:0;
+        background-image:
+            linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+        background-size:12mm 12mm;
+        pointer-events:none;
+    }
+
+    /* TOP ACCENT LINE */
+    .top-line {
+        width:100%;
+        height:2.5px;
+        background:linear-gradient(to right, transparent, #00D4FF 30%, #00D4FF 70%, transparent);
+        flex-shrink:0;
+    }
+
+    /* HEADER */
+    .header {
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:5mm 6mm 3mm;
+        flex-shrink:0;
+        overflow:visible;
+    }
+    .logo-area {
+        display:flex;
+        align-items:center;
+        gap:3mm;
+    }
+    .logo-ars {
+        font-family:Arial, sans-serif;
+        font-size:40pt;
+        line-height:1;
+        letter-spacing:0.03em;
+    }
+    .logo-ars .a { color:#fff; }
+    .logo-ars .r { color:#FF6B35; }
+    .logo-ars .s { color:#fff; }
+    .logo-sub {
+        font-family:Helvetica, sans-serif;
+        font-size:6pt;
+        letter-spacing:0.18em;
+        text-transform:uppercase;
+        color:#6B8BAA;
+        font-weight:600;
+        line-height:1.5;
+        border-left:1px solid rgba(0,212,255,0.3);
+        padding-left:3mm;
+    }
+    .badge-made {
+        background:rgba(255,107,53,0.15);
+        border:1px solid rgba(255,107,53,0.4);
+        border-radius:20px;
+        padding:1.5mm 4mm;
+        font-size:5pt;
+        font-weight:600;
+        letter-spacing:0.15em;
+        text-transform:uppercase;
+        color:#FF6B35;
+    }
+
+    /* HERO IMAGE AREA */
+    .hero-img {
+        flex-shrink:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:2mm 0 0;
+        position:relative;
+    }
+    .hero-img img {
+        width:62mm;
+        height:auto;
+        filter:drop-shadow(0 0 12mm rgba(255,107,53,0.5));
+        position:relative;
+        z-index:2;
+    }
+    .sonar-bg {
+        position:absolute;
+        width:70mm;
+        height:70mm;
+        border-radius:50%;
+        border:1px solid rgba(0,212,255,0.15);
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+    }
+    .sonar-bg:nth-child(2) { width:52mm; height:52mm; }
+    .sonar-bg:nth-child(3) { width:35mm; height:35mm; }
+
+    /* HEADLINE */
+    .headline {
+        padding:3mm 6mm 2mm;
+        flex-shrink:0;
+    }
+    .headline h1 {
+        font-family:Arial, sans-serif;
+        font-size:34pt;
+        line-height:0.9;
+        letter-spacing:0.02em;
+        color:#fff;
+    }
+    .headline h1 span { color:#00D4FF; }
+    .headline p {
+        font-size:7.5pt;
+        color:#A0B8CC;
+        line-height:1.6;
+        font-weight:400;
+        margin-top:2mm;
+        max-width:100mm;
+    }
+
+    /* STATS BAR */
+    .stats {
+        display:flex;
+        margin:3mm 6mm;
+        background:rgba(0,212,255,0.05);
+        border:1px solid rgba(0,212,255,0.15);
+        border-radius:4mm;
+        overflow:visible;
+        flex-shrink:0;
+    }
+    .stat {
+        flex:1;
+        padding:2.5mm 2mm;
+        text-align:center;
+        border-right:1px solid rgba(0,212,255,0.12);
+    }
+    .stat:last-child { border-right:none; }
+    .stat-num {
+        font-family:Arial, sans-serif;
+        font-size:14pt;
+        color:#00D4FF;
+        line-height:1;
+    }
+    .stat-lbl {
+        font-size:4.5pt;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+        color:#6B8BAA;
+        margin-top:0.5mm;
+    }
+
+    /* FEATURES */
+    .features {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:2mm;
+        margin:0 6mm;
+        flex-shrink:0;
+    }
+    .feat {
+        background:rgba(255,255,255,0.03);
+        border:1px solid rgba(255,255,255,0.07);
+        border-radius:3mm;
+        padding:3mm;
+        display:flex;
+        align-items:flex-start;
+        gap:2mm;
+    }
+    .feat-icon {
+        width:7mm;
+        height:7mm;
+        background:rgba(0,212,255,0.1);
+        border-radius:2mm;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-shrink:0;
+    }
+    .feat-icon svg { width:4mm; height:4mm; }
+    .feat-text {}
+    .feat-title {
+        font-family:Helvetica, sans-serif;
+        font-size:7pt;
+        font-weight:700;
+        letter-spacing:0.05em;
+        text-transform:uppercase;
+        color:#ffffff;
+        line-height:1.2;
+    }
+    .feat-desc {
+        font-size:5.5pt;
+        color:#A0B8CC;
+        line-height:1.5;
+        font-weight:400;
+        margin-top:0.5mm;
+    }
+
+    /* DIVIDER */
+    .divider {
+        height:1px;
+        background:linear-gradient(to right, transparent, rgba(0,212,255,0.2), transparent);
+        margin:3mm 6mm;
+        flex-shrink:0;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding:3mm 6mm 4mm;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:2.5mm;
+        flex-shrink:0;
+        margin-top:auto;
+        border-top:1px solid rgba(0,212,255,0.2);
+        text-align:center;
+    }
+    .contact-grid {
+        display:flex;
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:3mm 6mm;
+    }
+    .contact-item {
+        display:flex;
+        align-items:center;
+        gap:2mm;
+    }
+    .contact-item-icon { display:flex; align-items:center; }
+    .contact-item-icon svg { width:3.5mm; height:3.5mm; flex-shrink:0; }
+    .contact-item-text { display:flex; flex-direction:column; }
+    .contact-item-label {
+        font-size:4pt;
+        color:#6B8BAA;
+        font-weight:600;
+        letter-spacing:0.1em;
+        text-transform:uppercase;
+    }
+    .contact-item-value {
+        font-size:6.5pt;
+        color:#E8F4FD;
+        font-weight:600;
+    }
+    .contact-item-value a {
+        color:#E8F4FD;
+        text-decoration:none;
+    }
+    .cta-box {
+        background:linear-gradient(135deg, #00D4FF, #0099BB);
+        border-radius:3mm;
+        padding:3mm 5mm;
+        text-align:center;
+    }
+    .cta-box div:first-child {
+        font-family:Helvetica, sans-serif;
+        font-size:6pt;
+        font-weight:700;
+        letter-spacing:0.12em;
+        text-transform:uppercase;
+        color:#020C18;
+        line-height:1.2;
+    }
+    .cta-box div:last-child {
+        font-family:Arial, sans-serif;
+        font-size:10pt;
+        color:#020C18;
+        letter-spacing:0.05em;
+        margin-top:0.5mm;
+    }
+
+    /* BOTTOM LINE */
+    .bottom-line {
+        width:100%;
+        height:2px;
+        background:linear-gradient(to right, #FF6B35 0%, #00D4FF 100%);
+        flex-shrink:0;
+    }
+
+    /* PRINT */
+    @media print {
+        body { background:white; padding:0; margin:0; gap:0; }
+        .flyer { box-shadow:none; break-after:page; }
+    }
+    .print-btn {
+        position:fixed;
+        bottom:2rem;
+        right:2rem;
+        background:#00D4FF;
+        color:#020C18;
+        border:none;
+        border-radius:0.5rem;
+        padding:0.75rem 1.5rem;
+        font-family:Helvetica, sans-serif;
+        font-weight:700;
+        font-size:0.9rem;
+        letter-spacing:0.05em;
+        text-transform:uppercase;
+        cursor:pointer;
+    }
+    @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<div class="flyer">
+    <div class="top-line"></div>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo-area">
+            <img src="../assets/logos/ars_logo_transparent.svg" alt="ARS Logo" style="height:22mm;width:auto;object-fit:contain;"/>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5mm;align-items:flex-end;">
+            <div class="badge-made">● Made in Germany</div>
+            <div style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);border-radius:20px;padding:1.5mm 4mm;font-size:5pt;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#00D4FF;">● Wasserrettungsroboter</div>
+        </div>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <div class="hero-img">
+        <div class="sonar-bg"></div>
+        <div class="sonar-bg"></div>
+        <div class="sonar-bg"></div>
+        <img src="../assets/images/dolphin3_front.png" alt="Dolphin 3"/>
+    </div>
+
+    <!-- HEADLINE -->
+    <div class="headline">
+        <h1>Leben retten.<br><span>Ohne Risiken.</span></h1>
+        <p>Autonomer Wasserrettungsroboter. Erreicht die Person in Not in weniger als 90 Sekunden, ohne Retter zu gefährden.</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-num">&lt;90s</div>
+            <div class="stat-lbl">Reaktion</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">7 m/s</div>
+            <div class="stat-lbl">Geschwindigkeit</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">1.000kg</div>
+            <div class="stat-lbl">Zugkraft</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">1.800m</div>
+            <div class="stat-lbl">Reichweite</div>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feat">
+            <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <div class="feat-text">
+                <div class="feat-title">Integrierte Kamera</div>
+                <div class="feat-desc">Automatische Erkennung auch nachts und bei schwierigen Bedingungen.</div>
+            </div>
+        </div>
+        <div class="feat">
+            <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg>
+            </div>
+            <div class="feat-text">
+                <div class="feat-title">Fernbedienung 1.800m</div>
+                <div class="feat-desc">Präzise Echtzeit-Navigation gegen Strömungen und Wind.</div>
+            </div>
+        </div>
+        <div class="feat">
+            <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+            </div>
+            <div class="feat-text">
+                <div class="feat-title">Selbstaufrichtend</div>
+                <div class="feat-desc">Richtet sich automatisch in aufgewühltem Wasser auf.</div>
+            </div>
+        </div>
+        <div class="feat">
+            <div class="feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            </div>
+            <div class="feat-text">
+                <div class="feat-title">Null Risiko für Retter</div>
+                <div class="feat-desc">Die Retter bleiben am Ufer. Immer.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 2.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.35 6.35l1.27-1.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+                <div class="contact-item-text"><div class="contact-item-label">Telefon</div><div class="contact-item-value">+39 335 285676</div></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <div class="contact-item-text"><div class="contact-item-label">E-Mail</div><div class="contact-item-value"><a href="mailto:info@aquarescuesystems.com">info@aquarescuesystems.com</a></div></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+                <div class="contact-item-text"><div class="contact-item-label">Website</div><div class="contact-item-value">aquarescuesystems.com</div></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#00D4FF" stroke="none"/></svg></div>
+                <div class="contact-item-text"><div class="contact-item-label">Instagram</div><div class="contact-item-value">@aquarescuesystems</div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-line"></div>
+</div>
+
+<!-- RÜCKSEITE -->
+<div class="flyer" style="justify-content:center;align-items:center;gap:0;">
+    <div class="top-line"></div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:8mm;padding:8mm 6mm;">
+
+        <!-- Logo -->
+        <div style="text-align:center;">
+            <img src="../assets/logos/ars_logo_transparent.svg" alt="ARS Logo" style="height:45mm;width:auto;object-fit:contain;display:block;margin:0 auto;"/>
+        </div>
+
+        <!-- Tagline -->
+        <div style="text-align:center;">
+            <div style="font-family:Arial,sans-serif;font-size:22pt;color:#fff;letter-spacing:0.05em;line-height:1.1;">Leben retten.</div>
+            <div style="font-family:Arial,sans-serif;font-size:22pt;color:#00D4FF;letter-spacing:0.05em;line-height:1.1;">Ohne Risiken.</div>
+        </div>
+
+        <!-- QR Code grande -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4mm;">
+            <div style="background:white;padding:4mm;border-radius:4mm;box-shadow:0 0 20mm rgba(0,212,255,0.2);">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://aquarescuesystems.com&bgcolor=ffffff&color=020C18&margin=4" width="80mm" height="80mm" alt="QR Code aquarescuesystems.com"/>
+            </div>
+            <div style="font-family:Helvetica,sans-serif;font-size:9pt;letter-spacing:0.15em;text-transform:uppercase;color:#C8D8E8;font-weight:600;text-align:center;">Scannen für mehr Informationen</div>
+            <div style="font-size:8pt;color:#6B8BAA;letter-spacing:0.05em;text-align:center;">aquarescuesystems.com</div>
+        </div>
+
+        <!-- Divider -->
+        <div style="width:80%;height:1px;background:linear-gradient(to right,transparent,rgba(0,212,255,0.3),transparent);"></div>
+
+        <!-- Contatti brevi -->
+        <div style="display:flex;gap:6mm;align-items:center;justify-content:center;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:2mm;">
+                <svg width="4mm" height="4mm" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 2.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.35 6.35l1.27-1.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <span style="font-size:7pt;color:#C8D8E8;font-weight:500;">+39 335 285676</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:2mm;">
+                <svg width="4mm" height="4mm" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#00D4FF" stroke="none"/></svg>
+                <span style="font-size:7pt;color:#C8D8E8;font-weight:500;">@aquarescuesystems</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:2mm;">
+                <svg width="4mm" height="4mm" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span style="font-size:7pt;color:#C8D8E8;font-weight:500;">info@aquarescuesystems.com</span>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="cta-box" style="width:80%;text-align:center;">
+            <div>Kostenlose</div>
+            <div>DEMO BUCHEN</div>
+        </div>
+
+
+    </div>
+
+    <div class="bottom-line"></div>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨 Drucken / Als PDF speichern (2 Seiten)</button>
+
+</body>
+</html>

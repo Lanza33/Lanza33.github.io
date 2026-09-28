@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARS Logo Export</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #logo-container {
+            width: 600px;
+            height: 600px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-ars {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 200px;
+            line-height: 1;
+            letter-spacing: 0.05em;
+            font-weight: 900;
+        }
+        .logo-ars .top { color: white; }
+        .logo-ars .bot { color: #FF6B35; }
+    </style>
+</head>
+<body>
+
+<div id="logo-container">
+    <div class="logo-ars">
+        <span class="top">A</span><span class="bot">R</span><span class="top">S</span>
+    </div>
+</div>
+
+<script>
+    async function exportLogo() {
+        const element = document.getElementById('logo-container');
+        const canvas = await html2canvas(element, {
+            scale: 2,
+            backgroundColor: 'transparent',
+            useCORS: true
+        });
+
+        canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'ars-logo.png';
+            link.click();
+            URL.revokeObjectURL(url);
+        }, 'image/png');
+    }
+
+    window.addEventListener('load', exportLogo);
+</script>
+
+</body>
+</html>

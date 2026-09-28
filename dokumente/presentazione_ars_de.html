@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Aqua Rescue Systems – Präsentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+    --bg:     #020C18;
+    --cyan:   #00D4FF;
+    --orange: #FF6B35;
+    --white:  #ffffff;
+    --muted:  #5A7A99;
+    --card:   rgba(255,255,255,0.03);
+    --border: rgba(0,212,255,0.12);
+}
+
+body { font-family:'Barlow',sans-serif; background:#0d0d0d; }
+
+/* ── SLIDE BASE ── */
+.slide {
+    width:297mm; height:210mm;
+    background:var(--bg);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    page-break-after:always;
+    page-break-inside:avoid;
+}
+
+/* top accent line */
+.slide::after {
+    content:'';
+    position:absolute; top:0; left:0; right:0;
+    height:2px;
+    background:linear-gradient(to right, transparent 0%, var(--cyan) 40%, transparent 100%);
+    z-index:10;
+}
+
+/* ── HEADER ── */
+.sh {
+    padding:5mm 14mm 5mm;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(0,212,255,0.08);
+    flex-shrink:0;
+    position:relative;
+}
+.sh img   { height:64px; width:auto; }
+.sh-label { font-family:'Barlow Condensed',sans-serif; font-size:12pt; letter-spacing:3px; color:var(--cyan); text-transform:uppercase; font-weight:600; position:absolute; left:50%; transform:translateX(-50%); }
+.sh-num   { font-size:11pt; color:var(--muted); letter-spacing:1px; }
+
+/* ── FOOTER ── */
+.sf {
+    position:absolute; bottom:5mm; left:14mm; right:14mm;
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid rgba(0,212,255,0.06);
+    padding-top:2.5mm;
+    flex-shrink:0;
+}
+.sf img { height:14px; width:auto; opacity:0.5; }
+.sf-url { font-size:6pt; color:var(--muted); letter-spacing:1px; }
+
+/* ── BODY ── */
+.sb {
+    flex:1;
+    padding:8mm 14mm 16mm;
+    display:flex;
+    gap:12mm;
+}
+.col { display:flex; flex-direction:column; }
+
+/* ── TYPOGRAPHY ── */
+.s-eyebrow {
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:7pt; letter-spacing:3px;
+    color:var(--cyan); text-transform:uppercase; font-weight:600;
+    margin-bottom:3mm;
+}
+.s-title {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:36pt; color:var(--white);
+    line-height:0.95; letter-spacing:0.5px;
+    margin-bottom:5mm;
+}
+.s-title .c { color:var(--cyan); }
+.s-title .o { color:var(--orange); }
+.s-body {
+    font-size:9.5pt; color:rgba(255,255,255,0.65);
+    line-height:1.75; font-weight:300;
+}
+
+/* ── CHECK LIST ── */
+.checklist { display:flex; flex-direction:column; gap:4.5mm; }
+.ci { display:flex; gap:7px; align-items:flex-start; }
+.ci-dot {
+    width:15px; height:15px; flex-shrink:0; margin-top:1px;
+    border:1.5px solid var(--orange); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:7pt; color:var(--orange); font-weight:700;
+}
+.ci-text { font-size:9pt; color:rgba(255,255,255,0.75); line-height:1.55; font-weight:300; }
+
+/* ── STAT GRID ── */
+.stat-row { display:flex; gap:6mm; }
+.stat {
+    flex:1;
+    background:rgba(0,212,255,0.04);
+    border:1px solid var(--border);
+    border-radius:7px;
+    padding:5mm 6mm;
+    position:relative; overflow:hidden;
+}
+.stat::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(to right, transparent, var(--cyan), transparent);
+}
+.stat.o::before { background:linear-gradient(to right, transparent, var(--orange), transparent); }
+.stat-n { font-family:'Bebas Neue',sans-serif; font-size:28pt; color:var(--cyan); line-height:1; }
+.stat.o .stat-n { color:var(--orange); }
+.stat-l { font-size:6.5pt; color:var(--muted); text-transform:uppercase; letter-spacing:1.5px; margin-top:2px; }
+
+/* ── CARD ── */
+.card {
+    background:var(--card);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:8px;
+    padding:5mm 6mm;
+    position:relative; overflow:hidden;
+}
+.card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(to right, transparent, var(--cyan), transparent);
+}
+.card-label {
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:7pt; letter-spacing:2.5px;
+    color:var(--cyan); text-transform:uppercase; font-weight:600;
+    margin-bottom:3mm;
+}
+.card-body { font-size:9pt; color:rgba(255,255,255,0.65); line-height:1.65; font-weight:300; }
+
+/* ── SPEC TABLE ── */
+.spec-row {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:3mm 0;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    font-size:8.5pt;
+}
+.spec-row:last-child { border-bottom:none; }
+.spec-key { color:var(--muted); }
+.spec-val { font-weight:600; color:var(--white); }
+.spec-val.c { color:var(--cyan); }
+.spec-val.o { color:var(--orange); }
+
+/* ── STEP LIST ── */
+.steps { display:flex; flex-direction:column; gap:5mm; }
+.step { display:flex; gap:5mm; align-items:flex-start; }
+.step-n {
+    width:7mm; height:7mm; flex-shrink:0;
+    background:var(--cyan); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:7pt; font-weight:700; color:var(--bg);
+    margin-top:1px;
+}
+.step-title { font-family:'Barlow Condensed',sans-serif; font-size:9pt; color:var(--white); font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+.step-desc  { font-size:8pt; color:var(--muted); line-height:1.5; margin-top:1mm; }
+
+/* ── 3-COL GRID ── */
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; }
+.g-card {
+    background:rgba(0,212,255,0.04);
+    border:1px solid var(--border);
+    border-radius:8px; padding:5mm;
+    position:relative; overflow:hidden;
+}
+.g-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--cyan); }
+.g-card.o::before { background:var(--orange); }
+.g-icon  { font-size:18pt; margin-bottom:3mm; }
+.g-title { font-family:'Barlow Condensed',sans-serif; font-size:9pt; color:var(--white); font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:2mm; }
+.g-desc  { font-size:8pt; color:var(--muted); line-height:1.5; }
+
+/* ── DIVIDER ── */
+.divider { width:100%; height:1px; background:rgba(0,212,255,0.08); margin:4mm 0; }
+
+/* ── PRINT ── */
+@media print {
+    @page { size:A4 landscape; margin:0; }
+    body  { background:white; padding:0; display:block; }
+    .slide { transform:none; margin:0; box-shadow:none; }
+    .print-btn { display:none !important; }
+}
+
+@media screen {
+    body { padding:24px; display:flex; flex-direction:column; gap:24px; align-items:center; }
+    .slide { box-shadow:0 24px 70px rgba(0,0,0,0.85); transform:scale(0.7); transform-origin:top center; margin-bottom:-64mm; }
+    .print-btn {
+        position:fixed; bottom:28px; right:28px;
+        background:var(--orange); color:#fff; border:none;
+        padding:13px 26px; border-radius:8px; font-size:13px;
+        font-weight:600; cursor:pointer; font-family:'Barlow',sans-serif;
+        letter-spacing:1px; z-index:999;
+        box-shadow:0 8px 28px rgba(255,107,53,0.4);
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 1 · COVER
+══════════════════════════════════════════════════════════ -->
+<div class="slide" style="background:radial-gradient(ellipse at 75% 50%, rgba(255,107,53,0.12) 0%, rgba(0,212,255,0.05) 40%, transparent 65%), #020C18; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding:12mm 16mm 18mm;">
+
+    <!-- drone right — absolutely positioned -->
+    <img src="../assets/images/dolphin3_front.png" alt="Dolphin 3" style="position:absolute; right:8mm; top:50%; transform:translateY(-50%); height:105mm; width:auto; pointer-events:none;"/>
+
+    <!-- logo top-left -->
+    <img src="../assets/logos/ars_logo_transparent.svg" alt="ARS" style="height:160px; width:auto; margin-left:-30mm; margin-bottom:7mm;"/>
+
+    <!-- headline — max-width keeps text away from drone -->
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:52pt;color:var(--white);line-height:0.93;letter-spacing:0.5px;margin-bottom:5mm;max-width:145mm;">
+        Leben retten.<br><span style="color:var(--cyan);">Ohne Risiko.</span>
+    </div>
+
+    <!-- sub -->
+    <p style="font-size:10pt;color:var(--muted);max-width:125mm;line-height:1.7;font-weight:300;margin-bottom:8mm;">
+        Autonome Wasserrettungsroboter, die Opfer in weniger als 90 Sekunden erreichen — ohne Retter zu gefährden.
+    </p>
+
+    <!-- stats row -->
+    <div style="display:flex;gap:8mm;align-items:center;">
+        <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:24pt;color:var(--cyan);line-height:1;">&lt; 90s</div>
+            <div style="font-size:6pt;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:1mm;">Reaktionszeit</div>
+        </div>
+        <div style="width:1px;height:9mm;background:var(--border);"></div>
+        <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:24pt;color:var(--cyan);line-height:1;">7 m/s</div>
+            <div style="font-size:6pt;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:1mm;">Höchstgeschwindigkeit</div>
+        </div>
+        <div style="width:1px;height:9mm;background:var(--border);"></div>
+        <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:24pt;color:var(--orange);line-height:1;">1.000 kg</div>
+            <div style="font-size:6pt;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:1mm;">Schleppleistung</div>
+        </div>
+        <div style="width:1px;height:9mm;background:var(--border);"></div>
+        <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:24pt;color:var(--orange);line-height:1;">+340%</div>
+            <div style="font-size:6pt;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:1mm;">Überleben</div>
+        </div>
+    </div>
+
+    <!-- footer -->
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 2 · MISSIONE
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+    <div class="sh">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">Unsere Mission</span>
+        <span class="sh-num">02 / 10</span>
+    </div>
+
+    <div class="sb" style="align-items:stretch;">
+        <!-- left -->
+        <div class="col" style="flex:1.1; justify-content:center;">
+            <div class="s-eyebrow">Jede Sekunde zählt</div>
+            <div class="s-title" style="font-size:34pt;">Unfälle<br>warten nicht.</div>
+            <p class="s-body" style="font-size:11pt;">Aqua Rescue Systems entwickelt autonome Wasserrettungsroboter: einsatzbereit in wenigen Sekunden, ohne Risiko für die Retter.</p>
+
+            <div class="divider"></div>
+
+            <div class="checklist">
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:11pt;">Schwimmhilfe innerhalb von 90 Sekunden nach Alarm</div></div>
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:11pt;">Integrierte Kamera mit Nachtsicht für alle Bedingungen</div></div>
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:11pt;">Kein Retter geht ins Wasser — null Risiko für das Personal</div></div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="stat-row">
+                <div class="stat"><div class="stat-n">&lt; 90s</div><div class="stat-l">Reaktion</div></div>
+                <div class="stat o"><div class="stat-n">+340%</div><div class="stat-l">Überleben</div></div>
+            </div>
+        </div>
+
+        <!-- right: photo — same height as left column -->
+        <div class="col" style="flex:0.85;">
+            <div style="flex:1; border-radius:8px; overflow:hidden; min-height:0;">
+                <img src="../assets/images/salvamento.png" style="width:100%; height:100%; object-fit:cover; display:block;"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 3 · PRODOTTO
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+    <div class="sh">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">Das Produkt</span>
+        <span class="sh-num">03 / 10</span>
+    </div>
+
+    <!-- robot: top-right -->
+    <img src="../assets/images/dolphin3.png" style="position:absolute; top:12mm; right:10mm; height:115mm; width:auto; object-fit:contain; pointer-events:none;"/>
+
+    <!-- text: left, vertically centered -->
+    <div class="sb" style="align-items:center;">
+        <div class="col" style="flex:0 0 55%; justify-content:center; gap:4mm;">
+            <div class="s-eyebrow">Dolphin 3</div>
+            <div class="s-title" style="font-size:42pt; margin-bottom:0;">Der<br>Rettungsroboter.</div>
+            <p class="s-body" style="font-size:13pt;">Entwickelt für schnelle Einsätze unter extremen Bedingungen. Erreicht das Opfer in weniger als 90 Sekunden und schleppt bis zu 1.000 kg. Deutsche Ingenieurskunst für maximale Zuverlässigkeit.</p>
+            <div class="stat-row">
+                <div class="stat"><div class="stat-n">7 m/s</div><div class="stat-l">Max. Geschw.</div></div>
+                <div class="stat"><div class="stat-n">70 min</div><div class="stat-l">Akkulaufzeit</div></div>
+                <div class="stat o"><div class="stat-n">IP67</div><div class="stat-l">Schutzklasse</div></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 4 · TECNOLOGIA
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+    <div class="sh">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">Technologie</span>
+        <span class="sh-num">04 / 10</span>
+    </div>
+
+    <div class="sb" style="align-items:center;">
+        <!-- left: bigger text -->
+        <div class="col" style="flex:1; justify-content:center;">
+            <div class="s-eyebrow">Technische Daten</div>
+            <div class="s-title" style="font-size:42pt;">Technik<br>im Dienst<br>des Lebens.</div>
+            <p class="s-body" style="font-size:13pt;">Jede Komponente ist für härteste Bedingungen ausgelegt: Sturm, Dunkelheit, raues Wasser.</p>
+        </div>
+
+        <!-- right: data top-aligned -->
+        <div class="col" style="flex:1.1; justify-content:flex-start;">
+            <div class="card" style="padding:0 6mm;">
+                <div style="padding:5mm 0;">
+                    <div class="spec-row" style="font-size:10pt;"><span class="spec-key">Höchstgeschwindigkeit</span><span class="spec-val c">7 m/s</span></div>
+                    <div class="spec-row" style="font-size:10pt;"><span class="spec-key">Akkulaufzeit batteria</span><span class="spec-val">70 minuti</span></div>
+                    <div class="spec-row" style="font-size:10pt;"><span class="spec-key">Fernbedienungsreichweite</span><span class="spec-val">1.800 m</span></div>
+                    <div class="spec-row" style="font-size:10pt;"><span class="spec-key">Schleppleistung</span><span class="spec-val o">1.000 kg</span></div>
+                    <div class="spec-row" style="font-size:10pt;"><span class="spec-key">Schutzklasse</span><span class="spec-val">IP67</span></div>
+                    <div class="spec-row" style="font-size:10pt;"><span class="spec-key">Kamera</span><span class="spec-val">HD + Nachtsicht</span></div>
+                    <div class="spec-row" style="font-size:10pt;"><span class="spec-key">Reaktionszeit</span><span class="spec-val c">&lt; 90 Sekunden</span></div>
+                    <div class="spec-row" style="font-size:10pt;"><span class="spec-key">Verfügbarkeit</span><span class="spec-val c">24 / 7</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 5 · COME FUNZIONA
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+    <div class="sh">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">So funktioniert es</span>
+        <span class="sh-num">05 / 10</span>
+    </div>
+
+    <div class="sb">
+        <!-- left: photo -->
+        <div class="col" style="flex:1;">
+            <div style="flex:1; border-radius:8px; overflow:hidden; min-height:0;">
+                <img src="../assets/images/avvicinamento.png" style="width:100%; height:100%; object-fit:cover; display:block;"/>
+            </div>
+        </div>
+
+        <!-- right: all text & steps -->
+        <div class="col" style="flex:1.1; justify-content:center; gap:4mm;">
+            <div class="s-eyebrow">Vom Alarm zur Rettung</div>
+            <div class="s-title" style="font-size:34pt; margin-bottom:3mm;">In weniger als 90 Sekunden.</div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-n" style="width:9mm;height:9mm;font-size:9pt;flex-shrink:0;">1</div>
+                    <div><div class="step-title" style="font-size:13pt;">Unfallmeldung</div><div class="step-desc" style="font-size:11pt;">Der Retter lokalisiert das Opfer visuell oder per HD-Kamera.</div></div>
+                </div>
+                <div class="step">
+                    <div class="step-n" style="width:9mm;height:9mm;font-size:9pt;flex-shrink:0;">2</div>
+                    <div><div class="step-title" style="font-size:13pt;">Einsatz des Dolphin 3</div><div class="step-desc" style="font-size:11pt;">Der Roboter wird ins Wasser gebracht und in Sekunden zur Zielperson gesteuert.</div></div>
+                </div>
+                <div class="step">
+                    <div class="step-n" style="width:9mm;height:9mm;font-size:9pt;flex-shrink:0;">3</div>
+                    <div><div class="step-title" style="font-size:13pt;">Unterstützung und Auftrieb</div><div class="step-desc" style="font-size:11pt;">Der Dolphin 3 hält das Opfer über Wasser, bis Hilfe eintrifft.</div></div>
+                </div>
+                <div class="step">
+                    <div class="step-n" style="width:9mm;height:9mm;font-size:9pt;flex-shrink:0;">4</div>
+                    <div><div class="step-title" style="font-size:13pt;">Schleppen ans Ufer</div><div class="step-desc" style="font-size:11pt;">Mit 1.000 kg Schleppleistung zieht er das Opfer sicher ans Ufer.</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 6 · AMBITI DI UTILIZZO
+══════════════════════════════════════════════════════════ -->
+<div class="slide" style="position:relative;">
+    <!-- water background -->
+    <div style="position:absolute;inset:0;z-index:0;">
+        <img src="../assets/images/blu.webp" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.18;"/>
+    </div>
+    <div class="sh" style="position:relative;z-index:1;">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">Einsatzbereiche</span>
+        <span class="sh-num">06 / 10</span>
+    </div>
+
+    <div class="sb" style="flex-direction:column; gap:6mm; position:relative; z-index:1;">
+        <div>
+            <div class="s-eyebrow">Vielseitig in jedem Szenario</div>
+            <div class="s-title" style="font-size:40pt;">Überall wo Wasser Leben bedroht.</div>
+        </div>
+
+        <div class="grid3" style="gap:5mm; flex:1;">
+            <div class="g-card" style="background:rgba(2,12,24,0.82); padding:5mm 6mm;">
+                <div class="g-icon" style="font-size:22pt;">🛡️</div>
+                <div class="g-title" style="font-size:13pt;">Küstenwache</div>
+                <div class="g-desc" style="font-size:11pt;">Schneller Einsatz in Küstengewässern und Unterstützung auf offener See.</div>
+            </div>
+            <div class="g-card" style="background:rgba(2,12,24,0.82); padding:5mm 6mm;">
+                <div class="g-icon" style="font-size:22pt;">🏊</div>
+                <div class="g-title" style="font-size:13pt;">Schwimmbäder & Strände</div>
+                <div class="g-desc" style="font-size:11pt;">Überwachung und sofortiger Eingriff in Badeanstalten.</div>
+            </div>
+            <div class="g-card" style="background:rgba(2,12,24,0.82); padding:5mm 6mm;">
+                <div class="g-icon" style="font-size:22pt;">🌊</div>
+                <div class="g-title" style="font-size:13pt;">Hochwasser</div>
+                <div class="g-desc" style="font-size:11pt;">Unterstützung des Zivilschutzes bei Überschwemmungen.</div>
+            </div>
+            <div class="g-card" style="background:rgba(2,12,24,0.82); padding:5mm 6mm;">
+                <div class="g-icon" style="font-size:22pt;">🚒</div>
+                <div class="g-title" style="font-size:13pt;">Feuerwehr</div>
+                <div class="g-desc" style="font-size:11pt;">Integration in Wasserrettungsteams.</div>
+            </div>
+            <div class="g-card" style="background:rgba(2,12,24,0.82); padding:5mm 6mm;">
+                <div class="g-icon" style="font-size:22pt;">🎿</div>
+                <div class="g-title" style="font-size:13pt;">Wassersport</div>
+                <div class="g-desc" style="font-size:11pt;">Sicherheit bei Regatten, Wettkämpfen und Hochrisiko-Aktivitäten.</div>
+            </div>
+            <div class="g-card" style="background:rgba(2,12,24,0.82); padding:5mm 6mm;">
+                <div class="g-icon" style="font-size:22pt;">⚓</div>
+                <div class="g-title" style="font-size:13pt;">Häfen & Marinas</div>
+                <div class="g-desc" style="font-size:11pt;">Permanente Sicherung von Häfen und Wasserinfrastrukturen.</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 7 · VANTAGGI
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+    <div class="sh">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">Wettbewerbsvorteile</span>
+        <span class="sh-num">07 / 10</span>
+    </div>
+
+    <div class="sb" style="align-items:stretch;">
+        <!-- left: text top-aligned -->
+        <div class="col" style="flex:1; justify-content:flex-start;">
+            <div class="s-eyebrow">Warum ARS wählen</div>
+            <div class="s-title" style="font-size:42pt;">Ein<br>Generationssprung.</div>
+            <p class="s-body" style="font-size:13pt;">Schneller, sicherer und immer verfügbar im Vergleich zu jeder traditionellen Alternative.</p>
+            <div class="divider"></div>
+            <div class="checklist">
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:12pt;">5x schneller als jeder menschliche Retter im Wasser</div></div>
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:12pt;">Null Risiko für das Personal — niemand geht ins Wasser</div></div>
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:12pt;">Verfügbar 24/7, bei jedem Wetter</div></div>
+            </div>
+        </div>
+
+        <!-- right: stats bottom-aligned -->
+        <div class="col" style="flex:1; justify-content:flex-end; gap:5mm; padding-bottom:18mm;">
+            <div class="stat-row">
+                <div class="stat"><div class="stat-n">5×</div><div class="stat-l">Schneller</div></div>
+                <div class="stat o"><div class="stat-n">100%</div><div class="stat-l">Sicherheit</div></div>
+            </div>
+            <div class="stat-row">
+                <div class="stat o"><div class="stat-n">+340%</div><div class="stat-l">Überleben</div></div>
+                <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Einsatzbereit</div></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 8 · MEDIA
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+    <div class="sh">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">Medien & Auszeichnungen</span>
+        <span class="sh-num">08 / 10</span>
+    </div>
+
+    <div class="sb" style="flex-direction:column; align-items:center; justify-content:center; gap:7mm; text-align:center;">
+        <!-- eyebrow + title centered -->
+        <div>
+            <div class="s-eyebrow" style="text-align:center;">Anerkannt von Branchenführern</div>
+            <div class="s-title" style="font-size:42pt; text-align:center;">International bekannt.</div>
+            <p class="s-body" style="font-size:12pt; text-align:center; max-width:160mm; margin:4mm auto 0;">Der Dolphin 3 wurde in den wichtigsten nationalen und internationalen TV-Sendungen vorgestellt.</p>
+        </div>
+
+        <!-- quote centered -->
+        <div class="card" style="background:rgba(0,212,255,0.05); border-color:rgba(0,212,255,0.2); max-width:180mm; width:100%;">
+            <div class="card-body" style="font-style:italic; font-size:12pt; line-height:1.7; text-align:center;">"Eine Revolution in der Wasserrettung. Der Dolphin 3 kann jedes Jahr Tausende von Leben retten."</div>
+            <div style="font-size:8pt; color:var(--muted); text-align:center; margin-top:3mm;">— ZDF Heute</div>
+        </div>
+
+        <!-- logos centered -->
+        <div style="display:flex; gap:6mm; justify-content:center; width:100%;">
+            <div class="g-card" style="width:55mm; display:flex; align-items:center; justify-content:center; padding:6mm;">
+                <img src="../assets/images/logo_zdf.png" style="max-height:120px; max-width:100%; object-fit:contain; filter:brightness(0) invert(1);"/>
+            </div>
+            <div class="g-card" style="width:55mm; display:flex; align-items:center; justify-content:center; padding:6mm;">
+                <img src="../assets/images/logo_swr.png" style="max-height:120px; max-width:100%; object-fit:contain; filter:brightness(0) invert(1);"/>
+            </div>
+            <div class="g-card" style="width:55mm; display:flex; align-items:center; justify-content:center; padding:6mm;">
+                <img src="../assets/images/logo_suedkurier.png" style="max-height:120px; max-width:100%; object-fit:contain; filter:brightness(0) invert(1);"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 9 · CHI SIAMO
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+    <div class="sh">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">Über uns</span>
+        <span class="sh-num">09 / 10</span>
+    </div>
+
+    <div class="sb" style="align-items:stretch;">
+        <!-- left -->
+        <div class="col" style="flex:1; justify-content:center;">
+            <div class="s-eyebrow">Aqua Rescue Systems</div>
+            <div class="s-title" style="font-size:42pt;">Geboren<br>um Leben zu retten.</div>
+            <p class="s-body" style="font-size:13pt;">Unternehmen mit Sitz in Bozen, spezialisiert auf die Entwicklung autonomer Wasserrettungsroboter. Deutsche Ingenieurskunst, italienischer Geist.</p>
+            <div class="divider"></div>
+            <div class="checklist">
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:12pt;">Enrico-Fermi-Str. 5, 39100 Bozen (IT)</div></div>
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:12pt;">Produktion Made in Germany — IP67-zertifizierte Qualität</div></div>
+                <div class="ci"><div class="ci-dot">✓</div><div class="ci-text" style="font-size:12pt;">Support auf Italienisch · Deutsch · Englisch</div></div>
+            </div>
+        </div>
+
+        <!-- right: vision card tall -->
+        <div class="col" style="flex:0.8; justify-content:stretch; padding:0; align-self:stretch;">
+            <div class="card" style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:8mm; background:rgba(255,107,53,0.08); border-color:rgba(255,107,53,0.35);">
+                <div class="card-label" style="color:var(--orange); margin-bottom:5mm; font-size:14pt;">Unsere Vision</div>
+                <div class="card-body" style="font-size:17pt; line-height:1.8;">Wir wollen eine Welt, in der kein Retter sein Leben riskiert, um ein anderes zu retten. Der Dolphin 3 ist der erste Schritt zu einem vollständig autonomen Rettungssystem — überall und jederzeit verfügbar.</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SLIDE 10 · CONTATTI
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+    <div class="sh">
+        <img src="../assets/logos/ars_logo_transparent.svg"/>
+        <span class="sh-label">Kontakt</span>
+        <span class="sh-num">10 / 10</span>
+    </div>
+
+    <div class="sb" style="align-items:stretch;">
+        <!-- left -->
+        <div class="col" style="flex:1; justify-content:center;">
+            <div class="s-eyebrow">Starten Sie heute</div>
+            <div class="s-title" style="font-size:42pt;">Demo<br>kostenlos<br>anfragen.</div>
+            <p class="s-body" style="font-size:16pt;">Unverbindlich. Unser Team antwortet innerhalb von 24 Stunden auf Italienisch, Deutsch und Englisch.</p>
+        </div>
+
+        <!-- right -->
+        <div class="col" style="flex:1; justify-content:center; gap:6mm;">
+            <div class="card" style="padding:7mm 9mm;">
+                <div class="card-label" style="font-size:10pt;">📞 Telefon / WhatsApp</div>
+                <div style="font-size:16pt; color:var(--white); font-weight:600; margin-top:3mm;">+39 335 285676</div>
+            </div>
+            <div class="card" style="padding:7mm 9mm;">
+                <div class="card-label" style="font-size:10pt;">✉️ E-Mail</div>
+                <div style="font-size:16pt; color:var(--white); font-weight:600; margin-top:3mm;">info@aquarescuesystems.com</div>
+            </div>
+            <div class="card" style="padding:7mm 9mm;">
+                <div class="card-label" style="font-size:10pt;">🌐 Webseite</div>
+                <div style="font-size:16pt; color:var(--white); font-weight:600; margin-top:3mm;">aquarescuesystems.com</div>
+            </div>
+            <div class="card" style="padding:7mm 9mm;">
+                <div class="card-label" style="font-size:10pt;">📸 Instagram</div>
+                <div style="font-size:16pt; color:var(--white); font-weight:600; margin-top:3mm;">@aquarescuesystems</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<button class="print-btn" onclick="window.print()">🖨 Drucken / PDF</button>
+
+</body>
+</html>

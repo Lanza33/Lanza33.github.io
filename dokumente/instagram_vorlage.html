@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>ARS – Instagram Vorlage</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@600&display=swap" rel="stylesheet">
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#1a1a2e; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; font-family:'Barlow',sans-serif; padding:2rem; gap:2rem; }
+
+    h1 { color:white; font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:0.1em; text-align:center; }
+    .hint { color:#6B8BAA; font-size:0.85rem; text-align:center; max-width:540px; line-height:1.6; }
+
+    /* POST CONTAINER — 1080x1080 scaled to 540x540 for screen */
+    .post-wrap {
+        position:relative;
+        width:540px;
+        height:540px;
+        box-shadow:0 0 60px rgba(0,0,0,0.8);
+        border-radius:4px;
+        overflow:hidden;
+        cursor:pointer;
+    }
+
+    /* MEDIA BEREICH — Video oder Foto */
+    .media-bereich {
+        position:absolute;
+        inset:0;
+        background:#020C18;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        overflow:hidden;
+    }
+    .media-bereich video,
+    .media-bereich img {
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        position:absolute;
+    }
+    .media-wrapper {
+        position:absolute;
+        inset:0;
+        overflow:hidden;
+    }
+    .media-wrapper video,
+    .media-wrapper img {
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+    }
+    .media-bereich.leer {
+        border:2px dashed rgba(0,212,255,0.3);
+    }
+    .media-bereich.leer video,
+    .media-bereich.leer img {
+        display:none;
+    }
+    .drop-icon { font-size:3rem; opacity:0.4; }
+    .drop-text { color:#6B8BAA; font-size:0.9rem; text-align:center; }
+
+    /* Gradient overlay */
+    .overlay {
+        position:absolute;
+        inset:0;
+        background:transparent;
+        pointer-events:none;
+    }
+
+    /* BOTTOM BAR */
+    .bottom-bar {
+        position:absolute;
+        bottom:0; left:0; right:0;
+        padding:1rem 1.5rem 1.25rem;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:1rem;
+    }
+    .logo-area { display:flex; align-items:center; gap:0.75rem; }
+    .logo-ars {
+        font-family:'Bebas Neue',sans-serif;
+        font-size:2.2rem;
+        line-height:1;
+        letter-spacing:0.05em;
+    }
+    .logo-ars .top { color:white; }
+    .logo-ars .bot { color:#FF6B35; }
+    .logo-sub {
+        font-family:'Barlow Condensed',sans-serif;
+        font-size:0.6rem;
+        letter-spacing:0.18em;
+        text-transform:uppercase;
+        color:#6B8BAA;
+        font-weight:600;
+        line-height:1.4;
+        border-left:1px solid rgba(0,212,255,0.3);
+        padding-left:0.75rem;
+    }
+    .claim {
+        font-family:'Barlow Condensed',sans-serif;
+        font-size:0.75rem;
+        letter-spacing:0.18em;
+        text-transform:uppercase;
+        color:#00D4FF;
+        font-weight:600;
+        text-align:right;
+    }
+
+    /* TOP LINE */
+    .top-line {
+        position:absolute;
+        top:0; left:0; right:0;
+        height:3px;
+        background:linear-gradient(to right, transparent, #00D4FF, transparent);
+    }
+
+    /* VARIANTEN BUTTONS */
+    .varianten {
+        display:flex;
+        gap:1rem;
+        flex-wrap:wrap;
+        justify-content:center;
+        max-width:540px;
+    }
+    .btn {
+        background:rgba(0,212,255,0.1);
+        border:1px solid rgba(0,212,255,0.3);
+        color:#00D4FF;
+        padding:0.5rem 1.25rem;
+        border-radius:0.375rem;
+        font-size:0.82rem;
+        cursor:pointer;
+        font-family:'Barlow',sans-serif;
+        letter-spacing:0.05em;
+        transition:all 0.2s;
+    }
+    .btn:hover { background:rgba(0,212,255,0.2); }
+    .btn.active { background:#00D4FF; color:#020C18; font-weight:600; }
+
+    /* CLAIM VARIANTEN */
+    .claim-input {
+        background:rgba(255,255,255,0.05);
+        border:1px solid rgba(255,255,255,0.1);
+        color:white;
+        padding:0.5rem 1rem;
+        border-radius:0.375rem;
+        font-size:0.82rem;
+        font-family:'Barlow',sans-serif;
+        width:100%;
+        max-width:540px;
+        letter-spacing:0.05em;
+        text-align:center;
+    }
+    .claim-input:focus { outline:none; border-color:#00D4FF; }
+
+    .print-btn {
+        background:#FF6B35;
+        border:none;
+        color:white;
+        padding:0.75rem 2rem;
+        border-radius:0.375rem;
+        font-size:0.9rem;
+        cursor:pointer;
+        font-family:'Barlow',sans-serif;
+        font-weight:600;
+        letter-spacing:0.06em;
+        text-transform:uppercase;
+    }
+
+    /* Controls Section */
+    .controls-section {
+        max-width:540px;
+        background:rgba(0,212,255,0.05);
+        border:1px solid rgba(0,212,255,0.2);
+        padding:1.5rem;
+        border-radius:0.375rem;
+        margin-top:1rem;
+    }
+
+    .control-group {
+        margin-bottom:1rem;
+    }
+
+    .control-group:last-child {
+        margin-bottom:0;
+    }
+
+    .control-label {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:0.5rem;
+        font-size:0.8rem;
+        color:#6B8BAA;
+        font-weight:600;
+        letter-spacing:0.05em;
+    }
+
+    .control-group input[type="range"] {
+        width:100%;
+        cursor:pointer;
+    }
+
+    .control-value {
+        color:#00D4FF;
+        font-weight:600;
+    }
+
+    .export-buttons {
+        display:flex;
+        gap:0.75rem;
+        margin-top:1rem;
+    }
+
+    .export-btn {
+        flex:1;
+        background:#00D4FF;
+        border:none;
+        color:#020C18;
+        padding:0.75rem 1rem;
+        border-radius:0.375rem;
+        font-size:0.85rem;
+        cursor:pointer;
+        font-family:'Barlow',sans-serif;
+        font-weight:600;
+        letter-spacing:0.05em;
+        transition:all 0.2s;
+    }
+
+    .export-btn:hover {
+        background:#00E5FF;
+        transform:translateY(-2px);
+    }
+</style>
+</head>
+<body>
+
+<h1>ARS — Video & Foto Editor</h1>
+<p class="hint">Klicke auf den Post um Video oder Foto hochzuladen. Text unten anpassen. Die Overlays (Logo + Text) bleiben sichtbar und funktionieren auch bei Video.</p>
+
+<!-- POST -->
+<div class="post-wrap" id="post">
+    <div class="top-line"></div>
+    <div class="media-bereich leer" id="mediaBG">
+        <div style="display:flex; flex-direction:column; gap:1rem; align-items:center;">
+            <div class="drop-icon">🎬</div>
+            <div class="drop-text">Klicken um Video oder Foto auszuwählen</div>
+        </div>
+        <input type="file" id="mediaInput" accept="video/*,image/*" style="display:none;">
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="bottom-bar">
+        <div class="logo-area">
+            <div class="logo-ars"><span class="top">A</span><span class="bot">R</span><span class="top">S</span></div>
+            <div class="logo-sub">AQUA<br>RESCUE<br>SYSTEMS</div>
+        </div>
+        <div class="claim" id="claimText">ROBOT DI SOCCORSO<br>ACQUATICO</div>
+    </div>
+</div>
+
+<!-- CLAIM BEARBEITEN -->
+<input class="claim-input" id="claimInput" type="text" value="ROBOT DI SOCCORSO ACQUATICO" placeholder="Claim-Text eingeben...">
+
+<!-- PHOTO CONTROLS -->
+<div class="controls-section" id="controlsSection" style="display:none;">
+    <div class="control-group">
+        <div class="control-label">
+            <span>Position X</span>
+            <span class="control-value" id="posXValue">0px</span>
+        </div>
+        <input type="range" id="posX" min="-200" max="200" value="0" step="5">
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            <span>Position Y</span>
+            <span class="control-value" id="posYValue">0px</span>
+        </div>
+        <input type="range" id="posY" min="-200" max="200" value="0" step="5">
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            <span>Zoom</span>
+            <span class="control-value" id="zoomValue">100%</span>
+        </div>
+        <input type="range" id="zoom" min="50" max="200" value="100" step="5">
+    </div>
+    <div class="export-buttons">
+        <button class="export-btn" onclick="exportImage('png')">💾 PNG</button>
+        <button class="export-btn" onclick="exportImage('jpg')">💾 JPG</button>
+    </div>
+</div>
+
+<!-- VARIANTEN -->
+<div class="varianten">
+    <button class="btn active" onclick="setVariant('dark')">Dunkel</button>
+    <button class="btn" onclick="setVariant('gradient')">Gradient</button>
+    <button class="btn" onclick="setVariant('orange')">Orange Akzent</button>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨 Als PDF speichern</button>
+<p class="hint" style="font-size:0.75rem;">Oder Cmd+Shift+4 → Bereich auswählen → Post screenshotten</p>
+
+<style>
+@media print {
+    body { background:white; padding:0; min-height:auto; display:block; }
+    h1, .hint, .varianten, .print-btn, .claim-input { display:none; }
+    .post-wrap { width:1080px; height:1080px; margin:0 auto; box-shadow:none; }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    const mediaBG = document.getElementById('mediaBG');
+    const mediaInput = document.getElementById('mediaInput');
+    const controlsSection = document.getElementById('controlsSection');
+    let currentMedia = null;
+
+    // Click zum Datei-Dialog öffnen
+    mediaBG.addEventListener('click', () => {
+        mediaInput.click();
+    });
+
+    // Media laden (Video oder Foto)
+    mediaInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+            const dataURL = ev.target.result;
+            const isVideo = file.type.startsWith('video/');
+
+            if (isVideo) {
+                // Video laden
+                const video = document.createElement('video');
+                video.src = dataURL;
+                video.autoplay = true;
+                video.controls = true;
+                video.muted = true;
+                video.loop = true;
+                video.style.width = '100%';
+                video.style.height = '100%';
+                video.style.objectFit = 'cover';
+                video.style.display = 'block';
+
+                mediaBG.innerHTML = '';
+                mediaBG.appendChild(video);
+                currentMedia = video;
+            } else {
+                // Foto laden
+                const img = document.createElement('img');
+                img.src = dataURL;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.style.display = 'block';
+
+                mediaBG.innerHTML = '';
+                mediaBG.appendChild(img);
+                currentMedia = img;
+            }
+
+            mediaBG.classList.remove('leer');
+            controlsSection.style.display = 'block';
+            resetControls();
+
+            // Neuen File Input für weitere Uploads
+            const newInput = document.createElement('input');
+            newInput.type = 'file';
+            newInput.id = 'mediaInput';
+            newInput.accept = 'video/*,image/*';
+            newInput.style.display = 'none';
+            newInput.addEventListener('change', arguments.callee.bind({caller: this}));
+            mediaBG.parentElement.appendChild(newInput);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    // Claim Text
+    document.getElementById('claimInput').addEventListener('input', function() {
+        document.getElementById('claimText').innerHTML = this.value.replace(/\n/g, '<br>');
+    });
+
+    // Photo Position & Zoom
+    function updateMedia() {
+        if (!currentMedia) return;
+
+        const posX = parseInt(document.getElementById('posX').value);
+        const posY = parseInt(document.getElementById('posY').value);
+        const zoom = parseInt(document.getElementById('zoom').value);
+
+        currentMedia.style.transform = `translate(${posX}px, ${posY}px) scale(${zoom / 100})`;
+        currentMedia.style.transformOrigin = 'center center';
+
+        document.getElementById('posXValue').textContent = posX + 'px';
+        document.getElementById('posYValue').textContent = posY + 'px';
+        document.getElementById('zoomValue').textContent = zoom + '%';
+    }
+
+    function resetControls() {
+        document.getElementById('posX').value = 0;
+        document.getElementById('posY').value = 0;
+        document.getElementById('zoom').value = 100;
+        updateMedia();
+    }
+
+    document.getElementById('posX').addEventListener('input', updateMedia);
+    document.getElementById('posY').addEventListener('input', updateMedia);
+    document.getElementById('zoom').addEventListener('input', updateMedia);
+
+    // Export Image
+    async function exportImage(format) {
+        if (!currentMedia) {
+            alert('Bitte laden Sie zuerst ein Foto oder Video hoch!');
+            return;
+        }
+
+        const post = document.getElementById('post');
+        const canvas = await html2canvas(post, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#020C18'
+        });
+
+        const link = document.createElement('a');
+        link.download = `ars-post-${Date.now()}.${format}`;
+
+        if (format === 'png') {
+            link.href = canvas.toDataURL('image/png');
+        } else if (format === 'jpg') {
+            link.href = canvas.toDataURL('image/jpeg', 0.95);
+        }
+
+        link.click();
+    }
+
+    // Varianten
+    function setVariant(v) {
+        document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        const overlay = document.getElementById('overlay');
+        const topLine = document.querySelector('.top-line');
+        if (v === 'dark') {
+            overlay.style.background = 'linear-gradient(to top, rgba(2,12,24,0.95) 0%, rgba(2,12,24,0.6) 35%, rgba(2,12,24,0.0) 65%)';
+            topLine.style.background = 'linear-gradient(to right, transparent, #00D4FF, transparent)';
+        } else if (v === 'gradient') {
+            overlay.style.background = 'linear-gradient(135deg, rgba(2,12,24,0.9) 0%, rgba(10,32,64,0.7) 100%)';
+            topLine.style.background = 'linear-gradient(to right, transparent, #00D4FF, transparent)';
+        } else if (v === 'orange') {
+            overlay.style.background = 'linear-gradient(to top, rgba(2,12,24,0.97) 0%, rgba(26,10,0,0.5) 50%, rgba(2,12,24,0.0) 80%)';
+            topLine.style.background = 'linear-gradient(to right, transparent, #FF6B35, transparent)';
+        }
+    }
+</script>
+</body>
+</html>

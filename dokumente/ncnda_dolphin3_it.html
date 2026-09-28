@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCNDA – SportForYou Srls / Dolphin 3 (IT)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+    --navy:#020C18; --cyan:#00D4FF; --orange:#FF6B35;
+    --white:#ffffff; --muted:#5A7A99; --ink:#111827;
+    --ink2:#374151; --rule:#E5E7EB; --fill:#F9FAFB;
+}
+body { font-family:'Barlow',sans-serif; background:#CBD5E1; color:var(--ink); }
+.page { width:210mm; height:297mm; margin:24px auto; background:#fff; box-shadow:0 8px 50px rgba(0,0,0,0.22); display:flex; flex-direction:column; page-break-after:always; page-break-inside:avoid; overflow:hidden; }
+.ph { background:var(--navy); padding:8mm 14mm 7mm; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; position:relative; overflow:hidden; }
+.ph::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(to right, transparent 0%, var(--cyan) 40%, var(--orange) 70%, transparent 100%); }
+.ph-logo { flex-shrink:0; }
+.ph-ars { font-family:'Bebas Neue',sans-serif; font-size:32pt; line-height:1; letter-spacing:2px; }
+.ph-ars .a { color:var(--white); } .ph-ars .r { color:var(--orange); } .ph-ars .s { color:var(--white); }
+.ph-sub { font-family:'Barlow Condensed',sans-serif; font-size:5.5pt; letter-spacing:4px; color:var(--muted); text-transform:uppercase; font-weight:600; margin-top:1px; text-align:center; }
+.ph-center { flex:1; text-align:center; }
+.ph-doc-type { font-family:'Barlow Condensed',sans-serif; font-size:6pt; letter-spacing:4px; color:var(--cyan); text-transform:uppercase; font-weight:600; margin-bottom:2px; }
+.ph-doc-title { font-family:'Bebas Neue',sans-serif; font-size:15pt; color:var(--white); letter-spacing:1.5px; line-height:1.1; }
+.ph-doc-sub { font-family:'Barlow Condensed',sans-serif; font-size:6.5pt; color:var(--muted); letter-spacing:2px; margin-top:2px; }
+.ph-right { flex-shrink:0; text-align:right; }
+.ph-page-label { font-family:'Barlow Condensed',sans-serif; font-size:5.5pt; letter-spacing:2px; color:var(--muted); text-transform:uppercase; margin-bottom:3px; font-weight:600; }
+.ph-page-num { font-family:'Bebas Neue',sans-serif; font-size:22pt; color:rgba(0,212,255,0.25); line-height:1; }
+.ph-ref { font-family:'Barlow Condensed',sans-serif; font-size:5.5pt; color:rgba(90,122,153,0.5); letter-spacing:1.5px; margin-top:3px; }
+.pb { flex:1; padding:11mm 14mm 12mm; display:flex; flex-direction:column; }
+.clause-header { display:flex; align-items:flex-end; gap:5mm; margin-bottom:8mm; padding-bottom:5mm; border-bottom:2px solid var(--rule); position:relative; }
+.clause-header::after { content:''; position:absolute; bottom:-2px; left:0; width:40mm; height:2px; background:linear-gradient(to right, var(--orange), transparent); }
+.clause-num-big { font-family:'Bebas Neue',sans-serif; font-size:60pt; color:var(--orange); line-height:0.85; opacity:0.15; flex-shrink:0; min-width:24mm; text-align:right; }
+.clause-title-big { font-family:'Bebas Neue',sans-serif; font-size:26pt; color:var(--ink); line-height:1; letter-spacing:0.5px; }
+.clause-tag { font-family:'Barlow Condensed',sans-serif; font-size:6.5pt; letter-spacing:2.5px; color:var(--orange); text-transform:uppercase; font-weight:700; margin-bottom:3px; }
+.clause-text { font-size:11pt; color:var(--ink2); line-height:1.75; flex:1; }
+.clause-text p { margin-bottom:5mm; }
+.clause-text p:last-child { margin-bottom:0; }
+.clause-text strong { color:var(--ink); font-weight:700; }
+.c-list { list-style:none; margin:3mm 0 5mm; display:flex; flex-direction:column; gap:3.5mm; }
+.c-list li { display:flex; gap:5mm; font-size:11pt; color:var(--ink2); line-height:1.6; }
+.c-list li::before { content:'—'; color:var(--cyan); font-weight:700; flex-shrink:0; margin-top:1px; }
+.hl { background:rgba(255,107,53,0.06); border:1px solid rgba(255,107,53,0.18); border-left:3px solid var(--orange); border-radius:5px; padding:5mm 6mm; margin:4mm 0; font-size:11pt; color:var(--ink2); line-height:1.65; }
+.hl strong { color:var(--ink); }
+.parties-grid { display:grid; grid-template-columns:1fr 1fr; gap:6mm; margin-bottom:8mm; }
+.p-card { background:var(--fill); border:1px solid var(--rule); border-radius:8px; padding:7mm 8mm; position:relative; overflow:hidden; }
+.p-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.p-card.disc::before { background:linear-gradient(to right, var(--orange), transparent); }
+.p-card.recv::before { background:linear-gradient(to right, var(--cyan), transparent); }
+.p-role { font-family:'Barlow Condensed',sans-serif; font-size:7pt; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; margin-bottom:5mm; }
+.p-role.disc { color:var(--orange); } .p-role.recv { color:var(--cyan); }
+.p-fixed p { font-size:11pt; color:var(--ink2); line-height:1.6; }
+.p-fixed strong { color:var(--ink); font-weight:700; }
+.fill-row { display:flex; flex-direction:column; gap:3px; margin-bottom:4.5mm; }
+.fill-label { font-size:6pt; color:var(--muted); letter-spacing:1px; text-transform:uppercase; font-weight:600; }
+.fill-line { border:none; border-bottom:1.5px solid #CBD5E1; background:transparent; width:100%; font-family:'Barlow',sans-serif; font-size:11pt; color:var(--ink); padding:3px 0; outline:none; }
+.cover-intro { flex:1; display:flex; flex-direction:column; justify-content:center; padding:6mm 0; }
+.cover-intro-title { font-family:'Bebas Neue',sans-serif; font-size:42pt; color:var(--ink); line-height:0.95; letter-spacing:1px; margin-bottom:6mm; }
+.cover-intro-title span { color:var(--orange); }
+.cover-intro-body { font-size:11.5pt; color:var(--ink2); line-height:1.75; max-width:155mm; margin-bottom:7mm; }
+.cover-meta { display:flex; gap:8mm; margin-top:3mm; }
+.cover-meta-label { font-family:'Barlow Condensed',sans-serif; font-size:6.5pt; letter-spacing:2px; color:var(--muted); text-transform:uppercase; font-weight:600; margin-bottom:3px; }
+.cover-meta-value { font-size:10pt; color:var(--ink); font-weight:600; border-bottom:1.5px solid #CBD5E1; min-width:45mm; padding-bottom:2px; min-height:18px; }
+.date-box-line { border:none; border-bottom:1.5px solid #CBD5E1; background:transparent; font-family:'Barlow',sans-serif; font-size:11pt; color:var(--ink); outline:none; width:100%; padding:2px 0; }
+.sig-grid { display:grid; grid-template-columns:1fr 1fr; gap:10mm; flex:1; }
+.sig-col { display:flex; flex-direction:column; gap:5mm; }
+.sig-party-title { font-family:'Barlow Condensed',sans-serif; font-size:7.5pt; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; padding-bottom:3mm; border-bottom:2px solid; margin-bottom:2mm; }
+.sig-party-title.disc { color:var(--orange); border-color:rgba(255,107,53,0.25); }
+.sig-party-title.recv { color:var(--cyan); border-color:rgba(0,212,255,0.25); }
+.sig-field { display:flex; flex-direction:column; gap:3px; }
+.sig-label { font-size:6pt; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
+.sig-value { font-size:11pt; color:var(--ink); font-weight:600; border-bottom:1.5px solid var(--rule); padding-bottom:3px; min-height:20px; }
+.sig-input { border:none; border-bottom:1.5px solid #CBD5E1; background:transparent; font-family:'Barlow',sans-serif; font-size:11pt; color:var(--ink); font-weight:600; outline:none; padding:3px 0; width:100%; }
+.sig-box { margin-top:3mm; height:22mm; border:1.5px dashed #CBD5E1; border-radius:6px; display:flex; align-items:flex-end; padding:3mm 4mm; flex:1; }
+.sig-box-label { font-size:6pt; color:#C8D4DF; letter-spacing:1.5px; text-transform:uppercase; }
+.pf { background:var(--navy); padding:3.5mm 14mm; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; }
+.pf-brand { font-family:'Barlow Condensed',sans-serif; font-size:6pt; color:var(--muted); letter-spacing:2px; text-transform:uppercase; }
+.pf-brand b { color:var(--cyan); }
+.pf-conf { font-family:'Barlow Condensed',sans-serif; font-size:6pt; color:rgba(90,122,153,0.5); letter-spacing:1.5px; text-transform:uppercase; }
+@media print { @page { size:A4 portrait; margin:0; } body { background:white; } .page { margin:0; box-shadow:none; } .print-btn { display:none !important; } }
+@media screen { .print-btn { position:fixed; bottom:24px; right:24px; background:var(--orange); color:white; border:none; padding:12px 26px; border-radius:8px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:700; letter-spacing:1px; cursor:pointer; text-transform:uppercase; box-shadow:0 6px 24px rgba(255,107,53,0.4); z-index:999; } }
+</style>
+</head>
+<body>
+
+<!-- PAGINA 1 · FRONTESPIZIO + PARTI -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo"><div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div><div class="ph-sub">Aqua Rescue Systems</div></div>
+        <div class="ph-center">
+            <div class="ph-doc-type">Documento Legale Riservato</div>
+            <div class="ph-doc-title">Accordo di Non-Aggiramento<br>e Non-Divulgazione</div>
+            <div class="ph-doc-sub">Dolphin 3 · Sistema Autonomo di Soccorso Acquatico</div>
+        </div>
+        <div class="ph-right"><div class="ph-page-label">Pagina</div><div class="ph-page-num">01</div><div class="ph-ref">ARS-NCNDA-D3</div></div>
+    </div>
+    <div class="pb">
+        <div class="cover-intro">
+            <div class="cover-intro-title">Parti &<br><span>Accordo</span></div>
+            <div class="cover-intro-body">Il presente Accordo di Non-Aggiramento e Non-Divulgazione ("Accordo") è stipulato a partire dalla data di firma indicata di seguito tra SportForYou Srls e la Parte Ricevente ivi identificata, allo scopo di proteggere le informazioni riservate relative al sistema autonomo di soccorso acquatico Dolphin 3.</div>
+            <div class="cover-meta">
+                <div><div class="cover-meta-label">Data di Decorrenza</div><input class="date-box-line cover-meta-value" type="text" placeholder=" "/></div>
+                <div><div class="cover-meta-label">Riferimento</div><div class="cover-meta-value" style="border-bottom:1.5px solid #E5E7EB;padding-bottom:2px;">ARS-NCNDA-D3</div></div>
+            </div>
+        </div>
+        <div class="parties-grid">
+            <div class="p-card disc">
+                <div class="p-role disc">Parte Divulgante</div>
+                <div class="p-fixed"><p><strong>Aqua Rescue Systems</strong><br><span style="font-size:9.5pt;color:var(--muted);">Soggetto giuridico: SportForYou Srls · P.IVA IT03275830218</span><br>Via E. Fermi 5, 39100 Bolzano (BZ), Italia<br>info@sportforyou.net<br>sportforyou.net</p></div>
+            </div>
+            <div class="p-card recv">
+                <div class="p-role recv">Parte Ricevente</div>
+                <div class="fill-row"><span class="fill-label">Nome e Cognome</span><input class="fill-line" type="text" placeholder=" "/></div>
+                <div class="fill-row"><span class="fill-label">Azienda / Organizzazione</span><input class="fill-line" type="text" placeholder=" "/></div>
+                <div class="fill-row"><span class="fill-label">Indirizzo</span><input class="fill-line" type="text" placeholder=" "/></div>
+                <div class="fill-row"><span class="fill-label">Email</span><input class="fill-line" type="text" placeholder=" "/></div>
+            </div>
+        </div>
+    </div>
+    <div class="pf"><div class="pf-brand"><b>ARS</b> · SportForYou Srls · Via Enrico Fermi 5, 39100 Bolzano, Italia</div><div class="pf-conf">Riservato · Non divulgare</div></div>
+</div>
+
+<!-- PAGINA 2 · PREMESSE & SCOPO -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo"><div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div><div class="ph-sub">Aqua Rescue Systems</div></div>
+        <div class="ph-center"><div class="ph-doc-type">NCNDA · Dolphin 3</div><div class="ph-doc-title">Premesse &amp; Scopo</div></div>
+        <div class="ph-right"><div class="ph-page-label">Pagina</div><div class="ph-page-num">02</div><div class="ph-ref">ARS-NCNDA-D3</div></div>
+    </div>
+    <div class="pb">
+        <div class="clause-header">
+            <div class="clause-num-big">01</div>
+            <div><div class="clause-tag">Articolo 01</div><div class="clause-title-big">Premesse &<br>Scopo</div></div>
+        </div>
+        <div class="clause-text">
+            <p>SportForYou Srls ("ARS" o "Parte Divulgante") è il sviluppatore e unico proprietario del <strong>Dolphin 3</strong> — un robot autonomo per il soccorso acquatico che incorpora hardware, software e know-how operativo proprietario, progettato per salvare vite in situazioni di emergenza acquatica.</p>
+            <p>ARS intende divulgare alla Parte Ricevente determinate Informazioni Riservate esclusivamente allo scopo di valutare una potenziale relazione commerciale, partnership, accordo di distribuzione, licenza o opportunità di investimento (collettivamente lo <strong>"Scopo Consentito"</strong>).</p>
+            <p>Entrambe le parti riconoscono che le Informazioni Riservate hanno un significativo valore commerciale e strategico e che la loro divulgazione non autorizzata, l'uso improprio o lo sfruttamento arrecherebbero un danno immediato e irreparabile ad ARS, alla sua attività e alla sua posizione competitiva sul mercato.</p>
+            <p>Il presente Accordo stabilisce i termini e le condizioni in base ai quali le Informazioni Riservate saranno condivise, protette e — se necessario — restituite o distrutte. Con la firma, la Parte Ricevente conferma di aver letto, compreso e accettato tutte le disposizioni del presente Accordo.</p>
+        </div>
+    </div>
+    <div class="pf"><div class="pf-brand"><b>ARS</b> · SportForYou Srls · Via Enrico Fermi 5, 39100 Bolzano, Italia</div><div class="pf-conf">Riservato · Non divulgare</div></div>
+</div>
+
+<!-- PAGINA 3 · DEFINIZIONI -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo"><div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div><div class="ph-sub">Aqua Rescue Systems</div></div>
+        <div class="ph-center"><div class="ph-doc-type">NCNDA · Dolphin 3</div><div class="ph-doc-title">Definizioni</div></div>
+        <div class="ph-right"><div class="ph-page-label">Pagina</div><div class="ph-page-num">03</div><div class="ph-ref">ARS-NCNDA-D3</div></div>
+    </div>
+    <div class="pb">
+        <div class="clause-header">
+            <div class="clause-num-big">02</div>
+            <div><div class="clause-tag">Articolo 02</div><div class="clause-title-big">Definizioni</div></div>
+        </div>
+        <div class="clause-text">
+            <p><strong>"Informazioni Riservate"</strong> indica tutte le informazioni non pubbliche divulgate da ARS alla Parte Ricevente in qualsiasi forma — orale, scritta, visiva, elettronica o altro — incluse, a titolo esemplificativo:</p>
+            <ul class="c-list">
+                <li>Specifiche tecniche, disegni costruttivi, dati CAD, design hardware e prototipi del sistema Dolphin 3</li>
+                <li>Software, firmware, algoritmi, codice sorgente, sistemi di controllo e modelli di intelligenza artificiale</li>
+                <li>Processi produttivi, identità dei fornitori, approvvigionamento di componenti e costi di produzione</li>
+                <li>Piani aziendali, proiezioni finanziarie, strategie di prezzo, modelli di ricavo e analisi di mercato</li>
+                <li>Proprietà intellettuale, brevetti (depositati o concessi), segreti commerciali, marchi e know-how</li>
+                <li>Liste clienti, reti di distribuzione, accordi di partnership e informazioni di contatto</li>
+                <li>Qualsiasi altra informazione designata come riservata da ARS al momento della divulgazione</li>
+            </ul>
+            <p>Le informazioni <strong>non</strong> sono considerate Informazioni Riservate se: (a) diventano pubblicamente disponibili senza atto od omissione della Parte Ricevente; (b) sono state sviluppate in modo indipendente dalla Parte Ricevente senza utilizzo di Informazioni Riservate; o (c) sono state legittimamente ricevute da terzi senza restrizioni alla divulgazione.</p>
+        </div>
+    </div>
+    <div class="pf"><div class="pf-brand"><b>ARS</b> · SportForYou Srls · Via Enrico Fermi 5, 39100 Bolzano, Italia</div><div class="pf-conf">Riservato · Non divulgare</div></div>
+</div>
+
+<!-- PAGINA 4 · OBBLIGHI DI NON-DIVULGAZIONE -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo"><div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div><div class="ph-sub">Aqua Rescue Systems</div></div>
+        <div class="ph-center"><div class="ph-doc-type">NCNDA · Dolphin 3</div><div class="ph-doc-title">Obblighi di Non-Divulgazione</div></div>
+        <div class="ph-right"><div class="ph-page-label">Pagina</div><div class="ph-page-num">04</div><div class="ph-ref">ARS-NCNDA-D3</div></div>
+    </div>
+    <div class="pb">
+        <div class="clause-header">
+            <div class="clause-num-big">03</div>
+            <div><div class="clause-tag">Articolo 03</div><div class="clause-title-big">Obblighi di<br>Non-Divulgazione</div></div>
+        </div>
+        <div class="clause-text">
+            <p>La Parte Ricevente si impegna a mantenere strettamente riservate tutte le Informazioni Riservate e in particolare a:</p>
+            <ul class="c-list">
+                <li>Proteggere le Informazioni Riservate con almeno lo stesso livello di cura applicato alle proprie informazioni più sensibili, e comunque non inferiore a una cura ragionevole</li>
+                <li>Utilizzare le Informazioni Riservate esclusivamente per lo Scopo Consentito e per nessun altro scopo</li>
+                <li>Non copiare, riprodurre, riassumere o creare opere derivate dalle Informazioni Riservate, salvo quanto strettamente necessario per lo Scopo Consentito</li>
+                <li>Non effettuare il reverse engineering, disassemblare, decompilare o tentare in altro modo di derivare la composizione, il design o il funzionamento di qualsiasi componente del sistema Dolphin 3</li>
+                <li>Non depositare domande di brevetto, registrare diritti di design o richiedere qualsiasi altra forma di protezione della proprietà intellettuale basata sulle Informazioni Riservate</li>
+                <li>Non utilizzare le Informazioni Riservate per sviluppare, produrre o commercializzare prodotti o servizi in concorrenza con il Dolphin 3</li>
+            </ul>
+            <div class="hl">
+                Tali obblighi rimangono in vigore per un periodo di <strong>cinque (5) anni</strong> dalla data del presente Accordo e sopravvivono a qualsiasi sua risoluzione o scadenza.
+            </div>
+        </div>
+    </div>
+    <div class="pf"><div class="pf-brand"><b>ARS</b> · SportForYou Srls · Via Enrico Fermi 5, 39100 Bolzano, Italia</div><div class="pf-conf">Riservato · Non divulgare</div></div>
+</div>
+
+<!-- PAGINA 5 · NON-AGGIRAMENTO -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo"><div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div><div class="ph-sub">Aqua Rescue Systems</div></div>
+        <div class="ph-center"><div class="ph-doc-type">NCNDA · Dolphin 3</div><div class="ph-doc-title">Non-Aggiramento</div></div>
+        <div class="ph-right"><div class="ph-page-label">Pagina</div><div class="ph-page-num">05</div><div class="ph-ref">ARS-NCNDA-D3</div></div>
+    </div>
+    <div class="pb">
+        <div class="clause-header">
+            <div class="clause-num-big">04</div>
+            <div><div class="clause-tag">Articolo 04</div><div class="clause-title-big">Non-<br>Aggiramento</div></div>
+        </div>
+        <div class="clause-text">
+            <p>La Parte Ricevente si impegna a non aggirare, evitare, bypassare o eludere, direttamente o indirettamente, i legittimi interessi commerciali di ARS in qualsiasi transazione o relazione derivante o connessa al presente Accordo. In particolare, la Parte Ricevente non potrà:</p>
+            <ul class="c-list">
+                <li>Contattare, sollecitare, trattare o stipulare accordi con fornitori, produttori, partner tecnologici, investitori, clienti, distributori o altri contatti presentati da ARS nell'ambito del presente Accordo, senza il previo consenso scritto di ARS</li>
+                <li>Utilizzare le informazioni ricevute nel quadro del presente Accordo per sviluppare, produrre, distribuire, licenziare o commercializzare prodotti o tecnologie in concorrenza o sostanzialmente simili al Dolphin 3</li>
+                <li>Assistere, consigliare o consentire a terzi di aggirare i diritti e gli interessi di ARS</li>
+                <li>Intraprendere azioni che priverebbero ARS di opportunità commerciali, flussi di ricavi, partnership o vantaggi competitivi derivanti dal sistema Dolphin 3</li>
+                <li>Instaurare rapporti commerciali diretti con parti introdotte da ARS senza l'esplicita previa approvazione scritta di ARS</li>
+            </ul>
+            <div class="hl">
+                Il presente obbligo di non-aggiramento rimane in piena vigore per un periodo di <strong>cinque (5) anni</strong> dalla data del presente Accordo.
+            </div>
+        </div>
+    </div>
+    <div class="pf"><div class="pf-brand"><b>ARS</b> · SportForYou Srls · Via Enrico Fermi 5, 39100 Bolzano, Italia</div><div class="pf-conf">Riservato · Non divulgare</div></div>
+</div>
+
+<!-- PAGINA 6 · DIVULGAZIONI CONSENTITE + RESTITUZIONE -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo"><div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div><div class="ph-sub">Aqua Rescue Systems</div></div>
+        <div class="ph-center"><div class="ph-doc-type">NCNDA · Dolphin 3</div><div class="ph-doc-title">Divulgazioni Consentite &amp; Restituzione</div></div>
+        <div class="ph-right"><div class="ph-page-label">Pagina</div><div class="ph-page-num">06</div><div class="ph-ref">ARS-NCNDA-D3</div></div>
+    </div>
+    <div class="pb">
+        <div class="clause-header">
+            <div class="clause-num-big">05</div>
+            <div><div class="clause-tag">Articolo 05</div><div class="clause-title-big">Divulgazioni<br>Consentite</div></div>
+        </div>
+        <div class="clause-text" style="margin-bottom:7mm;">
+            <p>La Parte Ricevente potrà divulgare le Informazioni Riservate esclusivamente a propri dipendenti, dirigenti, amministratori, consulenti legali e consulenti finanziari che: (a) abbiano una comprovata necessità di conoscere le informazioni esclusivamente per lo Scopo Consentito; e (b) siano vincolati da obblighi di riservatezza scritti almeno altrettanto protettivi di quelli del presente Accordo. La Parte Ricevente rimane pienamente responsabile per qualsiasi violazione commessa da tali persone.</p>
+            <p>Qualora la Parte Ricevente sia tenuta dalla legge applicabile o da un ordine giudiziario vincolante a divulgare Informazioni Riservate, dovrà: (i) fornire ad ARS tempestiva previa comunicazione scritta nei limiti consentiti dalla legge; (ii) collaborare con ARS per ottenere un'adeguata misura protettiva; e (iii) divulgare solo il minimo indispensabile di Informazioni Riservate richiesto per adempiere a tale obbligo.</p>
+        </div>
+        <div class="clause-header">
+            <div class="clause-num-big">06</div>
+            <div><div class="clause-tag">Articolo 06</div><div class="clause-title-big">Restituzione &<br>Distruzione</div></div>
+        </div>
+        <div class="clause-text">
+            <p>Su richiesta scritta di ARS in qualsiasi momento, o automaticamente alla risoluzione del presente Accordo, la Parte Ricevente restituirà prontamente ad ARS o distruggerà in modo certificabile tutte le Informazioni Riservate in suo possesso o controllo — incluse tutte le copie, i riassunti e le opere derivate — e ne confermerà la restituzione o distruzione per iscritto entro <strong>dieci (10) giorni lavorativi</strong>. Le Informazioni Riservate archiviate elettronicamente devono essere eliminate definitivamente da tutti i sistemi, dispositivi e supporti di backup.</p>
+        </div>
+    </div>
+    <div class="pf"><div class="pf-brand"><b>ARS</b> · SportForYou Srls · Via Enrico Fermi 5, 39100 Bolzano, Italia</div><div class="pf-conf">Riservato · Non divulgare</div></div>
+</div>
+
+<!-- PAGINA 7 · DURATA + RIMEDI + LEGGE APPLICABILE -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo"><div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div><div class="ph-sub">Aqua Rescue Systems</div></div>
+        <div class="ph-center"><div class="ph-doc-type">NCNDA · Dolphin 3</div><div class="ph-doc-title">Durata · Rimedi · Legge Applicabile</div></div>
+        <div class="ph-right"><div class="ph-page-label">Pagina</div><div class="ph-page-num">07</div><div class="ph-ref">ARS-NCNDA-D3</div></div>
+    </div>
+    <div class="pb">
+        <div class="clause-header">
+            <div class="clause-num-big">07</div>
+            <div><div class="clause-tag">Articolo 07</div><div class="clause-title-big">Durata &<br>Risoluzione</div></div>
+        </div>
+        <div class="clause-text" style="margin-bottom:7mm;">
+            <p>Il presente Accordo decorre dalla data dell'ultima firma e ha durata di <strong>cinque (5) anni</strong>, salvo risoluzione anticipata da parte di una delle parti con trenta (30) giorni di preavviso scritto. Tutti gli obblighi di riservatezza e non-aggiramento sopravvivono a qualsiasi risoluzione o scadenza per l'intero periodo quinquennale a decorrere dalla data di esecuzione originale.</p>
+        </div>
+        <div class="clause-header">
+            <div class="clause-num-big">08</div>
+            <div><div class="clause-tag">Articolo 08</div><div class="clause-title-big">Rimedi</div></div>
+        </div>
+        <div class="clause-text" style="margin-bottom:7mm;">
+            <p>La Parte Ricevente riconosce che qualsiasi violazione del presente Accordo causerebbe ad ARS un <strong>danno irreparabile</strong> per il quale il risarcimento monetario da solo non costituirebbe un rimedio adeguato. Di conseguenza, ARS avrà diritto di richiedere provvedimenti cautelari immediati e altri rimedi equitativi senza necessità di provare il danno effettivo o prestare cauzione, in aggiunta a tutti gli altri rimedi disponibili per legge o in equity. La Parte Ricevente manleva e tiene indenne ARS da tutte le perdite, i costi, i danni e le spese legali derivanti da qualsiasi violazione del presente Accordo.</p>
+        </div>
+        <div class="clause-header">
+            <div class="clause-num-big">09</div>
+            <div><div class="clause-tag">Articolo 09</div><div class="clause-title-big">Legge Applicabile<br>&amp; Giurisdizione</div></div>
+        </div>
+        <div class="clause-text">
+            <p>Il presente Accordo è disciplinato e interpretato in conformità al diritto <strong>italiano</strong>, senza riguardo alle sue disposizioni sui conflitti di legge. Qualsiasi controversia, contestazione o pretesa derivante da o connessa al presente Accordo sarà sottoposta alla giurisdizione esclusiva del Tribunale di <strong>Bolzano (BZ), Italia</strong>. Entrambe le parti rinunciano irrevocabilmente a qualsiasi obiezione a tale foro per motivi di scomodità o altro.</p>
+        </div>
+    </div>
+    <div class="pf"><div class="pf-brand"><b>ARS</b> · SportForYou Srls · Via Enrico Fermi 5, 39100 Bolzano, Italia</div><div class="pf-conf">Riservato · Non divulgare</div></div>
+</div>
+
+<!-- PAGINA 8 · FIRME -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo"><div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div><div class="ph-sub">Aqua Rescue Systems</div></div>
+        <div class="ph-center"><div class="ph-doc-type">NCNDA · Dolphin 3</div><div class="ph-doc-title">Firme</div></div>
+        <div class="ph-right"><div class="ph-page-label">Pagina</div><div class="ph-page-num">08</div><div class="ph-ref">ARS-NCNDA-D3</div></div>
+    </div>
+    <div class="pb">
+        <div class="clause-header">
+            <div class="clause-num-big" style="opacity:0.08;">✍</div>
+            <div><div class="clause-tag">Sottoscrizione</div><div class="clause-title-big">In Fede<br>Quanto Sopra</div></div>
+        </div>
+        <div class="clause-text" style="margin-bottom:8mm;">
+            <p>Le parti hanno sottoscritto il presente Accordo di Non-Aggiramento e Non-Divulgazione a partire dalla data di decorrenza indicata in precedenza, ciascuna debitamente autorizzata a farlo. Le firme elettroniche sono considerate valide e vincolanti.</p>
+        </div>
+        <div class="sig-grid">
+            <div class="sig-col">
+                <div class="sig-party-title disc">Parte Divulgante — ARS</div>
+                <div class="sig-field"><div class="sig-label">Nome e Cognome</div><div class="sig-value">Arno Lanziner</div></div>
+                <div class="sig-field"><div class="sig-label">Carica</div><div class="sig-value">Amministratore Delegato (CEO)</div></div>
+                <div class="sig-field"><div class="sig-label">Azienda</div><div class="sig-value">SportForYou Srls</div></div>
+                <div class="sig-field"><div class="sig-label">Data</div><div class="sig-value" style="border-bottom:1.5px solid #E5E7EB;min-height:22px;"></div></div>
+                <div class="sig-box"><span class="sig-box-label">Firma</span></div>
+            </div>
+            <div class="sig-col">
+                <div class="sig-party-title recv">Parte Ricevente</div>
+                <div class="sig-field"><div class="sig-label">Nome e Cognome</div><input class="sig-input" type="text" placeholder=" "/></div>
+                <div class="sig-field"><div class="sig-label">Carica</div><input class="sig-input" type="text" placeholder=" "/></div>
+                <div class="sig-field"><div class="sig-label">Azienda</div><input class="sig-input" type="text" placeholder=" "/></div>
+                <div class="sig-field"><div class="sig-label">Data</div><input class="sig-input" type="text" placeholder=" "/></div>
+                <div class="sig-box"><span class="sig-box-label">Firma</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="pf"><div class="pf-brand"><b>ARS</b> · SportForYou Srls · Via Enrico Fermi 5, 39100 Bolzano, Italia</div><div class="pf-conf">Riservato · Non divulgare</div></div>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨 Stampa / Salva PDF</button>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purchase Agreement – Dolphin 3 Plus · ARS</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+    --navy:#020C18; --cyan:#00D4FF; --orange:#FF6B35;
+    --white:#ffffff; --muted:#5A7A99; --ink:#111827;
+    --ink2:#374151; --rule:#E5E7EB; --fill:#F9FAFB;
+}
+body { font-family:'Barlow',sans-serif; background:#CBD5E1; color:var(--ink); }
+.page { width:210mm; height:297mm; margin:24px auto; background:#fff; box-shadow:0 8px 50px rgba(0,0,0,0.22); display:flex; flex-direction:column; page-break-after:always; page-break-inside:avoid; overflow:hidden; }
+.ph { background:var(--navy); padding:7mm 14mm 6mm; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; position:relative; overflow:hidden; }
+.ph::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(to right, transparent 0%, var(--cyan) 40%, var(--orange) 70%, transparent 100%); }
+.ph-logo { flex-shrink:0; }
+.ph-ars { font-family:'Bebas Neue',sans-serif; font-size:30pt; line-height:1; letter-spacing:2px; }
+.ph-ars .a { color:var(--white); } .ph-ars .r { color:var(--orange); } .ph-ars .s { color:var(--white); }
+.ph-sub { font-family:'Barlow Condensed',sans-serif; font-size:5.5pt; letter-spacing:4px; color:var(--muted); text-transform:uppercase; font-weight:600; margin-top:1px; text-align:center; }
+.ph-center { flex:1; text-align:center; }
+.ph-doc-type { font-family:'Barlow Condensed',sans-serif; font-size:6pt; letter-spacing:4px; color:var(--cyan); text-transform:uppercase; font-weight:600; margin-bottom:2px; }
+.ph-doc-title { font-family:'Bebas Neue',sans-serif; font-size:18pt; color:var(--white); letter-spacing:2px; line-height:1; }
+.ph-doc-sub { font-family:'Barlow Condensed',sans-serif; font-size:6.5pt; color:var(--muted); letter-spacing:2px; margin-top:2px; }
+.ph-right { flex-shrink:0; text-align:right; }
+.ph-date-label { font-family:'Barlow Condensed',sans-serif; font-size:5.5pt; letter-spacing:2px; color:var(--muted); text-transform:uppercase; font-weight:600; margin-bottom:3px; }
+.ph-date-line { width:36mm; border-bottom:1px solid rgba(0,212,255,0.3); height:18px; display:flex; align-items:flex-end; }
+.ph-ref { font-family:'Barlow Condensed',sans-serif; font-size:5pt; color:rgba(90,122,153,0.5); letter-spacing:1.5px; margin-top:4px; }
+.pb { flex:1; padding:8mm 14mm 9mm; display:flex; flex-direction:column; gap:5mm; }
+.parties-grid { display:grid; grid-template-columns:1fr 1fr; gap:5mm; }
+.p-card { background:var(--fill); border:1px solid var(--rule); border-radius:7px; padding:5mm 6mm; position:relative; overflow:hidden; }
+.p-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.p-card.vend::before { background:linear-gradient(to right, var(--orange), transparent); }
+.p-card.comp::before { background:linear-gradient(to right, var(--cyan), transparent); }
+.p-role { font-family:'Barlow Condensed',sans-serif; font-size:7pt; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; margin-bottom:3.5mm; }
+.p-role.vend { color:var(--orange); } .p-role.comp { color:var(--cyan); }
+.p-fixed p { font-size:10.5pt; color:var(--ink2); line-height:1.65; }
+.p-fixed strong { color:var(--ink); font-weight:700; }
+.fill-row { display:flex; flex-direction:column; gap:2px; margin-bottom:3.5mm; }
+.fill-row:last-child { margin-bottom:0; }
+.fill-label { font-size:6pt; color:var(--muted); letter-spacing:1px; text-transform:uppercase; font-weight:600; }
+.fill-line { border:none; border-bottom:1.5px solid #CBD5E1; background:transparent; width:100%; font-family:'Barlow',sans-serif; font-size:10.5pt; color:var(--ink); padding:2px 0; outline:none; }
+.section-title { font-family:'Barlow Condensed',sans-serif; font-size:8pt; letter-spacing:3px; color:var(--orange); text-transform:uppercase; font-weight:700; margin-bottom:3.5mm; padding-bottom:2mm; border-bottom:1px solid var(--rule); position:relative; }
+.section-title::after { content:''; position:absolute; bottom:-1px; left:0; width:30mm; height:1px; background:var(--orange); }
+.clause-header { display:flex; align-items:flex-end; gap:4mm; margin-bottom:4mm; padding-bottom:3mm; border-bottom:1.5px solid var(--rule); position:relative; }
+.clause-header::after { content:''; position:absolute; bottom:-1.5px; left:0; width:25mm; height:1.5px; background:var(--orange); }
+.clause-num { font-family:'Bebas Neue',sans-serif; font-size:42pt; color:var(--orange); line-height:0.85; opacity:0.1; flex-shrink:0; min-width:18mm; text-align:right; }
+.clause-title { font-family:'Bebas Neue',sans-serif; font-size:18pt; color:var(--ink); line-height:1; letter-spacing:0.5px; }
+.clause-tag { font-family:'Barlow Condensed',sans-serif; font-size:6pt; letter-spacing:2.5px; color:var(--orange); text-transform:uppercase; font-weight:700; margin-bottom:2px; }
+.clause-body { font-size:10pt; color:var(--ink2); line-height:1.7; }
+.clause-body p { margin-bottom:3mm; }
+.clause-body p:last-child { margin-bottom:0; }
+.clause-body strong { color:var(--ink); }
+.oggetto-box { background:var(--fill); border:1px solid var(--rule); border-radius:7px; padding:4.5mm 6mm; }
+.oggetto-row { display:flex; gap:4mm; align-items:center; padding:2.5mm 0; border-bottom:1px solid var(--rule); font-size:10.5pt; }
+.oggetto-row:last-child { border-bottom:none; }
+.oggetto-key { font-weight:700; color:var(--ink); min-width:28mm; flex-shrink:0; }
+.oggetto-val { color:var(--ink2); flex:1; }
+.prezzo-outer { background:var(--navy); border-radius:8px; overflow:hidden; }
+.prezzo-total { display:flex; align-items:center; justify-content:space-between; padding:5mm 7mm; }
+.pt-top { font-family:'Barlow Condensed',sans-serif; font-size:7pt; letter-spacing:3px; color:var(--muted); text-transform:uppercase; font-weight:600; }
+.pt-main { font-family:'Bebas Neue',sans-serif; font-size:20pt; color:var(--white); letter-spacing:1px; line-height:1; margin-top:1mm; }
+.pt-lit { font-family:'Barlow',sans-serif; font-size:8pt; color:rgba(255,255,255,0.45); margin-top:1mm; font-style:italic; }
+.prezzo-total-num { font-family:'Bebas Neue',sans-serif; font-size:34pt; color:var(--orange); letter-spacing:1px; line-height:1; }
+.prezzo-detail { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid rgba(255,255,255,0.07); }
+.prezzo-item { padding:3mm 7mm; }
+.prezzo-item:not(:last-child) { border-right:1px solid rgba(255,255,255,0.07); }
+.pi-label { font-family:'Barlow Condensed',sans-serif; font-size:6pt; letter-spacing:2px; color:var(--muted); text-transform:uppercase; font-weight:600; margin-bottom:1mm; }
+.pi-val { font-family:'Bebas Neue',sans-serif; font-size:14pt; color:var(--cyan); letter-spacing:0.5px; }
+.pagamento-box { background:var(--fill); border:1px solid var(--rule); border-radius:7px; padding:4.5mm 6mm; display:flex; flex-direction:column; gap:3mm; }
+.pag-row { display:flex; gap:4mm; align-items:baseline; font-size:10.5pt; }
+.pag-key { font-weight:700; color:var(--ink); min-width:42mm; flex-shrink:0; }
+.pag-val { color:var(--ink2); }
+.checkbox-row { display:flex; align-items:center; gap:3mm; font-size:10.5pt; color:var(--ink2); }
+.cb { width:13px; height:13px; border:2px solid var(--orange); border-radius:2px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.cb-checked::after { content:'✓'; font-size:9pt; color:var(--orange); font-weight:700; }
+.hl { background:rgba(255,107,53,0.04); border:1px solid rgba(255,107,53,0.15); border-left:3px solid var(--orange); border-radius:5px; padding:3.5mm 5mm; font-size:9.5pt; color:var(--ink2); line-height:1.65; margin:3mm 0; }
+.hl strong { color:var(--ink); }
+.consegna-grid { display:grid; grid-template-columns:1fr 1fr; gap:5mm; }
+.consegna-field { display:flex; flex-direction:column; gap:3px; }
+.consegna-label { font-size:6pt; color:var(--muted); letter-spacing:1px; text-transform:uppercase; font-weight:600; }
+.consegna-line { border:none; border-bottom:1.5px solid #CBD5E1; background:transparent; width:100%; font-family:'Barlow',sans-serif; font-size:10.5pt; color:var(--ink); padding:3px 0; outline:none; }
+.sig-grid { display:grid; grid-template-columns:1fr 1fr; gap:10mm; }
+.sig-col { display:flex; flex-direction:column; gap:4mm; }
+.sig-party-label { font-family:'Barlow Condensed',sans-serif; font-size:7.5pt; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; padding-bottom:3mm; border-bottom:2px solid; margin-bottom:1mm; }
+.sig-party-label.vend { color:var(--orange); border-color:rgba(255,107,53,0.25); }
+.sig-party-label.comp { color:var(--cyan); border-color:rgba(0,212,255,0.25); }
+.sig-field { display:flex; flex-direction:column; gap:3px; }
+.sig-f-label { font-size:6pt; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
+.sig-f-val { font-size:10.5pt; color:var(--ink); font-weight:600; border-bottom:1.5px solid var(--rule); padding-bottom:2px; min-height:18px; }
+.sig-f-input { border:none; border-bottom:1.5px solid #CBD5E1; background:transparent; font-family:'Barlow',sans-serif; font-size:10.5pt; color:var(--ink); font-weight:600; outline:none; padding:2px 0; width:100%; }
+.sig-box { height:22mm; border:1.5px dashed #CBD5E1; border-radius:6px; display:flex; align-items:flex-end; padding:3mm; }
+.sig-box-label { font-size:6pt; color:#C8D4DF; letter-spacing:1.5px; text-transform:uppercase; }
+.pf { background:var(--navy); padding:3mm 14mm; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; }
+.pf-logo { font-family:'Bebas Neue',sans-serif; font-size:16pt; line-height:1; letter-spacing:2px; flex-shrink:0; }
+.pf-logo .a { color:var(--white); } .pf-logo .r { color:var(--orange); } .pf-logo .s { color:var(--white); }
+.pf-center { flex:1; text-align:center; font-family:'Barlow Condensed',sans-serif; font-size:6pt; color:var(--muted); letter-spacing:2px; text-transform:uppercase; }
+.pf-ref { font-family:'Barlow Condensed',sans-serif; font-size:6pt; color:rgba(90,122,153,0.4); letter-spacing:1.5px; text-transform:uppercase; flex-shrink:0; }
+@media print { @page { size:A4 portrait; margin:0; } body { background:white; } .page { margin:0; box-shadow:none; } .print-btn { display:none !important; } }
+@media screen { .print-btn { position:fixed; bottom:24px; right:24px; background:var(--orange); color:white; border:none; padding:12px 26px; border-radius:8px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:700; letter-spacing:1px; cursor:pointer; text-transform:uppercase; box-shadow:0 6px 24px rgba(255,107,53,0.4); z-index:999; } }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo">
+            <div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div>
+            <div class="ph-sub">Aqua Rescue Systems</div>
+        </div>
+        <div class="ph-center">
+            <div class="ph-doc-type">Commercial Document</div>
+            <div class="ph-doc-title">Purchase Agreement</div>
+            <div class="ph-doc-sub">Dolphin 3 Plus · Autonomous Water Rescue System</div>
+        </div>
+        <div class="ph-right">
+            <div class="ph-date-label">Date</div>
+            <div class="ph-date-line"></div>
+            <div class="ph-ref">ARS-PA-D3 · 2025</div>
+        </div>
+    </div>
+    <div class="pb">
+        <div class="parties-grid">
+            <div class="p-card vend">
+                <div class="p-role vend">Seller</div>
+                <div class="p-fixed">
+                    <p><strong style="font-size:12pt;">Aqua Rescue Systems</strong><br>
+                    <span style="font-size:9pt;color:var(--muted);">SportForYou Srls · VAT IT03275830218</span><br>
+                    Via E. Fermi 5 – 39100 Bolzano (BZ), Italy<br>
+                    info@aquarescuesystems.com</p>
+                </div>
+            </div>
+            <div class="p-card comp">
+                <div class="p-role comp">Buyer</div>
+                <div class="fill-row"><span class="fill-label">Name / Company Name</span><input class="fill-line" type="text" placeholder=" "/></div>
+                <div class="fill-row"><span class="fill-label">Address</span><input class="fill-line" type="text" placeholder=" "/></div>
+                <div class="fill-row"><span class="fill-label">Tax ID / VAT Number</span><input class="fill-line" type="text" placeholder=" "/></div>
+                <div class="fill-row"><span class="fill-label">Email / Phone</span><input class="fill-line" type="text" placeholder=" "/></div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-title">Subject Matter</div>
+            <p style="font-size:10.5pt;color:var(--ink2);line-height:1.65;margin-bottom:3.5mm;">By this document, the Buyer submits an irrevocable purchase offer for the following product:</p>
+            <div class="oggetto-box">
+                <div class="oggetto-row">
+                    <span class="oggetto-key">Product</span>
+                    <span class="oggetto-val">Water rescue robot <strong>Dolphin 3 Plus</strong></span>
+                </div>
+                <div class="oggetto-row">
+                    <span class="oggetto-key">Quantity</span>
+                    <span class="oggetto-val"><input type="text" style="border:none;border-bottom:1.5px solid #CBD5E1;background:transparent;font-family:'Barlow',sans-serif;font-size:10.5pt;color:var(--ink);padding:1px 0;outline:none;width:60mm;"/></span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-title">Price</div>
+            <div class="prezzo-outer">
+                <div class="prezzo-total">
+                    <div>
+                        <div class="pt-top">Agreed Total Price</div>
+                        <div class="pt-main">Euro 9,975.00</div>
+                        <div class="pt-lit">nine thousand nine hundred seventy-five/00</div>
+                    </div>
+                    <div class="prezzo-total-num">€ 9,975</div>
+                </div>
+                <div class="prezzo-detail">
+                    <div class="prezzo-item">
+                        <div class="pi-label">Net Amount</div>
+                        <div class="pi-val">€ 8,176.23</div>
+                    </div>
+                    <div class="prezzo-item">
+                        <div class="pi-label">VAT 22%</div>
+                        <div class="pi-val">€ 1,798.77</div>
+                    </div>
+                    <div class="prezzo-item">
+                        <div class="pi-label">Total incl. VAT</div>
+                        <div class="pi-val" style="color:var(--orange);">€ 9,975.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-title">Payment Terms</div>
+            <div class="pagamento-box">
+                <div style="font-size:10.5pt;color:var(--ink2);">Payment shall be made by:</div>
+                <div class="checkbox-row"><div class="cb cb-checked"></div><span>Advance bank transfer</span></div>
+                <div class="pag-row"><span class="pag-key">Payment deadline</span><span class="pag-val">In advance within 5 days of order confirmation</span></div>
+                <div class="pag-row"><span class="pag-key">Account holder</span><span class="pag-val">SportForYou Srls</span></div>
+                <div class="pag-row"><span class="pag-key">IBAN</span><span class="pag-val">IT81R0808111600000300025836</span></div>
+                <div style="font-size:9pt;color:var(--muted);">In case of late payment, default interest shall apply pursuant to Italian Legislative Decree 231/2002.</div>
+            </div>
+        </div>
+    </div>
+    <div class="pf">
+        <div class="pf-logo"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div>
+        <div class="pf-center">Aqua Rescue Systems · Via E. Fermi 5, 39100 Bolzano · info@aquarescuesystems.com</div>
+        <div class="pf-ref">Page 1 / 4</div>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo">
+            <div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div>
+            <div class="ph-sub">Aqua Rescue Systems</div>
+        </div>
+        <div class="ph-center">
+            <div class="ph-doc-type">Purchase Agreement · Dolphin 3 Plus</div>
+            <div class="ph-doc-title">Terms &amp; Conditions</div>
+        </div>
+        <div class="ph-right">
+            <div class="ph-date-label">Reference</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:13pt;color:rgba(0,212,255,0.4);margin-top:2px;letter-spacing:1px;">ARS-PA-D3</div>
+            <div class="ph-ref">· 2025 ·</div>
+        </div>
+    </div>
+    <div class="pb">
+        <div>
+            <div class="clause-header"><div class="clause-num">01</div><div><div class="clause-tag">Art. 1</div><div class="clause-title">Delivery</div></div></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:3mm;">
+                <div class="consegna-field"><span class="consegna-label">Delivery address</span><input class="consegna-line" type="text" placeholder=" "/></div>
+                <div class="consegna-field"><span class="consegna-label">Estimated delivery date</span><input class="consegna-line" type="text" placeholder=" "/></div>
+            </div>
+            <div class="clause-body"><p>Risk of loss or damage to the product transfers to the Buyer upon delivery. Any costs for shipping, installation or training not included in the price shall be agreed separately in writing.</p></div>
+        </div>
+        <div>
+            <div class="clause-header"><div class="clause-num">02</div><div><div class="clause-tag">Art. 2</div><div class="clause-title">Warranty</div></div></div>
+            <div class="clause-body">
+                <p>The Seller warrants that the <strong>Dolphin 3 Plus</strong> is free from manufacturing and conformity defects for a period of <strong>24 (twenty-four) months</strong> from the date of delivery, pursuant to applicable Italian consumer protection law (Legislative Decree 206/2005).</p>
+                <p>The warranty does not cover damage resulting from: improper use, inadequate maintenance, unauthorised modifications, extraordinary natural events or normal wear and tear.</p>
+            </div>
+        </div>
+        <div>
+            <div class="clause-header"><div class="clause-num">03</div><div><div class="clause-tag">Art. 3</div><div class="clause-title">Retention of Title</div></div></div>
+            <div class="clause-body">
+                <p>The product remains the <strong>property of the Seller</strong> until the agreed purchase price has been paid in full (Art. 1523 Italian Civil Code). The Buyer undertakes not to sell, pledge or otherwise dispose of the product before full payment. In case of default, the Seller is entitled to demand immediate return of the product.</p>
+            </div>
+        </div>
+        <div>
+            <div class="clause-header"><div class="clause-num">04</div><div><div class="clause-tag">Art. 4</div><div class="clause-title">Right of Withdrawal</div></div></div>
+            <div class="clause-body">
+                <p>If the Buyer is a <strong>consumer</strong> (a natural person acting outside their trade, business or profession), they have the right to withdraw from this agreement within <strong>14 days</strong> of the delivery date, without giving any reason, pursuant to Italian Legislative Decree 206/2005, Arts. 52–58.</p>
+                <div class="hl">Withdrawal must be communicated to the Seller in writing at: <strong>info@aquarescuesystems.com</strong>. The product must be returned within 14 days of the withdrawal notice, in its original condition and original packaging.</div>
+                <p>If the Buyer acts in the course of their <strong>trade, business or profession</strong> (B2B), the right of withdrawal does not apply.</p>
+            </div>
+        </div>
+    </div>
+    <div class="pf">
+        <div class="pf-logo"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div>
+        <div class="pf-center">Aqua Rescue Systems · Via E. Fermi 5, 39100 Bolzano · info@aquarescuesystems.com</div>
+        <div class="pf-ref">Page 2 / 4</div>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo">
+            <div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div>
+            <div class="ph-sub">Aqua Rescue Systems</div>
+        </div>
+        <div class="ph-center">
+            <div class="ph-doc-type">Purchase Agreement · Dolphin 3 Plus</div>
+            <div class="ph-doc-title">Terms &amp; Conditions</div>
+        </div>
+        <div class="ph-right">
+            <div class="ph-date-label">Reference</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:13pt;color:rgba(0,212,255,0.4);margin-top:2px;letter-spacing:1px;">ARS-PA-D3</div>
+            <div class="ph-ref">· 2025 ·</div>
+        </div>
+    </div>
+    <div class="pb">
+        <div>
+            <div class="clause-header"><div class="clause-num">05</div><div><div class="clause-tag">Art. 5</div><div class="clause-title">Limitation of Liability</div></div></div>
+            <div class="clause-body">
+                <p>The Seller's liability for any damage is limited to the value of the purchase price actually paid by the Buyer. The Seller shall not be liable for indirect damages, consequential damages, loss of profit or damages arising from improper use of the product. The Buyer is responsible for compliance with all applicable local regulations regarding the operation of autonomous robotic systems in aquatic environments.</p>
+            </div>
+        </div>
+        <div>
+            <div class="clause-header"><div class="clause-num">06</div><div><div class="clause-tag">Art. 6</div><div class="clause-title">Applicable Law &amp; Jurisdiction</div></div></div>
+            <div class="clause-body">
+                <p>This agreement is governed by <strong>Italian law</strong>. Any dispute arising from the interpretation or performance of this agreement shall be subject to the exclusive jurisdiction of the <strong>Court of Bolzano (BZ), Italy</strong>. The parties expressly waive any other alternative forum.</p>
+            </div>
+        </div>
+        <div>
+            <div class="clause-header"><div class="clause-num">07</div><div><div class="clause-tag">Art. 7</div><div class="clause-title">Personal Data Processing</div></div></div>
+            <div class="clause-body">
+                <p>The Buyer's personal data will be processed by SportForYou Srls as data controller solely for the purpose of performing this agreement, in accordance with EU Regulation 2016/679 (GDPR). Data will not be shared with third parties except as required by law. The Buyer may exercise their rights by writing to <strong>info@aquarescuesystems.com</strong>.</p>
+            </div>
+        </div>
+        <div>
+            <div class="clause-header"><div class="clause-num">08</div><div><div class="clause-tag">Art. 8</div><div class="clause-title">General Provisions</div></div></div>
+            <div class="clause-body">
+                <p>This agreement constitutes the entire agreement between the parties and supersedes all prior understandings. Any amendment must be agreed <strong>in writing</strong> and signed by both parties. The invalidity of any individual clause shall not affect the validity of the remainder of the agreement.</p>
+            </div>
+        </div>
+    </div>
+    <div class="pf">
+        <div class="pf-logo"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div>
+        <div class="pf-center">Aqua Rescue Systems · Via E. Fermi 5, 39100 Bolzano · info@aquarescuesystems.com</div>
+        <div class="pf-ref">Page 3 / 4</div>
+    </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+    <div class="ph">
+        <div class="ph-logo">
+            <div class="ph-ars"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div>
+            <div class="ph-sub">Aqua Rescue Systems</div>
+        </div>
+        <div class="ph-center">
+            <div class="ph-doc-type">Purchase Agreement · Dolphin 3 Plus</div>
+            <div class="ph-doc-title">Signatures</div>
+        </div>
+        <div class="ph-right">
+            <div class="ph-date-label">Reference</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:13pt;color:rgba(0,212,255,0.4);margin-top:2px;letter-spacing:1px;">ARS-PA-D3</div>
+            <div class="ph-ref">· 2025 ·</div>
+        </div>
+    </div>
+    <div class="pb">
+        <div style="display:flex;align-items:center;gap:4mm;margin-top:2mm;">
+            <span style="font-size:10.5pt;font-weight:700;color:var(--ink);white-space:nowrap;">Place and date:</span>
+            <div style="flex:1;border-bottom:1.5px solid #CBD5E1;height:20px;"></div>
+        </div>
+        <div>
+            <div class="section-title">Execution</div>
+            <div class="sig-grid">
+                <div class="sig-col">
+                    <div class="sig-party-label comp">Buyer's Signature</div>
+                    <div class="sig-field"><div class="sig-f-label">Full Name / Company Name</div><input class="sig-f-input" type="text" placeholder=" "/></div>
+                    <div class="sig-box"><span class="sig-box-label">Signature</span></div>
+                </div>
+                <div class="sig-col">
+                    <div class="sig-party-label vend">For acceptance – Seller's Signature</div>
+                    <div class="sig-field"><div class="sig-f-label">Aqua Rescue Systems · Sales Manager</div><div class="sig-f-val">Stefano Maroscia</div></div>
+                    <div class="sig-box"><span class="sig-box-label">Signature and Stamp</span></div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:auto;padding-top:5mm;border-top:1px solid var(--rule);">
+            <p style="font-size:8pt;color:var(--muted);line-height:1.6;text-align:center;">
+                Pursuant to Arts. 1341 and 1342 of the Italian Civil Code, the Buyer declares having read and specifically approved the following clauses:<br>
+                <strong style="color:var(--ink2);">Art. 3 (Retention of Title) · Art. 4 (Right of Withdrawal) · Art. 5 (Limitation of Liability) · Art. 6 (Exclusive Jurisdiction: Court of Bolzano)</strong>
+            </p>
+            <div style="display:flex;justify-content:flex-end;margin-top:5mm;">
+                <div style="text-align:right;">
+                    <div style="font-size:6pt;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3mm;">Buyer's signature for specific approval</div>
+                    <div style="width:70mm;border-bottom:1.5px solid #CBD5E1;height:14px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pf">
+        <div class="pf-logo"><span class="a">A</span><span class="r">R</span><span class="s">S</span></div>
+        <div class="pf-center">Aqua Rescue Systems · Via E. Fermi 5, 39100 Bolzano · info@aquarescuesystems.com</div>
+        <div class="pf-ref">Page 4 / 4</div>
+    </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+</body>
+</html>
