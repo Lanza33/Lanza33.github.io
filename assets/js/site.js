@@ -545,6 +545,9 @@ function toggleMobileNav() {
     document.getElementById('navBurger').setAttribute('aria-expanded', isOpen);
     document.getElementById('navOverlay').classList.toggle('open', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+        document.getElementById('nav').classList.remove('nav-hidden');
+    }
 }
 function closeMobileNav() {
     document.getElementById('navLinksWrap').classList.remove('open');
@@ -573,11 +576,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-dropdown-item').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === currentLang));
 });
 
-// Frost the nav bar once scrolled past the top
+// Frost the nav bar once scrolled past the top, and on mobile hide it on scroll-down / reveal on scroll-up
 (function () {
     const navEl = document.getElementById('nav');
+    const navLinksWrap = document.getElementById('navLinksWrap');
+    let lastScrollY = window.scrollY;
     function updateNav() {
-        navEl.classList.toggle('scrolled', window.scrollY > 40);
+        const y = window.scrollY;
+        navEl.classList.toggle('scrolled', y > 40);
+        if (window.innerWidth <= 900 && !navLinksWrap.classList.contains('open')) {
+            if (y > lastScrollY && y > 80) {
+                navEl.classList.add('nav-hidden');
+            } else if (y < lastScrollY) {
+                navEl.classList.remove('nav-hidden');
+            }
+        } else {
+            navEl.classList.remove('nav-hidden');
+        }
+        lastScrollY = y;
     }
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
