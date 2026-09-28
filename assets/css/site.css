@@ -195,7 +195,7 @@ textarea { resize:none; min-height:100px; }
 .teaser-link:hover { gap:0.85rem; }
 
 /* FOOTER */
-footer { background:var(--bg-surface); border-top:1px solid var(--border); padding:4.5rem 2rem 2rem; }
+footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:4.5rem 2rem 2rem; }
 .footer-grid {
     max-width:1200px; margin:0 auto; display:grid;
     grid-template-columns:1.8fr 1fr 1fr 1fr;
