@@ -222,8 +222,9 @@ footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:
 .footer-contact-item a:hover { color:var(--cyan); }
 .footer-bottom { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; padding-top:1.75rem; }
 .footer-legal-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
-.footer-badge { height:92px; width:auto; display:block; border-radius:0.25rem; }
+.footer-badge { height:110px; width:auto; display:block; border-radius:0.25rem; }
 .footer-partner-logo { height:56px; width:auto; display:block; }
+.footer-ars-logo { height:80px; width:auto; object-fit:contain; display:block; }
 .footer-bottom-logo { display:none; }
 .footer-topline-madeby { display:none; }
 @media(max-width:900px) {
@@ -239,7 +240,8 @@ footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:
     .footer-links, .footer-contact-item { align-items:flex-start; }
     .footer-contact-item { justify-content:flex-start; }
     .footer-brand { margin-top:0; }
-    .footer-badge { height:76px; }
+    .footer-badge { height:92px; }
+    .footer-ars-logo { height:68px; }
     .footer-partner { align-items:flex-start; text-align:left; }
     .footer-partner-logo { height:40px; max-width:100%; }
 }
