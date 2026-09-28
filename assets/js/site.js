@@ -137,8 +137,6 @@ const translations = {
         te_safety_label:'Sicurezza & certificazioni', te_safety_title:'Affidabile quando<br>conta davvero.',
         te_safety_p1:'Il grado di protezione IP67 garantisce resistenza a polvere e immersione temporanea, mentre il sistema di autoraddrizzamento riporta automaticamente il robot in assetto corretto in pochi secondi, anche in acque agitate.',
         te_safety_p2:'Tutti i sistemi elettronici sono progettati per operare in modo affidabile in ambienti marini, con protezione dalla corrosione salina e componentistica pensata per un uso intensivo e ripetuto nel tempo.',
-        te_roadmap_label:'Sviluppo futuro', te_roadmap_title:'Il lavoro<br>continua.',
-        te_roadmap_p1:'Il team di Aqua Rescue Systems lavora costantemente su nuove funzionalità, dall\'espansione della connettività satellitare a miglioramenti nel riconoscimento automatico delle persone in acqua, per rendere ogni futura generazione del Dolphin ancora più rapida ed efficace.',
         te_cta_title:'Scopri il Dolphin 3<br>dal vivo.', te_cta_desc:'Richiedi una demo e vedi la tecnologia in azione.'
     },
     de: {
@@ -250,8 +248,6 @@ const translations = {
         te_safety_label:'Sicherheit & Zertifizierungen', te_safety_title:'Zuverlässig, wenn es<br>wirklich darauf ankommt.',
         te_safety_p1:'Die Schutzart IP67 gewährleistet Beständigkeit gegen Staub und zeitweiliges Untertauchen, während das Selbstaufrichtungssystem den Roboter auch bei rauer See innerhalb weniger Sekunden automatisch wieder in die richtige Lage bringt.',
         te_safety_p2:'Alle elektronischen Systeme sind für den zuverlässigen Betrieb in maritimen Umgebungen konzipiert, mit Korrosionsschutz gegen Salzwasser und Komponenten, die für intensiven und wiederholten Einsatz über die Zeit ausgelegt sind.',
-        te_roadmap_label:'Zukünftige Entwicklung', te_roadmap_title:'Die Arbeit<br>geht weiter.',
-        te_roadmap_p1:'Das Team von Aqua Rescue Systems arbeitet kontinuierlich an neuen Funktionen — von erweiterter Satellitenkonnektivität bis zu Verbesserungen bei der automatischen Personenerkennung im Wasser —, um jede zukünftige Dolphin-Generation noch schneller und wirksamer zu machen.',
         te_cta_title:'Erlebe den Dolphin 3<br>live.', te_cta_desc:'Fordere eine Demo an und sieh die Technologie in Aktion.'
     },
     en: {
@@ -363,8 +359,6 @@ const translations = {
         te_safety_label:'Safety & certifications', te_safety_title:'Reliable when it<br>truly matters.',
         te_safety_p1:'The IP67 protection rating guarantees resistance to dust and temporary submersion, while the self-righting system automatically restores the robot to the correct orientation within seconds, even in rough water.',
         te_safety_p2:'All electronic systems are engineered to operate reliably in marine environments, with corrosion protection against salt water and components built for intensive, repeated use over time.',
-        te_roadmap_label:'Future development', te_roadmap_title:'The work<br>continues.',
-        te_roadmap_p1:'The Aqua Rescue Systems team is constantly working on new capabilities, from expanded satellite connectivity to improvements in automatic person-detection in water, to make every future Dolphin generation even faster and more effective.',
         te_cta_title:'See the Dolphin 3<br>in action.', te_cta_desc:'Request a demo and see the technology at work.'
     }
 };
