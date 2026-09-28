@@ -121,8 +121,6 @@
             --border: rgba(0,212,255,0.15);
         }
         * { margin:0; padding:0; box-sizing:border-box; }
-        *, *:hover, *:focus, *:active,
-        html, body, a, button, [onclick], select, input, textarea,
         a:hover, button:hover, [onclick]:hover, select:hover, input:hover, textarea:hover {
             cursor: url('cursor_dolphin.png') 24 24, auto !important;
         }
@@ -133,7 +131,7 @@
         nav {
             position:fixed; top:0; left:0;
             width:100%; z-index:100;
-            background:rgba(2,12,24,0.88); backdrop-filter:blur(24px);
+            background:var(--bg-deep);
             padding:0.75rem 2rem; display:flex; justify-content:space-between; align-items:center;
             transition:background 0.3s;
         }
@@ -1275,10 +1273,6 @@
     }, {threshold:0.1});
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-    window.addEventListener('scroll', () => {
-        document.getElementById('nav').style.background =
-            window.scrollY > 60 ? 'rgba(2,12,24,0.97)' : 'rgba(2,12,24,0.85)';
-    });
 
     const translations = {
         it: {
