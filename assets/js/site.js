@@ -38,7 +38,6 @@ function featGoTo(index) {
     const featNextEl = document.getElementById('featNext');
     if (featPrevEl) featPrevEl.disabled = featIndex === 0;
     if (featNextEl) featNextEl.disabled = featIndex === featPages - 1;
-    document.querySelectorAll('.feat-swipe-hint').forEach(h => h.classList.toggle('hidden', featIndex > 0));
 }
 
 function featSlide(dir) {

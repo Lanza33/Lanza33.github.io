@@ -337,6 +337,7 @@ section[id] { scroll-margin-top: 160px; }
     .feat-slider-track { display:flex; transition:transform 0.35s ease; touch-action:pan-y; -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; }
     .feat-slider-track * { touch-action:pan-y; -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; }
     .feat-page { display:flex; gap:1rem; flex:0 0 100%; min-width:0; touch-action:pan-y; }
+    .feat-page-col { flex-direction:column; }
     .feat-page .feat-card { flex:1; min-width:0; }
     .feat-slider-nav { display:flex; align-items:center; justify-content:center; gap:1rem; }
     .feat-slider-dots { display:flex; gap:0.4rem; }
