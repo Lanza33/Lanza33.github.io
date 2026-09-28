@@ -144,6 +144,15 @@
         .logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.1em; }
         .logo span { color:var(--cyan); }
         .nav-logo { height:38px; width:auto; object-fit:contain; }
+        .nav-logo-wrap { display:flex; align-items:center; flex-shrink:0; }
+        .nav-links-wrap { display:flex; align-items:center; gap:2.5rem; }
+        .nav-burger { display:none; position:relative; flex-direction:column; justify-content:center; gap:6px; width:32px; height:32px; background:transparent; border:none; cursor:pointer; padding:0; z-index:96; flex-shrink:0; }
+        .nav-burger span { display:block; width:100%; height:2px; background:var(--text); border-radius:2px; transition:transform 0.25s ease, opacity 0.2s ease; }
+        .nav-burger.open span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
+        .nav-burger.open span:nth-child(2) { opacity:0; }
+        .nav-burger.open span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
+        .nav-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.55); opacity:0; pointer-events:none; transition:opacity 0.3s ease; z-index:90; }
+        .nav-overlay.open { opacity:1; pointer-events:auto; }
         nav ul { display:flex; gap:2.25rem; list-style:none; }
         nav a { color:var(--text-muted); text-decoration:none; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; transition:color 0.2s; }
         nav a:hover { color:var(--cyan); }
@@ -155,9 +164,11 @@
         .lang-btn:hover { border-color:var(--cyan); color:var(--cyan); }
         .lang-btn.active:hover { background:var(--cyan); color:var(--bg-deep); }
         nav ul { flex-shrink:1; }
+        .nav-mobile-controls { display:none; align-items:center; gap:0.6rem; flex-shrink:0; }
         @media(max-width:900px) {
             .lang-switcher { display:none; }
-            .lang-dropdown-wrap { position:absolute; top:50%; right:1rem; transform:translateY(-50%); z-index:10; }
+            .nav-mobile-controls { display:flex; }
+            .lang-dropdown-wrap { position:relative; z-index:10; }
             .lang-dropdown-btn { background:rgba(0,212,255,0.08); border:1px solid var(--border); border-radius:0.35rem; color:var(--cyan); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; padding:0.35rem 0.6rem; }
             .lang-dropdown-menu { display:none; position:absolute; top:calc(100% + 0.35rem); right:0; background:rgba(6,22,40,0.97); border:1px solid var(--border); border-radius:0.35rem; overflow:hidden; min-width:60px; }
             .lang-dropdown-menu.open { display:block; }
@@ -332,9 +343,22 @@
         /* RESPONSIVE */
         @media(max-width:900px) {
             nav { justify-content:space-between; padding:0.5rem 1.5rem; }
-            nav > div:nth-child(2) { display:none; }
-            nav > div:first-child { flex:1; display:flex; justify-content:flex-start; align-items:center; }
-            nav > div:first-child img { height:56px; }
+            .nav-logo-wrap { flex:1; justify-content:flex-start; }
+            .nav-logo-wrap img { height:56px; }
+            .nav-burger { display:flex; }
+            .nav-links-wrap {
+                position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px);
+                background:rgba(2,12,24,0.97); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+                box-shadow:-10px 0 40px rgba(0,0,0,0.45);
+                flex-direction:column; align-items:flex-start; justify-content:flex-start;
+                padding:6rem 2rem 2rem; gap:2rem;
+                transform:translateX(100%); transition:transform 0.3s ease;
+                z-index:95;
+            }
+            .nav-links-wrap.open { transform:translateX(0); }
+            .nav-links-wrap ul { flex-direction:column; align-items:flex-start; gap:1.5rem; width:100%; }
+            .nav-links-wrap ul a { font-size:1rem; }
+            .nav-links-wrap .nav-cta { display:inline-block; }
             #missione > .container { grid-template-columns:1fr !important; gap:3rem !important; text-align:center !important; max-width:900px; margin:0 auto; }
             #missione .sec-title { text-align:center; }
             #missione > .container > div:first-child > div { align-items:center; }
@@ -401,17 +425,17 @@
 <!-- NAV -->
 <nav id="nav">
     <!-- Logo: left -->
-    <div style="display:flex;align-items:center;flex-shrink:0;">
+    <div class="nav-logo-wrap">
         <img src="assets/logos/ars_logo_transparent.svg?v=3" alt="AquaRescueSystems" style="height:64px;width:auto;object-fit:contain;"/>
     </div>
     <!-- Links + lang: right -->
-    <div style="display:flex;align-items:center;gap:2.5rem;">
+    <div class="nav-links-wrap" id="navLinksWrap">
         <ul>
-            <li><a href="#missione" data-i18n="nav_mission">Missione</a></li>
-            <li><a href="#prodotto" data-i18n="nav_product">Prodotto</a></li>
-            <li><a href="#tecnologia" data-i18n="nav_technology">Tecnologia</a></li>
-            <li><a href="#come-funziona" data-i18n="nav_how">Come funziona</a></li>
-            <li><a href="#contatto" class="nav-cta" data-i18n="nav_cta">Richiedi demo</a></li>
+            <li><a href="#missione" data-i18n="nav_mission" onclick="closeMobileNav()">Missione</a></li>
+            <li><a href="#prodotto" data-i18n="nav_product" onclick="closeMobileNav()">Prodotto</a></li>
+            <li><a href="#tecnologia" data-i18n="nav_technology" onclick="closeMobileNav()">Tecnologia</a></li>
+            <li><a href="#come-funziona" data-i18n="nav_how" onclick="closeMobileNav()">Come funziona</a></li>
+            <li><a href="#contatto" class="nav-cta" data-i18n="nav_cta" onclick="closeMobileNav()">Richiedi demo</a></li>
         </ul>
         <div class="lang-switcher">
             <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
@@ -419,16 +443,22 @@
             <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
         </div>
     </div>
-    <!-- Mobile dropdown -->
-    <div class="lang-dropdown-wrap">
-        <button class="lang-dropdown-btn" id="langDropBtn" onclick="toggleLangDropdown()">IT ▾</button>
-        <div class="lang-dropdown-menu" id="langDropMenu">
-            <button class="lang-dropdown-item active" data-lang="it" onclick="setLangMobile('it')">IT</button>
-            <button class="lang-dropdown-item" data-lang="de" onclick="setLangMobile('de')">DE</button>
-            <button class="lang-dropdown-item" data-lang="en" onclick="setLangMobile('en')">EN</button>
+    <!-- Mobile: lang dropdown + burger -->
+    <div class="nav-mobile-controls">
+        <div class="lang-dropdown-wrap">
+            <button class="lang-dropdown-btn" id="langDropBtn" onclick="toggleLangDropdown()">IT ▾</button>
+            <div class="lang-dropdown-menu" id="langDropMenu">
+                <button class="lang-dropdown-item active" data-lang="it" onclick="setLangMobile('it')">IT</button>
+                <button class="lang-dropdown-item" data-lang="de" onclick="setLangMobile('de')">DE</button>
+                <button class="lang-dropdown-item" data-lang="en" onclick="setLangMobile('en')">EN</button>
+            </div>
         </div>
+        <button class="nav-burger" id="navBurger" onclick="toggleMobileNav()" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </nav>
+<div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
 
 <!-- HERO -->
 <section class="hero grid-bg">
@@ -1580,6 +1610,21 @@
 
     function toggleLangDropdown() {
         document.getElementById('langDropMenu').classList.toggle('open');
+    }
+
+    function toggleMobileNav() {
+        const isOpen = document.getElementById('navLinksWrap').classList.toggle('open');
+        document.getElementById('navBurger').classList.toggle('open', isOpen);
+        document.getElementById('navBurger').setAttribute('aria-expanded', isOpen);
+        document.getElementById('navOverlay').classList.toggle('open', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    function closeMobileNav() {
+        document.getElementById('navLinksWrap').classList.remove('open');
+        document.getElementById('navBurger').classList.remove('open');
+        document.getElementById('navBurger').setAttribute('aria-expanded', 'false');
+        document.getElementById('navOverlay').classList.remove('open');
+        document.body.style.overflow = '';
     }
     document.addEventListener('click', e => {
         if (!e.target.closest('.lang-dropdown-wrap')) {
