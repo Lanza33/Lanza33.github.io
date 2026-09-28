@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/site.css?v=17">
+    <link rel="stylesheet" href="assets/css/site.css?v=18">
 </head>
 <body>
 
@@ -99,54 +99,52 @@
     </div>
 </section>
 
-<!-- GALLERY -->
+<!-- DATASHEET -->
 <section class="section" style="background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="container">
         <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto;">
-            <p class="sec-label" data-i18n="fb_gallery_label">In azione</p>
-            <h2 class="sec-title" data-i18n-html="fb_gallery_title">Progettato per<br>l'emergenza reale.</h2>
+            <p class="sec-label" data-i18n="fb_gallery_label">Scheda tecnica</p>
+            <h2 class="sec-title" data-i18n-html="fb_gallery_title">I dati che<br>contano davvero.</h2>
         </div>
-        <div class="photo-gallery fade-up">
-            <a href="assets/images/fireboat_action1.webp" target="_blank" rel="noopener"><img src="assets/images/fireboat_action1.webp" alt="Mezzo antincendio in azione su un incendio portuale"></a>
-            <a href="assets/images/fireboat_action2.webp" target="_blank" rel="noopener"><img src="assets/images/fireboat_action2.webp" alt="Mezzo antincendio alla massima velocità"></a>
-            <a href="assets/images/fireboat_action3.webp" target="_blank" rel="noopener"><img src="assets/images/fireboat_action3.webp" alt="Mezzo antincendio in acque calme"></a>
-        </div>
-    </div>
-</section>
-
-<!-- SPECS -->
-<section class="section" style="background:var(--bg-deep);">
-    <div class="container">
-        <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto;">
-            <p class="sec-label" data-i18n="fb_specs_label">Dati tecnici indicativi</p>
-            <h2 class="sec-title" data-i18n-html="fb_specs_title">Potenza pensata<br>per contenere il fuoco.</h2>
-        </div>
-        <div class="feat-grid fade-up">
-            <div class="feat-card" style="background:var(--bg-surface);">
-                <div class="feat-title" data-i18n="fb_spec1_title">Portata di pompaggio</div>
-                <div class="feat-desc" data-i18n="fb_spec1_desc">Pompa principale da 3.000 gpm (circa 11.350 l/min) per un getto d'acqua ad alta pressione e volume.</div>
+        <div class="spec-table fade-up">
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row1_label">Pompa antincendio principale</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row1_value">3.000 gpm (circa 11.350 l/min), motore Cummins</div>
             </div>
-            <div class="feat-card" style="background:var(--bg-surface);">
-                <div class="feat-title" data-i18n="fb_spec2_title">Doppio monitor</div>
-                <div class="feat-desc" data-i18n="fb_spec2_desc">Due monitor da 2.500 gpm a 10 bar di pressione, orientabili per colpire il fuoco da più angolazioni.</div>
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row2_label">Monitor doppi</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row2_value">2× 2.500 gpm, pressione 10 bar</div>
             </div>
-            <div class="feat-card" style="background:var(--bg-surface);">
-                <div class="feat-title" data-i18n="fb_spec3_title">Gittata</div>
-                <div class="feat-desc" data-i18n="fb_spec3_desc">Getto d'acqua efficace oltre 80 metri di distanza, per operare in sicurezza lontano dalle fiamme.</div>
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row3_label">Gittata monitor</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row3_value">Oltre 80 m</div>
             </div>
-            <div class="feat-card" style="background:var(--bg-surface);">
-                <div class="feat-title" data-i18n="fb_spec4_title">Velocità massima</div>
-                <div class="feat-desc" data-i18n="fb_spec4_desc">Oltre 35 nodi (circa 65 km/h) grazie a motore diesel Cummins e idrogetto Doen, per raggiungere l'incendio in pochi minuti.</div>
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row4_label">Propulsione</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row4_value">Motore diesel Cummins + idrogetto Doen</div>
             </div>
-            <div class="feat-card" style="background:var(--bg-surface);">
-                <div class="feat-title" data-i18n="fb_spec5_title">Stabilizzazione</div>
-                <div class="feat-desc" data-i18n="fb_spec5_desc">Stabilizzazione giroscopica che consente operazioni sicure fino a stato del mare 4.</div>
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row5_label">Velocità massima</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row5_value">Oltre 35 nodi (circa 65 km/h)</div>
             </div>
-            <div class="feat-card" style="background:var(--bg-surface);">
-                <div class="feat-title" data-i18n="fb_spec6_title">Navigazione autonoma</div>
-                <div class="feat-desc" data-i18n="fb_spec6_desc">Sistema di navigazione completamente autonomo con anticollisione e mantenimento della posizione tramite thruster.</div>
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row6_label">Posizionamento</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row6_value">Thruster di prua (bow tunnel thrusters)</div>
+            </div>
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row7_label">Stabilizzazione</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row7_value">Giroscopica, fino a stato del mare 4</div>
+            </div>
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row8_label">Navigazione</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row8_value">Completamente autonoma, con anticollisione dal lancio al recupero</div>
+            </div>
+            <div class="spec-table-row">
+                <div class="spec-table-label" data-i18n="fb_dt_row9_label">Albero radar</div>
+                <div class="spec-table-value" data-i18n="fb_dt_row9_value">Telescopico, richiudibile per il trasporto</div>
             </div>
         </div>
+        <p class="fade-up" style="margin-top:1.5rem;font-size:0.78rem;color:var(--text-muted);" data-i18n="fb_dt_source">Dati tecnici pubblicati dal produttore del sistema di base.</p>
     </div>
 </section>
 
@@ -442,6 +440,6 @@
     </div>
 </div>
 
-<script src="assets/js/site.js?v=14"></script>
+<script src="assets/js/site.js?v=15"></script>
 </body>
 </html>
