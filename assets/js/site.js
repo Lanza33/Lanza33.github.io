@@ -54,7 +54,7 @@ const translations = {
     it: {
         nav_mission:'Missione', nav_product:'Prodotto', nav_technology:'Tecnologia', nav_fireboat:'Coming Soon', nav_how:'Come funziona', nav_cta:'Richiedi demo',
         hero_badge:'Robot di soccorso acquatico',
-        hero_h1:'Salvare<br><span class="cyan">Vite.</span><br>Senza Rischi.',
+        hero_h1:'Salvare<br><span class="cyan">Vite</span><br>Senza Rischi',
         hero_sub:'Aqua Rescue Systems sviluppa robot autonomi per il soccorso in acqua che raggiungono il luogo dell\'incidente in pochi secondi, salvando vite senza mettere in pericolo i soccorritori.',
         hero_btn1:'Richiedi una demo', hero_btn2:'Scopri il prodotto',
         mission_label:'La nostra missione', mission_title:'Ogni secondo<br>conta.',
@@ -212,7 +212,7 @@ const translations = {
     de: {
         nav_mission:'Mission', nav_product:'Produkt', nav_technology:'Technologie', nav_fireboat:'Coming Soon', nav_how:'Funktionsweise', nav_cta:'Demo anfragen',
         hero_badge:'Wasserrettungsroboter',
-        hero_h1:'Leben<br><span class="cyan">Retten.</span><br>Ohne Risiken.',
+        hero_h1:'Leben<br><span class="cyan">Retten</span><br>Ohne Risiken',
         hero_sub:'Aqua Rescue Systems entwickelt autonome Wasserrettungsroboter, die den Unfallort in wenigen Sekunden erreichen und Leben retten, ohne Retter zu gefährden.',
         hero_btn1:'Demo anfragen', hero_btn2:'Produkt entdecken',
         mission_label:'Unsere Mission', mission_title:'Jede Sekunde<br>zählt.',
@@ -370,7 +370,7 @@ const translations = {
     en: {
         nav_mission:'Mission', nav_product:'Product', nav_technology:'Technology', nav_fireboat:'Coming Soon', nav_how:'How it works', nav_cta:'Request demo',
         hero_badge:'Water Rescue Robot',
-        hero_h1:'Saving<br><span class="cyan">Lives.</span><br>Without Risk.',
+        hero_h1:'Saving<br><span class="cyan">Lives</span><br>Without Risk',
         hero_sub:'Aqua Rescue Systems develops autonomous water rescue robots that reach the incident site in seconds, saving lives without putting rescuers at risk.',
         hero_btn1:'Request a demo', hero_btn2:'Discover the product',
         mission_label:'Our Mission', mission_title:'Every second<br>counts.',
