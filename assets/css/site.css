@@ -338,13 +338,13 @@ section[id] { scroll-margin-top: 160px; }
 }
 
 /* COMPARISON TABLE (prodotto.html) */
-.compare-scroll { overflow-x:auto; margin-top:2rem; }
-.compare-table { background:var(--bg-card); border:1px solid var(--border); border-radius:1rem; overflow:hidden; min-width:520px; }
-.compare-row { display:grid; grid-template-columns:1.5fr 1fr 1fr; border-bottom:1px solid var(--border); }
+.compare-scroll { overflow-x:auto; margin-top:1.5rem; }
+.compare-table { background:var(--bg-card); border:1px solid var(--border); border-radius:1rem; overflow:hidden; min-width:520px; max-width:760px; margin:0 auto; }
+.compare-row { display:grid; grid-template-columns:1.3fr 0.85fr 0.85fr; border-bottom:1px solid var(--border); }
 .compare-row:last-child { border-bottom:none; }
 .compare-row.head { background:rgba(0,212,255,0.05); }
 .compare-row.cta { background:rgba(0,212,255,0.04); }
-.compare-cell { padding:1rem 1.25rem; font-size:0.85rem; color:var(--text-muted); display:flex; align-items:center; }
+.compare-cell { padding:0.75rem 1rem; font-size:0.85rem; color:var(--text-muted); display:flex; align-items:center; }
 .compare-row.head .compare-cell { font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text); font-size:0.85rem; }
 .compare-cell:first-child { color:var(--text); font-weight:500; }
 .compare-cell.check { justify-content:center; }
