@@ -41,7 +41,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/site.css?v=20">
+    <link rel="stylesheet" href="assets/css/site.css?v=21">
 </head>
 <body>
 
@@ -137,7 +137,7 @@
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--cyan),transparent);"></div>
 
             <form style="display:flex;flex-direction:column;gap:1.5rem;" action="https://formspree.io/f/mzdwnnbd" method="POST">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div id="formNameEmailRow" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
                     <div>
                         <label style="display:block;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;" data-i18n="form_name">Nome e Cognome</label>
                         <input type="text" name="name" placeholder="Mario Rossi" required data-i18n-placeholder="form_name_ph"/>
