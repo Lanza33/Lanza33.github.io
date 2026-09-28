@@ -12,6 +12,9 @@
 a:hover, button:hover, [onclick]:hover, select:hover, input:hover, textarea:hover {
     cursor: url('../icons/cursor_dolphin.png') 24 24, auto !important;
 }
+body.hide-dolphin-cursor a:hover, body.hide-dolphin-cursor button:hover, body.hide-dolphin-cursor [onclick]:hover, body.hide-dolphin-cursor select:hover, body.hide-dolphin-cursor input:hover, body.hide-dolphin-cursor textarea:hover {
+    cursor: auto !important;
+}
 html { scroll-behavior: smooth; }
 body { background:var(--bg-deep); color:var(--text); font-family:'Barlow',sans-serif; overflow-x:hidden; }
 
@@ -47,7 +50,7 @@ nav a:hover { color:var(--cyan); }
 .nav-cta { background:var(--cyan) !important; color:var(--bg-deep) !important; padding:0.45rem 1.2rem; border-radius:0.35rem; font-weight:700 !important; }
 .nav-cta:hover { background:#fff !important; }
 .lang-switcher { display:flex; gap:0.25rem; align-items:center; flex-shrink:0; }
-.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.15); border-radius:0.25rem; color:var(--text-muted); font-size:0.7rem; font-weight:600; letter-spacing:0.08em; padding:0.25rem 0.5rem; transition:all 0.2s; }
+.lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.15); border-radius:0.25rem; color:#fff; font-size:0.7rem; font-weight:600; letter-spacing:0.08em; padding:0.25rem 0.5rem; transition:all 0.2s; }
 .lang-btn.active { background:var(--cyan); border-color:var(--cyan); color:var(--bg-deep); }
 .lang-btn:hover { border-color:var(--cyan); color:var(--cyan); }
 .lang-btn.active:hover { background:var(--cyan); color:var(--bg-deep); }
@@ -60,7 +63,7 @@ nav ul { flex-shrink:1; }
     .lang-dropdown-btn { background:rgba(0,212,255,0.08); border:1px solid var(--border); border-radius:0.35rem; color:var(--cyan); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; padding:0.35rem 0.6rem; }
     .lang-dropdown-menu { display:none; position:absolute; top:calc(100% + 0.35rem); right:0; background:rgba(6,22,40,0.97); border:1px solid var(--border); border-radius:0.35rem; overflow:hidden; min-width:60px; }
     .lang-dropdown-menu.open { display:block; }
-    .lang-dropdown-item { display:block; width:100%; padding:0.4rem 0.75rem; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; color:var(--text-muted); text-align:center; border:none; background:transparent; transition:background 0.15s; }
+    .lang-dropdown-item { display:block; width:100%; padding:0.4rem 0.75rem; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; color:#fff; text-align:center; border:none; background:transparent; transition:background 0.15s; }
     .lang-dropdown-item:hover { background:rgba(0,212,255,0.1); color:var(--cyan); }
     .lang-dropdown-item.active { color:var(--cyan); }
     nav.nav-hidden { transform:translateY(-100%); }
