@@ -53,7 +53,7 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
 const translations = {
     it: {
-        nav_mission:'Missione', nav_product:'Prodotto', nav_technology:'Tecnologia', nav_fireboat:'Antincendio', nav_how:'Come funziona', nav_cta:'Richiedi demo',
+        nav_mission:'Missione', nav_product:'Prodotto', nav_technology:'Tecnologia', nav_fireboat:'Prossimamente', nav_how:'Come funziona', nav_cta:'Richiedi demo',
         hero_badge:'Robot di soccorso acquatico',
         hero_h1:'Salvare<br><span class="cyan">Vite.</span><br>Senza Rischi.',
         hero_sub:'Aqua Rescue Systems sviluppa robot autonomi per il soccorso in acqua che raggiungono il luogo dell\'incidente in pochi secondi, salvando vite senza mettere in pericolo i soccorritori.',
@@ -211,7 +211,7 @@ const translations = {
         fb_cta_title:'Vuoi essere aggiornato<br>sul lancio?', fb_cta_desc:'Lasciaci i tuoi contatti: sarai tra i primi a sapere quando il nuovo mezzo antincendio sarà disponibile.', fb_cta_btn:'Contattaci per maggiori informazioni'
     },
     de: {
-        nav_mission:'Mission', nav_product:'Produkt', nav_technology:'Technologie', nav_fireboat:'Brandbekämpfung', nav_how:'Funktionsweise', nav_cta:'Demo anfragen',
+        nav_mission:'Mission', nav_product:'Produkt', nav_technology:'Technologie', nav_fireboat:'Demnächst', nav_how:'Funktionsweise', nav_cta:'Demo anfragen',
         hero_badge:'Wasserrettungsroboter',
         hero_h1:'Leben<br><span class="cyan">Retten.</span><br>Ohne Risiken.',
         hero_sub:'Aqua Rescue Systems entwickelt autonome Wasserrettungsroboter, die den Unfallort in wenigen Sekunden erreichen und Leben retten, ohne Retter zu gefährden.',
@@ -369,7 +369,7 @@ const translations = {
         fb_cta_title:'Möchtest du über den<br>Launch informiert werden?', fb_cta_desc:'Hinterlasse deine Kontaktdaten: Du erfährst als Erster, wenn das neue Löschfahrzeug verfügbar ist.', fb_cta_btn:'Kontaktiere uns für mehr Informationen'
     },
     en: {
-        nav_mission:'Mission', nav_product:'Product', nav_technology:'Technology', nav_fireboat:'Firefighting', nav_how:'How it works', nav_cta:'Request demo',
+        nav_mission:'Mission', nav_product:'Product', nav_technology:'Technology', nav_fireboat:'Coming Soon', nav_how:'How it works', nav_cta:'Request demo',
         hero_badge:'Water Rescue Robot',
         hero_h1:'Saving<br><span class="cyan">Lives.</span><br>Without Risk.',
         hero_sub:'Aqua Rescue Systems develops autonomous water rescue robots that reach the incident site in seconds, saving lives without putting rescuers at risk.',
