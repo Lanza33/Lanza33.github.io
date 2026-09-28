@@ -31,4 +31,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://aquarescuesystems.com/tecnologia.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aquarescuesystems.com/tecnologia.html"/>
   </url>
+  <url>
+    <loc>https://aquarescuesystems.com/antincendio.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://aquarescuesystems.com/antincendio.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://aquarescuesystems.com/antincendio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aquarescuesystems.com/antincendio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aquarescuesystems.com/antincendio.html"/>
+  </url>
 </urlset>
