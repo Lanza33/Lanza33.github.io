@@ -240,8 +240,8 @@
         </div>
         <div class="footer-legal-links">
             <a href="#" onclick="document.getElementById('modal-note').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_legal">Note legali</a>
-            <a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Privacy</a>
-            <a href="#" onclick="document.getElementById('modal-cookie').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Cookie Policy</a>
+            <a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_privacy">Privacy</a>
+            <a href="#" onclick="document.getElementById('modal-cookie').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_cookie">Cookie Policy</a>
             <a href="#" onclick="document.getElementById('modal-contatti').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_contact">Contatti</a>
         </div>
     </div>
@@ -252,32 +252,32 @@
     <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:3rem;position:relative;">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--cyan),transparent);border-radius:1rem 1rem 0 0;"></div>
         <button onclick="document.getElementById('modal-cookie').style.display='none'" style="position:absolute;top:1.25rem;right:1.25rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:0.375rem;color:var(--text-muted);cursor:pointer;font-size:1rem;width:32px;height:32px;display:flex;align-items:center;justify-content:center;">✕</button>
-        <p style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.75rem;font-weight:600;">Informativa Cookie</p>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin-bottom:2rem;">Cookie Policy</h3>
+        <p style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.75rem;font-weight:600;" data-i18n="cookie_eyebrow">Informativa Cookie</p>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin-bottom:2rem;" data-i18n="cookie_title">Cookie Policy</h3>
         <div style="display:flex;flex-direction:column;gap:1.25rem;color:var(--text-muted);font-size:0.88rem;line-height:1.7;font-weight:300;">
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Cosa sono i cookie</div>
-                <p>I cookie sono piccoli file di testo che i siti web salvano sul dispositivo dell'utente durante la navigazione. Vengono utilizzati per far funzionare il sito in modo efficiente e per fornire informazioni ai proprietari del sito.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="cookie_what_label">Cosa sono i cookie</div>
+                <p data-i18n="cookie_what_body">I cookie sono piccoli file di testo che i siti web salvano sul dispositivo dell'utente durante la navigazione. Vengono utilizzati per far funzionare il sito in modo efficiente e per fornire informazioni ai proprietari del sito.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Cookie tecnici</div>
-                <p>Questo sito utilizza esclusivamente cookie tecnici strettamente necessari al funzionamento della pagina (es. gestione della sessione). Non vengono utilizzati cookie di profilazione o tracciamento di terze parti.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="cookie_technical_label">Cookie tecnici</div>
+                <p data-i18n="cookie_technical_body">Questo sito utilizza esclusivamente cookie tecnici strettamente necessari al funzionamento della pagina (es. gestione della sessione). Non vengono utilizzati cookie di profilazione o tracciamento di terze parti.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Servizi di terze parti</div>
-                <p>Questo sito carica caratteri tipografici da Google Fonts (fonts.googleapis.com) e librerie tecniche da Tailwind CDN (cdn.tailwindcss.com). Questi servizi, forniti da aziende con sede negli Stati Uniti, possono ricevere l'indirizzo IP del dispositivo al momento del caricamento della pagina. Alcune immagini di sfondo sono inoltre caricate da server Unsplash (unsplash.com). Per maggiori informazioni consulta le rispettive informative: <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--cyan);">Google</a>, <a href="https://unsplash.com/privacy" target="_blank" style="color:var(--cyan);">Unsplash</a>.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="cookie_thirdparty_label">Servizi di terze parti</div>
+                <p data-i18n-html="cookie_thirdparty_body">Questo sito carica caratteri tipografici da Google Fonts (fonts.googleapis.com) e librerie tecniche da Tailwind CDN (cdn.tailwindcss.com). Questi servizi, forniti da aziende con sede negli Stati Uniti, possono ricevere l'indirizzo IP del dispositivo al momento del caricamento della pagina. Alcune immagini di sfondo sono inoltre caricate da server Unsplash (unsplash.com). Per maggiori informazioni consulta le rispettive informative: <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--cyan);">Google</a>, <a href="https://unsplash.com/privacy" target="_blank" style="color:var(--cyan);">Unsplash</a>.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Gestione dei cookie</div>
-                <p>Puoi gestire o disabilitare i cookie attraverso le impostazioni del tuo browser. La disattivazione dei cookie tecnici potrebbe compromettere il corretto funzionamento del sito.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="cookie_manage_label">Gestione dei cookie</div>
+                <p data-i18n="cookie_manage_body">Puoi gestire o disabilitare i cookie attraverso le impostazioni del tuo browser. La disattivazione dei cookie tecnici potrebbe compromettere il corretto funzionamento del sito.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Contatto</div>
-                <p>Per qualsiasi informazione sui cookie utilizzati da questo sito scrivi a <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a>.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="cookie_contact_label">Contatto</div>
+                <p data-i18n-html="cookie_contact_body">Per qualsiasi informazione sui cookie utilizzati da questo sito scrivi a <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a>.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Ultimo aggiornamento</div>
-                <p>Gennaio 2026</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="legal_updated_label">Ultimo aggiornamento</div>
+                <p data-i18n="legal_updated_date">Gennaio 2026</p>
             </div>
         </div>
     </div>
@@ -337,46 +337,46 @@
     <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:3rem;position:relative;">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--cyan),transparent);border-radius:1rem 1rem 0 0;"></div>
         <button onclick="document.getElementById('modal-note').style.display='none'" style="position:absolute;top:1.25rem;right:1.25rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:0.375rem;color:var(--text-muted);cursor:pointer;font-size:1rem;width:32px;height:32px;display:flex;align-items:center;justify-content:center;">✕</button>
-        <p style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.75rem;font-weight:600;">Informazioni legali</p>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin-bottom:2rem;">Note Legali</h3>
+        <p style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.75rem;font-weight:600;" data-i18n="note_eyebrow">Informazioni legali</p>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin-bottom:2rem;" data-i18n="note_title">Note Legali</h3>
 
         <div style="display:flex;flex-direction:column;gap:1.25rem;color:var(--text-muted);font-size:0.88rem;line-height:1.7;font-weight:300;">
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Titolare del sito</div>
-                <p>SportForYou Srls<br>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="note_owner_label">Titolare del sito</div>
+                <p data-i18n-html="note_owner_body">SportForYou Srls<br>
                 Via Enrico Fermi 5, 39100 Bolzano (BZ), Italia<br>
                 P.IVA: IT03275830218 · C.F.: 03275830218<br>
                 REA: BZ-246529</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Contatti</div>
-                <p>E-mail: <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a><br>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="note_contact_label">Contatti</div>
+                <p data-i18n-html="note_contact_body">E-mail: <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a><br>
                 PEC: <a href="mailto:sportforyou@arubapec.it" style="color:var(--cyan);">sportforyou@arubapec.it</a><br>
                 Mobile: +39 335 285676</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Proprietà intellettuale</div>
-                <p>Tutti i contenuti presenti su questo sito — testi, immagini, loghi, grafica — sono di proprietà esclusiva di SportForYou Srls o dei rispettivi titolari e sono protetti dalla normativa vigente in materia di diritto d'autore. È vietata la riproduzione, anche parziale, senza autorizzazione scritta.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="note_ip_label">Proprietà intellettuale</div>
+                <p data-i18n="note_ip_body">Tutti i contenuti presenti su questo sito — testi, immagini, loghi, grafica — sono di proprietà esclusiva di SportForYou Srls o dei rispettivi titolari e sono protetti dalla normativa vigente in materia di diritto d'autore. È vietata la riproduzione, anche parziale, senza autorizzazione scritta.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Limitazione di responsabilità</div>
-                <p>Le informazioni contenute in questo sito hanno carattere puramente informativo. SportForYou Srls non si assume alcuna responsabilità per eventuali errori, omissioni o imprecisioni nei contenuti, né per danni diretti o indiretti derivanti dall'utilizzo delle informazioni presenti.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="note_liability_label">Limitazione di responsabilità</div>
+                <p data-i18n="note_liability_body">Le informazioni contenute in questo sito hanno carattere puramente informativo. SportForYou Srls non si assume alcuna responsabilità per eventuali errori, omissioni o imprecisioni nei contenuti, né per danni diretti o indiretti derivanti dall'utilizzo delle informazioni presenti.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Link a siti terzi</div>
-                <p>Questo sito può contenere collegamenti a siti web di terzi (es. Unsplash, social network). SportForYou Srls non esercita alcun controllo su tali siti e non si assume responsabilità per i loro contenuti o per le rispettive informative sulla privacy.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="note_links_label">Link a siti terzi</div>
+                <p data-i18n="note_links_body">Questo sito può contenere collegamenti a siti web di terzi (es. Unsplash, social network). SportForYou Srls non esercita alcun controllo su tali siti e non si assume responsabilità per i loro contenuti o per le rispettive informative sulla privacy.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Legge applicabile</div>
-                <p>Il presente sito è regolato dalla legge italiana. Per qualsiasi controversia sarà competente in via esclusiva il Foro del luogo della sede legale della società.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="note_law_label">Legge applicabile</div>
+                <p data-i18n="note_law_body">Il presente sito è regolato dalla legge italiana. Per qualsiasi controversia sarà competente in via esclusiva il Foro del luogo della sede legale della società.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Risoluzione delle controversie online</div>
-                <p>La Commissione Europea mette a disposizione dei consumatori una piattaforma per la risoluzione online delle controversie (ODR), raggiungibile all'indirizzo <a href="https://ec.europa.eu/consumers/odr" target="_blank" style="color:var(--cyan);">ec.europa.eu/consumers/odr</a>.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="note_odr_label">Risoluzione delle controversie online</div>
+                <p data-i18n-html="note_odr_body">La Commissione Europea mette a disposizione dei consumatori una piattaforma per la risoluzione online delle controversie (ODR), raggiungibile all'indirizzo <a href="https://ec.europa.eu/consumers/odr" target="_blank" style="color:var(--cyan);">ec.europa.eu/consumers/odr</a>.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Ultimo aggiornamento</div>
-                <p>Gennaio 2026</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="legal_updated_label">Ultimo aggiornamento</div>
+                <p data-i18n="legal_updated_date">Gennaio 2026</p>
             </div>
         </div>
     </div>
@@ -387,74 +387,74 @@
     <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:3rem;position:relative;">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--cyan),transparent);border-radius:1rem 1rem 0 0;"></div>
         <button onclick="document.getElementById('modal-privacy').style.display='none'" style="position:absolute;top:1.25rem;right:1.25rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:0.375rem;color:var(--text-muted);cursor:pointer;font-size:1rem;width:32px;height:32px;display:flex;align-items:center;justify-content:center;">✕</button>
-        <p style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.75rem;font-weight:600;">Trattamento dati personali</p>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin-bottom:2rem;">Privacy Policy</h3>
+        <p style="font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.75rem;font-weight:600;" data-i18n="privacy_eyebrow">Trattamento dati personali</p>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin-bottom:2rem;" data-i18n="privacy_title">Privacy Policy</h3>
 
         <div style="display:flex;flex-direction:column;gap:1.25rem;color:var(--text-muted);font-size:0.88rem;line-height:1.7;font-weight:300;">
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Titolare del trattamento</div>
-                <p>SportForYou Srls<br>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_owner_label">Titolare del trattamento</div>
+                <p data-i18n-html="priv_owner_body">SportForYou Srls<br>
                 Via Enrico Fermi 5, 39100 Bolzano (BZ)<br>
                 P.IVA: IT03275830218<br>
                 E-mail: <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a><br>
                 PEC: <a href="mailto:sportforyou@arubapec.it" style="color:var(--cyan);">sportforyou@arubapec.it</a></p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Dati raccolti</div>
-                <p>Tramite il modulo di contatto vengono raccolti: nome, indirizzo e-mail, numero di telefono (facoltativo) e messaggio. Il server di hosting raccoglie inoltre automaticamente alcuni dati tecnici di navigazione (es. indirizzo IP, tipo di browser, pagine visitate) necessari al funzionamento del sito.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_data_label">Dati raccolti</div>
+                <p data-i18n="priv_data_body">Tramite il modulo di contatto vengono raccolti: nome, indirizzo e-mail, numero di telefono (facoltativo) e messaggio. Il server di hosting raccoglie inoltre automaticamente alcuni dati tecnici di navigazione (es. indirizzo IP, tipo di browser, pagine visitate) necessari al funzionamento del sito.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Finalità del trattamento</div>
-                <p>I dati raccolti tramite il modulo di contatto sono utilizzati esclusivamente per rispondere alle richieste di informazioni o di demo e per la gestione del rapporto precontrattuale. I dati tecnici di navigazione sono trattati per garantire il corretto funzionamento e la sicurezza del sito.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_purpose_label">Finalità del trattamento</div>
+                <p data-i18n="priv_purpose_body">I dati raccolti tramite il modulo di contatto sono utilizzati esclusivamente per rispondere alle richieste di informazioni o di demo e per la gestione del rapporto precontrattuale. I dati tecnici di navigazione sono trattati per garantire il corretto funzionamento e la sicurezza del sito.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Base giuridica</div>
-                <p>Il trattamento si basa sul consenso dell'interessato (Art. 6, par. 1, lett. a GDPR) espresso mediante l'invio del modulo di contatto, e sul legittimo interesse del Titolare (Art. 6, par. 1, lett. f GDPR) per i dati tecnici necessari al funzionamento del sito.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_legal_label">Base giuridica</div>
+                <p data-i18n="priv_legal_body">Il trattamento si basa sul consenso dell'interessato (Art. 6, par. 1, lett. a GDPR) espresso mediante l'invio del modulo di contatto, e sul legittimo interesse del Titolare (Art. 6, par. 1, lett. f GDPR) per i dati tecnici necessari al funzionamento del sito.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Modalità del trattamento</div>
-                <p>I dati sono trattati con strumenti informatici, con l'adozione di misure di sicurezza tecniche e organizzative adeguate a prevenirne la perdita, l'uso illecito o non corretto e l'accesso non autorizzato. L'accesso ai dati è limitato al personale autorizzato.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_mode_label">Modalità del trattamento</div>
+                <p data-i18n="priv_mode_body">I dati sono trattati con strumenti informatici, con l'adozione di misure di sicurezza tecniche e organizzative adeguate a prevenirne la perdita, l'uso illecito o non corretto e l'accesso non autorizzato. L'accesso ai dati è limitato al personale autorizzato.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Destinatari dei dati</div>
-                <p>I dati possono essere comunicati a fornitori terzi che operano come responsabili del trattamento (es. servizio di hosting, provider e-mail), esclusivamente per le finalità sopra indicate. I dati non vengono in alcun caso venduti o ceduti a terzi per finalità di marketing.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_recipients_label">Destinatari dei dati</div>
+                <p data-i18n="priv_recipients_body">I dati possono essere comunicati a fornitori terzi che operano come responsabili del trattamento (es. servizio di hosting, provider e-mail), esclusivamente per le finalità sopra indicate. I dati non vengono in alcun caso venduti o ceduti a terzi per finalità di marketing.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Trasferimento dei dati extra-UE</div>
-                <p>Alcuni servizi tecnici utilizzati dal sito (es. hosting su GitHub Pages, font di Google) sono forniti da aziende con sede negli Stati Uniti e possono comportare un trasferimento di dati al di fuori dello Spazio Economico Europeo. Tali trasferimenti avvengono sulla base di clausole contrattuali standard o di altre garanzie adeguate previste dal GDPR.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_transfer_label">Trasferimento dei dati extra-UE</div>
+                <p data-i18n="priv_transfer_body">Alcuni servizi tecnici utilizzati dal sito (es. hosting su GitHub Pages, font di Google) sono forniti da aziende con sede negli Stati Uniti e possono comportare un trasferimento di dati al di fuori dello Spazio Economico Europeo. Tali trasferimenti avvengono sulla base di clausole contrattuali standard o di altre garanzie adeguate previste dal GDPR.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Conservazione dei dati</div>
-                <p>I dati personali vengono conservati per il tempo strettamente necessario a evadere la richiesta e comunque non oltre 12 mesi dalla raccolta, salvo obblighi di legge che impongano una conservazione più lunga.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_retention_label">Conservazione dei dati</div>
+                <p data-i18n="priv_retention_body">I dati personali vengono conservati per il tempo strettamente necessario a evadere la richiesta e comunque non oltre 12 mesi dalla raccolta, salvo obblighi di legge che impongano una conservazione più lunga.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Processi decisionali automatizzati</div>
-                <p>Il Titolare non effettua alcun trattamento basato su processi decisionali automatizzati, inclusa la profilazione, ai sensi dell'Art. 22 GDPR.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_automated_label">Processi decisionali automatizzati</div>
+                <p data-i18n="priv_automated_body">Il Titolare non effettua alcun trattamento basato su processi decisionali automatizzati, inclusa la profilazione, ai sensi dell'Art. 22 GDPR.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Facoltatività del conferimento</div>
-                <p>Il conferimento dei dati tramite il modulo di contatto è facoltativo ma necessario per poter rispondere alla richiesta. Il mancato conferimento comporta l'impossibilità di evadere la richiesta stessa.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_voluntary_label">Facoltatività del conferimento</div>
+                <p data-i18n="priv_voluntary_body">Il conferimento dei dati tramite il modulo di contatto è facoltativo ma necessario per poter rispondere alla richiesta. Il mancato conferimento comporta l'impossibilità di evadere la richiesta stessa.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Diritti dell'interessato</div>
-                <p>In conformità al GDPR (Reg. UE 2016/679) hai diritto di accesso, rettifica, cancellazione, limitazione del trattamento, portabilità dei dati e opposizione al trattamento, oltre al diritto di revocare in qualsiasi momento il consenso prestato, senza pregiudicare la liceità del trattamento basato sul consenso prima della revoca. Per esercitare tali diritti scrivi a <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a>.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_rights_label">Diritti dell'interessato</div>
+                <p data-i18n-html="priv_rights_body">In conformità al GDPR (Reg. UE 2016/679) hai diritto di accesso, rettifica, cancellazione, limitazione del trattamento, portabilità dei dati e opposizione al trattamento, oltre al diritto di revocare in qualsiasi momento il consenso prestato, senza pregiudicare la liceità del trattamento basato sul consenso prima della revoca. Per esercitare tali diritti scrivi a <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a>.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Diritto di reclamo</div>
-                <p>Se ritieni che il trattamento dei tuoi dati violi la normativa vigente, hai diritto di proporre reclamo al Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" style="color:var(--cyan);">www.garanteprivacy.it</a>), autorità di controllo competente in Italia, oppure all'autorità di controllo del tuo Stato membro di residenza.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_complaint_label">Diritto di reclamo</div>
+                <p data-i18n-html="priv_complaint_body">Se ritieni che il trattamento dei tuoi dati violi la normativa vigente, hai diritto di proporre reclamo al Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" style="color:var(--cyan);">www.garanteprivacy.it</a>), autorità di controllo competente in Italia, oppure all'autorità di controllo del tuo Stato membro di residenza.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Cookie</div>
-                <p>Questo sito non utilizza cookie di profilazione. Per maggiori dettagli sui cookie tecnici e di terze parti utilizzati consulta la <a href="#" onclick="document.getElementById('modal-privacy').style.display='none';document.getElementById('modal-cookie').style.display='flex';return false;" style="color:var(--cyan);">Cookie Policy</a>.</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="priv_cookie_label">Cookie</div>
+                <p data-i18n-html="priv_cookie_body">Questo sito non utilizza cookie di profilazione. Per maggiori dettagli sui cookie tecnici e di terze parti utilizzati consulta la <a href="#" onclick="document.getElementById('modal-privacy').style.display='none';document.getElementById('modal-cookie').style.display='flex';return false;" style="color:var(--cyan);">Cookie Policy</a>.</p>
             </div>
             <div>
-                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;">Ultimo aggiornamento</div>
-                <p>Gennaio 2026</p>
+                <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text);margin-bottom:0.35rem;font-weight:600;" data-i18n="legal_updated_label">Ultimo aggiornamento</div>
+                <p data-i18n="legal_updated_date">Gennaio 2026</p>
             </div>
         </div>
     </div>
 </div>
 
-<script src="assets/js/site.js?v=7"></script>
+<script src="assets/js/site.js?v=8"></script>
 </body>
 </html>
