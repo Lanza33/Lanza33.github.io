@@ -117,7 +117,7 @@ const translations = {
         ms_cta_title:'Vuoi saperne di più<br>sul nostro robot?', ms_cta_desc:'Scopri le specifiche tecniche del Dolphin 3 o richiedi una demo personalizzata.',
         ms_cta_btn1:'Scopri il prodotto', ms_cta_btn2:'Richiedi una demo',
 
-        pr_hero_label:'Prodotto', pr_hero_title:'La gamma<br>DOLPHIN.', pr_hero_sub:'Due versioni dello stesso robot, progettate per adattarsi al tuo scenario operativo.',
+        pr_hero_label:'Prodotto', pr_hero_title:'La gamma<br>DOLPHIN', pr_hero_sub:'Due versioni dello stesso robot, progettate per adattarsi al tuo scenario operativo.',
         pr_which_label:'Quale modello scegliere', pr_which_title:'Base o Plus:<br>la differenza è nel controllo.',
         pr_which_p1:'Il <strong style="color:var(--text);">Dolphin 3</strong> offre tutte le funzioni essenziali per il soccorso: velocità di 7 m/s, portata di 800 m, traino fino a 1.000 kg e autoraddrizzamento automatico. È la soluzione ideale per chi cerca un sistema di soccorso rapido da integrare fin da subito.',
         pr_which_p2:'Il <strong style="color:var(--text);">Dolphin 3 Plus</strong> aggiunge Dual GNSS per una localizzazione più precisa, Auto Return per il rientro automatico e una telecamera con monitor remoto per il controllo visivo in tempo reale — pensato per team che operano su aree estese o in condizioni di scarsa visibilità.',
