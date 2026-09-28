@@ -9,12 +9,6 @@
     --border: rgba(0,212,255,0.15);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-a:hover, button:hover, [onclick]:hover, select:hover, input:hover, textarea:hover {
-    cursor: url('../icons/cursor_dolphin.png') 24 24, auto !important;
-}
-body.hide-dolphin-cursor a:hover, body.hide-dolphin-cursor button:hover, body.hide-dolphin-cursor [onclick]:hover, body.hide-dolphin-cursor select:hover, body.hide-dolphin-cursor input:hover, body.hide-dolphin-cursor textarea:hover {
-    cursor: auto !important;
-}
 html { scroll-behavior: smooth; }
 body { background:var(--bg-deep); color:var(--text); font-family:'Barlow',sans-serif; overflow-x:hidden; }
 

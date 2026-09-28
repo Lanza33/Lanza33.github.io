@@ -643,18 +643,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
 })();
-
-// Hide the dolphin cursor while scrolling up; it comes back on the next hover
-(function () {
-    let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', function () {
-        const y = window.scrollY;
-        if (y < lastScrollY) {
-            document.body.classList.add('hide-dolphin-cursor');
-        }
-        lastScrollY = y;
-    }, { passive: true });
-    window.addEventListener('mousemove', function () {
-        document.body.classList.remove('hide-dolphin-cursor');
-    }, { passive: true });
-})();
