@@ -222,7 +222,7 @@ footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:
 .footer-bottom { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; padding-top:1.75rem; }
 .footer-legal-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
 .footer-badge { height:92px; width:auto; display:block; border-radius:0.25rem; }
-.footer-partner-logo { height:40px; width:auto; display:block; }
+.footer-partner-logo { height:56px; width:auto; display:block; }
 @media(max-width:900px) {
     .footer-grid {
         grid-template-columns:1fr 1fr;
