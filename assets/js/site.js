@@ -128,7 +128,7 @@ const translations = {
         pr_spec4_title:'Assistenza & garanzia', pr_spec4_desc:'Ogni unità Dolphin è coperta da garanzia del produttore e da un servizio di assistenza tecnica dedicato per le organizzazioni che lo adottano.',
         pr_cta_title:'Pronto a integrare<br>il Dolphin nel tuo team?', pr_cta_desc:'Richiedi una demo gratuita e scopri come funziona sul campo.',
 
-        te_hero_label:'Tecnologia', te_hero_title:'Progettato per<br>l\'impensabile.', te_hero_sub:'L\'ingegneria dietro un salvataggio che deve funzionare al primo tentativo, sempre.',
+        te_hero_label:'Tecnologia', te_hero_title:'Progettato per<br>l\'impensabile', te_hero_sub:'L\'ingegneria dietro un salvataggio che deve funzionare al primo tentativo, sempre.',
         ct_hero_label:'Contatto', ct_hero_title:'Parliamone.', ct_hero_sub:'Richiedi una demo gratuita del Dolphin e scopri come funziona sul campo.', nav_cta_short:'Contatto',
         te_deep_label:'Sistemi di bordo', te_deep_title:'Otto sistemi,<br>un solo obiettivo.',
         te_rd_label:'Ricerca & sviluppo', te_rd_title:'Costruito insieme a chi<br>l\'acqua la conosce davvero.',
