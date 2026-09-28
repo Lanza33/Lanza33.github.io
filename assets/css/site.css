@@ -301,7 +301,7 @@ section[id] { scroll-margin-top: 160px; }
     .media-header { margin-bottom:2rem !important; }
     .media-card { border-radius:2rem !important; }
     #missione > .container > div:first-child > div { align-items:center; }
-    [style*="grid-template-columns:1fr 1fr;gap:5rem"] { grid-template-columns:1fr !important; gap:3rem !important; }
+    [style*="grid-template-columns:1fr 1fr;gap:"] { grid-template-columns:1fr !important; gap:3rem !important; }
     .hero { padding-top:7rem; }
     .page-header { padding-top:7rem; }
     .section { padding:3.5rem 1.5rem; }

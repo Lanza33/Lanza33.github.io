@@ -41,7 +41,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/site.css?v=11">
+    <link rel="stylesheet" href="assets/css/site.css?v=12">
 </head>
 <body>
 
@@ -82,10 +82,15 @@
 <!-- PAGE HEADER -->
 <section class="page-header">
     <div class="page-header-glow"></div>
-    <div class="container">
-        <p class="sec-label fade-up" data-i18n="ct_hero_label">Contatto</p>
-        <h1 class="sec-title fade-up" style="font-size:clamp(3rem,6vw,5.5rem);" data-i18n-html="ct_hero_title">Parliamone.</h1>
-        <p class="sec-desc fade-up" style="max-width:600px;font-size:1.05rem;" data-i18n="ct_hero_sub">Richiedi una demo gratuita del Dolphin e scopri come funziona sul campo.</p>
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+        <div>
+            <p class="sec-label fade-up" data-i18n="ct_hero_label">Contatto</p>
+            <h1 class="sec-title fade-up" style="font-size:clamp(3rem,6vw,5.5rem);" data-i18n-html="ct_hero_title">Parliamone.</h1>
+            <p class="sec-desc fade-up" style="max-width:600px;font-size:1.05rem;" data-i18n="ct_hero_sub">Richiedi una demo gratuita del Dolphin e scopri come funziona sul campo.</p>
+        </div>
+        <div class="fade-up" style="border-radius:1rem;overflow:hidden;background:var(--bg-card);border:1px solid var(--border);aspect-ratio:4/3;">
+            <img src="assets/images/contatto_header.jpg" alt="Soccorritore Wasserwacht in acqua con boa di salvataggio Dolphin" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+        </div>
     </div>
 </section>
 
