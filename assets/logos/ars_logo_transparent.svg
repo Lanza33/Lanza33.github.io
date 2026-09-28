@@ -1,25 +1,16 @@
-<svg width="100%" viewBox="164.6 47.7 342.7 159.4" role="img" xmlns="http://www.w3.org/2000/svg" style="">
-<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">ARS â Aqua Rescue Systems</title>
-<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Bold ARS monogram transparent background</desc>
-
-<defs>
-  <clipPath id="topHalf2">
-    <rect x="0" y="0" width="680" height="120"/>
-  </clipPath>
-  <clipPath id="bottomHalf2">
-    <rect x="0" y="120" width="680" height="80"/>
-  </clipPath>
-<mask id="imagine-text-gaps-lfgiy8" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="680" height="234.2" fill="white"/><rect x="150.66038513183594" y="-15.003708839416504" width="378.6792907714844" height="241.00474548339844" fill="black" rx="2"/><rect x="150.66038513183594" y="-15.003708839416504" width="378.6792907714844" height="241.00474548339844" fill="black" rx="2"/><rect x="189.68508911132812" y="189.999755859375" width="300.61083984375" height="19.000300407409668" fill="black" rx="2"/></mask></defs>
-
-<!-- ARS white top half -->
-<text x="340" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="168" font-weight="bold" fill="white" letter-spacing="-4" clip-path="url(#topHalf2)" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:168px;font-weight:bold;text-anchor:middle;dominant-baseline:auto">ARS</text>
-
-<!-- ARS orange bottom half -->
-<text x="340" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="168" font-weight="bold" fill="#FF6B00" letter-spacing="-4" clip-path="url(#bottomHalf2)" style="fill:rgb(255, 107, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:168px;font-weight:bold;text-anchor:middle;dominant-baseline:auto">ARS</text>
-
-
-<!-- Full name -->
-<text x="340" y="204" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" fill="#D0E4F0" letter-spacing="7" style="fill:rgb(208, 228, 240);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;font-size:15px;font-weight:bold;text-anchor:middle;dominant-baseline:auto">AQUA RESCUE SYSTEMS</text>
-
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="117 329 1137 542" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(2.794607,0,0,2.770774,362.866632,760.330518)">
+        <text x="-67.217px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:200px;fill:white;">A</text>
+    </g>
+    <g transform="matrix(2.794607,0,0,2.770774,717.781771,760.330518)">
+        <text x="-67.217px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:200px;fill:rgb(255,107,53);">R</text>
+    </g>
+    <g transform="matrix(2.794607,0,0,2.770774,1053.134659,760.330518)">
+        <text x="-61.699px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:200px;fill:white;">S</text>
+    </g>
+    <g transform="matrix(2.794607,0,0,2.770774,700.622882,846.224519)">
+        <text x="-202.345px" y="0px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:30px;fill:rgb(255,107,53);">A<tspan x="-178.88px -153.745px -130.28px -107.914px -97.779px -74.314px -52.504px -30.694px -7.229px 16.236px 38.046px 48.181px 69.991px 91.8px 113.61px 133.735px 155.545px 182.335px " y="0px 0px 0px 0px 0px 0px 0px 0px 0px 0px 0px 0px 0px 0px 0px 0px 0px 0px ">QUA RESCUE SYSTEMS</tspan></text>
+    </g>
 </svg>
