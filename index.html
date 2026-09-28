@@ -315,7 +315,7 @@
         </div>
 
         <!-- Step cards -->
-        <div class="fade-up" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;position:relative;">
+        <div class="fade-up feat-grid-desktop" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;position:relative;">
 
             <!-- Connector line desktop -->
             <div style="position:absolute;top:120px;left:calc(33.33% - 1rem);right:calc(33.33% - 1rem);height:2px;background:linear-gradient(to right,var(--cyan),var(--orange));opacity:0.3;pointer-events:none;z-index:0;"></div>
@@ -387,6 +387,88 @@
                         <span style="font-size:0.75rem;color:var(--orange);font-weight:600;" data-i18n="step3_badge">Zero soccorritori in acqua</span>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile slider: each page = 1 step card -->
+        <div class="feat-slider-wrap fade-up">
+            <div class="feat-slider-inner" id="featInner">
+                <div class="feat-slider-track" id="featTrack">
+                    <div class="feat-page">
+                        <div style="width:100%;position:relative;z-index:1;border-radius:1rem;overflow:hidden;background:var(--bg-card);border:1px solid var(--border);">
+                            <div style="height:180px;background:linear-gradient(135deg,rgba(0,212,255,0.15) 0%,rgba(2,12,24,0.9) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                                <div style="position:absolute;inset:0;background-image:url('assets/images/blu.webp');background-size:cover;background-position:center;opacity:0.5;"></div>
+                                <div style="position:relative;z-index:1;text-align:center;">
+                                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                </div>
+                                <div style="position:absolute;top:1rem;left:1rem;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(0,212,255,0.15);line-height:1;pointer-events:none;">01</div>
+                            </div>
+                            <div style="padding:1.5rem;">
+                                <div style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);border-radius:2rem;padding:0.25rem 0.75rem;margin-bottom:0.75rem;">
+                                    <div style="width:6px;height:6px;border-radius:50%;background:var(--cyan);"></div>
+                                    <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);font-weight:600;">Step 01</span>
+                                </div>
+                                <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;" data-i18n="step1_title">Allarme</h3>
+                                <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;" data-i18n="step1_desc">Chiamata di emergenza, sensore o attivazione manuale. Il sistema si mette in moto in pochi secondi.</p>
+                                <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:0.5rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    <span style="font-size:0.75rem;color:var(--cyan);font-weight:600;" data-i18n="step1_time">&lt; 10 secondi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feat-page">
+                        <div style="width:100%;position:relative;z-index:1;border-radius:1rem;overflow:hidden;background:var(--bg-card);border:1px solid var(--border);">
+                            <div style="height:180px;background:linear-gradient(135deg,rgba(0,100,200,0.2) 0%,rgba(2,12,24,0.9) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                                <div style="position:absolute;inset:0;background-image:url('assets/images/avvicinamento.png');background-size:cover;background-position:center;opacity:0.5;"></div>
+                                <div style="position:relative;z-index:1;text-align:center;">
+                                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                                </div>
+                                <div style="position:absolute;top:1rem;left:1rem;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(0,212,255,0.15);line-height:1;pointer-events:none;">02</div>
+                            </div>
+                            <div style="padding:1.5rem;">
+                                <div style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);border-radius:2rem;padding:0.25rem 0.75rem;margin-bottom:0.75rem;">
+                                    <div style="width:6px;height:6px;border-radius:50%;background:var(--cyan);"></div>
+                                    <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);font-weight:600;">Step 02</span>
+                                </div>
+                                <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;" data-i18n="step2_title">Avvicinamento</h3>
+                                <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;" data-i18n="step2_desc">L'operatore guida il robot via telecomando fino alla persona, anche contro corrente e vento. Portata fino a 800 m.</p>
+                                <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:0.5rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    <span style="font-size:0.75rem;color:var(--cyan);font-weight:600;" data-i18n="step2_time">7 m/s velocità massima</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feat-page">
+                        <div style="width:100%;position:relative;z-index:1;border-radius:1rem;overflow:hidden;background:var(--bg-card);border:1px solid rgba(255,107,53,0.2);">
+                            <div style="height:180px;background:linear-gradient(135deg,rgba(255,107,53,0.2) 0%,rgba(2,12,24,0.9) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                                <div style="position:absolute;inset:0;background-image:url('assets/images/salvamento.png');background-size:cover;background-position:center;opacity:0.5;"></div>
+                                <div style="position:relative;z-index:1;text-align:center;">
+                                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                                </div>
+                                <div style="position:absolute;top:1rem;left:1rem;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(255,107,53,0.2);line-height:1;pointer-events:none;">03</div>
+                            </div>
+                            <div style="padding:1.5rem;">
+                                <div style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.25);border-radius:2rem;padding:0.25rem 0.75rem;margin-bottom:0.75rem;">
+                                    <div style="width:6px;height:6px;border-radius:50%;background:var(--orange);"></div>
+                                    <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);font-weight:600;">Step 03</span>
+                                </div>
+                                <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;" data-i18n="step3_title">Salvataggio</h3>
+                                <p style="color:var(--text-muted);line-height:1.7;font-size:0.88rem;" data-i18n="step3_desc">La persona si aggrappa al robot e viene trasportata in sicurezza. I soccorritori restano sulla riva: zero rischi.</p>
+                                <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,107,53,0.15);display:flex;align-items:center;gap:0.5rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    <span style="font-size:0.75rem;color:var(--orange);font-weight:600;" data-i18n="step3_badge">Zero soccorritori in acqua</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feat-slider-nav">
+                <button class="feat-slider-btn" id="featPrev" onclick="featSlide(-1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <div class="feat-slider-dots" id="featDots"></div>
+                <button class="feat-slider-btn" id="featNext" onclick="featSlide(1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
             </div>
         </div>
     </div>
