@@ -426,6 +426,9 @@ function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
+    document.querySelectorAll('[data-lang-img]').forEach(el => {
+        el.style.display = el.getAttribute('data-lang-img') === lang ? '' : 'none';
+    });
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
 }

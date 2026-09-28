@@ -206,10 +206,13 @@ footer { background:var(--bg-surface); border-top:1px solid var(--border); paddi
 .footer-contact-item a:hover { color:var(--cyan); }
 .footer-bottom { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; padding-top:1.75rem; }
 .footer-legal-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+.footer-badge-wrap { margin-top:1.5rem; }
+.footer-badge { height:52px; width:auto; display:block; border-radius:0.25rem; }
 @media(max-width:900px) {
     .footer-grid { grid-template-columns:1fr; gap:2.5rem; text-align:center; }
     .footer-links, .footer-contact-item { align-items:center; }
     .footer-contact-item { justify-content:center; }
+    .footer-badge-wrap { display:flex; justify-content:center; }
 }
 @media(max-width:600px) {
     .footer-bottom { flex-direction:column; text-align:center; justify-content:center; }
