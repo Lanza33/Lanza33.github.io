@@ -275,13 +275,25 @@
         textarea { resize:none; min-height:100px; }
 
         /* FOOTER */
-        footer { background:var(--bg-surface); border-top:1px solid var(--border); padding:2.5rem 2rem; }
-        .footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+        footer { background:var(--bg-surface); border-top:1px solid var(--border); padding:4.5rem 2rem 2rem; }
+        .footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:3rem; padding-bottom:2.75rem; border-bottom:1px solid var(--border); }
+        .footer-heading { font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); font-weight:600; margin-bottom:1.25rem; }
+        .footer-links { display:flex; flex-direction:column; gap:0.85rem; list-style:none; }
+        .footer-links a { color:var(--text-muted); font-size:0.88rem; text-decoration:none; transition:color 0.2s; }
+        .footer-links a:hover { color:var(--cyan); }
+        .footer-contact-item { display:flex; align-items:flex-start; gap:0.7rem; color:var(--text-muted); font-size:0.88rem; line-height:1.6; }
+        .footer-contact-item a { color:var(--text-muted); text-decoration:none; transition:color 0.2s; }
+        .footer-contact-item a:hover { color:var(--cyan); }
+        .footer-bottom { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; padding-top:1.75rem; }
+        .footer-legal-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+        @media(max-width:900px) {
+            .footer-grid { grid-template-columns:1fr; gap:2.5rem; text-align:center; }
+            .footer-links, .footer-contact-item { align-items:center; }
+            .footer-contact-item { justify-content:center; }
+        }
         @media(max-width:600px) {
-            .footer-inner { flex-direction:column; text-align:center; justify-content:center; }
-            .footer-inner > div:nth-child(2) { order:3; margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); width:100%; }
-            .footer-inner > img { order:1; display:block; margin:0 auto; }
-            .footer-inner > div:nth-child(3) { order:2; flex-direction:row; flex-wrap:wrap; justify-content:center; gap:1rem; }
+            .footer-bottom { flex-direction:column; text-align:center; justify-content:center; }
+            .footer-legal-links { justify-content:center; }
         }
 
         /* ANCHOR OFFSET for fixed nav */
@@ -1043,18 +1055,56 @@
 
 <!-- FOOTER -->
 <footer>
-    <div class="footer-inner">
-        <img src="ars_logo_transparent.svg" alt="AquaRescueSystems" style="height:72px;width:auto;object-fit:contain;"/>
-        <div style="color:var(--text-muted);font-size:0.82rem;" data-i18n="copyright">© 2026 AquaRescueSystems · Tutti i diritti riservati</div>
-        <div style="display:flex;gap:0.75rem;align-items:center;margin-left:auto;">
-            <a href="https://www.instagram.com/aquarescuesystems" target="_blank" style="width:36px;height:36px;border-radius:0.5rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.12)';this.style.borderColor='var(--cyan)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='var(--border)'">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B8BAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#6B8BAA" stroke="none"/></svg>
-            </a>
-            <a href="https://wa.me/39335285676" target="_blank" style="width:36px;height:36px;border-radius:0.5rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(37,211,102,0.12)';this.style.borderColor='#25D366'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='var(--border)'">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B8BAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-            </a>
+    <div class="footer-grid">
+        <!-- Brand + social -->
+        <div>
+            <img src="ars_logo_transparent.svg" alt="AquaRescueSystems" style="height:64px;width:auto;object-fit:contain;margin-bottom:1.1rem;"/>
+            <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.7;max-width:340px;margin-bottom:1.5rem;" data-i18n="footer_tagline">Robot autonomi per il soccorso in acqua, sviluppati per salvare vite senza mettere in pericolo i soccorritori.</p>
+            <div style="display:flex;gap:0.75rem;align-items:center;">
+                <a href="https://www.instagram.com/aquarescuesystems" target="_blank" style="width:36px;height:36px;border-radius:0.5rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.12)';this.style.borderColor='var(--cyan)'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='var(--border)'">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B8BAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#6B8BAA" stroke="none"/></svg>
+                </a>
+                <a href="https://wa.me/39335285676" target="_blank" style="width:36px;height:36px;border-radius:0.5rem;background:rgba(255,255,255,0.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(37,211,102,0.12)';this.style.borderColor='#25D366'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.borderColor='var(--border)'">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B8BAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                </a>
+            </div>
         </div>
-        <div style="display:flex;gap:1.5rem;">
+
+        <!-- Quick links -->
+        <div>
+            <div class="footer-heading" data-i18n="footer_quicklinks">Link rapidi</div>
+            <ul class="footer-links">
+                <li><a href="#missione" data-i18n="nav_mission">Missione</a></li>
+                <li><a href="#prodotto" data-i18n="nav_product">Prodotto</a></li>
+                <li><a href="#tecnologia" data-i18n="nav_technology">Tecnologia</a></li>
+                <li><a href="#come-funziona" data-i18n="nav_how">Come funziona</a></li>
+                <li><a href="#contatto" data-i18n="nav_cta">Richiedi demo</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+            <div class="footer-heading" data-i18n="footer_contact">Contatti</div>
+            <div style="display:flex;flex-direction:column;gap:0.9rem;">
+                <div class="footer-contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Via Enrico Fermi 5<br>39100 Bolzano, Italia</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <a href="mailto:info@aquarescuesystems.com">info@aquarescuesystems.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 2.18 2 2 0 012.22 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.35 6.35l1.27-1.56a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    <a href="tel:+393352856767">+39 335 285676</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div style="color:var(--text-muted);font-size:0.82rem;" data-i18n="copyright">© 2026 AquaRescueSystems · Tutti i diritti riservati</div>
+        <div class="footer-legal-links">
             <a href="#" onclick="document.getElementById('modal-note').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'" data-i18n="footer_legal">Note legali</a>
             <a href="#" onclick="document.getElementById('modal-privacy').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Privacy</a>
             <a href="#" onclick="document.getElementById('modal-cookie').style.display='flex';return false;" style="color:var(--text-muted);font-size:0.8rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text-muted)'">Cookie Policy</a>
@@ -1339,6 +1389,7 @@
             form_phone_ph:'+39 000 000 0000',
             partner_label:'Partner', partner_title:'Con chi lavoriamo',
             footer_legal:'Note legali', footer_contact:'Contatti',
+            footer_tagline:'Robot autonomi per il soccorso in acqua, sviluppati per salvare vite senza mettere in pericolo i soccorritori.', footer_quicklinks:'Link rapidi',
             copyright:'© 2026 AquaRescueSystems · Tutti i diritti riservati'
         },
         de: {
@@ -1405,6 +1456,7 @@
             form_submit:'Kostenlose Demo buchen', form_note:'Unverbindlich · Antwort innerhalb 24 Stunden',
             partner_label:'Partner', partner_title:'Mit wem wir arbeiten',
             footer_legal:'Impressum', footer_contact:'Kontakt',
+            footer_tagline:'Autonome Wasserrettungsroboter, entwickelt um Leben zu retten, ohne Retter zu gefährden.', footer_quicklinks:'Quick Links',
             copyright:'© 2026 AquaRescueSystems · Alle Rechte vorbehalten'
         },
         en: {
@@ -1471,6 +1523,7 @@
             form_submit:'Book a free demo', form_note:'No commitment · Reply within 24 hours',
             partner_label:'Partners', partner_title:'Who we work with',
             footer_legal:'Legal notice', footer_contact:'Contact',
+            footer_tagline:'Autonomous water rescue robots, built to save lives without putting rescuers at risk.', footer_quicklinks:'Quick Links',
             copyright:'© 2026 AquaRescueSystems · All rights reserved'
         }
     };
