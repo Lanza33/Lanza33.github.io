@@ -389,7 +389,7 @@ section[id] { scroll-margin-top: 160px; }
 
 /* SUBPAGE LAYOUT HELPERS */
 .split-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
-.split-img { border-radius:1rem; overflow:hidden; border:1px solid var(--border); min-height:380px; }
+.split-img { min-height:380px; }
 .split-img img { width:100%; height:100%; object-fit:cover; display:block; }
 .value-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:3rem; }
 .value-card { background:var(--bg-card); border:1px solid var(--border); border-radius:0.875rem; padding:1.75rem; }
