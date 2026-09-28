@@ -193,7 +193,19 @@ const translations = {
         cookie_thirdparty_label:'Servizi di terze parti', cookie_thirdparty_body:'Questo sito carica caratteri tipografici da Google Fonts (fonts.googleapis.com) e librerie tecniche da Tailwind CDN (cdn.tailwindcss.com). Questi servizi, forniti da aziende con sede negli Stati Uniti, possono ricevere l\'indirizzo IP del dispositivo al momento del caricamento della pagina. Alcune immagini di sfondo sono inoltre caricate da server Unsplash (unsplash.com). Per maggiori informazioni consulta le rispettive informative: <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--cyan);">Google</a>, <a href="https://unsplash.com/privacy" target="_blank" style="color:var(--cyan);">Unsplash</a>.',
         cookie_manage_label:'Gestione dei cookie', cookie_manage_body:'Puoi gestire o disabilitare i cookie attraverso le impostazioni del tuo browser. La disattivazione dei cookie tecnici potrebbe compromettere il corretto funzionamento del sito.',
         cookie_contact_label:'Contatto', cookie_contact_body:'Per qualsiasi informazione sui cookie utilizzati da questo sito scrivi a <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a>.',
-        footer_privacy:'Privacy', footer_cookie:'Cookie Policy'
+        footer_privacy:'Privacy', footer_cookie:'Cookie Policy',
+
+        fb_hero_label:'Nuovo prodotto in sviluppo', fb_hero_title:'Il futuro del<br>soccorso antincendio.', fb_hero_sub:'Il prossimo mezzo Aqua Rescue Systems: un\'unità di soccorso antincendio autonoma, pensata per intervenire su incendi in porti, banchine e impianti offshore senza esporre i soccorritori al pericolo.',
+        fb_intro_label:'Innovazione', fb_intro_title:'Zero equipaggio<br>in prima linea.', fb_intro_p1:'Gli incendi in ambito portuale e offshore richiedono un intervento rapido e potente, spesso in condizioni estreme. Il nuovo mezzo antincendio di Aqua Rescue Systems nasce per raggiungere il fuoco in autonomia, senza mettere a rischio la vita di chi interviene.', fb_intro_p2:'Due monitor ad alta portata, navigazione autonoma con anticollisione e stabilizzazione giroscopica per operare anche con mare mosso: un supporto pensato per guardia costiera, vigili del fuoco portuali e gestori di impianti industriali.',
+        fb_gallery_label:'In azione', fb_gallery_title:'Progettato per<br>l\'emergenza reale.',
+        fb_specs_label:'Dati tecnici indicativi', fb_specs_title:'Potenza pensata<br>per contenere il fuoco.',
+        fb_spec1_title:'Portata di pompaggio', fb_spec1_desc:'Pompa principale da 3.000 gpm (circa 11.350 l/min) per un getto d\'acqua ad alta pressione e volume.',
+        fb_spec2_title:'Doppio monitor', fb_spec2_desc:'Due monitor da 2.500 gpm a 10 bar di pressione, orientabili per colpire il fuoco da più angolazioni.',
+        fb_spec3_title:'Gittata', fb_spec3_desc:'Getto d\'acqua efficace oltre 80 metri di distanza, per operare in sicurezza lontano dalle fiamme.',
+        fb_spec4_title:'Velocità massima', fb_spec4_desc:'Oltre 35 nodi (circa 65 km/h) grazie a motore diesel Cummins e idrogetto Doen, per raggiungere l\'incendio in pochi minuti.',
+        fb_spec5_title:'Stabilizzazione', fb_spec5_desc:'Stabilizzazione giroscopica che consente operazioni sicure fino a stato del mare 4.',
+        fb_spec6_title:'Navigazione autonoma', fb_spec6_desc:'Sistema di navigazione completamente autonomo con anticollisione e mantenimento della posizione tramite thruster.',
+        fb_cta_title:'Vuoi essere aggiornato<br>sul lancio?', fb_cta_desc:'Lasciaci i tuoi contatti: sarai tra i primi a sapere quando il nuovo mezzo antincendio sarà disponibile.', fb_cta_btn:'Contattaci per maggiori informazioni'
     },
     de: {
         nav_mission:'Mission', nav_product:'Produkt', nav_technology:'Technologie', nav_how:'Funktionsweise', nav_cta:'Demo anfragen',
@@ -336,7 +348,19 @@ const translations = {
         cookie_thirdparty_label:'Dienste Dritter', cookie_thirdparty_body:'Diese Website lädt Schriftarten von Google Fonts (fonts.googleapis.com) und technische Bibliotheken vom Tailwind CDN (cdn.tailwindcss.com). Diese von Unternehmen mit Sitz in den USA bereitgestellten Dienste können beim Laden der Seite die IP-Adresse des Geräts empfangen. Einige Hintergrundbilder werden zudem von Unsplash-Servern (unsplash.com) geladen. Weitere Informationen finden Sie in den jeweiligen Datenschutzerklärungen: <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--cyan);">Google</a>, <a href="https://unsplash.com/privacy" target="_blank" style="color:var(--cyan);">Unsplash</a>.',
         cookie_manage_label:'Verwaltung der Cookies', cookie_manage_body:'Sie können Cookies über die Einstellungen Ihres Browsers verwalten oder deaktivieren. Die Deaktivierung technischer Cookies kann die ordnungsgemäße Funktion der Website beeinträchtigen.',
         cookie_contact_label:'Kontakt', cookie_contact_body:'Für weitere Informationen zu den auf dieser Website verwendeten Cookies schreiben Sie an <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a>.',
-        footer_privacy:'Privacy', footer_cookie:'Cookie Policy'
+        footer_privacy:'Privacy', footer_cookie:'Cookie Policy',
+
+        fb_hero_label:'Neues Produkt in Entwicklung', fb_hero_title:'Die Zukunft der<br>Brandbekämpfung auf dem Wasser.', fb_hero_sub:'Das nächste Aqua Rescue Systems-Fahrzeug: eine autonome Löscheinheit für Brände in Häfen, an Kais und auf Offshore-Anlagen, ohne Einsatzkräfte in Gefahr zu bringen.',
+        fb_intro_label:'Innovation', fb_intro_title:'Keine Besatzung<br>in der Gefahrenzone.', fb_intro_p1:'Brände in Häfen und Offshore-Anlagen erfordern ein schnelles und kraftvolles Eingreifen, oft unter extremen Bedingungen. Das neue Löschfahrzeug von Aqua Rescue Systems erreicht das Feuer autonom, ohne das Leben der Einsatzkräfte zu gefährden.', fb_intro_p2:'Zwei leistungsstarke Monitore, autonome Navigation mit Kollisionsvermeidung und Kreiselstabilisierung für den Einsatz auch bei bewegter See: konzipiert für Küstenwache, Hafenfeuerwehr und Betreiber industrieller Anlagen.',
+        fb_gallery_label:'Im Einsatz', fb_gallery_title:'Entwickelt für den<br>echten Ernstfall.',
+        fb_specs_label:'Vorläufige technische Daten', fb_specs_title:'Leistung, die das<br>Feuer eindämmt.',
+        fb_spec1_title:'Pumpenleistung', fb_spec1_desc:'Hauptpumpe mit 3.000 gpm (ca. 11.350 l/min) für einen Wasserstrahl mit hohem Druck und Volumen.',
+        fb_spec2_title:'Doppel-Monitor', fb_spec2_desc:'Zwei Monitore mit je 2.500 gpm bei 10 bar Druck, schwenkbar für den Angriff aus mehreren Winkeln.',
+        fb_spec3_title:'Reichweite', fb_spec3_desc:'Wirksamer Wasserstrahl über 80 Meter Entfernung, für einen sicheren Einsatz abseits der Flammen.',
+        fb_spec4_title:'Höchstgeschwindigkeit', fb_spec4_desc:'Über 35 Knoten (ca. 65 km/h) dank Cummins-Dieselmotor und Doen-Wasserstrahlantrieb, um den Brandort in Minuten zu erreichen.',
+        fb_spec5_title:'Stabilisierung', fb_spec5_desc:'Kreiselstabilisierung ermöglicht sicheren Betrieb bis Seegang 4.',
+        fb_spec6_title:'Autonome Navigation', fb_spec6_desc:'Vollständig autonomes Navigationssystem mit Kollisionsvermeidung und Positionshaltung über Tunnel-Thruster.',
+        fb_cta_title:'Möchtest du über den<br>Launch informiert werden?', fb_cta_desc:'Hinterlasse deine Kontaktdaten: Du erfährst als Erster, wenn das neue Löschfahrzeug verfügbar ist.', fb_cta_btn:'Kontaktiere uns für mehr Informationen'
     },
     en: {
         nav_mission:'Mission', nav_product:'Product', nav_technology:'Technology', nav_how:'How it works', nav_cta:'Request demo',
@@ -479,7 +503,19 @@ const translations = {
         cookie_thirdparty_label:'Third-Party Services', cookie_thirdparty_body:'This website loads typefaces from Google Fonts (fonts.googleapis.com) and technical libraries from the Tailwind CDN (cdn.tailwindcss.com). These services, provided by companies based in the United States, may receive the device\'s IP address when the page loads. Some background images are also loaded from Unsplash servers (unsplash.com). For more information see the respective privacy notices: <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--cyan);">Google</a>, <a href="https://unsplash.com/privacy" target="_blank" style="color:var(--cyan);">Unsplash</a>.',
         cookie_manage_label:'Managing Cookies', cookie_manage_body:'You can manage or disable cookies through your browser settings. Disabling technical cookies may compromise the proper functioning of the website.',
         cookie_contact_label:'Contact', cookie_contact_body:'For any information about the cookies used by this website, write to <a href="mailto:info@aquarescuesystems.com" style="color:var(--cyan);">info@aquarescuesystems.com</a>.',
-        footer_privacy:'Privacy', footer_cookie:'Cookie Policy'
+        footer_privacy:'Privacy', footer_cookie:'Cookie Policy',
+
+        fb_hero_label:'New product in development', fb_hero_title:'The future of<br>marine firefighting.', fb_hero_sub:'The next Aqua Rescue Systems vehicle: an autonomous firefighting unit designed to respond to fires at ports, docks and offshore facilities without putting rescuers at risk.',
+        fb_intro_label:'Innovation', fb_intro_title:'Zero crew<br>on the front line.', fb_intro_p1:'Fires at ports and offshore facilities demand a fast, powerful response, often under extreme conditions. Aqua Rescue Systems\' new firefighting vehicle is built to reach the fire autonomously, without putting responders\' lives at risk.', fb_intro_p2:'Two high-capacity monitors, autonomous navigation with collision avoidance, and gyro stabilization for operation even in rough seas: built to support coast guards, port fire brigades and industrial facility operators.',
+        fb_gallery_label:'In action', fb_gallery_title:'Built for real<br>emergencies.',
+        fb_specs_label:'Indicative technical data', fb_specs_title:'Power built to<br>contain the fire.',
+        fb_spec1_title:'Pumping capacity', fb_spec1_desc:'3,000 gpm primary pump (approx. 11,350 l/min) for a high-pressure, high-volume water jet.',
+        fb_spec2_title:'Twin monitors', fb_spec2_desc:'Two 2,500 gpm monitors at 10-bar pressure, steerable to strike the fire from multiple angles.',
+        fb_spec3_title:'Spray range', fb_spec3_desc:'Effective water jet beyond 80 meters, allowing safe operation well away from the flames.',
+        fb_spec4_title:'Maximum speed', fb_spec4_desc:'Over 35 knots (approx. 65 km/h) thanks to a Cummins diesel engine and Doen waterjet, reaching the fire in minutes.',
+        fb_spec5_title:'Stabilization', fb_spec5_desc:'Gyro stabilization enables safe operation up to Sea State 4.',
+        fb_spec6_title:'Autonomous navigation', fb_spec6_desc:'Fully autonomous navigation system with collision avoidance and position-locking via tunnel thrusters.',
+        fb_cta_title:'Want to stay updated<br>on the launch?', fb_cta_desc:'Leave your contact details: you\'ll be among the first to know when the new firefighting vehicle becomes available.', fb_cta_btn:'Contact us for more information'
     }
 };
 
@@ -576,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-dropdown-item').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === currentLang));
 });
 
-// Frost the nav bar once scrolled past the top, and on mobile hide it on scroll-down / reveal on scroll-up
+// Frost the nav bar once scrolled past the top, and hide it on scroll-down / reveal on scroll-up
 (function () {
     const navEl = document.getElementById('nav');
     const navLinksWrap = document.getElementById('navLinksWrap');
@@ -584,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateNav() {
         const y = window.scrollY;
         navEl.classList.toggle('scrolled', y > 40);
-        if (window.innerWidth <= 900 && !navLinksWrap.classList.contains('open')) {
+        if (!navLinksWrap.classList.contains('open')) {
             if (y > lastScrollY && y > 80) {
                 navEl.classList.add('nav-hidden');
             } else if (y < lastScrollY) {
