@@ -153,7 +153,7 @@ const translations = {
         pr_cta_title:'Pronto a integrare<br>il Dolphin nel tuo team?', pr_cta_desc:'Richiedi una demo gratuita e scopri come funziona sul campo.',
 
         te_hero_label:'Tecnologia', te_hero_title:'Progettato per<br>l\'impensabile', te_hero_sub:'L\'ingegneria dietro un salvataggio che deve funzionare al primo tentativo, sempre.',
-        ct_hero_label:'Contatto', ct_hero_title:'Contattaci.', ct_hero_sub:'Richiedi una demo gratuita del Dolphin e scopri come funziona sul campo.', nav_cta_short:'Contatto',
+        ct_hero_label:'Contatto', ct_hero_title:'Contattaci', ct_hero_sub:'Richiedi una demo gratuita del Dolphin e scopri come funziona sul campo.', nav_cta_short:'Contatto',
         te_deep_label:'Sistemi di bordo', te_deep_title:'Otto sistemi,<br>un solo obiettivo.',
         te_rd_label:'Ricerca & sviluppo', te_rd_title:'Costruito insieme a chi<br>l\'acqua la conosce davvero.',
         te_rd_p1:'Il Dolphin 3 nasce dalla collaborazione tra Aqua Rescue Systems e partner tecnici specializzati come WRGB e HL Schiffstechnik, realtà con esperienza diretta in ingegneria navale e sistemi acquatici.',
