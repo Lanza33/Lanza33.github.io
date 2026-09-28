@@ -6,4 +6,7 @@ temp-*
 hero-video-raw.mp4
 *.mp4
 *.webm
+!assets/video/*.mp4
+!assets/video/*.MP4
+!assets/video/*.webm
 node_modules/
