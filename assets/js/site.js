@@ -129,6 +129,7 @@ const translations = {
         pr_cta_title:'Pronto a integrare<br>il Dolphin nel tuo team?', pr_cta_desc:'Richiedi una demo gratuita e scopri come funziona sul campo.',
 
         te_hero_label:'Tecnologia', te_hero_title:'Progettato per<br>l\'impensabile.', te_hero_sub:'L\'ingegneria dietro un salvataggio che deve funzionare al primo tentativo, sempre.',
+        ct_hero_label:'Contatto', ct_hero_title:'Parliamone.', ct_hero_sub:'Richiedi una demo gratuita del Dolphin e scopri come funziona sul campo.', nav_cta_short:'Contatto',
         te_deep_label:'Sistemi di bordo', te_deep_title:'Otto sistemi,<br>un solo obiettivo.',
         te_rd_label:'Ricerca & sviluppo', te_rd_title:'Costruito insieme a chi<br>l\'acqua la conosce davvero.',
         te_rd_p1:'Il Dolphin 3 nasce dalla collaborazione tra Aqua Rescue Systems e partner tecnici specializzati come WRGB e HL Schiffstechnik, realtà con esperienza diretta in ingegneria navale e sistemi acquatici.',
@@ -241,6 +242,7 @@ const translations = {
         pr_cta_title:'Bereit, den Dolphin<br>in dein Team zu integrieren?', pr_cta_desc:'Fordere eine kostenlose Demo an und erlebe, wie er im Einsatz funktioniert.',
 
         te_hero_label:'Technologie', te_hero_title:'Entwickelt für<br>das Undenkbare.', te_hero_sub:'Die Ingenieurskunst hinter einer Rettung, die beim ersten Versuch funktionieren muss — jedes Mal.',
+        ct_hero_label:'Kontakt', ct_hero_title:'Sprechen wir<br>darüber.', ct_hero_sub:'Fordere eine kostenlose Demo des Dolphin an und erlebe, wie er im Einsatz funktioniert.', nav_cta_short:'Kontakt',
         te_deep_label:'Bordsysteme', te_deep_title:'Acht Systeme,<br>ein Ziel.',
         te_rd_label:'Forschung & Entwicklung', te_rd_title:'Gebaut mit denen,<br>die das Wasser wirklich kennen.',
         te_rd_p1:'Der Dolphin 3 entsteht aus der Zusammenarbeit zwischen Aqua Rescue Systems und spezialisierten technischen Partnern wie WRGB und HL Schiffstechnik, mit direkter Erfahrung in Schiffstechnik und maritimen Systemen.',
@@ -353,6 +355,7 @@ const translations = {
         pr_cta_title:'Ready to add the Dolphin<br>to your team?', pr_cta_desc:'Request a free demo and see how it works in the field.',
 
         te_hero_label:'Technology', te_hero_title:'Designed for<br>the unthinkable.', te_hero_sub:'The engineering behind a rescue that has to work on the first attempt, every time.',
+        ct_hero_label:'Contact', ct_hero_title:'Let\'s talk.', ct_hero_sub:'Request a free demo of the Dolphin and see how it works in the field.', nav_cta_short:'Contact',
         te_deep_label:'Onboard systems', te_deep_title:'Eight systems,<br>one goal.',
         te_rd_label:'Research & development', te_rd_title:'Built with those who<br>really know the water.',
         te_rd_p1:'The Dolphin 3 is the result of collaboration between Aqua Rescue Systems and specialized technical partners such as WRGB and HL Schiffstechnik, with direct experience in naval engineering and marine systems.',
