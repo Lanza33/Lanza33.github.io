@@ -109,321 +109,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root {
-            --bg-deep: #020C18;
-            --bg-surface: #061628;
-            --bg-card: #0A2040;
-            --cyan: #00D4FF;
-            --orange: #FF6B35;
-            --text: #E8F4FD;
-            --text-muted: #6B8BAA;
-            --border: rgba(0,212,255,0.15);
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        a:hover, button:hover, [onclick]:hover, select:hover, input:hover, textarea:hover {
-            cursor: url('assets/icons/cursor_dolphin.png') 24 24, auto !important;
-        }
-        html { scroll-behavior: smooth; }
-        body { background:var(--bg-deep); color:var(--text); font-family:'Barlow',sans-serif; overflow-x:hidden; }
-
-        /* NAV */
-        nav {
-            position:fixed; top:0; left:0;
-            width:100%; z-index:100;
-            background:transparent;
-            padding:0.75rem max(1.5rem, calc((100% - 1200px) / 2)); display:flex; justify-content:space-between; align-items:center;
-            transition:background 0.3s, backdrop-filter 0.3s;
-        }
-        nav.scrolled {
-            background:rgba(2,12,24,0.55);
-            backdrop-filter:blur(14px) saturate(140%);
-            -webkit-backdrop-filter:blur(14px) saturate(140%);
-            border-bottom:1px solid rgba(255,255,255,0.06);
-        }
-        .logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.1em; }
-        .logo span { color:var(--cyan); }
-        .nav-logo { height:38px; width:auto; object-fit:contain; }
-        .nav-logo-wrap { display:flex; align-items:center; flex-shrink:0; }
-        .nav-links-wrap { display:flex; align-items:center; gap:2.5rem; }
-        .nav-burger { display:none; position:relative; flex-direction:column; justify-content:center; gap:6px; width:32px; height:32px; background:transparent; border:none; cursor:pointer; padding:0; z-index:96; flex-shrink:0; }
-        .nav-burger span { display:block; width:100%; height:2px; background:var(--text); border-radius:2px; transition:transform 0.25s ease, opacity 0.2s ease; }
-        .nav-burger.open span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
-        .nav-burger.open span:nth-child(2) { opacity:0; }
-        .nav-burger.open span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
-        .nav-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.55); opacity:0; pointer-events:none; transition:opacity 0.3s ease; z-index:90; }
-        .nav-overlay.open { opacity:1; pointer-events:auto; }
-        nav ul { display:flex; gap:2.25rem; list-style:none; }
-        nav a { color:var(--text-muted); text-decoration:none; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; transition:color 0.2s; }
-        nav a:hover { color:var(--cyan); }
-        .nav-cta { background:var(--cyan) !important; color:var(--bg-deep) !important; padding:0.45rem 1.2rem; border-radius:0.35rem; font-weight:700 !important; }
-        .nav-cta:hover { background:#fff !important; }
-        .lang-switcher { display:flex; gap:0.25rem; align-items:center; flex-shrink:0; }
-        .lang-btn { background:transparent; border:1px solid rgba(255,255,255,0.15); border-radius:0.25rem; color:var(--text-muted); font-size:0.7rem; font-weight:600; letter-spacing:0.08em; padding:0.25rem 0.5rem; transition:all 0.2s; }
-        .lang-btn.active { background:var(--cyan); border-color:var(--cyan); color:var(--bg-deep); }
-        .lang-btn:hover { border-color:var(--cyan); color:var(--cyan); }
-        .lang-btn.active:hover { background:var(--cyan); color:var(--bg-deep); }
-        nav ul { flex-shrink:1; }
-        .nav-mobile-controls { display:none; align-items:center; gap:0.6rem; flex-shrink:0; }
-        @media(max-width:900px) {
-            .lang-switcher { display:none; }
-            .nav-mobile-controls { display:flex; }
-            .lang-dropdown-wrap { position:relative; z-index:10; }
-            .lang-dropdown-btn { background:rgba(0,212,255,0.08); border:1px solid var(--border); border-radius:0.35rem; color:var(--cyan); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; padding:0.35rem 0.6rem; }
-            .lang-dropdown-menu { display:none; position:absolute; top:calc(100% + 0.35rem); right:0; background:rgba(6,22,40,0.97); border:1px solid var(--border); border-radius:0.35rem; overflow:hidden; min-width:60px; }
-            .lang-dropdown-menu.open { display:block; }
-            .lang-dropdown-item { display:block; width:100%; padding:0.4rem 0.75rem; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; color:var(--text-muted); text-align:center; border:none; background:transparent; transition:background 0.15s; }
-            .lang-dropdown-item:hover { background:rgba(0,212,255,0.1); color:var(--cyan); }
-            .lang-dropdown-item.active { color:var(--cyan); }
-        }
-        @media(min-width:901px) { .lang-dropdown-wrap { display:none; } }
-
-        /* HERO */
-        .hero { min-height:100svh; display:flex; align-items:center; position:relative; overflow:hidden; padding:9rem 2rem 4rem max(1.5rem, calc((100% - 1200px) / 2)); }
-        .grid-bg {
-            background-image: linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);
-            background-size:60px 60px;
-        }
-        .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-        .hero-video-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,12,24,0.3) 0%, rgba(2,12,24,0.45) 55%, rgba(2,12,24,0.7) 100%); }
-        .hero-content { position:relative; z-index:10; max-width:800px; }
-        .hero-badge {
-            display:inline-flex; align-items:center; gap:0.5rem;
-            background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.3);
-            padding:0.35rem 0.9rem; border-radius:2rem;
-            font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--cyan);
-            margin-bottom:1.5rem; font-weight:600;
-        }
-        .hero-badge::before { content:''; width:6px; height:6px; background:var(--cyan); border-radius:50%; animation:blink 2s ease-in-out infinite; }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-        h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(4.5rem,9vw,9rem) !important; line-height:0.88; letter-spacing:0.02em; margin-bottom:1.5rem; }
-        h1 .cyan { color:var(--cyan); }
-        .hero-sub { font-size:1.1rem; color:var(--text-muted); line-height:1.7; margin-bottom:2.5rem; font-weight:300; max-width:480px; }
-        .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
-        .btn-p { background:var(--cyan); color:var(--bg-deep); padding:0.875rem 2rem; border-radius:0.375rem; font-weight:600; font-size:0.88rem; letter-spacing:0.05em; text-decoration:none; text-transform:uppercase; transition:all 0.2s; display:inline-block; cursor:pointer; border:none; }
-        .btn-p:hover { background:#fff; box-shadow:0 0 30px rgba(0,212,255,0.4); }
-        .btn-s { background:transparent; color:var(--text); padding:0.875rem 2rem; border-radius:0.375rem; font-size:0.88rem; letter-spacing:0.05em; text-decoration:none; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); transition:all 0.2s; display:inline-block; }
-        .btn-s:hover { border-color:var(--cyan); color:var(--cyan); }
-
-        /* SONAR */
-        .sonar-wrap { position:absolute; right:5%; top:50%; transform:translateY(-50%); width:680px; height:680px; pointer-events:none; }
-        .sonar-ring { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1px solid rgba(0,212,255,0.25); animation:sonar 3.5s ease-out infinite; }
-        .sonar-ring:nth-child(1){width:100px;height:100px;animation-delay:0s}
-        .sonar-ring:nth-child(2){width:210px;height:210px;animation-delay:0.6s}
-        .sonar-ring:nth-child(3){width:340px;height:340px;animation-delay:1.2s}
-        .sonar-ring:nth-child(4){width:470px;height:470px;animation-delay:1.8s}
-        .sonar-ring:nth-child(5){width:600px;height:600px;animation-delay:2.4s}
-        @keyframes sonar { 0%{opacity:0.7;transform:translate(-50%,-50%) scale(0.4)} 100%{opacity:0;transform:translate(-50%,-50%) scale(1)} }
-        .sonar-sweep { position:absolute; top:50%; left:50%; width:340px; height:340px; margin:-170px; border-radius:50%; background:conic-gradient(from 0deg,transparent 0deg,rgba(0,212,255,0.12) 50deg,transparent 50deg); animation:sweep 4s linear infinite; }
-        @keyframes sweep { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-        .drone-wrap { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); animation:float 4s ease-in-out infinite; }
-        @keyframes float { 0%,100%{transform:translate(-50%,-50%) translateY(0)} 50%{transform:translate(-50%,-50%) translateY(-14px)} }
-        .blip { position:absolute; width:7px; height:7px; background:var(--orange); border-radius:50%; box-shadow:0 0 10px var(--orange); animation:blink 2.2s ease-in-out infinite; }
-
-        /* STATS BAR */
-        .stats-bar { background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:2.5rem 2rem; display:flex; justify-content:center; gap:6.5rem; flex-wrap:wrap; }
-        .stat-num { font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:var(--cyan); letter-spacing:0.05em; }
-        .stat-lbl { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:0.2rem; }
-
-        /* LAYOUT */
-        .section { padding:7rem 2rem; }
-        .container { max-width:1160px; margin:0 auto; }
-        .sec-label { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:1rem; font-weight:600; }
-        .sec-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); line-height:1; letter-spacing:0.02em; margin-bottom:1.5rem; }
-        .sec-desc { color:var(--text-muted); font-size:0.97rem; line-height:1.8; font-weight:300; }
-
-        /* PRODUCT SECTION */
-        .product-card {
-            background:var(--bg-card); border:1px solid var(--border); border-radius:1rem;
-            overflow:hidden; display:grid; grid-template-columns:1fr 1fr; min-height:500px;
-        }
-        .product-img-side {
-            position:relative; overflow:hidden;
-            background:linear-gradient(135deg,#051018,#0a2030);
-            display:flex; align-items:center; justify-content:center;
-        }
-        .product-img-side::before {
-            content:''; position:absolute; inset:0;
-            background:radial-gradient(circle at 50% 60%,rgba(255,107,53,0.1) 0%,transparent 70%);
-        }
-        .product-badge-img {
-            width:100%; height:100%; object-fit:cover; opacity:0.9;
-        }
-        .product-specs-side { padding:3rem; }
-        .spec-row { display:flex; justify-content:space-between; align-items:center; padding:0.75rem 0; border-bottom:1px solid var(--border); }
-        .spec-row:last-child { border-bottom:none; }
-        .spec-key { font-size:0.8rem; color:var(--text-muted); letter-spacing:0.06em; text-transform:uppercase; }
-        .spec-val { font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:600; color:var(--text); letter-spacing:0.03em; }
-        .spec-val.highlight { color:var(--cyan); }
-
-        /* FEATURE CARDS */
-        .feat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; margin-top:3rem; }
-        .feat-card { background:linear-gradient(145deg,#0d1520,#111c2a); border:1px solid rgba(255,255,255,0.07); border-radius:0.875rem; padding:1.5rem 1.25rem; transition:all 0.3s; cursor:default; display:flex; flex-direction:column; align-items:flex-start; gap:0.75rem; }
-        .feat-card:hover { border-color:rgba(255,255,255,0.14); transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,0,0,0.4); }
-        .feat-slider-wrap { display:none; }
-        .feat-slider-btn { background:rgba(255,255,255,0.07); border:1px solid var(--border); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--text); flex-shrink:0; transition:all 0.2s; }
-        .feat-slider-btn:hover { background:rgba(0,212,255,0.15); border-color:var(--cyan); color:var(--cyan); }
-        .feat-slider-btn:disabled { opacity:0.3; cursor:default; }
-        .feat-icon { width:56px; height:56px; background:rgba(255,255,255,0.05); border-radius:0.6rem; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.08); }
-        .feat-icon svg { width:26px; height:26px; stroke:#8a9bb0; fill:none; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; }
-        .feat-title { font-family:'Barlow Condensed',sans-serif; font-size:1.05rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#c8d8e8; }
-        .feat-desc { color:#4e6070; font-size:0.86rem; line-height:1.65; font-weight:300; }
-
-        /* STEPS */
-        .steps { display:grid; grid-template-columns:repeat(3,1fr); margin-top:3rem; }
-        .step { padding:2.5rem; border-right:1px solid var(--border); }
-        .step:last-child { border-right:none; }
-        .step-n { font-family:'Bebas Neue',sans-serif; font-size:5rem; line-height:1; color:rgba(0,212,255,0.07); margin-bottom:0.75rem; }
-        .step-t { font-family:'Barlow Condensed',sans-serif; font-size:1.2rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:0.6rem; }
-        .step-d { color:var(--text-muted); font-size:0.88rem; line-height:1.6; font-weight:300; }
-
-        /* USE CASES */
-        .uc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:3rem; }
-        .uc-card { border-radius:0.75rem; overflow:hidden; position:relative; height:270px; cursor:pointer; }
-        .uc-card:hover .uc-inner { transform:scale(1.04); }
-        .uc-inner { width:100%; height:100%; transition:transform 0.5s; display:flex; flex-direction:column; justify-content:flex-end; padding:1.75rem; }
-        .uc-tag { font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--cyan); font-weight:600; margin-bottom:0.4rem; }
-        .uc-title { font-family:'Barlow Condensed',sans-serif; font-size:1.2rem; font-weight:600; letter-spacing:0.03em; }
-
-        /* CTA */
-        .cta-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:700px; background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,transparent 70%); pointer-events:none; }
-        input,select,textarea { background:var(--bg-card); border:1px solid var(--border); border-radius:0.375rem; padding:0.875rem 1rem; color:var(--text); font-family:'Barlow',sans-serif; font-size:0.9rem; outline:none; transition:border-color 0.2s; width:100%; }
-        input::placeholder,textarea::placeholder { color:var(--text-muted); }
-        input:focus,select:focus,textarea:focus { border-color:var(--cyan); }
-        select option { background:var(--bg-card); }
-        textarea { resize:none; min-height:100px; }
-
-        /* FOOTER */
-        footer { background:var(--bg-surface); border-top:1px solid var(--border); padding:4.5rem 2rem 2rem; }
-        .footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:3rem; padding-bottom:2.75rem; border-bottom:1px solid var(--border); }
-        .footer-heading { font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); font-weight:600; margin-bottom:1.25rem; }
-        .footer-links { display:flex; flex-direction:column; gap:0.85rem; list-style:none; }
-        .footer-links a { color:var(--text-muted); font-size:0.88rem; text-decoration:none; transition:color 0.2s; }
-        .footer-links a:hover { color:var(--cyan); }
-        .footer-contact-item { display:flex; align-items:flex-start; gap:0.7rem; color:var(--text-muted); font-size:0.88rem; line-height:1.6; }
-        .footer-contact-item a { color:var(--text-muted); text-decoration:none; transition:color 0.2s; }
-        .footer-contact-item a:hover { color:var(--cyan); }
-        .footer-bottom { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; padding-top:1.75rem; }
-        .footer-legal-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
-        @media(max-width:900px) {
-            .footer-grid { grid-template-columns:1fr; gap:2.5rem; text-align:center; }
-            .footer-links, .footer-contact-item { align-items:center; }
-            .footer-contact-item { justify-content:center; }
-        }
-        @media(max-width:600px) {
-            .footer-bottom { flex-direction:column; text-align:center; justify-content:center; }
-            .footer-legal-links { justify-content:center; }
-        }
-
-        /* ANCHOR OFFSET for fixed nav */
-        section[id] { scroll-margin-top: 160px; }
-
-        /* SCROLL ANIM */
-        .fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease,transform 0.65s ease; }
-        .fade-up.visible { opacity:1; transform:translateY(0); }
-        .fade-up.d1 { transition-delay:0.15s; }
-        .fade-up.d2 { transition-delay:0.25s; }
-
-        /* WATER SHIMMER */
-        .water { position:absolute; bottom:0; left:0; right:0; height:250px; background:linear-gradient(to top,rgba(0,60,100,0.25) 0%,transparent 100%); pointer-events:none; }
-
-        /* CHECK LIST */
-        .check { display:flex; align-items:flex-start; gap:0.9rem; }
-        .check-dot { width:18px; height:18px; border-radius:50%; background:rgba(0,212,255,0.12); border:1px solid var(--cyan); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:3px; }
-
-        /* PRODUCT NAME BADGE */
-        .prod-name-badge {
-            display:inline-flex; align-items:center; gap:0.6rem;
-            background:rgba(255,107,53,0.1); border:1px solid rgba(255,107,53,0.35);
-            padding:0.35rem 0.9rem; border-radius:0.375rem;
-            font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase;
-            color:var(--orange); margin-bottom:1rem; font-weight:600;
-        }
-
-        /* RESPONSIVE */
-        @media(max-width:900px) {
-            nav { justify-content:space-between; padding:0.5rem 1.5rem; }
-            .nav-logo-wrap { flex:1; justify-content:flex-start; }
-            .nav-logo-wrap img { height:56px; }
-            .nav-burger { display:flex; }
-            .nav-links-wrap {
-                position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px);
-                background:rgba(2,12,24,0.97); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-                box-shadow:-10px 0 40px rgba(0,0,0,0.45);
-                flex-direction:column; align-items:flex-start; justify-content:flex-start;
-                padding:6rem 2rem 2rem; gap:2rem;
-                transform:translateX(100%); transition:transform 0.3s ease;
-                z-index:95;
-            }
-            .nav-links-wrap.open { transform:translateX(0); }
-            .nav-links-wrap ul { flex-direction:column; align-items:flex-start; gap:1.5rem; width:100%; }
-            .nav-links-wrap ul a { font-size:1rem; }
-            .nav-links-wrap .nav-cta { display:inline-block; }
-            #missione > .container { grid-template-columns:1fr !important; gap:3rem !important; text-align:center !important; max-width:900px; margin:0 auto; }
-            #missione .sec-title { text-align:center; }
-            #missione > .container > div:first-child > div { align-items:center; }
-            [style*="grid-template-columns:1fr 1fr;gap:5rem"] { grid-template-columns:1fr !important; gap:3rem !important; }
-            .hero { padding-top:7rem; }
-            .section { padding:3.5rem 1.5rem; }
-            #come-funziona { padding:3rem 1.5rem !important; }
-            #contatto { padding:4rem 1.5rem !important; }
-            [style*="padding:5rem 2rem"] { padding:2.5rem 1.5rem !important; }
-            [style*="padding:2rem 2rem"] { padding:1.25rem 1.5rem !important; }
-            .sonar-wrap { display:block; width:220px; height:220px; right:-30px; top:18%; transform:none; }
-            .sonar-wrap .drone-wrap img { width:130px; }
-            .sonar-ring:nth-child(1){width:34px;height:34px;}
-            .sonar-ring:nth-child(2){width:68px;height:68px;}
-            .sonar-ring:nth-child(3){width:110px;height:110px;}
-            .sonar-ring:nth-child(4){width:154px;height:154px;}
-            .sonar-ring:nth-child(5){width:196px;height:196px;}
-            .sonar-sweep { width:110px; height:110px; margin:-55px; }
-            .steps { grid-template-columns:1fr; }
-            .step { border-right:none; border-bottom:1px solid var(--border); }
-            .step:last-child { border-bottom:none; }
-            .uc-grid { grid-template-columns:1fr 1fr; }
-            .stats-bar { gap:0; flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; padding:1.5rem 1.5rem; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
-            .stats-bar::-webkit-scrollbar { display:none; }
-            .stats-bar > div { flex:0 0 auto; min-width:140px; text-align:center; padding:0 1.25rem; border-right:1px solid var(--border); }
-            .stats-bar > div:last-child { border-right:none; }
-            .product-card { grid-template-columns:1fr; }
-            .product-img-side { min-height:260px; }
-            .dolphin-grid { grid-template-columns:1fr !important; }
-            .feat-grid-desktop { display:none !important; }
-            .feat-slider-wrap { display:flex; flex-direction:column; gap:1rem; margin-top:3rem; }
-            .feat-slider-inner { overflow:hidden; }
-            .feat-slider-track { display:flex; transition:transform 0.35s ease; }
-            .feat-page { display:flex; gap:1rem; flex:0 0 100%; min-width:0; }
-            .feat-page .feat-card { flex:1; min-width:0; }
-            .feat-slider-nav { display:flex; align-items:center; justify-content:center; gap:1rem; }
-            .feat-slider-dots { display:flex; gap:0.4rem; }
-            .feat-slider-dot { width:6px; height:6px; border-radius:50%; background:var(--border); transition:background 0.2s; }
-            .feat-slider-dot.active { background:var(--cyan); }
-        }
-        @media(max-width:900px) {
-            [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns:1fr 1fr !important; }
-        }
-        #product-comparison { max-width:100%; }
-        #product-comparison div[style*="grid-column:2/4"] { display:none; }
-        #product-comparison > div > div[style="padding:0;"] { display:none; }
-        /* Desktop: Combine label row with value row */
-        @media(min-width:901px) {
-            #product-comparison > div:nth-child(4n+1) { grid-column:1/4 !important; display:grid; grid-template-columns:subgrid; }
-            #product-comparison > div:nth-child(4n+3) { display:contents; }
-        }
-        @media(max-width:600px) {
-            .uc-grid { grid-template-columns:1fr; }
-            .feat-grid { grid-template-columns:repeat(2,1fr) !important; }
-            #product-comparison > div > div[style="padding:0;"] { display:grid !important; }
-            #product-comparison div[style*="grid-column:2/4"] { display:grid !important; }
-            #product-comparison > div { grid-template-columns:1fr 1fr !important; }
-            #product-comparison > div > div:first-child { display:none !important; }
-            #product-comparison div[style*="grid-column:2/4"] { grid-column:1/3 !important; }
-            #product-comparison > div > div:nth-child(n+2) { border-left:none !important; }
-            #product-comparison > div > div:nth-child(2) { border-left:1px solid var(--border) !important; }
-            [style*="padding:0.85rem 1.5rem"] { padding:0.6rem 0.9rem !important; }
-            [style*="padding:1rem 1.5rem"] { padding:0.8rem 0.9rem !important; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
 
@@ -436,9 +122,9 @@
     <!-- Links + lang: right -->
     <div class="nav-links-wrap" id="navLinksWrap">
         <ul>
-            <li><a href="#missione" data-i18n="nav_mission" onclick="closeMobileNav()">Missione</a></li>
-            <li><a href="#prodotto" data-i18n="nav_product" onclick="closeMobileNav()">Prodotto</a></li>
-            <li><a href="#tecnologia" data-i18n="nav_technology" onclick="closeMobileNav()">Tecnologia</a></li>
+            <li><a href="missione.html" data-i18n="nav_mission" onclick="closeMobileNav()">Missione</a></li>
+            <li><a href="prodotto.html" data-i18n="nav_product" onclick="closeMobileNav()">Prodotto</a></li>
+            <li><a href="tecnologia.html" data-i18n="nav_technology" onclick="closeMobileNav()">Tecnologia</a></li>
             <li><a href="#come-funziona" data-i18n="nav_how" onclick="closeMobileNav()">Come funziona</a></li>
             <li><a href="#contatto" class="nav-cta" data-i18n="nav_cta" onclick="closeMobileNav()">Richiedi demo</a></li>
         </ul>
@@ -487,7 +173,7 @@
         <p class="hero-sub" data-i18n="hero_sub">Aqua Rescue Systems sviluppa robot autonomi per il soccorso in acqua che raggiungono il luogo dell'incidente in pochi secondi, salvando vite senza mettere in pericolo i soccorritori.</p>
         <div class="hero-btns">
             <a href="#contatto" class="btn-p" data-i18n="hero_btn1">Richiedi una demo</a>
-            <a href="#prodotto" class="btn-s" data-i18n="hero_btn2">Scopri il prodotto</a>
+            <a href="prodotto.html" class="btn-s" data-i18n="hero_btn2">Scopri il prodotto</a>
         </div>
     </div>
 </section>
@@ -499,8 +185,8 @@
         <div>
             <p class="sec-label" data-i18n="mission_label">La nostra missione</p>
             <h2 class="sec-title" data-i18n-html="mission_title">Ogni secondo<br>conta.</h2>
-            <p class="sec-desc" style="color:white;" data-i18n="mission_desc">Gli incidenti per annegamento accadono in pochi istanti. Troppo in fretta per i soccorritori tradizionali. Aqua Rescue Systems colma questa lacuna critica con robot autonomi per il soccorso in acqua: pronti all'intervento immediato, senza rischi per il personale.</p>
-            <div style="margin-top:2rem;display:flex;flex-direction:column;gap:2.5rem;">
+            <p class="sec-desc" style="color:white;" data-i18n="mission_teaser_desc">Ogni secondo conta. Scopri perché abbiamo creato Aqua Rescue Systems e come i nostri robot colmano il vuoto critico tra l'allarme e il salvataggio.</p>
+            <div style="margin-top:2rem;display:flex;flex-direction:column;gap:1.25rem;">
                 <div class="check">
                     <div class="check-dot"><svg viewBox="0 0 10 10" fill="none" stroke="#FF6B35" stroke-width="1.5" width="10" height="10"><polyline points="2,5 4,7 8,3"/></svg></div>
                     <span style="color:white;font-size:0.9rem;line-height:1.6;font-weight:300;" data-i18n="check1">Anello di salvataggio e assistenza al galleggiamento entro 90 secondi sul luogo dell'incidente</span>
@@ -514,6 +200,7 @@
                     <span style="color:white;font-size:0.9rem;line-height:1.6;font-weight:300;" data-i18n="check3">Completamente telecomandata: nessun soccorritore entra in acqua</span>
                 </div>
             </div>
+            <a href="missione.html" class="teaser-link"><span data-i18n="learnmore">Scopri di più</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
 
         <div class="fade-up d1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:0.75rem;padding:2rem;position:relative;overflow:hidden;">
@@ -625,142 +312,16 @@
     <div class="container">
         <div class="fade-up" style="margin-bottom:2.5rem;text-align:center;">
             <h2 class="sec-title" data-i18n="product_title">La gamma DOLPHIN</h2>
-            <p class="sec-desc" style="max-width:580px;margin:0 auto;" data-i18n="product_desc">Due versioni dello stesso robot: scegli il modello adatto alle tue esigenze.</p>
+            <p class="sec-desc" style="max-width:580px;margin:0 auto;" data-i18n="product_teaser_desc">Due versioni dello stesso robot: confronta specifiche, dotazioni e scegli il modello Dolphin più adatto al tuo impiego.</p>
         </div>
 
         <!-- Central image -->
-        <div class="fade-up" style="text-align:center;margin-bottom:3rem;">
+        <div class="fade-up" style="text-align:center;">
             <img src="assets/images/dolphin3_front.png" alt="Dolphin 3" style="width:320px;height:auto;filter:drop-shadow(0 0 40px rgba(255,107,53,0.4));display:inline-block;" />
         </div>
 
-        <!-- Comparison table -->
-        <div id="product-comparison" class="fade-up d1" style="background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;overflow:hidden;max-width:860px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch;">
-            <!-- Header -->
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:rgba(0,0,0,0.25);border-bottom:1px solid var(--border);">
-                <div style="padding:1rem 1.5rem;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);" data-i18n="col_feature">Caratteristica</div>
-                <div style="padding:1rem 1.5rem;text-align:center;border-left:1px solid var(--border);">
-                    <div style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);">DOLPHIN 3</div>
-                    <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;" data-i18n="col_base">Modello base</div>
-                </div>
-                <div style="padding:1rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.05);">
-                    <div style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);">DOLPHIN 3 PLUS</div>
-                    <div style="font-size:0.7rem;color:var(--text-muted);margin-top:0.2rem;" data-i18n="col_advanced">Versione avanzata</div>
-                </div>
-            </div>
-            <!-- Spec rows -->
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_dim">Dimensioni</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;">100 × 70 × 25 cm</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;background:rgba(255,107,53,0.03);">100 × 70 × 25 cm</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_dim_note">Lunghezza × Larghezza × Altezza</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_weight">Peso</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;">16,75 kg</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;background:rgba(255,107,53,0.03);">16,75 kg</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_weight_note">Peso totale del robot</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_vmax">Velocità massima</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;">7 m/s</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;background:rgba(255,107,53,0.03);">7 m/s</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_vmax_note">Velocità massima di spostamento in acqua</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_battery_life">Autonomia</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;">70 min @3 m/s</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;background:rgba(255,107,53,0.03);">70 min @3 m/s</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_battery_note">Durata della batteria in operazioni a velocità moderata</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_range">Portata telecomando</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;">800 m</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;background:rgba(255,107,53,0.03);">800 m</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_range_note">Distanza massima da cui controllare il robot</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_tow_cap">Capacità di traino</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;">1.000 kg</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--cyan);font-weight:600;background:rgba(255,107,53,0.03);">1.000 kg</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_tow_note">Peso massimo che il robot può trainare in acqua</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_waterproof">Impermeabilità</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;">IP67</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);font-size:0.88rem;color:var(--text);font-weight:500;background:rgba(255,107,53,0.03);">IP67</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_waterproof_note">Standard di protezione contro polvere e acqua</div>
-            </div>
-            <!-- Feature rows with ✓/✗ -->
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_autoright">Autoraddrizzante</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_autoright_note">Si raddrizza automaticamente se capovolto</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_oled">Display OLED</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_oled_note">Display avanzato nel telecomando per live view</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_gnss">Dual GNSS</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#374151;font-size:1.1rem;">✗</span></div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_gnss_note">Localizzazione GPS doppia per maggiore precisione</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_autoreturn">Auto Return</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#374151;font-size:1.1rem;">✗</span></div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_autoreturn_note">Ritorna automaticamente al punto di partenza</div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);">
-                <div style="padding:0.85rem 1.5rem;font-size:0.72rem;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;" data-i18n="spec_camera">Telecamera &amp; Monitor remoto</div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);"><span style="color:#374151;font-size:1.1rem;">✗</span></div>
-                <div style="padding:0.85rem 1.5rem;text-align:center;border-left:1px solid var(--border);background:rgba(255,107,53,0.03);"><span style="color:#4ade80;font-size:1.1rem;">✓</span></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);">
-                <div style="padding:0;"></div>
-                <div style="grid-column:2/4;padding:0.5rem 1.5rem;text-align:center;font-size:0.65rem;color:var(--text-muted);line-height:1.4;font-style:italic;" data-i18n="spec_camera_note">Videocamera integrata e schermo nel telecomando</div>
-            </div>
-            <!-- CTA row -->
-            <div style="padding:1.5rem;background:rgba(0,0,0,0.15);text-align:center;">
-                <a href="#contatto" class="btn-p" style="display:inline-block;padding:0.8rem 1.8rem;font-size:0.85rem;" data-i18n="product_cta">Richiedi contatto</a>
-            </div>
+        <div class="fade-up d1" style="text-align:center;margin-top:1rem;">
+            <a href="prodotto.html" class="teaser-link" style="margin-top:0;"><span data-i18n="learnmore">Scopri di più</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
     </div>
 </section>
@@ -771,47 +332,17 @@
         <div style="text-align:center;max-width:600px;margin:0 auto 3rem;" class="fade-up">
             <p class="sec-label" data-i18n="tech_label">Tecnologia</p>
             <h2 class="sec-title" data-i18n-html="tech_title">Progettato per<br>l'impensabile.</h2>
-            <p class="sec-desc" style="margin:0 auto;" data-i18n="tech_desc">Ogni sistema è stato concepito per le condizioni più difficili: maltempo, zone di panico, oscurità. Tecnologia affidabile quando conta davvero.</p>
+            <p class="sec-desc" style="margin:0 auto;" data-i18n="tech_teaser_desc">Telecamera integrata, autoraddrizzamento, GPS satellitare: scopri l'ingegneria che rende possibile un salvataggio in meno di 90 secondi.</p>
         </div>
-        <!-- Desktop grid -->
-        <div class="feat-grid fade-up feat-grid-desktop">
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title" data-i18n="feat1_title">Telecamera integrata</div><div class="feat-desc" data-i18n="feat1_desc">Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia. Visione in tempo reale per l'operatore.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title" data-i18n="feat2_title">Avvio immediato</div><div class="feat-desc" data-i18n="feat2_desc">Dall'allarme all'ingresso in acqua in pochi secondi. Sistema completamente operativo senza necessità di intervento manuale.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="feat-title" data-i18n="feat3_title">Dotazione di salvataggio</div><div class="feat-desc" data-i18n="feat3_desc">Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso senza che nessun soccorritore entri in acqua.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title" data-i18n="feat4_title">Telecomando a lungo raggio</div><div class="feat-desc" data-i18n="feat4_desc">Portata fino a 800 m. Navigazione precisa in tempo reale con correzione automatica per correnti e vento.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title" data-i18n="feat5_title">Display in tempo reale</div><div class="feat-desc" data-i18n="feat5_desc">Video HD e dati del sensore trasmessi in diretta al posto di comando. Controllo completo dalla riva.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="feat-title" data-i18n="feat6_title">Alta capacità di traino</div><div class="feat-desc" data-i18n="feat6_desc">Traina fino a 1.000 kg in acqua, ideale per supportare più persone contemporaneamente in situazioni di emergenza.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title" data-i18n="feat7_title">Auto-raddrizzamento</div><div class="feat-desc" data-i18n="feat7_desc">Se il robot si capovolge durante il trasporto o in acque agitate, si raddrizza automaticamente in pochi secondi, senza intervento dell'operatore.</div></div>
-            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title" data-i18n="feat8_title">GPS individuale via satellite</div><div class="feat-desc" data-i18n="feat8_desc">Collegabile a un GPS individuale dedicato: la posizione del Dolphin è visibile in tempo reale via satellite, anche a grande distanza o fuori dalla portata visiva.</div></div>
+        <!-- Highlight row: 4 of 8 features, full set on tecnologia.html -->
+        <div class="feat-grid fade-up">
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title" data-i18n="feat1_title">Telecamera integrata</div><div class="feat-desc" data-i18n="feat1_desc_s">Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title" data-i18n="feat4_title">Telecomando a lungo raggio</div><div class="feat-desc" data-i18n="feat4_desc_s">Portata fino a 800 m. Navigazione precisa in tempo reale con correzione automatica.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title" data-i18n="feat7_title">Auto-raddrizzamento</div><div class="feat-desc" data-i18n="feat7_desc_s">Si raddrizza automaticamente in pochi secondi se si capovolge in acque agitate.</div></div>
+            <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title" data-i18n="feat8_title">GPS individuale via satellite</div><div class="feat-desc" data-i18n="feat8_desc_s">Posizione visibile in tempo reale via satellite, anche a grande distanza.</div></div>
         </div>
-
-        <!-- Mobile slider: each page = exactly 2 cards -->
-        <div class="feat-slider-wrap fade-up">
-            <div class="feat-slider-inner" id="featInner">
-                <div class="feat-slider-track" id="featTrack">
-                    <div class="feat-page">
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="feat-title" data-i18n="feat1_title">Telecamera integrata</div><div class="feat-desc" data-i18n="feat1_desc_s">Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia.</div></div>
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feat-title" data-i18n="feat2_title">Avvio immediato</div><div class="feat-desc" data-i18n="feat2_desc_s">Dall'allarme all'ingresso in acqua in pochi secondi. Sistema completamente operativo senza intervento manuale.</div></div>
-                    </div>
-                    <div class="feat-page">
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div><div class="feat-title" data-i18n="feat3_title">Dotazione di salvataggio</div><div class="feat-desc" data-i18n="feat3_desc_s">Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso.</div></div>
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M1 6l5 5-5 5"/><path d="M23 6l-5 5 5 5"/><path d="M8 12h8"/></svg></div><div class="feat-title" data-i18n="feat4_title">Telecomando a lungo raggio</div><div class="feat-desc" data-i18n="feat4_desc_s">Portata fino a 800 m. Navigazione precisa in tempo reale con correzione automatica.</div></div>
-                    </div>
-                    <div class="feat-page">
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="feat-title" data-i18n="feat5_title">Display in tempo reale</div><div class="feat-desc" data-i18n="feat5_desc_s">Video HD e dati del sensore trasmessi in diretta al posto di comando.</div></div>
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="feat-title" data-i18n="feat6_title">Alta capacità di traino</div><div class="feat-desc" data-i18n="feat6_desc_s">Traina fino a 1.000 kg in acqua, ideale per più persone contemporaneamente.</div></div>
-                    </div>
-                    <div class="feat-page">
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg></div><div class="feat-title" data-i18n="feat7_title">Auto-raddrizzamento</div><div class="feat-desc" data-i18n="feat7_desc_s">Si raddrizza automaticamente in pochi secondi se si capovolge in acque agitate.</div></div>
-                        <div class="feat-card"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></div><div class="feat-title" data-i18n="feat8_title">GPS via satellite</div><div class="feat-desc" data-i18n="feat8_desc_s">Posizione visibile in tempo reale via satellite, anche a grande distanza.</div></div>
-                    </div>
-                </div>
-            </div>
-            <div class="feat-slider-nav">
-                <button class="feat-slider-btn" id="featPrev" onclick="featSlide(-1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-                <div class="feat-slider-dots" id="featDots"></div>
-                <button class="feat-slider-btn" id="featNext" onclick="featSlide(1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-            </div>
+        <div class="fade-up d1" style="text-align:center;">
+            <a href="tecnologia.html" class="teaser-link"><span data-i18n="learnmore">Scopri di più</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
     </div>
 </section>
@@ -901,12 +432,6 @@
             </div>
         </div>
     </div>
-    <style>
-        @media(max-width:900px) {
-            #come-funziona .container > div:last-child { grid-template-columns:1fr !important; }
-            #come-funziona .container > div:last-child > div[style*="position:absolute"] { display:none; }
-        }
-    </style>
 </section>
 
 <!-- PRESSE & MEDIEN -->
@@ -1024,12 +549,6 @@
         </div>
 
     </div>
-
-    <style>
-        @media(max-width:900px){
-            #contatto .container { grid-template-columns:1fr !important; gap:3rem !important; }
-        }
-    </style>
 </section>
 
 <!-- PARTNER -->
@@ -1071,12 +590,6 @@
                 <button class="feat-slider-btn" id="partnerNext" onclick="partnerSlide(1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
             </div>
         </div>
-        <style>
-            @media(max-width:900px) {
-                .partner-desktop { display:none !important; }
-                .partner-mobile { display:block !important; }
-            }
-        </style>
     </div>
 </section>
 
@@ -1101,9 +614,9 @@
         <div>
             <div class="footer-heading" data-i18n="footer_quicklinks">Link rapidi</div>
             <ul class="footer-links">
-                <li><a href="#missione" data-i18n="nav_mission">Missione</a></li>
-                <li><a href="#prodotto" data-i18n="nav_product">Prodotto</a></li>
-                <li><a href="#tecnologia" data-i18n="nav_technology">Tecnologia</a></li>
+                <li><a href="missione.html" data-i18n="nav_mission">Missione</a></li>
+                <li><a href="prodotto.html" data-i18n="nav_product">Prodotto</a></li>
+                <li><a href="tecnologia.html" data-i18n="nav_technology">Tecnologia</a></li>
                 <li><a href="#come-funziona" data-i18n="nav_how">Come funziona</a></li>
                 <li><a href="#contatto" data-i18n="nav_cta">Richiedi demo</a></li>
             </ul>
@@ -1306,360 +819,6 @@
     </div>
 </div>
 
-<script>
-    // Partner slider (mobile)
-    let partnerIndex = 0;
-    const partnerTrack = document.getElementById('partnerTrack');
-    const partnerDotsEl = document.getElementById('partnerDots');
-    const partnerTotal = 2;
-    if (partnerTrack) {
-        for (let i = 0; i < partnerTotal; i++) {
-            const d = document.createElement('div');
-            d.className = 'feat-slider-dot' + (i === 0 ? ' active' : '');
-            partnerDotsEl.appendChild(d);
-        }
-        partnerSlide(0);
-    }
-    function partnerSlide(dir) {
-        partnerIndex = Math.max(0, Math.min(partnerTotal - 1, partnerIndex + dir));
-        partnerTrack.style.transform = `translateX(-${partnerIndex * 100}%)`;
-        document.querySelectorAll('#partnerDots .feat-slider-dot').forEach((d, i) => d.classList.toggle('active', i === partnerIndex));
-        document.getElementById('partnerPrev').disabled = partnerIndex === 0;
-        document.getElementById('partnerNext').disabled = partnerIndex === partnerTotal - 1;
-    }
-
-    // Feature cards slider (mobile)
-    let featIndex = 0;
-    const featTrack = document.getElementById('featTrack');
-    const featDotsEl = document.getElementById('featDots');
-    const featPages = featTrack ? featTrack.querySelectorAll('.feat-page').length : 0;
-
-    if (featTrack && featPages > 0) {
-        for (let i = 0; i < featPages; i++) {
-            const d = document.createElement('div');
-            d.className = 'feat-slider-dot' + (i === 0 ? ' active' : '');
-            featDotsEl.appendChild(d);
-        }
-        featSlide(0);
-    }
-
-    function featSlide(dir) {
-        featIndex = Math.max(0, Math.min(featPages - 1, featIndex + dir));
-        featTrack.style.transform = `translateX(-${featIndex * 100}%)`;
-        document.querySelectorAll('.feat-slider-dot').forEach((d, i) => d.classList.toggle('active', i === featIndex));
-        document.getElementById('featPrev').disabled = featIndex === 0;
-        document.getElementById('featNext').disabled = featIndex === featPages - 1;
-    }
-
-    const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, {threshold:0.1});
-    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-
-    const translations = {
-        it: {
-            nav_mission:'Missione', nav_product:'Prodotto', nav_technology:'Tecnologia', nav_how:'Come funziona', nav_cta:'Richiedi demo',
-            hero_badge:'Robot di soccorso acquatico',
-            hero_h1:'Salvare<br><span class="cyan">Vite.</span><br>Senza Rischi.',
-            hero_sub:'Aqua Rescue Systems sviluppa robot autonomi per il soccorso in acqua che raggiungono il luogo dell\'incidente in pochi secondi, salvando vite senza mettere in pericolo i soccorritori.',
-            hero_btn1:'Richiedi una demo', hero_btn2:'Scopri il prodotto',
-            mission_label:'La nostra missione', mission_title:'Ogni secondo<br>conta.',
-            mission_desc:'Gli incidenti per annegamento accadono in pochi istanti. Troppo in fretta per i soccorritori tradizionali. Aqua Rescue Systems colma questa lacuna critica con robot autonomi per il soccorso in acqua: pronti all\'intervento immediato, senza rischi per il personale.',
-            check1:'Anello di salvataggio e assistenza al galleggiamento entro 90 secondi sul luogo dell\'incidente',
-            check2:'Riconoscimento della persona con telecamera integrata anche di notte e con scarsa visibilità',
-            check3:'Completamente telecomandata: nessun soccorritore entra in acqua',
-            sys_label:'Parametri di sistema live', sys_speed:'Velocità vs. soccorritore umano', sys_speed_val:'5x più veloce',
-            sys_safety:'Sicurezza operatori', sys_survival:'Probabilità di sopravvivenza', sys_battery:'Autonomia batteria',
-            sys_status:'Sistema nominale · Pronto all\'intervento',
-            stat_response:'Tempo di risposta', stat_speed:'Velocità massima', stat_tow:'Capacità di traino', stat_range:'Portata telecomando', stat_operational:'Operativo',
-            ambiti_label:'Ambiti di utilizzo', ambiti_title:'Ovunque l\'acqua<br>minacci le vite.',
-            uc1_tag:'Autorità e sicurezza', uc1_title:'Guardia costiera &<br>soccorso in mare',
-            uc2_tag:'Sport e tempo libero', uc2_title:'Piscine &<br>stabilimenti balneari',
-            uc3_tag:'Protezione civile', uc3_title:'Alluvioni &<br>catastrofi naturali',
-            uc4_tag:'Primo soccorso', uc4_title:'Vigili del fuoco &<br>squadre di soccorso',
-            uc5_tag:'Industria & marino', uc5_title:'Porti &<br>infrastrutture marittime',
-            uc6_tag:'Eventi & sport', uc6_title:'Triathlon &<br>eventi all\'aperto',
-            product_title:'La gamma DOLPHIN', product_desc:'Due versioni dello stesso robot: scegli il modello adatto alle tue esigenze.',
-            col_feature:'Caratteristica', col_base:'Modello base', col_advanced:'Versione avanzata',
-            spec_dim:'Dimensioni', spec_dim_note:'Lunghezza × Larghezza × Altezza',
-            spec_weight:'Peso', spec_weight_note:'Peso totale del robot',
-            spec_vmax:'Velocità massima', spec_vmax_note:'Velocità massima di spostamento in acqua',
-            spec_battery_life:'Autonomia', spec_battery_note:'Durata della batteria in operazioni a velocità moderata',
-            spec_range:'Portata telecomando', spec_range_note:'Distanza massima da cui controllare il robot',
-            spec_tow_cap:'Capacità di traino', spec_tow_note:'Peso massimo che il robot può trainare in acqua',
-            spec_waterproof:'Impermeabilità', spec_waterproof_note:'Standard di protezione contro polvere e acqua',
-            spec_autoright:'Autoraddrizzante', spec_autoright_note:'Si raddrizza automaticamente se capovolto',
-            spec_oled:'Display OLED', spec_oled_note:'Display avanzato nel telecomando per live view',
-            spec_gnss:'Dual GNSS', spec_gnss_note:'Localizzazione GPS doppia per maggiore precisione',
-            spec_autoreturn:'Auto Return', spec_autoreturn_note:'Ritorna automaticamente al punto di partenza',
-            spec_camera:'Telecamera & Monitor remoto', spec_camera_note:'Videocamera integrata e schermo nel telecomando',
-            product_cta:'Richiedi contatto',
-            tech_label:'Tecnologia', tech_title:'Progettato per<br>l\'impensabile.',
-            tech_desc:'Ogni sistema è stato concepito per le condizioni più difficili: maltempo, zone di panico, oscurità. Tecnologia affidabile quando conta davvero.',
-            feat1_title:'Telecamera integrata', feat1_desc:'Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia. Visione in tempo reale per l\'operatore.', feat1_desc_s:'Individua persone in acqua automaticamente, anche con onde, di notte e con nebbia.',
-            feat2_title:'Avvio immediato', feat2_desc:'Dall\'allarme all\'ingresso in acqua in pochi secondi. Sistema completamente operativo senza necessità di intervento manuale.', feat2_desc_s:'Dall\'allarme all\'ingresso in acqua in pochi secondi. Sistema completamente operativo senza intervento manuale.',
-            feat3_title:'Dotazione di salvataggio', feat3_desc:'Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso senza che nessun soccorritore entri in acqua.', feat3_desc_s:'Anello di salvataggio integrato e sistema di galleggiamento per un intervento preciso.',
-            feat4_title:'Telecomando a lungo raggio', feat4_desc:'Portata fino a 800 m. Navigazione precisa in tempo reale con correzione automatica per correnti e vento.', feat4_desc_s:'Portata fino a 800 m. Navigazione precisa in tempo reale con correzione automatica.',
-            feat5_title:'Display in tempo reale', feat5_desc:'Video HD e dati del sensore trasmessi in diretta al posto di comando. Controllo completo dalla riva.', feat5_desc_s:'Video HD e dati del sensore trasmessi in diretta al posto di comando.',
-            feat6_title:'Alta capacità di traino', feat6_desc:'Traina fino a 1.000 kg in acqua, ideale per supportare più persone contemporaneamente in situazioni di emergenza.', feat6_desc_s:'Traina fino a 1.000 kg in acqua, ideale per più persone contemporaneamente.',
-            feat7_title:'Auto-raddrizzamento', feat7_desc:'Se il robot si capovolge durante il trasporto o in acque agitate, si raddrizza automaticamente in pochi secondi, senza intervento dell\'operatore.', feat7_desc_s:'Si raddrizza automaticamente in pochi secondi se si capovolge in acque agitate.',
-            feat8_title:'GPS individuale via satellite', feat8_desc:'Collegabile a un GPS individuale dedicato: la posizione del Dolphin è visibile in tempo reale via satellite, anche a grande distanza o fuori dalla portata visiva.', feat8_desc_s:'Posizione visibile in tempo reale via satellite, anche a grande distanza.',
-            how_label:'Come funziona', how_title:'Dall\'allarme<br>al salvataggio.', how_sub:'Tre fasi. Novanta secondi. Una vita salvata.',
-            step1_title:'Allarme', step1_desc:'Chiamata di emergenza, sensore o attivazione manuale. Il sistema si mette in moto in pochi secondi.', step1_time:'< 10 secondi',
-            step2_title:'Avvicinamento', step2_desc:'L\'operatore guida il robot via telecomando fino alla persona, anche contro corrente e vento. Portata fino a 800 m.', step2_time:'7 m/s velocità massima',
-            step3_title:'Salvataggio', step3_desc:'La persona si aggrappa al robot e viene trasportata in sicurezza. I soccorritori restano sulla riva: zero rischi.', step3_badge:'Zero soccorritori in acqua',
-            media_label:'Stampa & Media', media_title:'Conosciuto da<br>Stampa & Media', media_desc:'Il Dolphin 3 attrae l\'attenzione dei media in tutta la Germania.',
-            contact_label:'Pronto per il prossimo passo?', contact_title:'Proteggi<br><span style="color:var(--cyan);">Vite Umane.</span>', contact_desc:'Prenota una demo personalizzata e scopri come Aqua Rescue Systems può rivoluzionare la tua infrastruttura di sicurezza.',
-            contact_phone_lbl:'Telefono', contact_resp_lbl:'Risposta', contact_resp_val:'Entro 24 ore',
-            form_name:'Nome e Cognome', form_name_ph:'Mario Rossi', form_email_ph:'mario@esempio.it',
-            form_phone_lbl:'Telefono (opzionale)', form_org_lbl:'Organizzazione', form_org_ph:'Seleziona ambito di utilizzo...',
-            form_opt1:'Guardia costiera / Soccorso in mare', form_opt2:'Vigili del fuoco / Squadre di soccorso',
-            form_opt3:'Piscina / Stabilimento balneare', form_opt4:'Protezione civile',
-            form_opt5:'Porti / Industria marittima', form_opt6:'Altro',
-            form_msg_lbl:'Messaggio (opzionale)', form_msg_ph:'Come possiamo aiutarti?',
-            form_submit:'Prenota una demo gratuita', form_note:'Nessun impegno · Risposta entro 24 ore',
-            form_phone_ph:'+39 000 000 0000',
-            partner_label:'Partner', partner_title:'Con chi lavoriamo',
-            footer_legal:'Note legali', footer_contact:'Contatti',
-            footer_tagline:'Robot autonomi per il soccorso in acqua, sviluppati per salvare vite senza mettere in pericolo i soccorritori.', footer_quicklinks:'Link rapidi', footer_madeby:'· made by',
-            copyright:'© 2026 AquaRescueSystems · Tutti i diritti riservati'
-        },
-        de: {
-            nav_mission:'Mission', nav_product:'Produkt', nav_technology:'Technologie', nav_how:'Funktionsweise', nav_cta:'Demo anfragen',
-            hero_badge:'Wasserrettungsroboter',
-            hero_h1:'Leben<br><span class="cyan">Retten.</span><br>Ohne Risiken.',
-            hero_sub:'Aqua Rescue Systems entwickelt autonome Wasserrettungsroboter, die den Unfallort in wenigen Sekunden erreichen und Leben retten, ohne Retter zu gefährden.',
-            hero_btn1:'Demo anfragen', hero_btn2:'Produkt entdecken',
-            mission_label:'Unsere Mission', mission_title:'Jede Sekunde<br>zählt.',
-            mission_desc:'Ertrinkungsunfälle geschehen in Sekundenschnelle – zu schnell für traditionelle Rettungskräfte. Aqua Rescue Systems schließt diese kritische Lücke mit autonomen Wasserrettungsrobotern: sofort einsatzbereit, ohne Risiko für das Personal.',
-            check1:'Rettungsring und Auftriebshilfe innerhalb von 90 Sekunden am Unfallort',
-            check2:'Personenerkennung mit integrierter Kamera, auch nachts und bei schlechter Sicht',
-            check3:'Vollständig ferngesteuert: kein Retter geht ins Wasser',
-            sys_label:'Live-Systemparameter', sys_speed:'Geschwindigkeit vs. menschlicher Retter', sys_speed_val:'5x schneller',
-            sys_safety:'Sicherheit der Einsatzkräfte', sys_survival:'Überlebenswahrscheinlichkeit', sys_battery:'Akkukapazität',
-            sys_status:'System nominal · Einsatzbereit',
-            stat_response:'Reaktionszeit', stat_speed:'Höchstgeschwindigkeit', stat_tow:'Zugkapazität', stat_range:'Fernsteuerung Reichweite', stat_operational:'Betrieb',
-            ambiti_label:'Einsatzbereiche', ambiti_title:'Überall wo Wasser<br>Leben bedroht.',
-            uc1_tag:'Behörden & Sicherheit', uc1_title:'Küstenwache &<br>Seenotrettung',
-            uc2_tag:'Sport & Freizeit', uc2_title:'Schwimmbäder &<br>Badeanlagen',
-            uc3_tag:'Katastrophenschutz', uc3_title:'Überschwemmungen &<br>Naturkatastrophen',
-            uc4_tag:'Erster Einsatz', uc4_title:'Feuerwehr &<br>Rettungsteams',
-            uc5_tag:'Industrie & Marine', uc5_title:'Häfen &<br>maritime Infrastruktur',
-            uc6_tag:'Events & Sport', uc6_title:'Triathlon &<br>Outdoor-Events',
-            product_title:'Die DOLPHIN-Reihe', product_desc:'Zwei Versionen des gleichen Roboters: Wählen Sie das passende Modell für Ihre Anforderungen.',
-            col_feature:'Merkmal', col_base:'Basismodell', col_advanced:'Erweiterte Version',
-            spec_dim:'Abmessungen', spec_dim_note:'Länge × Breite × Höhe',
-            spec_weight:'Gewicht', spec_weight_note:'Gesamtgewicht des Roboters',
-            spec_vmax:'Höchstgeschwindigkeit', spec_vmax_note:'Maximale Fortbewegungsgeschwindigkeit im Wasser',
-            spec_battery_life:'Akkulaufzeit', spec_battery_note:'Betriebsdauer bei moderater Geschwindigkeit',
-            spec_range:'Fernsteuerung Reichweite', spec_range_note:'Maximale Fernsteuerungsdistanz',
-            spec_tow_cap:'Zugkapazität', spec_tow_note:'Maximales Gewicht das der Roboter ziehen kann',
-            spec_waterproof:'Wasserdichtigkeit', spec_waterproof_note:'Schutzstandard gegen Staub und Wasser',
-            spec_autoright:'Selbstaufrichtend', spec_autoright_note:'Richtet sich automatisch auf wenn gekentert',
-            spec_oled:'OLED-Display', spec_oled_note:'Erweitertes Display in der Fernbedienung für Live-Ansicht',
-            spec_gnss:'Dual GNSS', spec_gnss_note:'Doppelte GPS-Ortung für höhere Präzision',
-            spec_autoreturn:'Auto Return', spec_autoreturn_note:'Kehrt automatisch zum Ausgangspunkt zurück',
-            spec_camera:'Kamera & Fernmonitor', spec_camera_note:'Integrierte Videokamera und Bildschirm in der Fernbedienung',
-            product_cta:'Kontakt anfragen',
-            tech_label:'Technologie', tech_title:'Entwickelt für<br>das Undenkbare.',
-            tech_desc:'Jedes System wurde für schwerste Bedingungen konzipiert: Unwetter, Paniksituationen, Dunkelheit. Zuverlässige Technologie wenn es wirklich darauf ankommt.',
-            feat1_title:'Integrierte Kamera', feat1_desc:'Erkennt Personen im Wasser automatisch, auch bei Wellen, nachts und bei Nebel. Echtzeit-Sicht für den Operator.', feat1_desc_s:'Erkennt Personen im Wasser automatisch, auch bei Wellen, nachts und bei Nebel.',
-            feat2_title:'Sofortstart', feat2_desc:'Vom Alarm bis zum Eintauchen ins Wasser in wenigen Sekunden. Vollständig betriebsbereit ohne manuellen Eingriff.', feat2_desc_s:'Vom Alarm bis zum Eintauchen ins Wasser in wenigen Sekunden. Vollständig betriebsbereit.',
-            feat3_title:'Rettungsausrüstung', feat3_desc:'Integrierter Rettungsring und Auftriebssystem für präzisen Einsatz, ohne dass ein Retter ins Wasser muss.', feat3_desc_s:'Integrierter Rettungsring und Auftriebssystem für präzisen Einsatz.',
-            feat4_title:'Langstrecken-Fernbedienung', feat4_desc:'Reichweite bis zu 800 m. Präzise Navigation in Echtzeit mit automatischer Korrektur für Strömungen und Wind.', feat4_desc_s:'Reichweite bis zu 800 m. Präzise Navigation in Echtzeit.',
-            feat5_title:'Echtzeit-Display', feat5_desc:'HD-Video und Sensordaten direkt an den Kommandoposten übertragen. Vollständige Kontrolle vom Ufer.', feat5_desc_s:'HD-Video und Sensordaten direkt an den Kommandoposten übertragen.',
-            feat6_title:'Hohe Zugkapazität', feat6_desc:'Zieht bis zu 1.000 kg im Wasser, ideal für mehrere Personen gleichzeitig in Notfallsituationen.', feat6_desc_s:'Zieht bis zu 1.000 kg im Wasser, ideal für mehrere Personen gleichzeitig.',
-            feat7_title:'Selbstaufrichtung', feat7_desc:'Wenn der Roboter kentert, richtet er sich automatisch in Sekunden auf, ohne Eingriff des Operators.', feat7_desc_s:'Richtet sich automatisch in Sekunden auf, wenn er in aufgewühltem Wasser kentert.',
-            feat8_title:'Satelliten-GPS', feat8_desc:'Anschließbar an ein dediziertes GPS: Die Position des Dolphin ist in Echtzeit per Satellit sichtbar, auch auf große Distanz.', feat8_desc_s:'Position in Echtzeit per Satellit sichtbar, auch auf große Distanz.',
-            how_label:'Funktionsweise', how_title:'Vom Alarm<br>zur Rettung.', how_sub:'Drei Phasen. Neunzig Sekunden. Ein gerettetes Leben.',
-            step1_title:'Alarm', step1_desc:'Notruf, Sensor oder manuelle Aktivierung. Das System ist innerhalb von Sekunden in Betrieb.', step1_time:'< 10 Sekunden',
-            step2_title:'Annäherung', step2_desc:'Der Operator steuert den Roboter per Fernbedienung zur Person, auch gegen Strömung und Wind. Reichweite bis zu 800 m.', step2_time:'7 m/s Höchstgeschwindigkeit',
-            step3_title:'Rettung', step3_desc:'Die Person hält sich am Roboter fest und wird sicher transportiert. Die Retter bleiben am Ufer: null Risiken.', step3_badge:'Null Retter im Wasser',
-            media_label:'Presse & Medien', media_title:'Bekannt aus<br>Presse & Medien', media_desc:'Der Dolphin 3 zieht die Aufmerksamkeit der Medien in ganz Deutschland auf sich.',
-            contact_label:'Bereit für den nächsten Schritt?', contact_title:'Schütze<br><span style="color:var(--cyan);">Menschenleben.</span>', contact_desc:'Buche eine persönliche Demo und entdecke, wie Aqua Rescue Systems deine Sicherheitsinfrastruktur revolutionieren kann.',
-            contact_phone_lbl:'Telefon', contact_resp_lbl:'Antwortzeit', contact_resp_val:'Innerhalb 24 Stunden',
-            form_name:'Vor- und Nachname', form_name_ph:'Max Mustermann', form_email_ph:'max@beispiel.de',
-            form_phone_lbl:'Telefon (optional)', form_phone_ph:'+49 000 000 0000',
-            form_org_lbl:'Organisation', form_org_ph:'Einsatzbereich wählen...',
-            form_opt1:'Küstenwache / Seenotrettung', form_opt2:'Feuerwehr / Rettungsteams',
-            form_opt3:'Schwimmbad / Badeanlage', form_opt4:'Katastrophenschutz',
-            form_opt5:'Häfen / Maritime Industrie', form_opt6:'Sonstiges',
-            form_msg_lbl:'Nachricht (optional)', form_msg_ph:'Wie können wir Ihnen helfen?',
-            form_submit:'Kostenlose Demo buchen', form_note:'Unverbindlich · Antwort innerhalb 24 Stunden',
-            partner_label:'Partner', partner_title:'Mit wem wir arbeiten',
-            footer_legal:'Impressum', footer_contact:'Kontakt',
-            footer_tagline:'Autonome Wasserrettungsroboter, entwickelt um Leben zu retten, ohne Retter zu gefährden.', footer_quicklinks:'Quick Links', footer_madeby:'· made by',
-            copyright:'© 2026 AquaRescueSystems · Alle Rechte vorbehalten'
-        },
-        en: {
-            nav_mission:'Mission', nav_product:'Product', nav_technology:'Technology', nav_how:'How it works', nav_cta:'Request demo',
-            hero_badge:'Water Rescue Robot',
-            hero_h1:'Saving<br><span class="cyan">Lives.</span><br>Without Risk.',
-            hero_sub:'Aqua Rescue Systems develops autonomous water rescue robots that reach the incident site in seconds, saving lives without putting rescuers at risk.',
-            hero_btn1:'Request a demo', hero_btn2:'Discover the product',
-            mission_label:'Our Mission', mission_title:'Every second<br>counts.',
-            mission_desc:'Drowning accidents happen in an instant – too fast for traditional rescuers. Aqua Rescue Systems fills this critical gap with autonomous water rescue robots: ready for immediate response, with no risk to personnel.',
-            check1:'Life ring and buoyancy assistance at the incident site within 90 seconds',
-            check2:'Person recognition with integrated camera, even at night and in low visibility',
-            check3:'Fully remote-controlled: no rescuer enters the water',
-            sys_label:'Live system parameters', sys_speed:'Speed vs. human rescuer', sys_speed_val:'5x faster',
-            sys_safety:'Operator safety', sys_survival:'Survival probability', sys_battery:'Battery capacity',
-            sys_status:'System nominal · Ready for deployment',
-            stat_response:'Response time', stat_speed:'Top speed', stat_tow:'Tow capacity', stat_range:'Remote range', stat_operational:'Operational',
-            ambiti_label:'Areas of use', ambiti_title:'Wherever water<br>threatens lives.',
-            uc1_tag:'Authorities & safety', uc1_title:'Coast guard &<br>sea rescue',
-            uc2_tag:'Sports & leisure', uc2_title:'Swimming pools &<br>beach facilities',
-            uc3_tag:'Civil protection', uc3_title:'Floods &<br>natural disasters',
-            uc4_tag:'First response', uc4_title:'Fire brigades &<br>rescue teams',
-            uc5_tag:'Industry & marine', uc5_title:'Ports &<br>maritime infrastructure',
-            uc6_tag:'Events & sports', uc6_title:'Triathlon &<br>outdoor events',
-            product_title:'The DOLPHIN Range', product_desc:'Two versions of the same robot: choose the model that suits your needs.',
-            col_feature:'Feature', col_base:'Base model', col_advanced:'Advanced version',
-            spec_dim:'Dimensions', spec_dim_note:'Length × Width × Height',
-            spec_weight:'Weight', spec_weight_note:'Total weight of the robot',
-            spec_vmax:'Top speed', spec_vmax_note:'Maximum movement speed in water',
-            spec_battery_life:'Battery life', spec_battery_note:'Battery duration at moderate speed',
-            spec_range:'Remote range', spec_range_note:'Maximum remote control distance',
-            spec_tow_cap:'Tow capacity', spec_tow_note:'Maximum weight the robot can tow in water',
-            spec_waterproof:'Waterproofing', spec_waterproof_note:'Protection standard against dust and water',
-            spec_autoright:'Self-righting', spec_autoright_note:'Automatically rights itself if overturned',
-            spec_oled:'OLED Display', spec_oled_note:'Advanced display in remote control for live view',
-            spec_gnss:'Dual GNSS', spec_gnss_note:'Dual GPS location for higher precision',
-            spec_autoreturn:'Auto Return', spec_autoreturn_note:'Automatically returns to starting point',
-            spec_camera:'Camera & Remote Monitor', spec_camera_note:'Integrated video camera and screen in remote control',
-            product_cta:'Request contact',
-            tech_label:'Technology', tech_title:'Designed for<br>the unthinkable.',
-            tech_desc:'Every system was engineered for the most demanding conditions: bad weather, panic zones, darkness. Reliable technology when it truly matters.',
-            feat1_title:'Integrated camera', feat1_desc:'Automatically identifies people in water, even with waves, at night and in fog. Real-time vision for the operator.', feat1_desc_s:'Automatically identifies people in water, even with waves, at night and in fog.',
-            feat2_title:'Instant launch', feat2_desc:'From alert to water entry in seconds. Fully operational without the need for manual intervention.', feat2_desc_s:'From alert to water entry in seconds. Fully operational without manual intervention.',
-            feat3_title:'Rescue equipment', feat3_desc:'Integrated life ring and buoyancy system for precise intervention without any rescuer entering the water.', feat3_desc_s:'Integrated life ring and buoyancy system for precise intervention.',
-            feat4_title:'Long-range remote', feat4_desc:'Range up to 800 m. Precise real-time navigation with automatic correction for currents and wind.', feat4_desc_s:'Range up to 800 m. Precise real-time navigation with automatic correction.',
-            feat5_title:'Real-time display', feat5_desc:'HD video and sensor data transmitted live to the command post. Full control from the shore.', feat5_desc_s:'HD video and sensor data transmitted live to the command post.',
-            feat6_title:'High tow capacity', feat6_desc:'Tows up to 1,000 kg in water, ideal for supporting multiple people simultaneously in emergency situations.', feat6_desc_s:'Tows up to 1,000 kg in water, ideal for multiple people simultaneously.',
-            feat7_title:'Self-righting', feat7_desc:'If the robot overturns during transport or in rough waters, it automatically rights itself in seconds, without operator intervention.', feat7_desc_s:'Automatically rights itself in seconds if overturned in rough waters.',
-            feat8_title:'Satellite GPS', feat8_desc:'Connectable to a dedicated GPS: the Dolphin\'s position is visible in real time via satellite, even at great distances.', feat8_desc_s:'Position visible in real time via satellite, even at great distances.',
-            how_label:'How it works', how_title:'From alarm<br>to rescue.', how_sub:'Three phases. Ninety seconds. One life saved.',
-            step1_title:'Alert', step1_desc:'Emergency call, sensor, or manual activation. The system is up and running within seconds.', step1_time:'< 10 seconds',
-            step2_title:'Approach', step2_desc:'The operator guides the robot via remote control to the person, even against currents and wind. Range up to 800 m.', step2_time:'7 m/s top speed',
-            step3_title:'Rescue', step3_desc:'The person grabs onto the robot and is transported to safety. Rescuers stay on shore: zero risks.', step3_badge:'Zero rescuers in water',
-            media_label:'Press & Media', media_title:'Featured in<br>Press & Media', media_desc:'The Dolphin 3 is attracting media attention across Germany.',
-            contact_label:'Ready for the next step?', contact_title:'Protect<br><span style="color:var(--cyan);">Human Lives.</span>', contact_desc:'Book a personalized demo and discover how Aqua Rescue Systems can revolutionize your safety infrastructure.',
-            contact_phone_lbl:'Phone', contact_resp_lbl:'Response', contact_resp_val:'Within 24 hours',
-            form_name:'Full name', form_name_ph:'John Smith', form_email_ph:'john@example.com',
-            form_phone_lbl:'Phone (optional)', form_phone_ph:'+1 000 000 0000',
-            form_org_lbl:'Organization', form_org_ph:'Select area of use...',
-            form_opt1:'Coast guard / Sea rescue', form_opt2:'Fire brigade / Rescue teams',
-            form_opt3:'Swimming pool / Beach facility', form_opt4:'Civil protection',
-            form_opt5:'Ports / Maritime industry', form_opt6:'Other',
-            form_msg_lbl:'Message (optional)', form_msg_ph:'How can we help you?',
-            form_submit:'Book a free demo', form_note:'No commitment · Reply within 24 hours',
-            partner_label:'Partners', partner_title:'Who we work with',
-            footer_legal:'Legal notice', footer_contact:'Contact',
-            footer_tagline:'Autonomous water rescue robots, built to save lives without putting rescuers at risk.', footer_quicklinks:'Quick Links', footer_madeby:'· made by',
-            copyright:'© 2026 AquaRescueSystems · All rights reserved'
-        }
-    };
-
-    let currentLang = localStorage.getItem('lang') || 'it';
-
-    const seoMeta = {
-        it: {
-            title: 'Aqua Rescue Systems – Dolphin 3 | Robot di Soccorso Acquatico | Made in Germany',
-            description: 'Il Dolphin 3 è il robot autonomo per il soccorso acquatico che raggiunge le vittime in meno di 90 secondi. Velocità 7 m/s, portata 800 m, traino 1.000 kg. Prenota una demo gratuita.',
-            ogTitle: 'Aqua Rescue Systems – Dolphin 3 | Robot di Soccorso Acquatico',
-            ogDescription: 'Il Dolphin 3 raggiunge le vittime in meno di 90 secondi. Velocità 7 m/s, portata 800 m. Zero rischi per i soccorritori. Made in Germany.'
-        },
-        de: {
-            title: 'Aqua Rescue Systems – Dolphin 3 | Wasserrettungsroboter | Made in Germany',
-            description: 'Der Dolphin 3 ist der autonome Wasserrettungsroboter, der Ertrinkende in weniger als 90 Sekunden erreicht. 7 m/s Geschwindigkeit, 800 m Reichweite, 1.000 kg Zugkraft. Demo anfragen.',
-            ogTitle: 'Aqua Rescue Systems – Dolphin 3 | Wasserrettungsroboter',
-            ogDescription: 'Autonomer Wasserrettungsroboter. Erreicht Opfer in weniger als 90 Sekunden. 7 m/s, 800 m Reichweite. Null Risiko für Einsatzkräfte. Made in Germany.'
-        },
-        en: {
-            title: 'Aqua Rescue Systems – Dolphin 3 | Water Rescue Robot | Made in Germany',
-            description: 'The Dolphin 3 is the autonomous water rescue robot that reaches victims in under 90 seconds. 7 m/s speed, 800 m range, 1,000 kg tow capacity. Book a free demo.',
-            ogTitle: 'Aqua Rescue Systems – Dolphin 3 | Water Rescue Robot',
-            ogDescription: 'Autonomous water rescue robot reaching victims in under 90 seconds. 7 m/s speed, 800 m range. Zero risk for rescuers. Made in Germany.'
-        }
-    };
-
-    function setLang(lang) {
-        currentLang = lang;
-        const t = translations[lang];
-        const s = seoMeta[lang];
-        document.title = s.title;
-        document.querySelector('meta[name="description"]').setAttribute('content', s.description);
-        document.querySelector('meta[property="og:title"]').setAttribute('content', s.ogTitle);
-        document.querySelector('meta[property="og:description"]').setAttribute('content', s.ogDescription);
-        document.querySelector('meta[name="twitter:title"]').setAttribute('content', s.ogTitle);
-        document.querySelector('meta[name="twitter:description"]').setAttribute('content', s.ogDescription);
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (t[key] !== undefined) el.textContent = t[key];
-        });
-        document.querySelectorAll('[data-i18n-html]').forEach(el => {
-            const key = el.getAttribute('data-i18n-html');
-            if (t[key] !== undefined) el.innerHTML = t[key];
-        });
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-            const key = el.getAttribute('data-i18n-placeholder');
-            if (t[key] !== undefined) el.placeholder = t[key];
-        });
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
-        document.documentElement.lang = lang;
-        localStorage.setItem('lang', lang);
-    }
-
-    function toggleLangDropdown() {
-        document.getElementById('langDropMenu').classList.toggle('open');
-    }
-
-    function toggleMobileNav() {
-        const isOpen = document.getElementById('navLinksWrap').classList.toggle('open');
-        document.getElementById('navBurger').classList.toggle('open', isOpen);
-        document.getElementById('navBurger').setAttribute('aria-expanded', isOpen);
-        document.getElementById('navOverlay').classList.toggle('open', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    }
-    function closeMobileNav() {
-        document.getElementById('navLinksWrap').classList.remove('open');
-        document.getElementById('navBurger').classList.remove('open');
-        document.getElementById('navBurger').setAttribute('aria-expanded', 'false');
-        document.getElementById('navOverlay').classList.remove('open');
-        document.body.style.overflow = '';
-    }
-    document.addEventListener('click', e => {
-        if (!e.target.closest('.lang-dropdown-wrap')) {
-            document.getElementById('langDropMenu')?.classList.remove('open');
-        }
-    });
-    function setLangMobile(lang) {
-        setLang(lang);
-        document.getElementById('langDropBtn').textContent = lang.toUpperCase() + ' ▾';
-        document.querySelectorAll('.lang-dropdown-item').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
-        document.getElementById('langDropMenu').classList.remove('open');
-    }
-
-    // Initialize on load
-    document.addEventListener('DOMContentLoaded', () => {
-        setLang(currentLang);
-        const btn = document.getElementById('langDropBtn');
-        if (btn) btn.textContent = currentLang.toUpperCase() + ' ▾';
-        document.querySelectorAll('.lang-dropdown-item').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === currentLang));
-    });
-
-    // Frost the nav bar once scrolled past the top
-    (function () {
-        const navEl = document.getElementById('nav');
-        function updateNav() {
-            navEl.classList.toggle('scrolled', window.scrollY > 40);
-        }
-        window.addEventListener('scroll', updateNav, { passive: true });
-        updateNav();
-    })();
-</script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
