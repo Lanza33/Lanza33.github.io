@@ -229,8 +229,7 @@ footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:
         grid-template-areas:
             "brand brand"
             "kontakt quicklinks"
-            "partner partner"
-            "social social";
+            "social partner";
         gap:2.25rem 1.5rem;
         text-align:left;
     }
@@ -238,6 +237,8 @@ footer { background:var(--bg-deep); border-top:1px solid var(--border); padding:
     .footer-contact-item { justify-content:flex-start; }
     .footer-brand { margin-top:0; }
     .footer-badge { height:76px; }
+    .footer-partner { align-items:flex-start; text-align:left; }
+    .footer-partner-logo { height:40px; max-width:100%; }
 }
 @media(max-width:600px) {
     .footer-bottom { flex-direction:column; align-items:flex-start; text-align:left; }
